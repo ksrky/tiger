@@ -6,4 +6,4 @@ type 'a table
 val empty : 'a table
 val enter : 'a table *  symbol * 'a -> 'a table
 val look : 'a table * symbol -> 'a option
-val from : (symbol * 'a) list -> 'a table
+val init : (symbol * 'a) list -> 'a table

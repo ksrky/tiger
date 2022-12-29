@@ -22,7 +22,7 @@ and exp = VarExp of var
 
 and dec = FunctionDec of fundec list
         | VarDec of {name: symbol; escape: bool ref; typ: (symbol * pos) option; init: exp; pos: pos}
-        | TypeDec of int list
+        | TypeDec of typedec list
 
 and ty = NameTy of symbol * pos
        | RecordTy of field list
