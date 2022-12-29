@@ -3,7 +3,7 @@ type level  = Level of {parent : level;
                         unique: unit ref}
             | Outermost
 
-type access = {level: level; access: Frame.access}
+type access = (level * Frame.access)
 
 val outermost : level
 val newLevel : (level * Symbol.symbol * bool list) -> level

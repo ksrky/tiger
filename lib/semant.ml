@@ -2,6 +2,7 @@ module A = Absyn
 module E = Env
 module S = Symbol
 module T = Types
+module TL = Translate
 
 (*type venv = E.enventry S.table
 type tenv = T.ty S.table*)
@@ -39,7 +40,7 @@ and actual_ty(tenv, ty, pos) =
         | _ -> ty
   in walk1 ty
 
-let rec transExp(venv,tenv,exp) : expty =
+let rec transExp(venv, tenv, level, exp) : expty =
   let rec trexp = function
     | A.VarExp var -> trvar var
     | A.NilExp -> {exp=(); ty=T.NIL}
@@ -49,9 +50,9 @@ let rec transExp(venv,tenv,exp) : expty =
       (match S.look(venv, func) with
         | None -> error pos ("undefined function " ^ S.name func); err_expty
         | Some (E.VarEntry _) -> error pos "expecting a function, not a variable"; err_expty
-        | Some (E.FunEntry{formals=fmls; result=res}) ->
-            checkformals(args, fmls, pos);
-            {exp=(); ty=res})
+        | Some (E.FunEntry{formals; result; _}) ->
+            checkformals(args, formals, pos);
+            {exp=(); ty=result})
     | A.OpExp{left; oper; right; pos} ->
       let {exp=_; ty=left_ty} = trexp left in
       let {exp=_; ty=right_ty} = trexp right in
@@ -107,8 +108,8 @@ let rec transExp(venv,tenv,exp) : expty =
       trexp body
     | A.BreakExp(_) -> raise Semant
     | A.LetExp{decs; body; _} ->
-      let (venv', tenv') = transDecs(venv, tenv, decs) in
-      transExp(venv', tenv', body)
+      let (venv', tenv') = transDecs(venv, tenv, level, decs) in
+      transExp(venv', tenv', level, body)
     | A.ArrayExp{typ; size; init; pos} ->
       match S.look(tenv, typ) with
         | None -> error pos ("type not found " ^ S.name typ); err_expty
@@ -124,7 +125,7 @@ let rec transExp(venv,tenv,exp) : expty =
             | _ -> error pos "variable not an array"; err_expty)
   and trvar = function
     | A.SimpleVar(id, pos) -> (match S.look(venv, id) with
-      | Some(E.VarEntry{ty}) -> {exp=(); ty= ty}
+      | Some(E.VarEntry{ty; _}) -> {exp=(); ty= ty}
       | Some(_) -> error pos "expecting a variable, not a function";
                   {exp=(); ty=T.INT}
       | None -> error pos ("undefined variable " ^ S.name id);
@@ -162,7 +163,7 @@ let rec transExp(venv,tenv,exp) : expty =
       check_type(tenv, ty, e_ty, pos); checkrecord(fields, field_tys)
 in trexp exp
 
-and transDecs(venv, tenv, decs) =
+and transDecs(venv, tenv, level, decs) =
   let transDec (venv, tenv) = function
     | A.TypeDec tydecs ->
       let rec check_name_uniq : A.typedec list -> unit = function
@@ -205,9 +206,9 @@ and transDecs(venv, tenv, decs) =
             error pos ("multiple declaration for " ^ S.name id2)
           with
             Not_found -> check_name_uniq (List.tl rest) in
-      let transparam{A.name; A.typ; A.pos; _} = match S.look(tenv, typ) with
-        | Some(ty) -> (name, ty, pos)
-        | None -> error pos ("type not found" ^ S.name typ); (name, T.NIL, pos) in
+      let transparam{A.name; A.escape; A.typ; A.pos; _} = match S.look(tenv, typ) with
+        | Some(ty) -> (name, !escape, ty, pos)
+        | None -> error pos ("type not found" ^ S.name typ); (name, true, T.NIL, pos) in
       let transfun_header(venv, {A.name; A.params; A.result; _}) =
         let rec check_name_uniq : A.field list -> unit = function
           | [] -> ()
@@ -218,7 +219,9 @@ and transDecs(venv, tenv, decs) =
               error pos ("multiple declaration for " ^ S.name id2)
             with
               Not_found -> check_name_uniq (List.tl rest) in
-        let params' = List.map transparam params in
+        let formals = List.map (fun {A.typ; A.pos; _} -> match S.look(tenv, typ) with
+          | Some(ty) -> ty
+          | None -> error pos ("type not found" ^ S.name typ); T.NIL) params in
         let res_ty = match result with
           | Some(typ, pos) ->
             (match S.look(tenv, typ) with
@@ -226,33 +229,42 @@ and transDecs(venv, tenv, decs) =
               | None -> error pos ("type not found" ^ S.name typ); T.NIL)
           | None -> T.UNIT (*no type annotation*) in
         check_name_uniq params;
-        S.enter(venv, name, E.FunEntry{formals=List.map (fun (_,ty,_) -> ty) params'; result=res_ty}) in
+        S.enter(venv, name, E.FunEntry{level=TL.newLevel(level, name, []);
+                                      label=name;
+                                      formals;
+                                      result=res_ty}) in
       let venv' = List.fold_left (fun env fundec ->
           transfun_header(env, fundec)) venv fundecs in
-      let transfun_body{A.params; A.result; A.body; _} =
-        let params' = List.map transparam params in
-        let venv'' = List.fold_left (fun env (id, ty, _) ->
-          S.enter(env, id, E.VarEntry{ty})) venv' params' in
-        let {exp=_; ty=body_ty} = transExp(venv'', tenv, body) in
-          match result with
-            | Some(typ, pos) ->
-              (match S.look(tenv, typ) with
-                | Some(res_ty) -> check_type(tenv, res_ty, body_ty, pos)
-                | None -> error pos ("type not found" ^ S.name typ))
-            | None -> () in
+      let transfun_body{A.name; A.params; A.result; A.body; _} =
+        match S.look(venv', name) with
+          | Some(E.FunEntry{level=newlevel;_}) ->
+            let params' = List.map transparam params in
+            let venv'' = List.fold_left (fun env (id, esc, ty, _) ->
+              let access = TL.allocLocal(level, esc) in
+              S.enter(env, id, E.VarEntry{access; ty})) venv' params' in
+            let {exp=_; ty=body_ty} = transExp(venv'', tenv, newlevel, body) in
+              (match result with
+                | Some(typ, pos) ->
+                  (match S.look(tenv, typ) with
+                    | Some(res_ty) -> check_type(tenv, res_ty, body_ty, pos)
+                    | None -> error pos ("type not found" ^ S.name typ))
+                | None -> ())
+          | _ -> Errormsg.impossible "" in
       check_name_uniq fundecs;
       List.iter transfun_body fundecs;
       (venv', tenv)
-    | A.VarDec{name; typ=None; init; _} ->
-      let {exp=_; ty=init_ty} = transExp(venv, tenv, init) in
-      (S.enter(venv, name, E.VarEntry{ty=init_ty}), tenv)
-    | A.VarDec{name; typ=Some(typ, _); init; pos; _} ->
-      let {exp=_; ty=init_ty} = transExp(venv, tenv, init) in
+    | A.VarDec{name; escape; typ=None; init; _} ->
+      let {exp=_; ty=init_ty} = transExp(venv, tenv, level, init) in
+      let access = TL.allocLocal(level, !escape) in
+      (S.enter(venv, name, E.VarEntry{access; ty=init_ty}), tenv)
+    | A.VarDec{name; escape; typ=Some(typ, _); init; pos; _} ->
+      let {exp=_; ty=init_ty} = transExp(venv, tenv, level, init) in
+      let access = TL.allocLocal(level, !escape) in
       match S.look(tenv, typ) with
-        | None -> error pos ""; (venv, tenv)
+        | None -> error pos ("type not found " ^ S.name typ); (venv, tenv)
         | Some(res_ty) ->
           check_type(tenv, res_ty, init_ty, pos);
-          (S.enter(venv, name, E.VarEntry{ty=init_ty}), tenv)
+          (S.enter(venv, name, E.VarEntry{access; ty=init_ty}), tenv)
   in List.fold_left transDec (venv, tenv) decs
 
 and transTy(tenv, ty) = match ty with
@@ -271,4 +283,6 @@ and transTy(tenv, ty) = match ty with
       | Some(ty) -> T.ARRAY(ty, ref())
       | None -> error pos ("type not found " ^ S.name typ); T.NIL)  
 
-let transProg exp = transExp(E.base_venv, E.base_tenv, exp)
+let transProg exp =
+  let mainlevel = TL.newLevel(TL.outermost, Temp.namedlabel "main", []) in
+  transExp(E.base_venv, E.base_tenv, mainlevel, exp)
