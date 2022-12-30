@@ -7,7 +7,7 @@ type access = (level * Frame.access)
 
 val outermost : level
 val newLevel : (level * Symbol.symbol * bool list) -> level
-val allocLocal : (level * bool) -> access 
+val allocLocal : (level * bool) -> access
 
 type exp  = Ex of Tree.exp
           | Nx of Tree.stm
@@ -18,7 +18,7 @@ val fieldVar : (exp * int) -> exp
 val subscriptVar : (exp * exp) -> exp
 val nilExp : exp
 val intExp : int -> exp
-val stringExp : string -> unit (*temp*)
+val stringExp : string -> exp
 val callExp : (level * level * Symbol.symbol * exp list) -> exp
 val plusExp : exp -> exp -> exp
 val minusExp : exp -> exp -> exp
@@ -39,3 +39,6 @@ val whileExp : (exp * exp * Symbol.symbol) -> exp
 val breakExp : Symbol.symbol -> exp
 val letExp : (exp list * exp) -> exp
 val arrayExp : exp -> exp -> exp
+
+val procEntryExit : level * exp -> unit
+val getResult : unit -> Frame.frag list

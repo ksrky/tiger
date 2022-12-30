@@ -1,4 +1,4 @@
-type temp = int
+type temp
 val newtemp : unit -> temp
 val makestring : temp -> string
 

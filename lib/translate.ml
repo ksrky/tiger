@@ -100,7 +100,12 @@ let nilExp = Ex(T.CONST 0)
 
 let intExp i = Ex(T.CONST i)
 
-let stringExp _ = ()
+let fragments = ref []
+
+let stringExp s =
+  let lab = Temp.newlabel() in
+  fragments := Frame.STRING(lab, s) :: !fragments;
+  Ex (T.NAME lab)
 
 let callExp = function
   | (Outermost, _, _, _) -> Errormsg.impossible "Translate.callExp passed Outermost"
@@ -228,3 +233,6 @@ let arrayExp size init =
     , T.TEMP r
     )
   )
+
+let procEntryExit _ = ()
+let getResult () = []

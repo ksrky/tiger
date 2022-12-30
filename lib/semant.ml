@@ -12,8 +12,6 @@ type expty = {exp: Translate.exp; ty: T.ty}
 let error = Errormsg.error
 let err_expty = {exp=TL.nilExp; ty=T.NIL}
 
-exception Semant
-
 let rec check_type(tenv, ty, exp_ty, pos) =
   let ty' = actual_ty(tenv, ty, pos) in
   let exp_ty' = actual_ty(tenv, exp_ty, pos) in
@@ -45,7 +43,7 @@ let rec transExp(venv, tenv, level, breakpoint, exp) : expty =
     | A.VarExp var -> trvar var
     | A.NilExp -> {exp=TL.nilExp; ty=T.NIL}
     | A.IntExp i -> {exp=TL.intExp i; ty=T.INT}
-    | A.StringExp(_) -> {exp=raise Semant; ty=T.STRING}
+    | A.StringExp(s, _) -> {exp=TL.stringExp s; ty=T.STRING}
     | A.CallExp{func; args; pos} ->
       (match S.look(venv, func) with
         | None -> error pos ("undefined function " ^ S.name func); err_expty
