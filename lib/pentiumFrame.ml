@@ -36,4 +36,4 @@ let exp = function
   | InReg(t) -> fun _ -> T.TEMP t
 
 let externalCall(name, args) = T.CALL (T.NAME (TP.namedlabel name), args)
-let procEntryExit1 (_, stm) = stm (*temp*)
+let   procEntryExit1 (_, stm) = stm (*temp*)

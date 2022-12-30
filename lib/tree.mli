@@ -22,14 +22,4 @@ and binop = PLUS | MINUS | MUL | DIV
 and relop = EQ | NE | LT | GT | LE | GE 
           | ULT | ULE | UGT | UGE
 
-let notRel = function
-  | EQ -> NE
-  | NE -> EQ
-  | LT -> GE
-  | GT -> LE
-  | LE -> GT
-  | GE -> LT
-  | ULT -> UGE
-  | UGT -> ULE
-  | ULE -> UGT
-  | UGE -> ULT
+val notRel : relop -> relop

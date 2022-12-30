@@ -39,6 +39,7 @@ val whileExp : (exp * exp * Symbol.symbol) -> exp
 val breakExp : Symbol.symbol -> exp
 val letExp : (exp list * exp) -> exp
 val arrayExp : exp -> exp -> exp
+(*val functionDec : exp*)
 
 val procEntryExit : level * exp -> unit
 val getResult : unit -> Frame.frag list

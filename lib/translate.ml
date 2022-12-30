@@ -21,6 +21,9 @@ let allocLocal(level, esc) =
     | Level{frame; _} -> (level, Frame.allocLocal frame esc)
     | Outermost -> Errormsg.impossible "encounters Outermost"
 
+let procEntryExit _ = ()
+let getResult () = []
+
 type exp  = Ex of T.exp
           | Nx of T.stm
           | Cx of (Temp.label * Temp.label -> T.stm)
@@ -234,5 +237,11 @@ let arrayExp size init =
     )
   )
 
-let procEntryExit _ = ()
-let getResult () = []
+ (*let functionDec (name, Level lev, body) =
+  let body_exp =
+      Nx
+        (T.MOVE
+          ( T.TEMP Frame.rv
+          , Frame.procEntryExit1 (lev.frame, unEx body)
+          ))  
+  in procEntryExit(Level lev, body_exp)*)
