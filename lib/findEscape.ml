@@ -1,8 +1,8 @@
 module A = Absyn
 module S = Symbol
 
-type depth = int
-type escEnv = (depth * bool ref) S.table
+(*type depth = int
+type escEnv = (depth * bool ref) S.table*)
 
 let rec traverseVar(env, d, var) =
   match var with

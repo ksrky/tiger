@@ -10,7 +10,7 @@ type tenv = T.ty S.table*)
 type expty = {exp: Translate.exp; ty: T.ty}
 
 let error = Errormsg.error
-let err_expty = {exp=(); ty=T.NIL}
+let err_expty = {exp=TL.nilExp; ty=T.NIL}
 
 exception Semant
 
@@ -40,31 +40,35 @@ and actual_ty(tenv, ty, pos) =
         | _ -> ty
   in walk1 ty
 
-let rec transExp(venv, tenv, level, exp) : expty =
+let rec transExp(venv, tenv, level, breakpoint, exp) : expty =
   let rec trexp = function
     | A.VarExp var -> trvar var
-    | A.NilExp -> {exp=(); ty=T.NIL}
-    | A.IntExp _ -> {exp=(); ty=T.INT}
-    | A.StringExp(_) -> {exp=(); ty=T.STRING}
+    | A.NilExp -> {exp=TL.nilExp; ty=T.NIL}
+    | A.IntExp i -> {exp=TL.intExp i; ty=T.INT}
+    | A.StringExp(_) -> {exp=raise Semant; ty=T.STRING}
     | A.CallExp{func; args; pos} ->
       (match S.look(venv, func) with
         | None -> error pos ("undefined function " ^ S.name func); err_expty
         | Some (E.VarEntry _) -> error pos "expecting a function, not a variable"; err_expty
-        | Some (E.FunEntry{formals; result; _}) ->
-            checkformals(args, formals, pos);
-            {exp=(); ty=result})
+        | Some (E.FunEntry{level=cal_lev; label; formals; result}) ->
+            let args_exp = checkformals(args, formals, pos) in
+            {exp=TL.callExp(level, cal_lev, label, args_exp); ty=result})
     | A.OpExp{left; oper; right; pos} ->
-      let {exp=_; ty=left_ty} = trexp left in
-      let {exp=_; ty=right_ty} = trexp right in
+      let {exp=left_exp; ty=left_ty} = trexp left in
+      let {exp=right_exp; ty=right_ty} = trexp right in
+      let ops = [(A.PlusOp, TL.plusExp); (A.MinusOp, TL.minusExp); (A.TimesOp, TL.timesExp);
+                 (A.DivideOp, TL.divideExp); (A.LtOp, TL.ltExp); (A.GtOp, TL.gtExp);
+                 (A.LeOp, TL.leExp); (A.GeOp, TL.geExp); (A.EqOp, TL.eqExp); (A.NeqOp, TL.neqExp)] in
+      let res_exp = (List.assoc oper ops) left_exp right_exp in
       (match (left_ty, right_ty) with
-        | (T.INT, T.INT) -> {exp=(); ty=T.INT}
+        | (T.INT, T.INT) -> {exp=res_exp; ty=T.INT}
         | (T.STRING, T.STRING) ->
           if List.mem oper [PlusOp; MinusOp; TimesOp; DivideOp]
             then (error pos "invalid comparison for string"; err_expty)
-            else {exp=(); ty=T.INT}
+            else {exp=res_exp; ty=T.INT}
         | (ty, ty') when ty = ty' ->
           if List.mem oper [EqOp; NeqOp]
-            then {exp=(); ty=T.INT}
+            then {exp=res_exp; ty=T.INT}
             else (error pos "invalid comparison for "; err_expty)
         | _ -> error pos "comparison of incompatible types"; err_expty)
     | A.RecordExp{fields; typ; pos} ->
@@ -73,43 +77,65 @@ let rec transExp(venv, tenv, level, exp) : expty =
         | Some(rec_ty) -> 
           let rec_ty' = actual_ty(tenv, rec_ty, pos) in
           match rec_ty' with
-            | T.RECORD(field_tys, _) -> checkrecord(fields, field_tys); {exp=(); ty=rec_ty}
+            | T.RECORD(field_tys, _) ->
+              let fields_exp = checkrecord(fields, field_tys) in
+              {exp=TL.recordExp fields_exp; ty=rec_ty}
             | _ -> error pos "variable not a record"; err_expty)
     | A.SeqExp seqexp ->
+      (let res_ty = ref T.UNIT in
       let rec trexps = function
-        | [] -> {exp=(); ty=T.UNIT}
-        | [(e, _)] -> trexp e
-        | ((e, _) :: se) -> ignore (trexp e); trexps se
-      in trexps seqexp
+        | [] -> []
+        | [(e, _)] -> res_ty := (trexp e).ty; [(trexp e).exp]
+        | ((e, _) :: se) -> (trexp e).exp :: trexps se in
+      {exp=TL.seqExp (trexps seqexp); ty=(!res_ty)})
     | A.AssignExp{var; exp; pos} ->
-      let {exp=_; ty=var_ty} = trvar var in
-      let {exp=_; ty=exp_ty} = trexp exp in
-      check_type(tenv, var_ty, exp_ty, pos); {exp=(); ty=T.UNIT}
+      let {exp=var_exp; ty=var_ty} = trvar var in
+      let {exp=exp_exp; ty=exp_ty} = trexp exp in
+      check_type(tenv, var_ty, exp_ty, pos); {exp=TL.assignExp(var_exp, exp_exp); ty=T.UNIT}
     | A.IfExp{test; then'; else'; pos} ->
-      let {exp=_; ty=test_ty} = trexp test in
+      let {exp=test_exp; ty=test_ty} = trexp test in
       check_int(test_ty, pos);
-      let {exp=(); ty=then_ty} = trexp then' in
+      let {exp=then_exp; ty=then_ty} = trexp then' in
       (match else' with
-        | None -> check_type(tenv, T.UNIT, then_ty, pos); {exp=(); ty=T.UNIT}
+        | None ->
+          check_type(tenv, T.UNIT, then_ty, pos);
+          {exp=TL.ifThenExp test_exp then_exp; ty=T.UNIT}
         | Some(else'') ->
-          let {exp=_; ty=else_ty} = trexp else'' in
-          check_type(tenv, then_ty, else_ty, pos); {exp=(); ty=then_ty})
+          let {exp=else_exp; ty=else_ty} = trexp else'' in
+          check_type(tenv, then_ty, else_ty, pos);
+          {exp=TL.ifThenElseExp test_exp then_exp else_exp; ty=then_ty})
     | A.WhileExp{test; body; pos} ->
-      let {exp=_; ty=test_ty} = trexp test in
+      let {exp=test_exp; ty=test_ty} = trexp test in
       check_int(test_ty, pos);
-      let {exp=(); ty=body_ty} = trexp body in
+      let breakpoint = Temp.newlabel() in
+      let {exp=body_exp; ty=body_ty} = transExp(venv, tenv, level, Some(breakpoint), body) in
       check_type(tenv, T.UNIT, body_ty, pos);
-      {exp=(); ty=T.UNIT}
-    | A.ForExp{var=_; escape=_; lo; hi; body; pos} ->
-      let {exp=_; ty=lo_ty} = trexp lo in
-      check_int(lo_ty, pos);
-      let {exp=_; ty=hi_ty} = trexp hi in
-      check_int(hi_ty, pos);
-      trexp body
-    | A.BreakExp(_) -> raise Semant
+      {exp=TL.whileExp(test_exp, body_exp, breakpoint); ty=T.UNIT}
+    | A.ForExp{var; escape; lo; hi; body; pos} ->
+      let i = A.SimpleVar (var, pos) in
+      let limit = S.symbol "$limit" in
+      let decs = [
+        A.VarDec{name=var; escape; typ=Some(Symbol.symbol "int", pos); init=lo; pos};
+        A.VarDec{name=limit; escape; typ=Some(Symbol.symbol "int", pos); init=hi; pos}] in
+      let body = A.WhileExp{test=A.OpExp {left=A.VarExp i;
+                                          oper=A.LeOp;
+                                          right=A.VarExp (A.SimpleVar (limit, pos));
+                                          pos};
+                            body=A.SeqExp [
+                              (body, pos);
+                              (A.AssignExp{var=i;
+                                          exp=A.OpExp{left=A.VarExp i; oper=A.PlusOp; right=IntExp 1; pos};
+                                          pos}, pos)];
+                            pos} in
+      trexp (A.LetExp{decs; body; pos})
+    | A.BreakExp(pos) ->
+      (match breakpoint with
+        | Some(bp) -> {exp=TL.breakExp bp; ty=T.UNIT}
+        | None -> error pos "`break` must be in a `for` or `while` expression";
+                  err_expty)
     | A.LetExp{decs; body; _} ->
-      let (venv', tenv') = transDecs(venv, tenv, level, decs) in
-      transExp(venv', tenv', level, body)
+      let (venv', tenv') = transDecs(venv, tenv, level, breakpoint, decs) in
+      transExp(venv', tenv', level, breakpoint, body)
     | A.ArrayExp{typ; size; init; pos} ->
       match S.look(tenv, typ) with
         | None -> error pos ("type not found " ^ S.name typ); err_expty
@@ -117,53 +143,53 @@ let rec transExp(venv, tenv, level, exp) : expty =
           let arr_ty' = actual_ty(tenv, arr_ty, pos) in
           (match arr_ty' with
             | T.ARRAY(ty, _) ->
-              let {exp=_; ty=size_ty} = trexp size in
+              let {exp=size_exp; ty=size_ty} = trexp size in
               check_int(size_ty, pos);
-              let {exp=_; ty=init_ty} = trexp init in
+              let {exp=init_exp; ty=init_ty} = trexp init in
               check_type(tenv, ty, init_ty, pos);
-              {exp=(); ty=arr_ty}
+              {exp=TL.arrayExp size_exp init_exp; ty=arr_ty}
             | _ -> error pos "variable not an array"; err_expty)
   and trvar = function
     | A.SimpleVar(id, pos) -> (match S.look(venv, id) with
-      | Some(E.VarEntry{ty; _}) -> {exp=(); ty= ty}
-      | Some(_) -> error pos "expecting a variable, not a function";
-                  {exp=(); ty=T.INT}
-      | None -> error pos ("undefined variable " ^ S.name id);
-                {exp=(); ty=T.INT})
+      | Some(E.VarEntry{access; ty}) -> {exp=TL.simpleVar(access, level); ty= ty}
+      | Some(_) -> error pos "expecting a variable, not a function"; err_expty
+      | None -> error pos ("undefined variable " ^ S.name id); err_expty)
     | A.FieldVar(var, id, pos) ->
-      let {exp=_;ty} = trvar var in
+      let {exp;ty} = trvar var in
       (match ty with
         | T.RECORD(fields, _) ->
-          let ty' = try List.assoc id fields with
-            Not_found -> error pos ("label not found " ^ S.name id); T.INT
-          in {exp=(); ty=ty'}
-        | _ -> error pos "expecting a record"; {exp=(); ty=T.INT})
+          let rec find i = function
+            | [] -> error pos ("label not found " ^ S.name id); (-1, T.NIL)
+            | ((id', ty') :: rest) -> if id = id' then (i, ty') else find (i+1) rest in
+          let (idx, ty') =  find 0 fields in
+          {exp=TL.fieldVar(exp, idx); ty=ty'}
+        | _ -> error pos "expecting a record"; err_expty)
     | A.SubscriptVar(var, exp, pos) ->
-      let {exp=_;ty} = trvar var in
-      match ty with
-        | ARRAY(ty',_) ->
-          let {exp=_; ty=ty''} = trexp exp
-          in check_int(ty'', pos); {exp=(); ty=ty'}
-        | _ -> error pos "expecting an array"; {exp=(); ty=T.INT}
+      let {exp=var_exp; ty=var_ty} = trvar var in
+      match var_ty with
+        | ARRAY(ty,_) ->
+          let {exp=exp_exp; ty=exp_ty} = trexp exp
+          in check_int(exp_ty, pos); {exp=TL.subscriptVar(var_exp, exp_exp); ty}
+        | _ -> error pos "expecting an array"; err_expty
   and check_int(ty, pos) = match ty with
     | T.INT -> ()
     | _ -> error pos "expecting int type"
-  and checkformals = function
-    | ([], [], _) -> ()
+  and checkformals : (A.exp list*T.ty list*A.pos) -> TL.exp list = function
+    | ([], [], _) -> []
     | (e::es, ty::tys, pos) ->
-      let {exp=_; ty=e_ty} = trexp e
-    in check_type(tenv, ty, e_ty, pos); checkformals(es, tys, pos)
-    | (_, _, pos) -> error pos ""
+      let {exp=e'; ty=e_ty} = trexp e
+    in check_type(tenv, ty, e_ty, pos); e'::(checkformals(es, tys, pos))
+    | (_, _, pos) -> error pos ""; []
   and checkrecord = function
-    | ([], _) -> ()
+    | ([], _) -> []
     | ((lab, e, pos)::fields, field_tys) ->
       let ty = try List.assoc lab field_tys with
         | Not_found -> error pos ("label not found " ^ S.name lab); T.NIL
-      in let {exp=_; ty=e_ty} = trexp e in
-      check_type(tenv, ty, e_ty, pos); checkrecord(fields, field_tys)
+      in let {exp; ty=e_ty} = trexp e in
+      check_type(tenv, ty, e_ty, pos); exp::checkrecord(fields, field_tys)
 in trexp exp
 
-and transDecs(venv, tenv, level, decs) =
+and transDecs(venv, tenv, level, breakpoint, decs) =
   let transDec (venv, tenv) = function
     | A.TypeDec tydecs ->
       let rec check_name_uniq : A.typedec list -> unit = function
@@ -242,7 +268,7 @@ and transDecs(venv, tenv, level, decs) =
             let venv'' = List.fold_left (fun env (id, esc, ty, _) ->
               let access = TL.allocLocal(level, esc) in
               S.enter(env, id, E.VarEntry{access; ty})) venv' params' in
-            let {exp=_; ty=body_ty} = transExp(venv'', tenv, newlevel, body) in
+            let {exp=_; ty=body_ty} = transExp(venv'', tenv, newlevel, breakpoint, body) in
               (match result with
                 | Some(typ, pos) ->
                   (match S.look(tenv, typ) with
@@ -254,11 +280,11 @@ and transDecs(venv, tenv, level, decs) =
       List.iter transfun_body fundecs;
       (venv', tenv)
     | A.VarDec{name; escape; typ=None; init; _} ->
-      let {exp=_; ty=init_ty} = transExp(venv, tenv, level, init) in
+      let {exp=_; ty=init_ty} = transExp(venv, tenv, level, breakpoint, init) in
       let access = TL.allocLocal(level, !escape) in
       (S.enter(venv, name, E.VarEntry{access; ty=init_ty}), tenv)
     | A.VarDec{name; escape; typ=Some(typ, _); init; pos; _} ->
-      let {exp=_; ty=init_ty} = transExp(venv, tenv, level, init) in
+      let {exp=_; ty=init_ty} = transExp(venv, tenv, level, breakpoint, init) in
       let access = TL.allocLocal(level, !escape) in
       match S.look(tenv, typ) with
         | None -> error pos ("type not found " ^ S.name typ); (venv, tenv)
@@ -285,4 +311,4 @@ and transTy(tenv, ty) = match ty with
 
 let transProg exp =
   let mainlevel = TL.newLevel(TL.outermost, Temp.namedlabel "main", []) in
-  transExp(E.base_venv, E.base_tenv, mainlevel, exp)
+  transExp(E.base_venv, E.base_tenv, mainlevel, None, exp)
