@@ -36,7 +36,7 @@ let codegen _ stm =
     | T.LABEL lab ->
       emit (A.LABEL { assem=Symbol.name lab ^ ":\n"; lab=lab})
     | T.EXP(T.CALL(e, args)) ->
-      emit (A.OPER { assem="CALL `s0\n"
+      emit (A.OPER { assem="jalr `s0\n" (*temp*)
                    ; src=munchExp e::munchArgs(0, args)
                    ; dst=calldefs
                    ; jump=None})

@@ -1,6 +1,6 @@
 module S = Symbol
 module T = Types
-module TL = Translate
+module Tr = Translate
 
 type ty = Types.ty
 type enventry = VarEntry of {access: Translate.access; ty:ty}
@@ -13,7 +13,7 @@ let base_venv = Symbol.init
   (List.map
     (fun (name, formals, result) -> (S.symbol name,
       let label = Temp.namedlabel name in
-      let level = TL.newLevel(TL.outermost, label, List.map (fun _ -> false) formals) in
+      let level = Tr.newLevel(Tr.outermost, label, List.map (fun _ -> false) formals) in
       FunEntry {level; label; formals; result}))
     [("print", [T.STRING], T.UNIT)
     ;("flush", [], T.UNIT)

@@ -21,6 +21,4 @@ type 'a table = 'a Table.t
 let empty = Table.empty
 let enter (env, k, v) = Table.add k v env
 let look (env, k) = Table.find_opt k env
-let rec init l = match l with
-  | [] -> empty
-  | (k, v) :: xs -> enter(init xs, k, v)
+let init l  = Table.of_seq (List.to_seq l)
