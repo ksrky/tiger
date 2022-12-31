@@ -49,8 +49,8 @@ rule token = parse
 | ","           { COMMA }
 | ":"           { COLON }
 | ";"           { SEMICOLON }
-| "("           { LBRACE }
-| ")"           { RBRACE }
+| "("           { LPAREN }
+| ")"           { RPAREN }
 | "["           { LBRACK }
 | "]"           { RBRACK }
 | "{"           { LBRACE }

@@ -37,9 +37,9 @@ let lvalue :=
   | ~=lvalue; LBRACK; ~=exp; RBRACK;      { SubscriptVar(lvalue, exp, pos($loc)) }
 
 let exp :=
-  | ~=lvalue;                             <VarExp>
+  | ~=lvalue;                             { VarExp lvalue }
   | NIL;                                  { NilExp }
-  | ~=INT;                                <IntExp>
+  | int=INT;                              { IntExp int } 
   | MINUS; right=exp; %prec UMINUS        { OpExp{left=IntExp 0; oper=MinusOp; right; pos=pos($loc)} }
   | str=STRING;                           { StringExp(str, pos($loc)) }
   | func=id; LPAREN; ~=args; RPAREN;      { CallExp{func; args; pos=pos($loc)} }
@@ -56,7 +56,7 @@ let exp :=
   | test=exp; AND; ~=exp;                 { IfExp{test; then'=exp; else'=Some(IntExp 0); pos=pos($loc)} }
   | test=exp; OR; ~=exp;                  { IfExp{test; then'=IntExp 1; else'=Some exp; pos=pos($loc)} }
   | typ=id; LBRACE; ~=fields; RBRACE;     { RecordExp{fields; typ; pos=pos($loc)} }
-  | LPAREN; ~=exps; RPAREN;               <SeqExp>
+  | LPAREN; ~=exps; RPAREN;               { SeqExp exps }
   | var=lvalue; ASSIGN; ~=exp;            { AssignExp{var; exp; pos=pos($loc)} }
   | IF; test=exp; THEN; then_=exp;        { IfExp{test; then'=then_; else'=None; pos=pos($loc)} }
   | IF; test=exp; THEN; then_=exp; ELSE; else_=exp;
@@ -66,7 +66,7 @@ let exp :=
                                           { ForExp{var; escape=ref true; lo; hi; body; pos=pos($loc)} }
   | BREAK;                                { BreakExp(pos($loc)) }
   | LET; ~=decs; IN; ~=exps; END;         { LetExp{decs; body=SeqExp exps; pos=pos($loc)} }
-  | typ=id; LBRACK; size=exp; RBRACE; OF; init=exp;
+  | typ=id; LBRACK; size=exp; RBRACK; OF; init=exp;
                                           { ArrayExp{typ; size; init; pos=pos($loc)} }
 
 let args ==
