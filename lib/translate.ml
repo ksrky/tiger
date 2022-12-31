@@ -19,7 +19,7 @@ let newLevel (parent, name, formals) =
 let allocLocal(level, esc) =
   match level with
     | Level{frame; _} -> (level, Frame.allocLocal frame esc)
-    | Outermost -> Errormsg.impossible "encounters Outermost"
+    | Outermost -> ErrorMsg.impossible "encounters Outermost"
 
 let procEntryExit _ = ()
 let getResult () = []
@@ -57,17 +57,17 @@ let unNx = function
 
 let unCx = function
   | Ex exp -> (fun (t, f) -> T.CJUMP(T.NE, exp, T.CONST 0, t, f))
-  | Nx _ -> Errormsg.impossible "Translate.unCx recieved Nx"
+  | Nx _ -> ErrorMsg.impossible "Translate.unCx recieved Nx"
   | Cx genstm -> genstm
 
 let rec calcStaticLink = function
-  | (Outermost, _) -> Errormsg.impossible ""
-  | (_, Outermost) -> Errormsg.impossible ""
+  | (Outermost, _) -> ErrorMsg.impossible ""
+  | (_, Outermost) -> ErrorMsg.impossible ""
   | (Level cur_lev, Level use_lev) ->
     if cur_lev.unique = use_lev.unique
       then T.TEMP(Frame.fp)
       else match Frame.formals cur_lev.frame with
-        | [] -> Errormsg.impossible ""
+        | [] -> ErrorMsg.impossible ""
         | sl::_ -> Frame.exp sl (calcStaticLink(cur_lev.parent, Level use_lev))
 
 let simpleVar ((lev_dec, acs), lev_use) =
@@ -111,8 +111,8 @@ let stringExp s =
   Ex (T.NAME lab)
 
 let callExp = function
-  | (Outermost, _, _, _) -> Errormsg.impossible "Translate.callExp passed Outermost"
-  | (_, Outermost, _, _) -> Errormsg.impossible "Translate.callExp passed Outermost"
+  | (Outermost, _, _, _) -> ErrorMsg.impossible "Translate.callExp passed Outermost"
+  | (_, Outermost, _, _) -> ErrorMsg.impossible "Translate.callExp passed Outermost"
   | (Level fun_lev, Level cal_lev, fun_lab, arg_exps) ->
     if fun_lev.parent = Outermost
       then Ex (Frame.externalCall (Symbol.name fun_lab, List.map unEx arg_exps))

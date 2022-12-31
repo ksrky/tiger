@@ -9,7 +9,7 @@ type tenv = T.ty S.table*)
 
 type expty = {exp: Translate.exp; ty: T.ty}
 
-let error = Errormsg.error
+let error = ErrorMsg.error
 let err_expty = {exp=TL.nilExp; ty=T.NIL}
 
 let rec check_type(tenv, ty, exp_ty, pos) =
@@ -273,7 +273,7 @@ and transDecs(venv, tenv, level, breakpoint, decs) =
                     | Some(res_ty) -> check_type(tenv, res_ty, body_ty, pos)
                     | None -> error pos ("type not found" ^ S.name typ))
                 | None -> ())
-          | _ -> Errormsg.impossible "" in
+          | _ -> ErrorMsg.impossible "" in
       check_name_uniq fundecs;
       List.iter transfun_body fundecs;
       (venv', tenv)

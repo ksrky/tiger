@@ -93,7 +93,7 @@ let enterblock b t = match b, t with
   | (_, table) -> table
 
 let rec splitlast = function
-  | [] -> Errormsg.impossible "Canon.splitlast got empty"
+  | [] -> ErrorMsg.impossible "Canon.splitlast got empty"
   | [x] -> ([], x)
   | h::t -> let (t',last) = splitlast t in (h::t', last)
 
@@ -114,14 +114,14 @@ let rec trace(table, ((T.LABEL lab :: _) as b),rest) =
               @ [T.CJUMP(opr, x, y, t, f'); T.LABEL f'; T.JUMP(T.NAME f,[f])]
               @ getnext(table,rest))
       | (_, T.JUMP _) -> b @ getnext(table, rest)
-      | _ -> Errormsg.impossible "Canon.trace got invalid arguments"
+      | _ -> ErrorMsg.impossible "Canon.trace got invalid arguments"
   and getnext = function
     | (table, ((T.LABEL lab::_) as b)::rest) -> 
       (match Symbol.look(table, lab) with
         | Some(_::_) -> trace(table,b,rest)
         | _ -> getnext(table,rest))
     | (_, []) -> []
-    | _ -> Errormsg.impossible "Canon.getnext got invalid arguments"
+    | _ -> ErrorMsg.impossible "Canon.getnext got invalid arguments"
 
 let traceSchedule(blocks, done') =
   getnext(List.fold_right enterblock blocks Symbol.empty, blocks) @ [T.LABEL done']
