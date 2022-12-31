@@ -3,7 +3,7 @@ type symbol = string * int
 let nextsym = ref (-1)
 let sizeHint = 128
 let hashtable = Hashtbl.create ~random:true sizeHint
-let symbol name = match Hashtbl.find_opt hashtable name with
+let symbol (name : string) : symbol = match Hashtbl.find_opt hashtable name with
   | Some i -> (name, i)
   | None ->
     incr nextsym;

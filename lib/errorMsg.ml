@@ -15,9 +15,9 @@ exception Error
 let error pos (msg:string) =
   let rec look = function
     | (a::rest, n) ->
-        if a < pos
-          then List.iter print_string [":"; string_of_int n; "."; string_of_int (pos-a)]
-      else look(rest, n-1)
+      if a < pos
+        then List.iter print_string [":"; string_of_int n; "."; string_of_int (pos-a)]
+        else look(rest, n-1)
     | _ -> print_string "0.0"
   in anyErrors := true;
      print_string !fileName;

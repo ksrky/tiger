@@ -1,3 +1,1 @@
-type expty = {exp: Translate.exp; ty: Types.ty}
-
-val transProg : Absyn.exp -> expty
+val transProg : Absyn.exp -> Frame.frag list

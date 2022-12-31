@@ -5,3 +5,8 @@
  (dev
   (flags
    (:standard -w "-8-30-39"))))
+
+(ocamllex lexer)
+
+(menhir
+ (modules parser))

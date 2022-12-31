@@ -7,7 +7,12 @@ type level  = Level of {parent : level;
 
 type access = level * Frame.access
 
+type exp  = Ex of T.exp
+          | Nx of T.stm
+          | Cx of (Temp.label * Temp.label -> T.stm)
+  
 let outermost = Outermost
+
 let newLevel (parent, name, formals) =
   let frame = Frame.newFrame(name, true::formals) in
   Level{parent; frame; unique=ref()}
@@ -21,12 +26,10 @@ let allocLocal(level, esc) =
     | Level{frame; _} -> (level, Frame.allocLocal frame esc)
     | Outermost -> ErrorMsg.impossible "encounters Outermost"
 
-let procEntryExit _ = ()
-let getResult () = []
+let fragments = ref []
 
-type exp  = Ex of T.exp
-          | Nx of T.stm
-          | Cx of (Temp.label * Temp.label -> T.stm)
+let getResult() : Frame.frag list = !fragments
+
 
 let rec mkseq = function
   | [] -> T.EXP(T.CONST 0)
@@ -102,8 +105,6 @@ let subscriptVar(arr_exp, sub_exp) =
 let nilExp = Ex(T.CONST 0)
 
 let intExp i = Ex(T.CONST i)
-
-let fragments = ref []
 
 let stringExp s =
   let lab = Temp.newlabel() in
@@ -245,3 +246,7 @@ let arrayExp size init =
           , Frame.procEntryExit1 (lev.frame, unEx body)
           ))  
   in procEntryExit(Level lev, body_exp)*)
+
+let procEntryExit ((Level{frame; _}, body) : (level * exp)) : unit =
+  let body' = Frame.procEntryExit1(frame, T.MOVE(T.TEMP Frame.rv, unEx body)) in
+  fragments := Frame.PROC{frame; body=body'} :: !fragments

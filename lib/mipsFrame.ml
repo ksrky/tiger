@@ -60,6 +60,8 @@ let tempMap = Temp.init
      (s4, "$s4"); (s5, "$s5"); (s6, "$s6"); (s7, "$s7");
      (fp, "$fp"); (rv, "$v0"); (sp, "$sp"); (ra, "$ra")]
 
+let string (label, str) : string = Symbol.name label ^ ": .asciiz \"" ^ str ^ "\"\n" (*temp*)
+
 let newFrame(name, escs) =
   let allocFormal fmls = function
     | true ->
@@ -84,10 +86,11 @@ let exp = function
 
 let externalCall(name, args) = T.CALL (T.NAME (TP.namedlabel name), args)
 
-let procEntryExit1 (_, stm) = stm (*temp*)
+let procEntryExit1(_, stm) = stm (*temp*)
 
-let procEntryExit1 (_, body) =
+let procEntryExit2 (_, body) =
   body @ [Assem.OPER{assem=""; src=[zero; ra; sp]@calleesaves; dst=[]; jump=None}]
+
 
 (*let procEntryExit3({name; params; locals}, body) =
   {prolog="PROCEDURE " ^ Symbol.name name ^ "\n";

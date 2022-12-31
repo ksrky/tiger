@@ -307,6 +307,8 @@ and transTy(tenv, ty) = match ty with
       | Some(ty) -> T.ARRAY(ty, ref())
       | None -> error pos ("type not found " ^ S.name typ); T.NIL)  
 
-let transProg exp =
+let transProg exp : Frame.frag list =
   let mainlevel = Tr.newLevel(Tr.outermost, Temp.namedlabel "main", []) in
-  transExp(E.base_venv, E.base_tenv, mainlevel, None, exp)
+  let {exp; _} = transExp(E.base_venv, E.base_tenv, mainlevel, None, exp) in
+  Tr.procEntryExit(mainlevel, exp);
+  Tr.getResult()
