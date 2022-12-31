@@ -77,7 +77,7 @@ let fieldVar(rec_exp, idx) =
   Ex
   (T.MEM
     (T.BINOP
-      ( T.MINUS
+      ( T.PLUS
       , unEx rec_exp
       , T.CONST (idx * Frame.wordSize)
       )
@@ -88,12 +88,12 @@ let subscriptVar(arr_exp, sub_exp) =
   Ex
   (T.MEM
     (T.BINOP
-      ( T.MINUS
+      ( T.PLUS
       , unEx arr_exp
       , T.BINOP
         ( T.MUL
-        , T.CONST (Frame.wordSize)
         , unEx sub_exp
+        , T.CONST (Frame.wordSize)
         )
       )
     )
@@ -148,7 +148,7 @@ let recordExp fields =
     T.MOVE(
       T.TEMP r,
       Frame.externalCall(
-        "allocRecord", [T.CONST(List.length fields * Frame.wordSize)]
+        "malloc", [T.CONST(List.length fields * Frame.wordSize)]
       )
     ) in
   let rec loop (fields, idx) =

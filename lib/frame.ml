@@ -1,1 +1,1 @@
-include PentiumFrame
+include MipsFrame
