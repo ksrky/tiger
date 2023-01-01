@@ -1,5 +1,5 @@
 type node' = int
-type temp = Temp.temp
+(*type temp = Temp.temp*)
 
 type noderep = NODE of {succ: node' list; pred: node' list}
 
@@ -21,7 +21,7 @@ let augment (g: graph) (n: node') : node = (g, n)
 let sizeAint = 128
 let newGraph() = Array.make sizeAint bogusNode
 
-let nodes g =
+let nodes (g : graph) =
   let rec f i =
     if isBogus(g.(i))
       then []
@@ -70,5 +70,6 @@ module Table = Map.Make(struct
 end)
 
 type 'a table = 'a Table.t
+let empty = Table.empty
 
 let nodename(_, i) = "n" ^ string_of_int i

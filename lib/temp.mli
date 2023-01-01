@@ -2,8 +2,11 @@ type temp = int
 val newtemp : unit -> temp
 val makestring : temp -> string
 
-type 'a table
-val init : (temp * 'a) list -> 'a table
+module Table : sig
+  type key = temp
+  type 'a t
+  val of_seq : (key * 'a) Seq.t -> 'a t
+end
 
 type label = Symbol.symbol
 val newlabel : unit -> label

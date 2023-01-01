@@ -52,13 +52,14 @@ let argregs = [a0; a1; a2; a3]
 let calleesaves = [s0; s1; s2; s3; s4; s5; s6; s7]
 let callersaves = [t0; t1; t2; t3; t4; t5; t6; t7]
 
-let tempMap = Temp.init
+let tempMap : register Temp.Table.t =
+  Temp.Table.of_seq (List.to_seq 
     [(a0, "$a0"); (a1, "$a1"); (a2, "$a2"); (a3, "$a3");
      (t0, "$t0"); (t1, "$t1"); (t2, "$t2"); (t3, "$t3");
      (t4, "$t4"); (t5, "$t5"); (t6, "$t6"); (t7, "$t7");
      (s0, "$s0"); (s1, "$s1"); (s2, "$s2"); (s3, "$s3");
      (s4, "$s4"); (s5, "$s5"); (s6, "$s6"); (s7, "$s7");
-     (fp, "$fp"); (rv, "$v0"); (sp, "$sp"); (ra, "$ra")]
+     (fp, "$fp"); (rv, "$v0"); (sp, "$sp"); (ra, "$ra")])
 
 let string (label, str) : string = Symbol.name label ^ ": .asciiz \"" ^ str ^ "\"\n" (*temp*)
 

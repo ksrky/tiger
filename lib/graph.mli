@@ -13,6 +13,11 @@ exception GraphEdge
 val mk_edge : node * node -> unit
 val rm_edge : node * node -> unit
 
-type 'a table
+module Table : sig
+  type key = node
+  type 'a t
+  val empty : 'a t
+  val add : key -> 'a -> 'a t -> 'a t
+end
 
 val nodename : node -> string

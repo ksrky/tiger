@@ -8,7 +8,7 @@ val fp : Temp.temp
 val rv : Temp.temp
 
 val wordSize : int
-val tempMap : register Temp.table
+val tempMap : register Temp.Table.t
 val string : (Symbol.symbol * string) -> string
 
 val newFrame : (Temp.label * bool list) -> frame

@@ -7,10 +7,6 @@ module Table = Map.Make (struct
     let compare = Stdlib.compare
   end)
 
-type 'a table = 'a Table.t
-
-let init l  = Table.of_seq (List.to_seq l)
-
 let makestring t = "t" ^ string_of_int t
 
 type label = Symbol.symbol
