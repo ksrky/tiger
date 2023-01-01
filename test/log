@@ -1,0 +1,762 @@
+> ../testcases/test1.tig
+LetExp([
+ TypeDec[
+  (arrtype,
+   ArrayTy(int)],
+ VarDec(arr1,true,Some(arrtype),
+  ArrayExp(arrtype,
+   IntExp(10),
+   IntExp(0)))],
+ SeqExp[
+  VarExp(
+   SimpleVar(arr1))])
+> ../testcases/test2.tig
+LetExp([
+ TypeDec[
+  (myint,
+   NameTy(int)),
+  (arrtype,
+   ArrayTy(myint)],
+ VarDec(arr1,true,Some(arrtype),
+  ArrayExp(arrtype,
+   IntExp(10),
+   IntExp(0)))],
+ SeqExp[
+  VarExp(
+   SimpleVar(arr1))])
+> ../testcases/test3.tig
+LetExp([
+ TypeDec[
+  (rectype,
+   RecordTy[
+    (name,true,string),
+    (age,true,int)])],
+ VarDec(rec1,true,Some(rectype),
+  RecordExp(rectype,[
+
+   (name,
+    StringExp("Nobody")),
+   (age,
+    IntExp(1000))]))],
+ SeqExp[
+  AssignExp(
+   FieldVar(
+    SimpleVar(rec1),
+    name),
+   StringExp("Somebody")),
+  VarExp(
+   SimpleVar(rec1))])
+> ../testcases/test4.tig
+LetExp([
+ FunctionDec[
+  (nfactor,[
+   (n,true,int)],
+Some(int),
+   IfExp(
+    OpExp(EqOp,
+     VarExp(
+      SimpleVar(n)),
+     IntExp(0)),
+    IntExp(1),
+    OpExp(TimesOp,
+     VarExp(
+      SimpleVar(n)),
+     CallExp(nfactor,[
+      OpExp(MinusOp,
+       VarExp(
+        SimpleVar(n)),
+       IntExp(1))]))))]],
+ SeqExp[
+  CallExp(nfactor,[
+   IntExp(10)])])
+> ../testcases/test5.tig
+LetExp([
+ TypeDec[
+  (intlist,
+   RecordTy[
+    (hd,true,int),
+    (tl,true,intlist)]),
+  (tree,
+   RecordTy[
+    (key,true,int),
+    (children,true,treelist)]),
+  (treelist,
+   RecordTy[
+    (hd,true,tree),
+    (tl,true,treelist)])],
+ VarDec(lis,true,Some(intlist),
+  RecordExp(intlist,[
+
+   (hd,
+    IntExp(0)),
+   (tl,
+    NilExp)]))],
+ SeqExp[
+  VarExp(
+   SimpleVar(lis))])
+> ../testcases/test6.tig
+LetExp([
+ FunctionDec[
+  (do_nothing1,[
+   (a,true,int),
+   (b,true,string)],
+None,
+  (do_nothing2,[
+   (d,true,int)],
+None]],
+ SeqExp[
+  CallExp(do_nothing1,[
+   IntExp(0),
+   StringExp("str2")])])
+> ../testcases/test7.tig
+LetExp([
+ FunctionDec[
+  (do_nothing1,[
+   (a,true,int),
+   (b,true,string)],
+Some(int),
+   SeqExp[
+    CallExp(do_nothing2,[
+     OpExp(PlusOp,
+      VarExp(
+       SimpleVar(a)),
+      IntExp(1))]),
+    IntExp(0)]),
+  (do_nothing2,[
+   (d,true,int)],
+Some(string),
+   SeqExp[
+    CallExp(do_nothing1,[
+     VarExp(
+      SimpleVar(d)),
+     StringExp("str")]),
+    StringExp(" ")])]],
+ SeqExp[
+  CallExp(do_nothing1,[
+   IntExp(0),
+   StringExp("str2")])])
+> ../testcases/test8.tig
+IfExp(
+ SeqExp[
+  OpExp(GtOp,
+   IntExp(10),
+   IntExp(20))],
+ IntExp(30),
+ IntExp(40))
+> ../testcases/test9.tig
+IfExp(
+ SeqExp[
+  OpExp(GtOp,
+   IntExp(5),
+   IntExp(4))],
+ IntExp(13),
+ StringExp(" "))
+> ../testcases/test10.tig
+WhileExp(
+ SeqExp[
+  OpExp(GtOp,
+   IntExp(10),
+   IntExp(5))],
+ OpExp(PlusOp,
+  IntExp(5),
+  IntExp(6)))
+> ../testcases/test11.tig
+ForExp(
+i,true,
+ IntExp(10),
+ StringExp(" "),
+ AssignExp(
+  SimpleVar(i),
+  OpExp(MinusOp,
+   VarExp(
+    SimpleVar(i)),
+   IntExp(1))))
+> ../testcases/test12.tig
+LetExp([
+ VarDec(a,true,None],
+ SeqExp[
+  ForExp(
+i,true,
+   IntExp(0),
+   IntExp(100),
+   SeqExp[
+    AssignExp(
+     SimpleVar(a),
+     OpExp(PlusOp,
+      VarExp(
+       SimpleVar(a)),
+      IntExp(1))),
+    SeqExp[]])])
+> ../testcases/test13.tig
+OpExp(GtOp,
+ IntExp(3),
+ StringExp("df"))
+> ../testcases/test14.tig
+LetExp([
+ TypeDec[
+  (arrtype,
+   ArrayTy(int),
+  (rectype,
+   RecordTy[
+    (name,true,string),
+    (id,true,int)])],
+ VarDec(rec,true,None,
+ VarDec(arr,true,None],
+ SeqExp[
+  IfExp(
+   OpExp(NeqOp,
+    VarExp(
+     SimpleVar(rec)),
+    VarExp(
+     SimpleVar(arr))),
+   IntExp(3),
+   IntExp(4))])
+> ../testcases/test15.tig
+IfExp(
+ IntExp(20),
+ IntExp(3)
+> ../testcases/test16.tig
+LetExp([
+ TypeDec[
+  (a,
+   NameTy(c)),
+  (b,
+   NameTy(a)),
+  (c,
+   NameTy(d)),
+  (d,
+   NameTy(a))]],
+ SeqExp[
+  StringExp("")])
+> ../testcases/test17.tig
+LetExp([
+ TypeDec[
+  (tree,
+   RecordTy[
+    (key,true,int),
+    (children,true,treelist)])],
+ VarDec(d,true,Some(int),
+  IntExp(0)),
+ TypeDec[
+  (treelist,
+   RecordTy[
+    (hd,true,tree),
+    (tl,true,treelist)])]],
+ SeqExp[
+  VarExp(
+   SimpleVar(d))])
+> ../testcases/test18.tig
+LetExp([
+ FunctionDec[
+  (do_nothing1,[
+   (a,true,int),
+   (b,true,string)],
+Some(int),
+   SeqExp[
+    CallExp(do_nothing2,[
+     OpExp(PlusOp,
+      VarExp(
+       SimpleVar(a)),
+      IntExp(1))]),
+    IntExp(0)])],
+ VarDec(d,true,None,
+ FunctionDec[
+  (do_nothing2,[
+   (d,true,int)],
+Some(string),
+   SeqExp[
+    CallExp(do_nothing1,[
+     VarExp(
+      SimpleVar(d)),
+     StringExp("str")]),
+    StringExp(" ")])]],
+ SeqExp[
+  CallExp(do_nothing1,[
+   IntExp(0),
+   StringExp("str2")])])
+> ../testcases/test19.tig
+LetExp([
+ FunctionDec[
+  (do_nothing1,[
+   (a,true,int),
+   (b,true,string)],
+Some(int),
+   SeqExp[
+    CallExp(do_nothing2,[
+     OpExp(PlusOp,
+      VarExp(
+       SimpleVar(a)),
+      IntExp(1))]),
+    IntExp(0)]),
+  (do_nothing2,[
+   (d,true,int)],
+Some(string),
+   SeqExp[
+    CallExp(do_nothing1,[
+     VarExp(
+      SimpleVar(a)),
+     StringExp("str")]),
+    StringExp(" ")])]],
+ SeqExp[
+  CallExp(do_nothing1,[
+   IntExp(0),
+   StringExp("str2")])])
+> ../testcases/test20.tig
+WhileExp(
+ OpExp(GtOp,
+  IntExp(10),
+  IntExp(5)),
+ SeqExp[
+  OpExp(PlusOp,
+   VarExp(
+    SimpleVar(i)),
+   IntExp(1)),
+  SeqExp[]])
+> ../testcases/test21.tig
+LetExp([
+ FunctionDec[
+  (nfactor,[
+   (n,true,int)],
+None]],
+ SeqExp[
+  CallExp(nfactor,[
+   IntExp(10)])])
+> ../testcases/test22.tig
+LetExp([
+ TypeDec[
+  (rectype,
+   RecordTy[
+    (name,true,string),
+    (id,true,int)])],
+ VarDec(rec1,true,None],
+ SeqExp[
+  AssignExp(
+   FieldVar(
+    SimpleVar(rec1),
+    nam),
+   StringExp("asd"))])
+> ../testcases/test23.tig
+LetExp([
+ TypeDec[
+  (rectype,
+   RecordTy[
+    (name,true,string),
+    (id,true,int)])],
+ VarDec(rec1,true,None],
+ SeqExp[
+  AssignExp(
+   FieldVar(
+    SimpleVar(rec1),
+    name),
+   IntExp(3)),
+  AssignExp(
+   FieldVar(
+    SimpleVar(rec1),
+    id),
+   StringExp(""))])
+> ../testcases/test24.tig
+LetExp([
+ VarDec(d,true,None],
+ SeqExp[
+  VarExp(
+   SubscriptVar(
+    SimpleVar(d),
+    IntExp(3)))])
+> ../testcases/test25.tig
+LetExp([
+ VarDec(d,true,None],
+ SeqExp[
+  VarExp(
+   FieldVar(
+    SimpleVar(d),
+    f))])
+> ../testcases/test26.tig
+OpExp(PlusOp,
+ IntExp(3),
+ StringExp("var"))
+> ../testcases/test27.tig
+LetExp([
+ VarDec(a,true,None,
+ FunctionDec[
+  (g,[
+   (a,true,int)],
+Some(int),
+   VarExp(
+    SimpleVar(a)))]],
+ SeqExp[
+  CallExp(g,[
+   IntExp(2)])])
+> ../testcases/test28.tig
+LetExp([
+ TypeDec[
+  (rectype1,
+   RecordTy[
+    (name,true,string),
+    (id,true,int)]),
+  (rectype2,
+   RecordTy[
+    (name,true,string),
+    (id,true,int)])],
+ VarDec(rec1,true,Some(rectype1),
+  RecordExp(rectype2,[
+
+   (name,
+    StringExp("Name")),
+   (id,
+    IntExp(0))]))],
+ SeqExp[
+  VarExp(
+   SimpleVar(rec1))])
+> ../testcases/test29.tig
+LetExp([
+ TypeDec[
+  (arrtype1,
+   ArrayTy(int),
+  (arrtype2,
+   ArrayTy(int)],
+ VarDec(arr1,true,Some(arrtype1),
+  ArrayExp(arrtype2,
+   IntExp(10),
+   IntExp(0)))],
+ SeqExp[
+  VarExp(
+   SimpleVar(arr1))])
+> ../testcases/test30.tig
+LetExp([
+ TypeDec[
+  (a,
+   ArrayTy(int),
+  (b,
+   NameTy(a))],
+ VarDec(arr1,true,Some(a),
+  ArrayExp(b,
+   IntExp(10),
+   IntExp(0)))],
+ SeqExp[
+  VarExp(
+   SubscriptVar(
+    SimpleVar(arr1),
+    IntExp(2)))])
+> ../testcases/test31.tig
+LetExp([
+ VarDec(a,true,Some(int),
+  StringExp(" "))],
+ SeqExp[
+  VarExp(
+   SimpleVar(a))])
+> ../testcases/test32.tig
+LetExp([
+ TypeDec[
+  (arrayty,
+   ArrayTy(int)],
+ VarDec(a,true,None],
+ SeqExp[
+  IntExp(0)])
+> ../testcases/test33.tig
+LetExp([
+ VarDec(a,true,None],
+ SeqExp[
+  IntExp(0)])
+> ../testcases/test34.tig
+LetExp([
+ FunctionDec[
+  (g,[
+   (a,true,int),
+   (b,true,string)],
+Some(int),
+   VarExp(
+    SimpleVar(a)))]],
+ SeqExp[
+  CallExp(g,[
+   StringExp("one"),
+   StringExp("two")])])
+> ../testcases/test35.tig
+LetExp([
+ FunctionDec[
+  (g,[
+   (a,true,int),
+   (b,true,string)],
+Some(int),
+   VarExp(
+    SimpleVar(a)))]],
+ SeqExp[
+  CallExp(g,[
+   StringExp("one")])])
+> ../testcases/test36.tig
+LetExp([
+ FunctionDec[
+  (g,[
+   (a,true,int),
+   (b,true,string)],
+Some(int),
+   VarExp(
+    SimpleVar(a)))]],
+ SeqExp[
+  CallExp(g,[
+   IntExp(3),
+   StringExp("one"),
+   IntExp(5)])])
+> ../testcases/test37.tig
+LetExp([
+ VarDec(a,true,None,
+ VarDec(a,true,None],
+ SeqExp[
+  IntExp(0)])
+> ../testcases/test38.tig
+LetExp([
+ TypeDec[
+  (a,
+   NameTy(int)),
+  (a,
+   NameTy(string))]],
+ SeqExp[
+  IntExp(0)])
+> ../testcases/test39.tig
+LetExp([
+ FunctionDec[
+  (g,[
+   (a,true,int)],
+Some(int),
+   VarExp(
+    SimpleVar(a))),
+  (g,[
+   (a,true,int)],
+Some(int),
+   VarExp(
+    SimpleVar(a)))]],
+ SeqExp[
+  IntExp(0)])
+> ../testcases/test40.tig
+LetExp([
+ FunctionDec[
+  (g,[
+   (a,true,int)],
+None]],
+ SeqExp[
+  CallExp(g,[
+   IntExp(2)])])
+> ../testcases/test41.tig
+LetExp([
+ TypeDec[
+  (a,
+   NameTy(int))]],
+ SeqExp[
+  LetExp([
+   TypeDec[
+    (a,
+     NameTy(string))]],
+   SeqExp[
+    IntExp(0)])])
+> ../testcases/test42.tig
+LetExp([
+ TypeDec[
+  (arrtype1,
+   ArrayTy(int),
+  (rectype1,
+   RecordTy[
+    (name,true,string),
+    (address,true,string),
+    (id,true,int),
+    (age,true,int)]),
+  (arrtype2,
+   ArrayTy(rectype1),
+  (rectype2,
+   RecordTy[
+    (name,true,string),
+    (dates,true,arrtype1)]),
+  (arrtype3,
+   ArrayTy(string)],
+ VarDec(arr1,true,None,
+ VarDec(arr2,true,None,
+ VarDec(arr3,true,Some(arrtype3),
+  ArrayExp(arrtype3,
+   IntExp(100),
+   StringExp(""))),
+ VarDec(rec1,true,None,
+ VarDec(rec2,true,None],
+ SeqExp[
+  AssignExp(
+   SubscriptVar(
+    SimpleVar(arr1),
+    IntExp(0)),
+   IntExp(1)),
+  AssignExp(
+   SubscriptVar(
+    SimpleVar(arr1),
+    IntExp(9)),
+   IntExp(3)),
+  AssignExp(
+   FieldVar(
+    SubscriptVar(
+     SimpleVar(arr2),
+     IntExp(3)),
+    name),
+   StringExp("kati")),
+  AssignExp(
+   FieldVar(
+    SubscriptVar(
+     SimpleVar(arr2),
+     IntExp(1)),
+    age),
+   IntExp(23)),
+  AssignExp(
+   SubscriptVar(
+    SimpleVar(arr3),
+    IntExp(34)),
+   StringExp("sfd")),
+  AssignExp(
+   FieldVar(
+    SimpleVar(rec1),
+    name),
+   StringExp("sdf")),
+  AssignExp(
+   SubscriptVar(
+    FieldVar(
+     SimpleVar(rec2),
+     dates),
+    IntExp(0)),
+   IntExp(2323)),
+  AssignExp(
+   SubscriptVar(
+    FieldVar(
+     SimpleVar(rec2),
+     dates),
+    IntExp(2)),
+   IntExp(2323))])
+> ../testcases/test43.tig
+LetExp([
+ VarDec(a,true,None],
+ SeqExp[
+  OpExp(PlusOp,
+   VarExp(
+    SimpleVar(a)),
+   IntExp(3))])
+> ../testcases/test44.tig
+LetExp([
+ TypeDec[
+  (rectype,
+   RecordTy[
+    (name,true,string),
+    (id,true,int)])],
+ VarDec(b,true,Some(rectype),
+  NilExp)],
+ SeqExp[
+  AssignExp(
+   SimpleVar(b),
+   NilExp)])
+> ../testcases/test45.tig
+LetExp([
+ TypeDec[
+  (rectype,
+   RecordTy[
+    (name,true,string),
+    (id,true,int)])],
+ VarDec(a,true,None],
+ SeqExp[
+  VarExp(
+   SimpleVar(a))])
+> ../testcases/test46.tig
+LetExp([
+ TypeDec[
+  (rectype,
+   RecordTy[
+    (name,true,string),
+    (id,true,int)])],
+ VarDec(b,true,Some(rectype),
+  NilExp)],
+ SeqExp[
+  OpExp(EqOp,
+   VarExp(
+    SimpleVar(b)),
+   NilExp),
+  OpExp(NeqOp,
+   VarExp(
+    SimpleVar(b)),
+   NilExp)])
+> ../testcases/test47.tig
+LetExp([
+ TypeDec[
+  (a,
+   NameTy(int))],
+ VarDec(b,true,None,
+ TypeDec[
+  (a,
+   NameTy(string))]],
+ SeqExp[
+  IntExp(0)])
+> ../testcases/test48.tig
+LetExp([
+ FunctionDec[
+  (g,[
+   (a,true,int)],
+Some(int),
+   VarExp(
+    SimpleVar(a)))],
+ TypeDec[
+  (t,
+   NameTy(int))],
+ FunctionDec[
+  (g,[
+   (a,true,int)],
+Some(int),
+   VarExp(
+    SimpleVar(a)))]],
+ SeqExp[
+  IntExp(0)])
+> ../testcases/test49.tig
+../testcases/test49.tig:1.127:parse error
+NilExp
+File "test/dune", line 2, characters 14-20:
+2 |  (names parse semant)
+                  ^^^^^^
+> ../testcases/test1.tig
+MOVE(
+ TEMP t121,
+ TEMP t137)
+> ../testcases/test2.tig
+MOVE(
+ TEMP t121,
+ TEMP t139)
+MOVE(
+ TEMP t121,
+ TEMP t137)
+> ../testcases/test3.tig
+../testcases/test3.tig0.0:expecting a record
+MOVE(
+ TEMP t121,
+ ESEQ(
+  MOVE(
+   CONST 0,
+   NAME L1),
+  TEMP t141))
+Somebody
+Nobody
+MOVE(
+ TEMP t121,
+ TEMP t139)
+MOVE(
+ TEMP t121,
+ TEMP t137)
+> ../testcases/test4.tig
+MOVE(
+ TEMP t121,
+ CALL(
+  NAME nfactor,
+   CONST 10)
+MOVE(
+ TEMP t121,
+ ESEQ(
+  MOVE(
+   CONST 0,
+   NAME L1),
+  TEMP t141))
+Somebody
+Nobody
+MOVE(
+ TEMP t121,
+ TEMP t139)
+MOVE(
+ TEMP t121,
+ TEMP t137)
+> ../testcases/test5.tig
+Fatal error: exception Out_of_memory
