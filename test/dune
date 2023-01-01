@@ -1,2 +1,3 @@
 (test
- (name tiger))
+ (name test)
+ (libraries tiger))
