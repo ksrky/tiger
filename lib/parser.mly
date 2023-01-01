@@ -34,6 +34,7 @@ let prog :=
 let lvalue :=
   | ~=id;                                 { SimpleVar(id, pos($loc)) }
   | ~=lvalue; DOT; ~=id;                  { FieldVar(lvalue, id, pos($loc)) }
+  | ~=id; LBRACK; ~=exp; RBRACK;          { SubscriptVar(SimpleVar(id, pos($loc(id))), exp, pos($loc)) } (* required *)
   | ~=lvalue; LBRACK; ~=exp; RBRACK;      { SubscriptVar(lvalue, exp, pos($loc)) }
 
 let exp :=

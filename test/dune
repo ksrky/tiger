@@ -1,5 +1,5 @@
-(test
- (name parse)
+(tests
+ (names parse semant)
  (libraries tiger)
  (deps
   (glob_files ../testcases/test*.tig)))

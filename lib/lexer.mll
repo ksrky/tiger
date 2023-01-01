@@ -1,7 +1,9 @@
 {
 open Parser
 
-(*type pos = int
+type pos = Absyn.pos
+exception Error of pos * string
+(*
 type lexresult = Tokens.token
 
 let lineNum = ErrorMsg.lineNum
@@ -74,6 +76,8 @@ rule token = parse
 | decimal as i  { INT (int_of_string i) }
 | string as s   { STRING (String.sub s 1 (String.length s - 2)) }
 | id as s       { ID s }
+
+| _             { ErrorMsg.error (Lexing.lexeme_start lexbuf) "illegal charcter" ; token lexbuf }
 
 (* end of a file *)
 | eof           { EOF }
