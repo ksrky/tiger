@@ -69,7 +69,4 @@ module Table = Map.Make(struct
   let compare = Stdlib.compare
 end)
 
-type 'a table = 'a Table.t
-let empty = Table.empty
-
 let nodename(_, i) = "n" ^ string_of_int i
