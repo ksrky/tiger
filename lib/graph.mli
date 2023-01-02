@@ -18,6 +18,7 @@ module Table : sig
   type 'a t
   val empty : 'a t
   val add : key -> 'a -> 'a t -> 'a t
+  val find : key -> 'a t -> 'a
 end
 
 val nodename : node -> string

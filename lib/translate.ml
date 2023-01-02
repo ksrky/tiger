@@ -73,8 +73,8 @@ let rec calcStaticLink = function
         | [] -> ErrorMsg.impossible ""
         | sl::_ -> Frame.exp sl (calcStaticLink(cur_lev.parent, Level use_lev))
 
-let simpleVar ((lev_dec, acs), lev_use) =
-  Ex (Frame.exp acs (calcStaticLink(lev_dec, lev_use)))
+let simpleVar ((def_lev, acs), use_lev) =
+  Ex (Frame.exp acs (calcStaticLink(def_lev, use_lev)))
 
 let fieldVar(rec_exp, idx) =
   Ex

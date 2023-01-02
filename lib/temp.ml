@@ -7,6 +7,11 @@ module Table = Map.Make (struct
     let compare = Stdlib.compare
   end)
 
+module Set = Set.Make (struct
+    type t = temp
+    let compare = Stdlib.compare
+  end)
+
 let makestring t = "t" ^ string_of_int t
 
 type label = Symbol.symbol

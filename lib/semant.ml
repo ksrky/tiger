@@ -25,16 +25,6 @@ and actual_ty(ty, pos) =
     | T.NAME(id, ref) -> (match !ref with
       | Some(ty) -> walk1 ty
       | None -> error pos ("type not found " ^ S.name id); T.NIL)
-    | T.ARRAY(ty', uniq) -> T.ARRAY (walk2 ty', uniq)
-    | T.RECORD(fields, uniq) ->
-        T.RECORD (List.map (fun (lab, ty) -> (lab, walk2 ty)) fields, uniq)
-    | _ -> ty
-  and walk2 ty = match ty with
-    (* to avoid inifinite loop. eg. `type intlist={hd:int,tl:intlist}`*)
-    | T.NAME _ -> ty
-    | T.ARRAY(ty', uniq) -> T.ARRAY (walk2 ty', uniq)
-    | T.RECORD(fields, uniq) ->
-        T.RECORD (List.map (fun (lab, ty) -> (lab, walk2 ty)) fields, uniq)
     | _ -> ty
   in walk1 ty
 
