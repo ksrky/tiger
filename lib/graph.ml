@@ -69,4 +69,9 @@ module Table = Map.Make(struct
   let compare = Stdlib.compare
 end)
 
+module Set = Set.Make(struct
+  type t = node
+  let compare = Stdlib.compare
+end)
+
 let nodename(_, i) = "n" ^ string_of_int i

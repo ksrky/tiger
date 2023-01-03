@@ -30,8 +30,8 @@ let instr2graph (ilist : Assem.instr list) : Flow.flowgraph * Flow.Graph.node li
           | None -> map_next_edge node
           | Some jmps -> List.iter (map_former_labeled_edge node) jmps); (*temp*)
         Flow.FGRAPH { control
-                    ; def=Graph.Table.add node (Temp.Set.of_seq(List.to_seq src)) def
-                    ; use=Graph.Table.add node (Temp.Set.of_seq(List.to_seq dst)) use
+                    ; def=Graph.Table.add node (Temp.Set.of_list src) def
+                    ; use=Graph.Table.add node (Temp.Set.of_list dst) use
                     ; ismove=Graph.Table.add node false ismove}
       | Assem.LABEL{lab; _} ->
         label2itsnode := (lab, node) :: !label2itsnode;
@@ -42,8 +42,8 @@ let instr2graph (ilist : Assem.instr list) : Flow.flowgraph * Flow.Graph.node li
                     ; ismove=Graph.Table.add node false ismove}
       | Assem.MOVE{dst; src; _} ->
         Flow.FGRAPH { control
-                    ; def=Graph.Table.add node (Temp.Set.of_seq(Seq.return src)) def
-                    ; use=Graph.Table.add node (Temp.Set.of_seq(Seq.return dst)) use
+                    ; def=Graph.Table.add node (Temp.Set.of_list [src]) def
+                    ; use=Graph.Table.add node (Temp.Set.of_list [dst]) use
                     ; ismove=Graph.Table.add node true ismove} in (* note: if dst = src then ismove := false::ismove *)
   
   let Flow.FGRAPH{control;_} as resultFGraph = List.fold_left makeGraph initialFGraph ilist

@@ -149,7 +149,7 @@ let recordExp fields =
     T.MOVE(
       T.TEMP r,
       Frame.externalCall(
-        "malloc", [T.CONST(List.length fields * Frame.wordSize)]
+        "allocRecord", [T.CONST(List.length fields * Frame.wordSize)]
       )
     ) in
   let rec loop (fields, idx) =

@@ -21,4 +21,17 @@ module Table : sig
   val find : key -> 'a t -> 'a
 end
 
+module Set : sig
+  type elt = node
+  type t
+  val empty : t
+  val mem : elt -> t -> bool
+  val add : elt -> t -> t
+  val union : t -> t -> t
+  val inter : t -> t -> t
+  val diff : t -> t -> t
+  val elements : t -> elt list
+  val singleton : elt -> t
+end
+
 val nodename : node -> string

@@ -194,7 +194,7 @@ and transDecs(venv, tenv, level, breakpoint, decs) =
             let ty = List.find (fun {A.name=name';_} -> name = name') tydecs in
             match ty with
               | {ty=A.NameTy(typ, pos);_} -> 
-                if List.exists ((=) typ) deps
+                if List.mem typ deps
                   then error pos "cyclic dependencies"
                   else walk (name :: deps) typ
               | _ -> ()
