@@ -8,6 +8,7 @@ val fp : Temp.temp
 val rv : Temp.temp
 
 val wordSize : int
+val registers : register list
 val tempMap : register Temp.Table.t
 val string : (Symbol.symbol * string) -> string
 

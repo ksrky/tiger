@@ -19,6 +19,7 @@ module Set : sig
   val union : t -> t -> t
   val diff : t -> t -> t
   val iter : (elt -> unit) -> t -> unit
+  val cardinal : t -> int
   val elements : t -> elt list
   val of_list : elt list -> t
 end
