@@ -238,15 +238,6 @@ let arrayExp size init =
     )
   )
 
- (*let functionDec (name, Level lev, body) =
-  let body_exp =
-      Nx
-        (T.MOVE
-          ( T.TEMP Frame.rv
-          , Frame.procEntryExit1 (lev.frame, unEx body)
-          ))  
-  in procEntryExit(Level lev, body_exp)*)
-
 let procEntryExit ((Level{frame; _}, body) : (level * exp)) : unit =
   let body' = Frame.procEntryExit1(frame, T.MOVE(T.TEMP Frame.rv, unEx body)) in
   fragments := Frame.PROC{frame; body=body'} :: !fragments
