@@ -6,7 +6,6 @@ module TT = Temp.Table
 module TS = Temp.Set
 
 let initial : Frame.register TT.t ref = ref Frame.tempMap
-let precolored = []
 
 let rec alloc (instrs: Assem.instr list) (frame: Frame.frame) : Assem.instr list * allocation =
   let (FGRAPH{def; use; _} as fgraph, _fnodes)
@@ -50,7 +49,7 @@ let rec alloc (instrs: Assem.instr list) (frame: Frame.frame) : Assem.instr list
         | instr -> [instr]  in
         List.concat (List.map insertInstr acc)
       ) instrs spilledNodes in
-    Color.initial := !Color.coloredNodes @ !Color.coalescedNodes @ !newTemps;
+    (*Color.initial := !Color.coloredNodes @ !Color.coalescedNodes @ !newTemps;*)
     instrs' in
   if List.length spilledNodes = 0
     then (instrs, allocation)

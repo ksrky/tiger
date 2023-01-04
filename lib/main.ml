@@ -5,7 +5,7 @@ let emitproc (out : out_channel) : Frame.frag -> unit = function
     let stms : Tree.stm list = Canon.linearize body in
     (* let _ = app (fn s => Printtree.printtree(out,s)) stms; *)
     let stms' : Tree.stm list = Canon.traceSchedule(Canon.basicBlocks stms) in
-    let instrs : Assem.instr list =   List.concat(List.map (Codegen.codegen frame) stms') in
+    let instrs : Assem.instr list = List.concat(List.map (Codegen.codegen frame) stms') in
     (* let instrs2 = Frame.procEntryExit2 (frame, instrs) in *)
     (* let (instrs2', alloc) = RegAlloc.alloc(instrs2, frame) stms' *)
     (* let {prolog; body; epilog} = Frame.procEntryExit3(frame, instrs2) *)
