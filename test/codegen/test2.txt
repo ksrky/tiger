@@ -1,0 +1,31 @@
+L3:
+	sw	`s0, 4(`s1)
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	li	`d0, 10
+	add	`d0, `s0, r0
+	li	`d0, 0
+	add	`d0, `s0, r0
+	la	`d0, initArrray
+	jalr	`s0
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	add	`d0, `s0, r0
+	b	`j0
+L2:

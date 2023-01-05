@@ -1,11 +1,15 @@
+let pprinstr = function
+  | Tiger.Assem.OPER{assem; _} -> assem
+  | Tiger.Assem.LABEL{assem; _} -> assem
+  | Tiger.Assem.MOVE{assem; _} -> assem
+
 let emitproc (out : out_channel) : Tiger.Frame.frag -> unit = function
   | Tiger.Frame.PROC{body; frame} ->
     let () = print_endline ("emit " ^ Tiger.Symbol.name(Tiger.Frame.name frame)) in
-    (* let _ = Printtree.printtree(out,body); *)
     let stms : Tiger.Tree.stm list = Tiger.Canon.linearize body in
-    (*let () = List.iter (Tiger.PrintTree.printtree out) stms in*)
-    let (stmss, _) = Tiger.Canon.basicBlocks stms in
-    List.iter (fun stms -> List.iter (Tiger.PrintTree.printtree out) stms; output_string out "\n") stmss
+    let stms' : Tiger.Tree.stm list = Tiger.Canon.traceSchedule(Tiger.Canon.basicBlocks stms) in
+    let instrs : Tiger.Assem.instr list = List.concat(List.map (Tiger.Codegen.codegen frame) stms') in
+    List.iter (fun i -> output_string out (pprinstr i)) instrs
   | Tiger.Frame.STRING(lab, s) -> output_string out (Tiger.Frame.string(lab, s))
 
 let withOpenFile (fname : string) (f : out_channel -> unit) : unit = 
@@ -18,5 +22,5 @@ let () =
     let filename = "testcases/test" ^ string_of_int i ^ ".tig" in
     let absyn = Tiger.Parse.parse filename in
     let frags : Tiger.Frame.frag list = (Tiger.FindEscape.findEscape absyn; Tiger.Semant.transProg absyn) in
-    withOpenFile ("test/canon/test" ^ string_of_int i ^ ".txt") (fun out -> List.iter (emitproc out) frags)
+    withOpenFile ("test/codegen/test" ^ string_of_int i ^ ".txt") (fun out -> List.iter (emitproc out) frags)
   done

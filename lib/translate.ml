@@ -67,12 +67,12 @@ let unCx = function
 let rec calcStaticLink = function
   | (Outermost, _) -> ErrorMsg.impossible ""
   | (_, Outermost) -> ErrorMsg.impossible ""
-  | (Level cur_lev, Level use_lev) ->
-    if cur_lev.unique = use_lev.unique
+  | (Level def_lev, Level cur_lev) ->
+    if def_lev.unique == cur_lev.unique (* note: checking physical equality *)
       then T.TEMP(Frame.fp)
       else match Frame.formals cur_lev.frame with
         | [] -> ErrorMsg.impossible ""
-        | sl::_ -> Frame.exp sl (calcStaticLink(cur_lev.parent, Level use_lev))
+        | sl::_ -> Frame.exp sl (calcStaticLink(Level def_lev, cur_lev.parent))
 
 let simpleVar ((def_lev, acs), use_lev) =
   Ex (Frame.exp acs (calcStaticLink(def_lev, use_lev)))
@@ -112,14 +112,14 @@ let stringExp s =
   fragments := Frame.STRING(lab, s) :: !fragments;
   Ex (T.NAME lab)
 
-let callExp = function
+let callExp : (level * level * Temp.label * exp list) -> exp = function
   | (Outermost, _, _, _) -> ErrorMsg.impossible "Translate.callExp passed Outermost"
   | (_, Outermost, _, _) -> ErrorMsg.impossible "Translate.callExp passed Outermost"
-  | (Level fun_lev, Level cal_lev, fun_lab, arg_exps) ->
-    if fun_lev.parent = Outermost
+  | (Level def_lev, Level use_lev, fun_lab, arg_exps) ->
+    if def_lev.parent = Outermost
       then Ex (Frame.externalCall (Symbol.name fun_lab, List.map unEx arg_exps))
       else
-        let sl = calcStaticLink(Level fun_lev, Level cal_lev) in
+        let sl = calcStaticLink(Level def_lev, Level use_lev) in
         Ex(T.CALL(T.NAME fun_lab, sl::(List.map unEx arg_exps)))
 
 let binOp oper left right =

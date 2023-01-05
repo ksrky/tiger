@@ -41,9 +41,9 @@ let rec transExp(venv, tenv, level, breakpoint, exp) : expty =
       (match S.look(venv, func) with
         | None -> error pos ("undefined function " ^ S.name func); err_expty
         | Some (E.VarEntry _) -> error pos "expecting a function, not a variable"; err_expty
-        | Some (E.FunEntry{level=cal_lev; label; formals; result}) ->
+        | Some (E.FunEntry{level=def_lev; label; formals; result}) ->
             let args_exp = checkformals(args, formals, pos) in
-            {exp=Tr.callExp(level, cal_lev, label, args_exp); ty=result})
+            {exp=Tr.callExp(def_lev, level, label, args_exp); ty=result})
     | A.OpExp{left; oper; right; pos} ->
       let {exp=left_exp; ty=left_ty} = trexp left in
       let {exp=right_exp; ty=right_ty} = trexp right in
@@ -54,12 +54,12 @@ let rec transExp(venv, tenv, level, breakpoint, exp) : expty =
       (match (actual_ty (left_ty, pos), actual_ty(right_ty, pos)) with
         | (T.INT, T.INT) -> {exp=res_exp; ty=T.INT}
         | _ when List.mem oper [PlusOp; MinusOp; TimesOp; DivideOp] ->
-          (error pos ("invalid operation for " ^ T.type2str(right_ty)); err_expty)
+          (error pos ("invalid operation for " ^ T.type2str(left_ty)); err_expty)
         | (T.STRING, T.STRING) -> {exp=res_exp; ty=T.INT}
         | _ when List.mem oper [A.LtOp; A.GtOp; A.LeOp; A.GeOp] ->
-          (error pos ("invalid comparison for " ^ T.type2str(right_ty)); err_expty)
+          (error pos ("invalid comparison for " ^ T.type2str(left_ty)); err_expty)
         | (ty, ty') when ty == ty' -> {exp=res_exp; ty=T.INT} (* note: checking physical equality *)
-        | _ -> (error pos ("comparison of incompatible types "
+        | _ -> (error pos ("comparison of incompatible types. "
             ^ T.type2str(left_ty) ^ " with " ^ T.type2str(right_ty)); err_expty))
     | A.RecordExp{fields; typ; pos} ->
       (match S.look(tenv, typ) with
@@ -172,8 +172,8 @@ let rec transExp(venv, tenv, level, breakpoint, exp) : expty =
     | ([], _) -> []
     | ((lab, e, pos)::fields, field_tys) ->
       let ty = try List.assoc lab field_tys with
-        | Not_found -> error pos ("unknown field. " ^ S.name lab); T.NIL
-      in let {exp; ty=e_ty} = trexp e in
+        | Not_found -> error pos ("unknown field. " ^ S.name lab); T.NIL in
+      let {exp; ty=e_ty} = trexp e in
       check_type(ty, e_ty, pos); exp::checkrecord(fields, field_tys)
 in trexp exp
 

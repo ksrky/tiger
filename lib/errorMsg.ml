@@ -25,6 +25,7 @@ let error pos (msg:string) =
      List.iter print_string [":";  msg; "\n"]
 
 let impossible msg =
-  List.iter print_string ["Error: Compiler bug: "; msg; "\n"];
+  print_string !fileName;
+  List.iter print_string [": Error: Compiler bug: "; msg; "\n"];
   flush stdout;
   raise Error

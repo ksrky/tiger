@@ -14,6 +14,6 @@
  (libraries tiger))
 
 (executable
- (public_name canon2)
- (modules canon2)
+ (public_name codegen)
+ (modules codegen)
  (libraries tiger))

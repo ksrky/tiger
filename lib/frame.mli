@@ -6,6 +6,8 @@ type register
 
 val fp : Temp.temp
 val rv : Temp.temp
+val ra : Temp.temp
+val argregs : Temp.temp list
 
 val wordSize : int
 val registers : register list

@@ -105,7 +105,7 @@ let rec mkseq = function
   | stm::stms -> T.SEQ(stm, mkseq stms)
 
 let procEntryExit1 (frame: frame) (stm: Tree.stm) : Tree.stm =
-  let accregs =  List.map (fun r -> (allocLocal frame false, r)) (ra::calleesaves) in (*temp: spill *)
+  let accregs =  List.map (fun r -> (allocLocal frame false, r)) (ra::calleesaves) in (* temp: spill, ? *)
   let saves = List.map (fun (a, r) -> T.MOVE(exp a (T.TEMP fp),T.TEMP r)) accregs in
   let restores = List.map (fun (a, r) -> T.MOVE(T.TEMP r, exp a (T.TEMP fp)))  (List.rev accregs) in
   mkseq(frame.instrs @ saves @ [stm] @ restores)
