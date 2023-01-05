@@ -12,13 +12,16 @@ type expty = {exp: Translate.exp; ty: T.ty}
 let error = ErrorMsg.error
 let err_expty = {exp=Tr.nilExp; ty=T.NIL}
 
-let rec check_type(ty, exp_ty, pos) =
+let rec check_type ?(req=false) (ty, exp_ty, pos)=
   let ty' = actual_ty(ty, pos) in
   let exp_ty' = actual_ty(exp_ty, pos) in
   if ty' == exp_ty' || T.NIL == ty' || T.NIL == exp_ty' (* note: checking physical equality *)
     then ()
-    else error pos ("type mismatch. " ^ "expected " ^ T.type2str exp_ty
-      ^ ", but got " ^ T.type2str ty)
+    else if req
+      then error pos ("type mismatch. " ^ "expecting " ^ T.type2str ty
+        ^ ", but got " ^ T.type2str exp_ty) 
+      else error pos ("type mismatch. " ^ "expected " ^ T.type2str exp_ty
+        ^ ", but actual " ^ T.type2str ty)
 
 and actual_ty(ty, pos) =
   let rec walk = function
@@ -75,7 +78,8 @@ let rec transExp(venv, tenv, level, breakpoint, exp) : expty =
         | [] -> []
         | [(e, _)] -> res_ty := (trexp e).ty; [(trexp e).exp]
         | ((e, _) :: se) -> (trexp e).exp :: trexps se in
-      {exp=Tr.seqExp (trexps seqexp); ty=(!res_ty)})
+      let exp = Tr.seqExp (trexps seqexp) in
+      {exp; ty=(!res_ty)})
     | A.AssignExp{var; exp; pos} ->
       let {exp=var_exp; ty=var_ty} = trvar var in
       let {exp=exp_exp; ty=exp_ty} = trexp exp in
@@ -86,7 +90,7 @@ let rec transExp(venv, tenv, level, breakpoint, exp) : expty =
       let {exp=then_exp; ty=then_ty} = trexp then' in
       (match else' with
         | None ->
-          check_type(T.UNIT, then_ty, pos);
+          check_type ~req:true (T.UNIT, then_ty, pos);
           {exp=Tr.ifThenExp test_exp then_exp; ty=T.UNIT}
         | Some(else'') ->
           let {exp=else_exp; ty=else_ty} = trexp else'' in
@@ -97,7 +101,7 @@ let rec transExp(venv, tenv, level, breakpoint, exp) : expty =
       check_int(test_ty, pos);
       let breakpoint = Temp.newlabel() in
       let {exp=body_exp; ty=body_ty} = transExp(venv, tenv, level, Some(breakpoint), body) in
-      check_type(T.UNIT, body_ty, pos);
+      check_type ~req:true (T.UNIT, body_ty, pos);
       {exp=Tr.whileExp(test_exp, body_exp, breakpoint); ty=T.UNIT}
     | A.ForExp{var; escape; lo; hi; body; pos} ->
       let i = A.SimpleVar (var, pos) in
@@ -159,9 +163,7 @@ let rec transExp(venv, tenv, level, breakpoint, exp) : expty =
           let {exp=exp_exp; ty=exp_ty} = trexp exp
           in check_int(exp_ty, pos); {exp=Tr.subscriptVar(var_exp, exp_exp); ty}
         | _ -> error pos "expecting an array"; err_expty
-  and check_int(ty, pos) = match ty with
-    | T.INT -> ()
-    | _ -> error pos "expecting int type"
+  and check_int(ty, pos) = check_type ~req:true (T.INT, ty, pos)
   and checkformals : (A.exp list*T.ty list*A.pos) -> Tr.exp list = function
     | ([], [], _) -> []
     | (e::es, ty::tys, pos) ->
