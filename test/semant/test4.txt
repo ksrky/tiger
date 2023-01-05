@@ -7,93 +7,6 @@ SEQ(
   TEMP t100),
  SEQ(
   MOVE(
-   TEMP t180,
-   TEMP t123),
-  SEQ(
-   MOVE(
-    TEMP t181,
-    TEMP t112),
-   SEQ(
-    MOVE(
-     TEMP t182,
-     TEMP t113),
-    SEQ(
-     MOVE(
-      TEMP t183,
-      TEMP t114),
-     SEQ(
-      MOVE(
-       TEMP t184,
-       TEMP t115),
-      SEQ(
-       MOVE(
-        TEMP t185,
-        TEMP t116),
-       SEQ(
-        MOVE(
-         TEMP t186,
-         TEMP t117),
-        SEQ(
-         MOVE(
-          TEMP t187,
-          TEMP t118),
-         SEQ(
-          MOVE(
-           TEMP t188,
-           TEMP t119),
-          SEQ(
-           MOVE(
-            TEMP t121,
-            ESEQ(
-             EXP(
-              CONST 0),
-             CALL(
-              NAME nfactor,
-               CONST 10))),
-           SEQ(
-            MOVE(
-             TEMP t119,
-             TEMP t188),
-            SEQ(
-             MOVE(
-              TEMP t118,
-              TEMP t187),
-             SEQ(
-              MOVE(
-               TEMP t117,
-               TEMP t186),
-              SEQ(
-               MOVE(
-                TEMP t116,
-                TEMP t185),
-               SEQ(
-                MOVE(
-                 TEMP t115,
-                 TEMP t184),
-                SEQ(
-                 MOVE(
-                  TEMP t114,
-                  TEMP t183),
-                 SEQ(
-                  MOVE(
-                   TEMP t113,
-                   TEMP t182),
-                  SEQ(
-                   MOVE(
-                    TEMP t112,
-                    TEMP t181),
-                   MOVE(
-                    TEMP t123,
-                    TEMP t180))))))))))))))))))))
-SEQ(
- MOVE(
-  MEM(
-   BINOP(PLUS,
-    TEMP t120,
-    CONST 4)),
-  TEMP t100),
- SEQ(
-  MOVE(
    TEMP t171,
    TEMP t123),
   SEQ(
@@ -196,3 +109,90 @@ SEQ(
                    MOVE(
                     TEMP t123,
                     TEMP t171))))))))))))))))))))
+SEQ(
+ MOVE(
+  MEM(
+   BINOP(PLUS,
+    TEMP t120,
+    CONST 4)),
+  TEMP t100),
+ SEQ(
+  MOVE(
+   TEMP t180,
+   TEMP t123),
+  SEQ(
+   MOVE(
+    TEMP t181,
+    TEMP t112),
+   SEQ(
+    MOVE(
+     TEMP t182,
+     TEMP t113),
+    SEQ(
+     MOVE(
+      TEMP t183,
+      TEMP t114),
+     SEQ(
+      MOVE(
+       TEMP t184,
+       TEMP t115),
+      SEQ(
+       MOVE(
+        TEMP t185,
+        TEMP t116),
+       SEQ(
+        MOVE(
+         TEMP t186,
+         TEMP t117),
+        SEQ(
+         MOVE(
+          TEMP t187,
+          TEMP t118),
+         SEQ(
+          MOVE(
+           TEMP t188,
+           TEMP t119),
+          SEQ(
+           MOVE(
+            TEMP t121,
+            ESEQ(
+             EXP(
+              CONST 0),
+             CALL(
+              NAME nfactor,
+               CONST 10))),
+           SEQ(
+            MOVE(
+             TEMP t119,
+             TEMP t188),
+            SEQ(
+             MOVE(
+              TEMP t118,
+              TEMP t187),
+             SEQ(
+              MOVE(
+               TEMP t117,
+               TEMP t186),
+              SEQ(
+               MOVE(
+                TEMP t116,
+                TEMP t185),
+               SEQ(
+                MOVE(
+                 TEMP t115,
+                 TEMP t184),
+                SEQ(
+                 MOVE(
+                  TEMP t114,
+                  TEMP t183),
+                 SEQ(
+                  MOVE(
+                   TEMP t113,
+                   TEMP t182),
+                  SEQ(
+                   MOVE(
+                    TEMP t112,
+                    TEMP t181),
+                   MOVE(
+                    TEMP t123,
+                    TEMP t180))))))))))))))))))))

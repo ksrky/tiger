@@ -1,0 +1,220 @@
+L188:	.asciiz "aname"
+L189:	.asciiz "somewhere"
+L190:	.asciiz ""
+L191:	.asciiz "Kapoios"
+L192:	.asciiz "Kapou"
+L193:	.asciiz "Allos"
+L194:	.asciiz "sdf"
+L195:	.asciiz "sfd"
+L196:	.asciiz "kati"
+LABEL L198
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t120,
+   CONST 4)),
+ TEMP t100)
+MOVE(
+ TEMP t706,
+ TEMP t123)
+MOVE(
+ TEMP t707,
+ TEMP t112)
+MOVE(
+ TEMP t708,
+ TEMP t113)
+MOVE(
+ TEMP t709,
+ TEMP t114)
+MOVE(
+ TEMP t710,
+ TEMP t115)
+MOVE(
+ TEMP t711,
+ TEMP t116)
+MOVE(
+ TEMP t712,
+ TEMP t117)
+MOVE(
+ TEMP t713,
+ TEMP t118)
+MOVE(
+ TEMP t714,
+ TEMP t119)
+MOVE(
+ TEMP t705,
+ CALL(
+  NAME allocRecord,
+   CONST 8))
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t705,
+   CONST 0)),
+ NAME L193)
+MOVE(
+ TEMP t715,
+ BINOP(PLUS,
+  TEMP t705,
+  CONST 4))
+MOVE(
+ TEMP t704,
+ CALL(
+  NAME initArrray,
+   CONST 3,
+   CONST 1900))
+MOVE(
+ MEM(
+  TEMP t715),
+ TEMP t704)
+MOVE(
+ TEMP t703,
+ TEMP t705)
+MOVE(
+ TEMP t702,
+ CALL(
+  NAME allocRecord,
+   CONST 16))
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t702,
+   CONST 0)),
+ NAME L191)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t702,
+   CONST 4)),
+ NAME L192)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t702,
+   CONST 8)),
+ CONST 2432)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t702,
+   CONST 12)),
+ CONST 44)
+MOVE(
+ TEMP t701,
+ TEMP t702)
+MOVE(
+ TEMP t700,
+ CALL(
+  NAME initArrray,
+   CONST 100,
+   NAME L190))
+MOVE(
+ TEMP t699,
+ TEMP t700)
+MOVE(
+ TEMP t697,
+ CALL(
+  NAME allocRecord,
+   CONST 16))
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t697,
+   CONST 0)),
+ NAME L188)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t697,
+   CONST 4)),
+ NAME L189)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t697,
+   CONST 8)),
+ CONST 0)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t697,
+   CONST 12)),
+ CONST 0)
+MOVE(
+ TEMP t698,
+ CALL(
+  NAME initArrray,
+   CONST 5,
+   TEMP t697))
+MOVE(
+ TEMP t696,
+ TEMP t698)
+MOVE(
+ TEMP t695,
+ CALL(
+  NAME initArrray,
+   CONST 10,
+   CONST 0))
+MOVE(
+ TEMP t694,
+ TEMP t695)
+MOVE(
+ CONST 0,
+ CONST 1)
+MOVE(
+ CONST 0,
+ CONST 3)
+MOVE(
+ CONST 0,
+ NAME L196)
+MOVE(
+ CONST 0,
+ CONST 23)
+MOVE(
+ CONST 0,
+ NAME L195)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t701,
+   CONST 0)),
+ NAME L194)
+MOVE(
+ CONST 0,
+ CONST 2323)
+MOVE(
+ CONST 0,
+ CONST 2323)
+MOVE(
+ TEMP t121,
+ CONST 0)
+MOVE(
+ TEMP t119,
+ TEMP t714)
+MOVE(
+ TEMP t118,
+ TEMP t713)
+MOVE(
+ TEMP t117,
+ TEMP t712)
+MOVE(
+ TEMP t116,
+ TEMP t711)
+MOVE(
+ TEMP t115,
+ TEMP t710)
+MOVE(
+ TEMP t114,
+ TEMP t709)
+MOVE(
+ TEMP t113,
+ TEMP t708)
+MOVE(
+ TEMP t112,
+ TEMP t707)
+MOVE(
+ TEMP t123,
+ TEMP t706)
+JUMP(
+ NAME L197)
+LABEL L197

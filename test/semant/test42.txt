@@ -1,3 +1,12 @@
+aname
+somewhere
+
+Kapoios
+Kapou
+Allos
+sdf
+sfd
+kati
 SEQ(
  MOVE(
   MEM(
@@ -251,12 +260,3 @@ SEQ(
                    MOVE(
                     TEMP t123,
                     TEMP t704))))))))))))))))))))
-kati
-sfd
-sdf
-Allos
-Kapou
-Kapoios
-
-somewhere
-aname

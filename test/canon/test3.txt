@@ -1,3 +1,5 @@
+L4:	.asciiz "Nobody"
+L5:	.asciiz "Somebody"
 LABEL L7
 MOVE(
  MEM(
@@ -91,5 +93,3 @@ MOVE(
 JUMP(
  NAME L6)
 LABEL L6
-L5:	.asciiz "Somebody"
-L4:	.asciiz "Nobody"

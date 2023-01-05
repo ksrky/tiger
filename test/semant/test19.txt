@@ -7,87 +7,90 @@ SEQ(
   TEMP t100),
  SEQ(
   MOVE(
-   TEMP t400,
+   TEMP t381,
    TEMP t123),
   SEQ(
    MOVE(
-    TEMP t401,
+    TEMP t382,
     TEMP t112),
    SEQ(
     MOVE(
-     TEMP t402,
+     TEMP t383,
      TEMP t113),
     SEQ(
      MOVE(
-      TEMP t403,
+      TEMP t384,
       TEMP t114),
      SEQ(
       MOVE(
-       TEMP t404,
+       TEMP t385,
        TEMP t115),
       SEQ(
        MOVE(
-        TEMP t405,
+        TEMP t386,
         TEMP t116),
        SEQ(
         MOVE(
-         TEMP t406,
+         TEMP t387,
          TEMP t117),
         SEQ(
          MOVE(
-          TEMP t407,
+          TEMP t388,
           TEMP t118),
          SEQ(
           MOVE(
-           TEMP t408,
+           TEMP t389,
            TEMP t119),
           SEQ(
            MOVE(
             TEMP t121,
             ESEQ(
              EXP(
-              CONST 0),
-             CALL(
-              NAME do_nothing1,
-               CONST 0,
-               NAME L54))),
+              CALL(
+               NAME do_nothing2,
+                TEMP t120,
+                BINOP(PLUS,
+                 TEMP t379,
+                 CONST 1))),
+             CONST 0)),
            SEQ(
             MOVE(
              TEMP t119,
-             TEMP t408),
+             TEMP t389),
             SEQ(
              MOVE(
               TEMP t118,
-              TEMP t407),
+              TEMP t388),
              SEQ(
               MOVE(
                TEMP t117,
-               TEMP t406),
+               TEMP t387),
               SEQ(
                MOVE(
                 TEMP t116,
-                TEMP t405),
+                TEMP t386),
                SEQ(
                 MOVE(
                  TEMP t115,
-                 TEMP t404),
+                 TEMP t385),
                 SEQ(
                  MOVE(
                   TEMP t114,
-                  TEMP t403),
+                  TEMP t384),
                  SEQ(
                   MOVE(
                    TEMP t113,
-                   TEMP t402),
+                   TEMP t383),
                   SEQ(
                    MOVE(
                     TEMP t112,
-                    TEMP t401),
+                    TEMP t382),
                    MOVE(
                     TEMP t123,
-                    TEMP t400))))))))))))))))))))
-str2
-str2
+                    TEMP t381))))))))))))))))))))
+ 
+ 
+str
 SEQ(
  MOVE(
   MEM(
@@ -177,9 +180,8 @@ SEQ(
                    MOVE(
                     TEMP t123,
                     TEMP t391))))))))))))))))))))
-str
- 
- 
+str2
+str2
 SEQ(
  MOVE(
   MEM(
@@ -189,84 +191,82 @@ SEQ(
   TEMP t100),
  SEQ(
   MOVE(
-   TEMP t381,
+   TEMP t400,
    TEMP t123),
   SEQ(
    MOVE(
-    TEMP t382,
+    TEMP t401,
     TEMP t112),
    SEQ(
     MOVE(
-     TEMP t383,
+     TEMP t402,
      TEMP t113),
     SEQ(
      MOVE(
-      TEMP t384,
+      TEMP t403,
       TEMP t114),
      SEQ(
       MOVE(
-       TEMP t385,
+       TEMP t404,
        TEMP t115),
       SEQ(
        MOVE(
-        TEMP t386,
+        TEMP t405,
         TEMP t116),
        SEQ(
         MOVE(
-         TEMP t387,
+         TEMP t406,
          TEMP t117),
         SEQ(
          MOVE(
-          TEMP t388,
+          TEMP t407,
           TEMP t118),
          SEQ(
           MOVE(
-           TEMP t389,
+           TEMP t408,
            TEMP t119),
           SEQ(
            MOVE(
             TEMP t121,
             ESEQ(
              EXP(
-              CALL(
-               NAME do_nothing2,
-                TEMP t120,
-                BINOP(PLUS,
-                 TEMP t379,
-                 CONST 1))),
-             CONST 0)),
+              CONST 0),
+             CALL(
+              NAME do_nothing1,
+               CONST 0,
+               NAME L54))),
            SEQ(
             MOVE(
              TEMP t119,
-             TEMP t389),
+             TEMP t408),
             SEQ(
              MOVE(
               TEMP t118,
-              TEMP t388),
+              TEMP t407),
              SEQ(
               MOVE(
                TEMP t117,
-               TEMP t387),
+               TEMP t406),
               SEQ(
                MOVE(
                 TEMP t116,
-                TEMP t386),
+                TEMP t405),
                SEQ(
                 MOVE(
                  TEMP t115,
-                 TEMP t385),
+                 TEMP t404),
                 SEQ(
                  MOVE(
                   TEMP t114,
-                  TEMP t384),
+                  TEMP t403),
                  SEQ(
                   MOVE(
                    TEMP t113,
-                   TEMP t383),
+                   TEMP t402),
                   SEQ(
                    MOVE(
                     TEMP t112,
-                    TEMP t382),
+                    TEMP t401),
                    MOVE(
                     TEMP t123,
-                    TEMP t381))))))))))))))))))))
+                    TEMP t400))))))))))))))))))))

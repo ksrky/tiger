@@ -68,16 +68,16 @@ let rec linearize(stm0: T.stm) : T.stm list =
 
 in linear(do_stm stm0, [])
 
-(*type block = T.stm list*)
+type block = T.stm list
 
-let basicBlocks (stms: T.stm list) : (T.stm list list * Symbol.symbol) =
+let basicBlocks (stms: T.stm list) : (block list * Symbol.symbol) =
   let done' = Temp.newlabel() in
   let rec blocks = function
     | ((T.LABEL(_) as head) :: tail, blist) ->
       let rec next = function
         | (((T.JUMP _) as s)::rest, thisblock) -> endblock(rest, s::thisblock)
         | (((T.CJUMP _) as s)::rest, thisblock) -> endblock(rest, s::thisblock)
-        | (T.LABEL lab :: _, thisblock) ->
+        | ((T.LABEL lab :: _ as stms), thisblock) ->
             next(T.JUMP(T.NAME lab,[lab]) :: stms, thisblock)
         | (s::rest, thisblock) -> next(rest, s::thisblock)
         | ([], thisblock) -> next([T.JUMP(T.NAME done', [done'])], thisblock)

@@ -1,3 +1,6 @@
+str
+str2
+str2
 SEQ(
  MOVE(
   MEM(
@@ -86,6 +89,3 @@ SEQ(
                    MOVE(
                     TEMP t123,
                     TEMP t203))))))))))))))))))))
-str2
-str2
-str

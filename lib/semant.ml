@@ -27,7 +27,7 @@ and actual_ty(ty, pos) =
   let rec walk = function
     | T.NAME(id, ref) -> (match !ref with
       | Some(ty) -> walk ty
-      | None -> error pos ("type not found " ^ S.name id); T.NIL)
+      | None -> error pos ("unknown type. " ^ S.name id); T.NIL)
     | ty -> ty
   in walk ty
 
@@ -51,27 +51,25 @@ let rec transExp(venv, tenv, level, breakpoint, exp) : expty =
                  (A.DivideOp, Tr.divideExp); (A.LtOp, Tr.ltExp); (A.GtOp, Tr.gtExp);
                  (A.LeOp, Tr.leExp); (A.GeOp, Tr.geExp); (A.EqOp, Tr.eqExp); (A.NeqOp, Tr.neqExp)] in
       let res_exp = (List.assoc oper ops) left_exp right_exp in
-      (match (left_ty, right_ty) with
+      (match (actual_ty (left_ty, pos), actual_ty(right_ty, pos)) with
         | (T.INT, T.INT) -> {exp=res_exp; ty=T.INT}
-        | (T.STRING, T.STRING) ->
-          if List.mem oper [PlusOp; MinusOp; TimesOp; DivideOp]
-            then (error pos "invalid comparison for string"; err_expty)
-            else {exp=res_exp; ty=T.INT}
-        | (ty, ty') when ty = ty' ->
-          if List.mem oper [EqOp; NeqOp]
-            then {exp=res_exp; ty=T.INT}
-            else (error pos "invalid comparison for "; err_expty)
-        | _ -> error pos "comparison of incompatible types"; err_expty)
+        | _ when List.mem oper [PlusOp; MinusOp; TimesOp; DivideOp] ->
+          (error pos ("invalid operation for " ^ T.type2str(right_ty)); err_expty)
+        | (T.STRING, T.STRING) -> {exp=res_exp; ty=T.INT}
+        | _ when List.mem oper [A.LtOp; A.GtOp; A.LeOp; A.GeOp] ->
+          (error pos ("invalid comparison for " ^ T.type2str(right_ty)); err_expty)
+        | (ty, ty') when ty == ty' -> {exp=res_exp; ty=T.INT} (* note: checking physical equality *)
+        | _ -> (error pos ("comparison of incompatible types "
+            ^ T.type2str(left_ty) ^ " with " ^ T.type2str(right_ty)); err_expty))
     | A.RecordExp{fields; typ; pos} ->
       (match S.look(tenv, typ) with
-        | None -> error pos ("type not found " ^ S.name typ); err_expty
-        | Some(rec_ty) -> 
-          let rec_ty' = actual_ty(rec_ty, pos) in
-          match rec_ty' with
+        | None -> error pos ("unknown type. " ^ S.name typ); err_expty
+        | Some(rec_ty) ->
+          match actual_ty(rec_ty, pos) with
             | T.RECORD(field_tys, _) ->
               let fields_exp = checkrecord(fields, field_tys) in
               {exp=Tr.recordExp fields_exp; ty=rec_ty}
-            | _ -> error pos "variable not a record"; err_expty)
+            | _ -> error pos ("expecting record type, but got " ^ T.type2str(rec_ty)); err_expty)
     | A.SeqExp seqexp ->
       (let res_ty = ref T.UNIT in
       let rec trexps = function
@@ -131,7 +129,7 @@ let rec transExp(venv, tenv, level, breakpoint, exp) : expty =
       {exp=Tr.letExp(exps, body_exp); ty=body_ty}
     | A.ArrayExp{typ; size; init; pos} ->
       match S.look(tenv, typ) with
-        | None -> error pos ("type not found " ^ S.name typ); err_expty
+        | None -> error pos ("unknown type. " ^ S.name typ); err_expty
         | Some(arr_ty) ->
           (match actual_ty(arr_ty, pos) with
             | T.ARRAY(ty, _) ->
@@ -140,7 +138,7 @@ let rec transExp(venv, tenv, level, breakpoint, exp) : expty =
               let {exp=init_exp; ty=init_ty} = trexp init in
               check_type(ty, init_ty, pos);
               {exp=Tr.arrayExp size_exp init_exp; ty=arr_ty}
-            | _ -> error pos "variable not an array"; err_expty)
+            | _ -> error pos ("expecting array type, but got " ^ T.type2str(arr_ty)); err_expty)
   and trvar = function
     | A.SimpleVar(id, pos) -> (match S.look(venv, id) with
       | Some(E.VarEntry{access; ty}) -> {exp=Tr.simpleVar(access, level); ty= ty}
@@ -151,30 +149,30 @@ let rec transExp(venv, tenv, level, breakpoint, exp) : expty =
       (match actual_ty(var_ty, pos) with
         | T.RECORD(fields, _) ->
           let rec find i = function
-            | [] -> error pos ("label not found " ^ S.name id); (-1, T.NIL)
+            | [] -> error pos ("unknown field. " ^ S.name id); (-1, T.NIL)
             | ((id', ty') :: rest) -> if id = id' then (i, ty') else find (i+1) rest in
           let (idx, ty') =  find 0 fields in
           {exp=Tr.fieldVar(var_exp, idx); ty=ty'}
-        | _ -> error pos ("expecting a record, but got " ^ T.type2str(var_ty)); err_expty)
+        | _ -> error pos ("expecting record type, but got " ^ T.type2str(var_ty)); err_expty)
     | A.SubscriptVar(var, exp, pos) ->
       let {exp=var_exp; ty=var_ty} = trvar var in
-      match var_ty with
+      match actual_ty(var_ty, pos) with
         | ARRAY(ty,_) ->
           let {exp=exp_exp; ty=exp_ty} = trexp exp
           in check_int(exp_ty, pos); {exp=Tr.subscriptVar(var_exp, exp_exp); ty}
-        | _ -> error pos "expecting an array"; err_expty
+        | _ -> error pos ("expecting array type, but got " ^ T.type2str(var_ty)); err_expty
   and check_int(ty, pos) = check_type ~req:true (T.INT, ty, pos)
   and checkformals : (A.exp list*T.ty list*A.pos) -> Tr.exp list = function
     | ([], [], _) -> []
     | (e::es, ty::tys, pos) ->
       let {exp=e'; ty=e_ty} = trexp e
     in check_type(ty, e_ty, pos); e'::(checkformals(es, tys, pos))
-    | (_, _, pos) -> error pos ""; []
+    | (_, _, pos) -> error pos "wrong number of arguments"; []
   and checkrecord = function
     | ([], _) -> []
     | ((lab, e, pos)::fields, field_tys) ->
       let ty = try List.assoc lab field_tys with
-        | Not_found -> error pos ("label not found " ^ S.name lab); T.NIL
+        | Not_found -> error pos ("unknown field. " ^ S.name lab); T.NIL
       in let {exp; ty=e_ty} = trexp e in
       check_type(ty, e_ty, pos); exp::checkrecord(fields, field_tys)
 in trexp exp
@@ -225,7 +223,7 @@ and transDecs(venv, tenv, level, breakpoint, decs) : (venv * tenv * Tr.exp list)
             Not_found -> check_name_uniq rest in
       let transparam{A.name; A.escape; A.typ; A.pos; _} = match S.look(tenv, typ) with
         | Some(ty) -> (name, !escape, ty, pos)
-        | None -> error pos ("type not found" ^ S.name typ); (name, true, T.NIL, pos) in
+        | None -> error pos ("unknown type." ^ S.name typ); (name, true, T.NIL, pos) in
       let transfun_header(venv, {A.name; A.params; A.result; _}) =
         let rec check_name_uniq : A.field list -> unit = function
           | [] -> ()
@@ -238,12 +236,12 @@ and transDecs(venv, tenv, level, breakpoint, decs) : (venv * tenv * Tr.exp list)
               Not_found -> check_name_uniq rest in
         let formals = List.map (fun {A.typ; A.pos; _} -> match S.look(tenv, typ) with
           | Some(ty) -> ty
-          | None -> error pos ("type not found" ^ S.name typ); T.NIL) params in
+          | None -> error pos ("unknown type." ^ S.name typ); T.NIL) params in
         let res_ty = match result with
           | Some(typ, pos) ->
             (match S.look(tenv, typ) with
               | Some(res_ty) -> res_ty
-              | None -> error pos ("type not found" ^ S.name typ); T.NIL)
+              | None -> error pos ("unknown type." ^ S.name typ); T.NIL)
           | None -> T.UNIT (*no type annotation*) in
         check_name_uniq params;
         S.enter(venv, name, E.FunEntry{level=Tr.newLevel(level, name, []);
@@ -266,7 +264,7 @@ and transDecs(venv, tenv, level, breakpoint, decs) : (venv * tenv * Tr.exp list)
                     | Some(res_ty) ->
                       check_type(res_ty, body_ty, pos);
                       Tr.procEntryExit(newlevel, body_exp)
-                    | None -> error pos ("type not found" ^ S.name typ))
+                    | None -> error pos ("unknown type." ^ S.name typ))
                 | None -> ())
           | _ -> ErrorMsg.impossible "" in
       check_name_uniq fundecs;
@@ -282,7 +280,7 @@ and transDecs(venv, tenv, level, breakpoint, decs) : (venv * tenv * Tr.exp list)
       let var_exp = Tr.simpleVar(access, level) in
       let {exp=init_exp; ty=init_ty} = transExp(venv, tenv, level, breakpoint, init) in
       match S.look(tenv, typ) with
-        | None -> error pos ("type not found " ^ S.name typ); (venv, tenv, exps)
+        | None -> error pos ("unknown type. " ^ S.name typ); (venv, tenv, exps)
         | Some(res_ty) ->
           check_type(res_ty, init_ty, pos);
           (S.enter(venv, name, E.VarEntry{access; ty=init_ty}), tenv, Tr.assignExp(var_exp, init_exp)::exps)
@@ -292,17 +290,17 @@ and transTy(tenv, ty) : T.ty = match ty with
   | A.NameTy(typ, pos) ->
     (match S.look(tenv, typ) with
       | Some(ty) -> ty
-      | None -> error pos ("type not found " ^ S.name typ); T.NIL)
+      | None -> error pos ("unknown type. " ^ S.name typ); T.NIL)
   | A.RecordTy fields ->
     let field_tys = List.map (fun {A.name; typ; pos; _} ->
       match S.look(tenv, typ) with
         | Some(ty) -> (name, ty)
-        | None -> error pos ("type not found " ^ S.name typ); (name, T.NIL)) fields in
+        | None -> error pos ("unknown type. " ^ S.name typ); (name, T.NIL)) fields in
     T.RECORD(field_tys, ref())
   | A.ArrayTy(typ, pos) ->
     match S.look(tenv, typ) with
       | Some(ty) -> T.ARRAY(ty, ref())
-      | None -> error pos ("type not found " ^ S.name typ); T.NIL
+      | None -> error pos ("unknown type. " ^ S.name typ); T.NIL
 
 let transProg exp : Frame.frag list =
   Tr.reset(); (* clear fragments for compiling multiple files *)
