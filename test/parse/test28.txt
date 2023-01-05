@@ -10,7 +10,6 @@ LetExp([
     (id,true,int)])],
  VarDec(rec1,true,Some(rectype1),
   RecordExp(rectype2,[
-
    (name,
     StringExp("Name")),
    (id,

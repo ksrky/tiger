@@ -305,6 +305,7 @@ and transTy(tenv, ty) : T.ty = match ty with
       | None -> error pos ("type not found " ^ S.name typ); T.NIL
 
 let transProg exp : Frame.frag list =
+  Tr.reset(); (* clear fragments for compiling multiple files *)
   let mainlevel = Tr.newLevel(Tr.outermost, Temp.namedlabel "main", []) in
   let {exp; _} = transExp(E.base_venv, E.base_tenv, mainlevel, None, exp) in
   Tr.procEntryExit(mainlevel, exp);

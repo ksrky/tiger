@@ -14,7 +14,6 @@ LetExp([
     (tl,true,treelist)])],
  VarDec(lis,true,Some(intlist),
   RecordExp(intlist,[
-
    (hd,
     IntExp(0)),
    (tl,

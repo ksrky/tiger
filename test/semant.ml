@@ -11,6 +11,6 @@ let () =
   for i = 1 to 49 do
     let filename = "testcases/test" ^ string_of_int i ^ ".tig" in
     let absyn = Tiger.Parse.parse filename in
-    let flags : Tiger.Frame.frag list = (Tiger.FindEscape.findEscape absyn; Tiger.Semant.transProg absyn) in
+    let flags = (Tiger.FindEscape.findEscape absyn; Tiger.Semant.transProg absyn) in
     withOpenFile ("test/semant/test" ^ string_of_int i ^ ".txt") (fun out -> List.iter (printfrag out) flags)
   done

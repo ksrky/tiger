@@ -42,4 +42,5 @@ val arrayExp : exp -> exp -> exp
 (*val functionDec : exp*)
 
 val procEntryExit : level * exp -> unit
+val reset : unit -> unit
 val getResult : unit -> Frame.frag list

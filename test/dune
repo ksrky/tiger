@@ -12,3 +12,8 @@
  (public_name canon)
  (modules canon)
  (libraries tiger))
+
+(executable
+ (public_name canon2)
+ (modules canon2)
+ (libraries tiger))

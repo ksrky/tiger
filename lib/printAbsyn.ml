@@ -55,7 +55,7 @@ let print (outstream, e0) : unit =
               sayln ","; exp(e,d+1);
               say ")")
           in  indent d; say "RecordExp("; say(Symbol.name typ); 
-              sayln ",["; dolist d f fields; say "])" 
+              say ",["; dolist d f fields; say "])" (* modified from original code *)
     | (A.SeqExp l, d) -> (indent d; say "SeqExp["; dolist d exp (List.map fst l); 
                         say "]")
     | (A.AssignExp{var=v; exp=e; _},d) -> 

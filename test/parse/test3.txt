@@ -6,7 +6,6 @@ LetExp([
     (age,true,int)])],
  VarDec(rec1,true,Some(rectype),
   RecordExp(rectype,[
-
    (name,
     StringExp("Nobody")),
    (age,

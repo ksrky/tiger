@@ -62,7 +62,7 @@ let rec linearize(stm0: T.stm) : T.stm list =
     | T.CALL(e, el) -> reorder_exp(e::el, fun (e::el) -> T.CALL(e, el))
     | e -> reorder_exp([],fun [] -> e)
 
-  and linear = function
+  and linear : T.stm * T.stm list -> T.stm list = function
     | (T.SEQ(a, b), l) -> linear(a, linear(b, l))
     | (s, l) -> s::l
 
@@ -70,7 +70,7 @@ in linear(do_stm stm0, [])
 
 (*type block = T.stm list*)
 
-let basicBlocks stms =
+let basicBlocks (stms: T.stm list) : (T.stm list list * Symbol.symbol) =
   let done' = Temp.newlabel() in
   let rec blocks = function
     | ((T.LABEL(_) as head) :: tail, blist) ->
@@ -82,7 +82,7 @@ let basicBlocks stms =
         | (s::rest, thisblock) -> next(rest, s::thisblock)
         | ([], thisblock) -> next([T.JUMP(T.NAME done', [done'])], thisblock)
 
-      and endblock(stms, thisblock) = blocks(stms, List.rev (thisblock :: blist))
+      and endblock(stms, thisblock) = blocks(stms, List.rev thisblock :: blist)
       in next(tail, [head])
     | ([], blist) -> List.rev blist
     | (stms, blist) -> blocks(T.LABEL(Temp.newlabel())::stms, blist)

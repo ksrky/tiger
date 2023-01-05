@@ -28,7 +28,8 @@ let allocLocal(level, esc) =
 
 let fragments = ref []
 
-let getResult() : Frame.frag list = List.rev(!fragments)
+let reset() : unit = fragments := []
+let getResult() : Frame.frag list = !fragments
 
 
 let rec mkseq = function
