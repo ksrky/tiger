@@ -288,7 +288,7 @@ and transDecs(venv, tenv, level, breakpoint, decs) : (venv * tenv * Tr.exp list)
           (S.enter(venv, name, E.VarEntry{access; ty=init_ty}), tenv, Tr.assignExp(var_exp, init_exp)::exps)
   in List.fold_left transDec (venv, tenv, []) decs
 
-and transTy(tenv, ty) = match ty with
+and transTy(tenv, ty) : T.ty = match ty with
   | A.NameTy(typ, pos) ->
     (match S.look(tenv, typ) with
       | Some(ty) -> ty

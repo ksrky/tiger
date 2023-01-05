@@ -3,14 +3,6 @@ open Parser
 
 type pos = Absyn.pos
 exception Error of pos * string
-(*
-type lexresult = Tokens.token
-
-let lineNum = ErrorMsg.lineNum
-let linePos = ErrorMsg.linePos
-let err(p1,p2) = ErrorMsg.error p1
-
-let eof() = let pos = hd(!linePos) in Tokens.EOF(pos,pos*)
 }
 
 let digit = ['0'-'9']

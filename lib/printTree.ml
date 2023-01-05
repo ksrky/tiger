@@ -31,7 +31,7 @@ let printtree (outstream : out_channel) (s0 : T.stm) : unit  =
     | (T.NAME lab, d) -> (indent d; say "NAME "; say (Symbol.name lab))
     | (T.CONST i, d) -> (indent d; say "CONST "; say(string_of_int i))
     | (T.CALL(e, el), d) -> indent d; sayln "CALL("; exp(e, d+1);
-			  List.iter (fun a -> (sayln ","; exp(a, d+2))) el
+			  List.iter (fun a -> (sayln ","; exp(a, d+2))) el; say ")"
 
   and binop : T.binop -> unit = function
     | T.PLUS -> say "PLUS"

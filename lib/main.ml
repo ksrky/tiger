@@ -1,11 +1,11 @@
 let emitproc (out : out_channel) : Frame.frag -> unit = function
   | Frame.PROC{body; frame} ->
     let () = print_endline ("emit " ^ Symbol.name(Frame.name frame)) in
-    let () = PrintTree.printtree out body in
+    (*let () = PrintTree.printtree out body in*)
     let stms : Tree.stm list = Canon.linearize body in
-    let () = List.iter (fun s -> PrintTree.printtree out s) stms in(*
+    (*let () = List.iter (fun s -> PrintTree.printtree out s) stms in*)
     let stms' : Tree.stm list = Canon.traceSchedule(Canon.basicBlocks stms) in
-    let () = List.iter (fun s -> PrintTree.printtree out s) stms' in*)
+    let () = List.iter (fun s -> PrintTree.printtree out s) stms' in
     (*let instrs : Assem.instr list = List.concat(List.map (Codegen.codegen frame) stms') in*)
     (* let instrs2 = Frame.procEntryExit2 (frame, instrs) in *)
     (* let (instrs2', alloc) = RegAlloc.alloc(instrs2, frame) stms' *)

@@ -3,7 +3,10 @@ module TP = Temp
 
 type access = InFrame of int | InReg of TP.temp
 
-type frame = {name: TP.label; formals: access list; locals: int ref}
+type frame =  { name: TP.label
+              ; formals: access list
+              ; locals: int ref
+              ; instrs: T.stm list}
 
 type frag = PROC of {body: T.stm; frame: frame}
           | STRING of TP.label * string
@@ -68,7 +71,11 @@ let tempMap : register Temp.Table.t =
      (s4, "$s4"); (s5, "$s5"); (s6, "$s6"); (s7, "$s7");
      (fp, "$fp"); (rv, "$v0"); (sp, "$sp"); (ra, "$ra")])
 
-let string (label, str) : string = Symbol.name label ^ ": .asciiz \"" ^ str ^ "\"\n" (*temp*)
+let string (lab, str) : string = Symbol.name lab ^ ":\t.asciiz \"" ^ str ^ "\"\n"
+
+let exp = function
+  | InFrame(k) -> fun e -> T.MEM (T.BINOP (T.PLUS, e, T.CONST k))
+  | InReg(t) -> fun _ -> T.TEMP t
 
 let newFrame(name, escs) =
   let allocFormal fmls = function
@@ -77,7 +84,9 @@ let newFrame(name, escs) =
       InFrame ((n_fmls+1) * wordSize) :: fmls
     | false -> InReg(TP.newtemp()) :: fmls in
   let formals = List.rev (List.fold_left allocFormal [] escs) in
-  {name; formals; locals=ref 0}
+  let viewshift acc r = T.MOVE(exp acc (T.TEMP fp), T.TEMP r) in (* temp: number of parameters > number of argregs *)
+  let instrs = List.mapi (fun i acc -> viewshift acc (List.nth argregs i)) formals in (* temp: out of bounds *)
+  {name; formals; locals=ref 0; instrs}
 
 let name {name; _} = name
 
@@ -88,13 +97,18 @@ let allocLocal {locals; _} esc =
     then (locals := !locals + 1; InFrame(- (!locals) * wordSize))
     else InReg(TP.newtemp())
 
-let exp = function
-  | InFrame(k) -> fun e -> T.MEM (T.BINOP (T.PLUS, e, T.CONST k))
-  | InReg(t) -> fun _ -> T.TEMP t
-
 let externalCall(name, args) = T.CALL (T.NAME (TP.namedlabel name), args)
 
-let procEntryExit1(_, stm) = stm (*temp*)
+let rec mkseq = function
+  | [] -> T.EXP(T.CONST 0)
+  | [stm] -> stm
+  | stm::stms -> T.SEQ(stm, mkseq stms)
+
+let procEntryExit1 (frame: frame) (stm: Tree.stm) : Tree.stm =
+  let accregs =  List.map (fun r -> (allocLocal frame false, r)) (ra::calleesaves) in (*temp: spill *)
+  let saves = List.map (fun (a, r) -> T.MOVE(exp a (T.TEMP fp),T.TEMP r)) accregs in
+  let restores = List.map (fun (a, r) -> T.MOVE(T.TEMP r, exp a (T.TEMP fp)))  (List.rev accregs) in
+  mkseq(frame.instrs @ saves @ [stm] @ restores)
 
 let procEntryExit2 (_, body) =
   body @ [Assem.OPER{assem=""; src=[zero; ra; sp]@calleesaves; dst=[]; jump=None}]

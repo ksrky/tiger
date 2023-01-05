@@ -239,5 +239,5 @@ let arrayExp size init =
   )
 
 let procEntryExit ((Level{frame; _}, body) : (level * exp)) : unit =
-  let body' = Frame.procEntryExit1(frame, T.MOVE(T.TEMP Frame.rv, unEx body)) in
+  let body' = Frame.procEntryExit1 frame (T.MOVE(T.TEMP Frame.rv, unEx body)) in
   fragments := Frame.PROC{frame; body=body'} :: !fragments

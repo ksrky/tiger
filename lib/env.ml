@@ -2,9 +2,9 @@ module S = Symbol
 module T = Types
 module Tr = Translate
 
-type ty = Types.ty
-type enventry = VarEntry of {access: Translate.access; ty:ty}
-              | FunEntry of {level: Translate.level;
+type ty = T.ty
+type enventry = VarEntry of {access: Tr.access; ty:ty}
+              | FunEntry of {level: Tr.level;
                             label: Temp.label;
                             formals:ty list; result: ty}
 
