@@ -121,9 +121,7 @@ let rec trace(table, ((T.LABEL lab :: _) as b),rest) =
         | Some(_::_) -> trace(table,b,rest)
         | _ -> getnext(table,rest))
     | (_, []) -> []
-    | (_,l) ->
-      List.iter (fun xs -> List.iter (PrintTree.printtree stdout) xs) l;
-      ErrorMsg.impossible "Canon.getnext got invalid arguments" 
+    | _ ->  ErrorMsg.impossible "Canon.getnext got invalid arguments" 
 
 let traceSchedule(blocks, done') =
   getnext(List.fold_right enterblock blocks Symbol.empty, blocks) @ [T.LABEL done']

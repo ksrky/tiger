@@ -1,0 +1,6 @@
+LetExp([
+ VarDec(a,true,Some(int),
+  StringExp(" "))],
+ SeqExp[
+  VarExp(
+   SimpleVar(a))])

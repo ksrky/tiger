@@ -8,11 +8,15 @@ let emitproc (out : out_channel) : Tiger.Frame.frag -> unit = function
     List.iter (Tiger.PrintTree.printtree out) stms'
   | Tiger.Frame.STRING(lab, s) -> output_string out (Tiger.Frame.string(lab, s))
 
+let withOpenFile (fname : string) (f : out_channel -> unit) : unit = 
+  let out = open_out fname in
+  try f out; close_out out
+  with e -> close_out out; raise e
+  
 let () =
   for i = 1 to 49 do
-    let filename = "../testcases/test" ^ string_of_int i ^ ".tig" in
-    print_endline ("> " ^ filename);
+    let filename = "testcases/test" ^ string_of_int i ^ ".tig" in
     let absyn = Tiger.Parse.parse filename in
     let frags : Tiger.Frame.frag list = (Tiger.FindEscape.findEscape absyn; Tiger.Semant.transProg absyn) in
-    List.iter (emitproc stdout) frags
+    withOpenFile ("test/canon/test" ^ string_of_int i ^ ".txt") (fun out -> List.iter (emitproc out) frags)
   done

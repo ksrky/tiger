@@ -1,0 +1,8 @@
+LetExp([
+ FunctionDec[
+  (nfactor,[
+   (n,true,int)],
+None]],
+ SeqExp[
+  CallExp(nfactor,[
+   IntExp(10)])])

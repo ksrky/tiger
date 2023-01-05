@@ -1,0 +1,19 @@
+LetExp([
+ TypeDec[
+  (arrtype,
+   ArrayTy(int),
+  (rectype,
+   RecordTy[
+    (name,true,string),
+    (id,true,int)])],
+ VarDec(rec,true,None,
+ VarDec(arr,true,None],
+ SeqExp[
+  IfExp(
+   OpExp(NeqOp,
+    VarExp(
+     SimpleVar(rec)),
+    VarExp(
+     SimpleVar(arr))),
+   IntExp(3),
+   IntExp(4))])

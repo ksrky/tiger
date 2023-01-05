@@ -1,0 +1,13 @@
+LetExp([
+ FunctionDec[
+  (do_nothing1,[
+   (a,true,int),
+   (b,true,string)],
+None,
+  (do_nothing2,[
+   (d,true,int)],
+None]],
+ SeqExp[
+  CallExp(do_nothing1,[
+   IntExp(0),
+   StringExp("str2")])])

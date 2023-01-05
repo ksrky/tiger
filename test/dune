@@ -1,5 +1,14 @@
-(tests
- (names parse semant canon)
- (libraries tiger)
- (deps
-  (glob_files ../testcases/test*.tig)))
+(executable
+ (public_name parse)
+ (modules parse)
+ (libraries tiger))
+
+(executable
+ (public_name semant)
+ (modules semant)
+ (libraries tiger))
+
+(executable
+ (public_name canon)
+ (modules canon)
+ (libraries tiger))
