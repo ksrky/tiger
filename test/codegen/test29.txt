@@ -1,0 +1,31 @@
+L142:
+	sw	t100, 4(t120)
+	add	t646, t123, r0
+	add	t647, t112, r0
+	add	t648, t113, r0
+	add	t649, t114, r0
+	add	t650, t115, r0
+	add	t651, t116, r0
+	add	t652, t117, r0
+	add	t653, t118, r0
+	add	t654, t119, r0
+	li	t655, 10
+	add	t100, t655, r0
+	li	t656, 0
+	add	t101, t656, r0
+	la	t657, initArrray
+	jalr	t657
+	add	t645, t121, r0
+	add	t644, t645, r0
+	add	t121, t644, r0
+	add	t119, t654, r0
+	add	t118, t653, r0
+	add	t117, t652, r0
+	add	t116, t651, r0
+	add	t115, t650, r0
+	add	t114, t649, r0
+	add	t113, t648, r0
+	add	t112, t647, r0
+	add	t123, t646, r0
+	b	L141
+L141:

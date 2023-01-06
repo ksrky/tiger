@@ -1,37 +1,37 @@
 L4:	.asciiz "Nobody"
 L5:	.asciiz "Somebody"
 L7:
-	sw	`s0, 4(`s1)
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	li	`d0, 8
-	add	`d0, `s0, r0
-	la	`d0, allocRecord
-	jalr	`s0
-	add	`d0, `s0, r0
-	la	`d0, L4
-	sw	`s0, 0(`s1)
-	li	`d0, 1000
-	sw	`s0, 4(`s1)
-	add	`d0, `s0, r0
-	la	`d0, L5
-	sw	`s0, 0(`s1)
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	b	`j0
+	sw	t100, 4(t120)
+	add	t166, t123, r0
+	add	t167, t112, r0
+	add	t168, t113, r0
+	add	t169, t114, r0
+	add	t170, t115, r0
+	add	t171, t116, r0
+	add	t172, t117, r0
+	add	t173, t118, r0
+	add	t174, t119, r0
+	li	t175, 8
+	add	t100, t175, r0
+	la	t176, allocRecord
+	jalr	t176
+	add	t165, t121, r0
+	la	t177, L4
+	sw	t177, 0(t165)
+	li	t178, 1000
+	sw	t178, 4(t165)
+	add	t164, t165, r0
+	la	t179, L5
+	sw	t179, 0(t164)
+	add	t121, t164, r0
+	add	t119, t174, r0
+	add	t118, t173, r0
+	add	t117, t172, r0
+	add	t116, t171, r0
+	add	t115, t170, r0
+	add	t114, t169, r0
+	add	t113, t168, r0
+	add	t112, t167, r0
+	add	t123, t166, r0
+	b	L6
 L6:

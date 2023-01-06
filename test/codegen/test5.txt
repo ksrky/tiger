@@ -1,0 +1,33 @@
+L16:
+	sw	t100, 4(t120)
+	add	t212, t123, r0
+	add	t213, t112, r0
+	add	t214, t113, r0
+	add	t215, t114, r0
+	add	t216, t115, r0
+	add	t217, t116, r0
+	add	t218, t117, r0
+	add	t219, t118, r0
+	add	t220, t119, r0
+	li	t221, 8
+	add	t100, t221, r0
+	la	t222, allocRecord
+	jalr	t222
+	add	t211, t121, r0
+	li	t223, 0
+	sw	t223, 0(t211)
+	li	t224, 0
+	sw	t224, 4(t211)
+	add	t210, t211, r0
+	add	t121, t210, r0
+	add	t119, t220, r0
+	add	t118, t219, r0
+	add	t117, t218, r0
+	add	t116, t217, r0
+	add	t115, t216, r0
+	add	t114, t215, r0
+	add	t113, t214, r0
+	add	t112, t213, r0
+	add	t123, t212, r0
+	b	L15
+L15:

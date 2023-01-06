@@ -1,0 +1,33 @@
+L148:	.asciiz " "
+L150:
+	sw	t100, 4(t120)
+	add	t690, t123, r0
+	add	t691, t112, r0
+	add	t692, t113, r0
+	add	t693, t114, r0
+	add	t694, t115, r0
+	add	t695, t116, r0
+	add	t696, t117, r0
+	add	t697, t118, r0
+	add	t698, t119, r0
+	li	t699, 10
+	add	t100, t699, r0
+	la	t700, L148
+	add	t101, t700, r0
+	la	t701, initArrray
+	jalr	t701
+	add	t689, t121, r0
+	add	t688, t689, r0
+	li	t702, 0
+	add	t121, t702, r0
+	add	t119, t698, r0
+	add	t118, t697, r0
+	add	t117, t696, r0
+	add	t116, t695, r0
+	add	t115, t694, r0
+	add	t114, t693, r0
+	add	t113, t692, r0
+	add	t112, t691, r0
+	add	t123, t690, r0
+	b	L149
+L149:

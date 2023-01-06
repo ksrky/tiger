@@ -1,0 +1,28 @@
+L116:
+	sw	t100, 4(t120)
+	add	t526, t123, r0
+	add	t527, t112, r0
+	add	t528, t113, r0
+	add	t529, t114, r0
+	add	t530, t115, r0
+	add	t531, t116, r0
+	add	t532, t117, r0
+	add	t533, t118, r0
+	add	t534, t119, r0
+	add	t100, t120, r0
+	li	t535, 10
+	add	t101, t535, r0
+	la	t536, nfactor
+	jalr	t536
+	add	t121, t121, r0
+	add	t119, t534, r0
+	add	t118, t533, r0
+	add	t117, t532, r0
+	add	t116, t531, r0
+	add	t115, t530, r0
+	add	t114, t529, r0
+	add	t113, t528, r0
+	add	t112, t527, r0
+	add	t123, t526, r0
+	b	L115
+L115:

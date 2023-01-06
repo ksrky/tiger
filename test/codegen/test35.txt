@@ -1,0 +1,53 @@
+L164:
+	sw	t100, 4(t120)
+	add	t740, t123, r0
+	add	t741, t112, r0
+	add	t742, t113, r0
+	add	t743, t114, r0
+	add	t744, t115, r0
+	add	t745, t116, r0
+	add	t746, t117, r0
+	add	t747, t118, r0
+	add	t748, t119, r0
+	add	t121, t738, r0
+	add	t119, t748, r0
+	add	t118, t747, r0
+	add	t117, t746, r0
+	add	t116, t745, r0
+	add	t115, t744, r0
+	add	t114, t743, r0
+	add	t113, t742, r0
+	add	t112, t741, r0
+	add	t123, t740, r0
+	b	L163
+L163:
+L161:	.asciiz "one"
+L162:	.asciiz "one"
+L166:
+	sw	t100, 4(t120)
+	add	t749, t123, r0
+	add	t750, t112, r0
+	add	t751, t113, r0
+	add	t752, t114, r0
+	add	t753, t115, r0
+	add	t754, t116, r0
+	add	t755, t117, r0
+	add	t756, t118, r0
+	add	t757, t119, r0
+	add	t100, t120, r0
+	la	t758, L162
+	add	t101, t758, r0
+	la	t759, g
+	jalr	t759
+	add	t121, t121, r0
+	add	t119, t757, r0
+	add	t118, t756, r0
+	add	t117, t755, r0
+	add	t116, t754, r0
+	add	t115, t753, r0
+	add	t114, t752, r0
+	add	t113, t751, r0
+	add	t112, t750, r0
+	add	t123, t749, r0
+	b	L165
+L165:

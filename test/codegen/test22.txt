@@ -1,0 +1,39 @@
+L117:	.asciiz "Name"
+L118:	.asciiz "asd"
+L119:	.asciiz "asd"
+L121:
+	sw	t100, 4(t120)
+	add	t539, t123, r0
+	add	t540, t112, r0
+	add	t541, t113, r0
+	add	t542, t114, r0
+	add	t543, t115, r0
+	add	t544, t116, r0
+	add	t545, t117, r0
+	add	t546, t118, r0
+	add	t547, t119, r0
+	li	t548, 8
+	add	t100, t548, r0
+	la	t549, allocRecord
+	jalr	t549
+	add	t538, t121, r0
+	la	t550, L117
+	sw	t550, 0(t538)
+	li	t551, 0
+	sw	t551, 4(t538)
+	add	t537, t538, r0
+	la	t552, L119
+	sw	t552, -4(t537)
+	li	t553, 0
+	add	t121, t553, r0
+	add	t119, t547, r0
+	add	t118, t546, r0
+	add	t117, t545, r0
+	add	t116, t544, r0
+	add	t115, t543, r0
+	add	t114, t542, r0
+	add	t113, t541, r0
+	add	t112, t540, r0
+	add	t123, t539, r0
+	b	L120
+L120:

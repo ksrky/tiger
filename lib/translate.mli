@@ -1,7 +1,6 @@
 type level  = Level of {parent : level;
                         frame: Frame.frame;
                         unique: unit ref}
-            | Outermost
 
 type access = (level * Frame.access)
 

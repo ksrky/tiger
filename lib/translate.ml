@@ -1,30 +1,26 @@
 module T = Tree
 
-type level  = Level of {parent : level;
+type level  = Level of {parent: level;
                         frame: Frame.frame;
                         unique: unit ref}
-            | Outermost
 
 type access = level * Frame.access
 
 type exp  = Ex of T.exp
           | Nx of T.stm
           | Cx of (Temp.label * Temp.label -> T.stm)
-  
-let outermost = Outermost
+
+let outermost =
+  let rec level = Level { parent=level (* note: lazy evaluation? *)
+                        ; frame=Frame.newFrame(Symbol.symbol("$outermost"), [])
+                        ; unique=ref()}
+  in level (* infinte loop *)
 
 let newLevel (parent, name, formals) =
   let frame = Frame.newFrame(name, true::formals) in
   Level{parent; frame; unique=ref()}
 
-(*let formals lev = match lev with
-  | Level{frame;_} -> List.map (fun fml -> (lev, fml)) (List.tl (Frame.formals frame))
-  | Outermost -> []*)
-
-let allocLocal(level, esc) =
-  match level with
-    | Level{frame; _} -> (level, Frame.allocLocal frame esc)
-    | Outermost -> ErrorMsg.impossible "encounters Outermost"
+let allocLocal(Level{frame; _} as level, esc) = (level, Frame.allocLocal frame esc)
 
 let fragments = ref []
 
@@ -64,18 +60,15 @@ let unCx = function
   | Nx _ -> ErrorMsg.impossible "Translate.unCx recieved Nx"
   | Cx genstm -> genstm
 
-let rec calcStaticLink = function
-  | (Outermost, _) -> ErrorMsg.impossible ""
-  | (_, Outermost) -> ErrorMsg.impossible ""
-  | (Level def_lev, Level cur_lev) ->
+let rec staticLink (Level def_lev, Level cur_lev) : Tree.exp =
     if def_lev.unique == cur_lev.unique (* note: checking physical equality *)
       then T.TEMP(Frame.fp)
       else match Frame.formals cur_lev.frame with
-        | [] -> ErrorMsg.impossible ""
-        | sl::_ -> Frame.exp sl (calcStaticLink(Level def_lev, cur_lev.parent))
+        | [] -> ErrorMsg.impossible "Translate.staticLink. empty formals"
+        | sl::_ -> Frame.exp sl (staticLink(Level def_lev, cur_lev.parent))
 
-let simpleVar ((def_lev, acs), use_lev) =
-  Ex (Frame.exp acs (calcStaticLink(def_lev, use_lev)))
+let simpleVar (((Level def_lev, acs): access), (use_lev: level)) =
+  Ex (Frame.exp acs (staticLink(def_lev.parent, use_lev)))
 
 let fieldVar(rec_exp, idx) =
   Ex
@@ -113,14 +106,13 @@ let stringExp s =
   Ex (T.NAME lab)
 
 let callExp : (level * level * Temp.label * exp list) -> exp = function
-  | (Outermost, _, _, _) -> ErrorMsg.impossible "Translate.callExp passed Outermost"
-  | (_, Outermost, _, _) -> ErrorMsg.impossible "Translate.callExp passed Outermost"
   | (Level def_lev, Level use_lev, fun_lab, arg_exps) ->
-    if def_lev.parent = Outermost
-      then Ex (Frame.externalCall (Symbol.name fun_lab, List.map unEx arg_exps))
-      else
-        let sl = calcStaticLink(Level def_lev, Level use_lev) in
+    try
+      ignore(def_lev.parent); (* check whether def_lev.parent is outermost *)
+      let sl = staticLink(def_lev.parent, Level use_lev) in
         Ex(T.CALL(T.NAME fun_lab, sl::(List.map unEx arg_exps)))
+    with
+      | ErrorMsg.Error -> Ex (Frame.externalCall (Symbol.name fun_lab, List.map unEx arg_exps))
 
 let binOp oper left right =
   let left' = unEx left in

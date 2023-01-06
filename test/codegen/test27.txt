@@ -1,0 +1,53 @@
+L135:
+	sw	t100, 4(t120)
+	add	t608, t123, r0
+	add	t609, t112, r0
+	add	t610, t113, r0
+	add	t611, t114, r0
+	add	t612, t115, r0
+	add	t613, t116, r0
+	add	t614, t117, r0
+	add	t615, t118, r0
+	add	t616, t119, r0
+	add	t121, t607, r0
+	add	t119, t616, r0
+	add	t118, t615, r0
+	add	t117, t614, r0
+	add	t116, t613, r0
+	add	t115, t612, r0
+	add	t114, t611, r0
+	add	t113, t610, r0
+	add	t112, t609, r0
+	add	t123, t608, r0
+	b	L134
+L134:
+L137:
+	sw	t100, 4(t120)
+	add	t617, t123, r0
+	add	t618, t112, r0
+	add	t619, t113, r0
+	add	t620, t114, r0
+	add	t621, t115, r0
+	add	t622, t116, r0
+	add	t623, t117, r0
+	add	t624, t118, r0
+	add	t625, t119, r0
+	li	t626, 0
+	add	t606, t626, r0
+	add	t100, t120, r0
+	li	t627, 2
+	add	t101, t627, r0
+	la	t628, g
+	jalr	t628
+	add	t121, t121, r0
+	add	t119, t625, r0
+	add	t118, t624, r0
+	add	t117, t623, r0
+	add	t116, t622, r0
+	add	t115, t621, r0
+	add	t114, t620, r0
+	add	t113, t619, r0
+	add	t112, t618, r0
+	add	t123, t617, r0
+	b	L136
+L136:

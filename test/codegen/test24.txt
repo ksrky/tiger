@@ -1,0 +1,26 @@
+L128:
+	sw	t100, 4(t120)
+	add	t573, t123, r0
+	add	t574, t112, r0
+	add	t575, t113, r0
+	add	t576, t114, r0
+	add	t577, t115, r0
+	add	t578, t116, r0
+	add	t579, t117, r0
+	add	t580, t118, r0
+	add	t581, t119, r0
+	li	t582, 0
+	add	t572, t582, r0
+	li	t583, 0
+	add	t121, t583, r0
+	add	t119, t581, r0
+	add	t118, t580, r0
+	add	t117, t579, r0
+	add	t116, t578, r0
+	add	t115, t577, r0
+	add	t114, t576, r0
+	add	t113, t575, r0
+	add	t112, t574, r0
+	add	t123, t573, r0
+	b	L127
+L127:

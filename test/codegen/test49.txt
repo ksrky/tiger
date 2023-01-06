@@ -1,0 +1,24 @@
+L219:
+	sw	t100, 4(t120)
+	add	t1043, t123, r0
+	add	t1044, t112, r0
+	add	t1045, t113, r0
+	add	t1046, t114, r0
+	add	t1047, t115, r0
+	add	t1048, t116, r0
+	add	t1049, t117, r0
+	add	t1050, t118, r0
+	add	t1051, t119, r0
+	li	t1052, 0
+	add	t121, t1052, r0
+	add	t119, t1051, r0
+	add	t118, t1050, r0
+	add	t117, t1049, r0
+	add	t116, t1048, r0
+	add	t115, t1047, r0
+	add	t114, t1046, r0
+	add	t113, t1045, r0
+	add	t112, t1044, r0
+	add	t123, t1043, r0
+	b	L218
+L218:

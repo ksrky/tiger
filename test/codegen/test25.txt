@@ -1,0 +1,26 @@
+L130:
+	sw	t100, 4(t120)
+	add	t585, t123, r0
+	add	t586, t112, r0
+	add	t587, t113, r0
+	add	t588, t114, r0
+	add	t589, t115, r0
+	add	t590, t116, r0
+	add	t591, t117, r0
+	add	t592, t118, r0
+	add	t593, t119, r0
+	li	t594, 0
+	add	t584, t594, r0
+	li	t595, 0
+	add	t121, t595, r0
+	add	t119, t593, r0
+	add	t118, t592, r0
+	add	t117, t591, r0
+	add	t116, t590, r0
+	add	t115, t589, r0
+	add	t114, t588, r0
+	add	t113, t587, r0
+	add	t112, t586, r0
+	add	t123, t585, r0
+	b	L129
+L129:

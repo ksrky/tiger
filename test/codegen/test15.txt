@@ -1,0 +1,31 @@
+L78:
+	sw	t100, 4(t120)
+	add	t397, t123, r0
+	add	t398, t112, r0
+	add	t399, t113, r0
+	add	t400, t114, r0
+	add	t401, t115, r0
+	add	t402, t116, r0
+	add	t403, t117, r0
+	add	t404, t118, r0
+	add	t405, t119, r0
+	li	t406, 0
+	li	t407, 20
+	bne	t407, t406, L75
+b L76
+L76:
+	li	t408, 0
+	add	t121, t408, r0
+	add	t119, t405, r0
+	add	t118, t404, r0
+	add	t117, t403, r0
+	add	t116, t402, r0
+	add	t115, t401, r0
+	add	t114, t400, r0
+	add	t113, t399, r0
+	add	t112, t398, r0
+	add	t123, t397, r0
+	b	L77
+L75:
+	b	L76
+L77:

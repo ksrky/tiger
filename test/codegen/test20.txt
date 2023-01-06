@@ -1,0 +1,32 @@
+L111:
+	sw	t100, 4(t120)
+	add	t512, t123, r0
+	add	t513, t112, r0
+	add	t514, t113, r0
+	add	t515, t114, r0
+	add	t516, t115, r0
+	add	t517, t116, r0
+	add	t518, t117, r0
+	add	t519, t118, r0
+	add	t520, t119, r0
+L108:
+	li	t521, 5
+	li	t522, 10
+	bgt	t522, t521, L109
+b L107
+L107:
+	li	t523, 0
+	add	t121, t523, r0
+	add	t119, t520, r0
+	add	t118, t519, r0
+	add	t117, t518, r0
+	add	t116, t517, r0
+	add	t115, t516, r0
+	add	t114, t515, r0
+	add	t113, t514, r0
+	add	t112, t513, r0
+	add	t123, t512, r0
+	b	L110
+L109:
+	b	L108
+L110:

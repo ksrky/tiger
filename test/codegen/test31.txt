@@ -1,0 +1,26 @@
+L145:	.asciiz " "
+L147:
+	sw	t100, 4(t120)
+	add	t678, t123, r0
+	add	t679, t112, r0
+	add	t680, t113, r0
+	add	t681, t114, r0
+	add	t682, t115, r0
+	add	t683, t116, r0
+	add	t684, t117, r0
+	add	t685, t118, r0
+	add	t686, t119, r0
+	la	t687, L145
+	add	t677, t687, r0
+	add	t121, t677, r0
+	add	t119, t686, r0
+	add	t118, t685, r0
+	add	t117, t684, r0
+	add	t116, t683, r0
+	add	t115, t682, r0
+	add	t114, t681, r0
+	add	t113, t680, r0
+	add	t112, t679, r0
+	add	t123, t678, r0
+	b	L146
+L146:

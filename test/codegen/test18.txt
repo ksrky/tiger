@@ -1,0 +1,92 @@
+L91:
+	sw	t100, 4(t120)
+	add	t432, t123, r0
+	add	t433, t112, r0
+	add	t434, t113, r0
+	add	t435, t114, r0
+	add	t436, t115, r0
+	add	t437, t116, r0
+	add	t438, t117, r0
+	add	t439, t118, r0
+	add	t440, t119, r0
+	li	t461, 0
+	add	t121, t461, r0
+	add	t119, t440, r0
+	add	t118, t439, r0
+	add	t117, t438, r0
+	add	t116, t437, r0
+	add	t115, t436, r0
+	add	t114, t435, r0
+	add	t113, t434, r0
+	add	t112, t433, r0
+	add	t123, t432, r0
+	b	L90
+L90:
+L85:	.asciiz " "
+L86:	.asciiz " "
+L87:	.asciiz "str"
+L93:
+	sw	t100, 4(t120)
+	add	t443, t123, r0
+	add	t444, t112, r0
+	add	t445, t113, r0
+	add	t446, t114, r0
+	add	t447, t115, r0
+	add	t448, t116, r0
+	add	t449, t117, r0
+	add	t450, t118, r0
+	add	t451, t119, r0
+	lw	t462, 4(t120)
+	add	t100, t462, r0
+	add	t101, t442, r0
+	la	t463, L87
+	add	t102, t463, r0
+	la	t464, do_nothing1
+	jalr	t464
+	la	t465, L86
+	add	t121, t465, r0
+	add	t119, t451, r0
+	add	t118, t450, r0
+	add	t117, t449, r0
+	add	t116, t448, r0
+	add	t115, t447, r0
+	add	t114, t446, r0
+	add	t113, t445, r0
+	add	t112, t444, r0
+	add	t123, t443, r0
+	b	L92
+L92:
+L88:	.asciiz "str2"
+L89:	.asciiz "str2"
+L95:
+	sw	t100, 4(t120)
+	add	t452, t123, r0
+	add	t453, t112, r0
+	add	t454, t113, r0
+	add	t455, t114, r0
+	add	t456, t115, r0
+	add	t457, t116, r0
+	add	t458, t117, r0
+	add	t459, t118, r0
+	add	t460, t119, r0
+	li	t466, 0
+	add	t441, t466, r0
+	add	t100, t120, r0
+	li	t467, 0
+	add	t101, t467, r0
+	la	t468, L89
+	add	t102, t468, r0
+	la	t469, do_nothing1
+	jalr	t469
+	add	t121, t121, r0
+	add	t119, t460, r0
+	add	t118, t459, r0
+	add	t117, t458, r0
+	add	t116, t457, r0
+	add	t115, t456, r0
+	add	t114, t455, r0
+	add	t113, t454, r0
+	add	t112, t453, r0
+	add	t123, t452, r0
+	b	L94
+L94:

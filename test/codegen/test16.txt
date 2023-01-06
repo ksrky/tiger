@@ -1,0 +1,26 @@
+L79:	.asciiz ""
+L80:	.asciiz ""
+L82:
+	sw	t100, 4(t120)
+	add	t409, t123, r0
+	add	t410, t112, r0
+	add	t411, t113, r0
+	add	t412, t114, r0
+	add	t413, t115, r0
+	add	t414, t116, r0
+	add	t415, t117, r0
+	add	t416, t118, r0
+	add	t417, t119, r0
+	la	t418, L80
+	add	t121, t418, r0
+	add	t119, t417, r0
+	add	t118, t416, r0
+	add	t117, t415, r0
+	add	t116, t414, r0
+	add	t115, t413, r0
+	add	t114, t412, r0
+	add	t113, t411, r0
+	add	t112, t410, r0
+	add	t123, t409, r0
+	b	L81
+L81:

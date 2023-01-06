@@ -1,0 +1,97 @@
+L102:
+	sw	t100, 4(t120)
+	add	t472, t123, r0
+	add	t473, t112, r0
+	add	t474, t113, r0
+	add	t475, t114, r0
+	add	t476, t115, r0
+	add	t477, t116, r0
+	add	t478, t117, r0
+	add	t479, t118, r0
+	add	t480, t119, r0
+	lw	t500, 4(t120)
+	add	t100, t500, r0
+	addiu	t501, t470, 1
+	add	t101, t501, r0
+	la	t502, do_nothing2
+	jalr	t502
+	li	t503, 0
+	add	t121, t503, r0
+	add	t119, t480, r0
+	add	t118, t479, r0
+	add	t117, t478, r0
+	add	t116, t477, r0
+	add	t115, t476, r0
+	add	t114, t475, r0
+	add	t113, t474, r0
+	add	t112, t473, r0
+	add	t123, t472, r0
+	b	L101
+L101:
+L96:	.asciiz " "
+L97:	.asciiz " "
+L98:	.asciiz "str"
+L104:
+	sw	t100, 4(t120)
+	add	t482, t123, r0
+	add	t483, t112, r0
+	add	t484, t113, r0
+	add	t485, t114, r0
+	add	t486, t115, r0
+	add	t487, t116, r0
+	add	t488, t117, r0
+	add	t489, t118, r0
+	add	t490, t119, r0
+	lw	t504, 4(t120)
+	add	t100, t504, r0
+	li	t505, 0
+	add	t101, t505, r0
+	la	t506, L98
+	add	t102, t506, r0
+	la	t507, do_nothing1
+	jalr	t507
+	la	t508, L97
+	add	t121, t508, r0
+	add	t119, t490, r0
+	add	t118, t489, r0
+	add	t117, t488, r0
+	add	t116, t487, r0
+	add	t115, t486, r0
+	add	t114, t485, r0
+	add	t113, t484, r0
+	add	t112, t483, r0
+	add	t123, t482, r0
+	b	L103
+L103:
+L99:	.asciiz "str2"
+L100:	.asciiz "str2"
+L106:
+	sw	t100, 4(t120)
+	add	t491, t123, r0
+	add	t492, t112, r0
+	add	t493, t113, r0
+	add	t494, t114, r0
+	add	t495, t115, r0
+	add	t496, t116, r0
+	add	t497, t117, r0
+	add	t498, t118, r0
+	add	t499, t119, r0
+	add	t100, t120, r0
+	li	t509, 0
+	add	t101, t509, r0
+	la	t510, L100
+	add	t102, t510, r0
+	la	t511, do_nothing1
+	jalr	t511
+	add	t121, t121, r0
+	add	t119, t499, r0
+	add	t118, t498, r0
+	add	t117, t497, r0
+	add	t116, t496, r0
+	add	t115, t495, r0
+	add	t114, t494, r0
+	add	t113, t493, r0
+	add	t112, t492, r0
+	add	t123, t491, r0
+	b	L105
+L105:

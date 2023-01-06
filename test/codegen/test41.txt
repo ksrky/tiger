@@ -1,0 +1,24 @@
+L187:
+	sw	t100, 4(t120)
+	add	t849, t123, r0
+	add	t850, t112, r0
+	add	t851, t113, r0
+	add	t852, t114, r0
+	add	t853, t115, r0
+	add	t854, t116, r0
+	add	t855, t117, r0
+	add	t856, t118, r0
+	add	t857, t119, r0
+	li	t858, 0
+	add	t121, t858, r0
+	add	t119, t857, r0
+	add	t118, t856, r0
+	add	t117, t855, r0
+	add	t116, t854, r0
+	add	t115, t853, r0
+	add	t114, t852, r0
+	add	t113, t851, r0
+	add	t112, t850, r0
+	add	t123, t849, r0
+	b	L186
+L186:

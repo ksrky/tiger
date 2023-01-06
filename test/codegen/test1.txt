@@ -1,31 +1,31 @@
 L1:
-	sw	`s0, 4(`s1)
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	li	`d0, 10
-	add	`d0, `s0, r0
-	li	`d0, 0
-	add	`d0, `s0, r0
-	la	`d0, initArrray
-	jalr	`s0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	add	`d0, `s0, r0
-	b	`j0
+	sw	t100, 4(t120)
+	add	t138, t123, r0
+	add	t139, t112, r0
+	add	t140, t113, r0
+	add	t141, t114, r0
+	add	t142, t115, r0
+	add	t143, t116, r0
+	add	t144, t117, r0
+	add	t145, t118, r0
+	add	t146, t119, r0
+	li	t147, 10
+	add	t100, t147, r0
+	li	t148, 0
+	add	t101, t148, r0
+	la	t149, initArrray
+	jalr	t149
+	add	t137, t121, r0
+	add	t136, t137, r0
+	add	t121, t136, r0
+	add	t119, t146, r0
+	add	t118, t145, r0
+	add	t117, t144, r0
+	add	t116, t143, r0
+	add	t115, t142, r0
+	add	t114, t141, r0
+	add	t113, t140, r0
+	add	t112, t139, r0
+	add	t123, t138, r0
+	b	L0
 L0:

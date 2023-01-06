@@ -1,0 +1,96 @@
+L28:
+	sw	t100, 4(t120)
+	add	t242, t123, r0
+	add	t243, t112, r0
+	add	t244, t113, r0
+	add	t245, t114, r0
+	add	t246, t115, r0
+	add	t247, t116, r0
+	add	t248, t117, r0
+	add	t249, t118, r0
+	add	t250, t119, r0
+	lw	t270, 4(t120)
+	add	t100, t270, r0
+	addiu	t271, t240, 1
+	add	t101, t271, r0
+	la	t272, do_nothing2
+	jalr	t272
+	li	t273, 0
+	add	t121, t273, r0
+	add	t119, t250, r0
+	add	t118, t249, r0
+	add	t117, t248, r0
+	add	t116, t247, r0
+	add	t115, t246, r0
+	add	t114, t245, r0
+	add	t113, t244, r0
+	add	t112, t243, r0
+	add	t123, t242, r0
+	b	L27
+L27:
+L22:	.asciiz " "
+L23:	.asciiz " "
+L24:	.asciiz "str"
+L30:
+	sw	t100, 4(t120)
+	add	t252, t123, r0
+	add	t253, t112, r0
+	add	t254, t113, r0
+	add	t255, t114, r0
+	add	t256, t115, r0
+	add	t257, t116, r0
+	add	t258, t117, r0
+	add	t259, t118, r0
+	add	t260, t119, r0
+	lw	t274, 4(t120)
+	add	t100, t274, r0
+	add	t101, t251, r0
+	la	t275, L24
+	add	t102, t275, r0
+	la	t276, do_nothing1
+	jalr	t276
+	la	t277, L23
+	add	t121, t277, r0
+	add	t119, t260, r0
+	add	t118, t259, r0
+	add	t117, t258, r0
+	add	t116, t257, r0
+	add	t115, t256, r0
+	add	t114, t255, r0
+	add	t113, t254, r0
+	add	t112, t253, r0
+	add	t123, t252, r0
+	b	L29
+L29:
+L25:	.asciiz "str2"
+L26:	.asciiz "str2"
+L32:
+	sw	t100, 4(t120)
+	add	t261, t123, r0
+	add	t262, t112, r0
+	add	t263, t113, r0
+	add	t264, t114, r0
+	add	t265, t115, r0
+	add	t266, t116, r0
+	add	t267, t117, r0
+	add	t268, t118, r0
+	add	t269, t119, r0
+	add	t100, t120, r0
+	li	t278, 0
+	add	t101, t278, r0
+	la	t279, L26
+	add	t102, t279, r0
+	la	t280, do_nothing1
+	jalr	t280
+	add	t121, t121, r0
+	add	t119, t269, r0
+	add	t118, t268, r0
+	add	t117, t267, r0
+	add	t116, t266, r0
+	add	t115, t265, r0
+	add	t114, t264, r0
+	add	t113, t263, r0
+	add	t112, t262, r0
+	add	t123, t261, r0
+	b	L31
+L31:

@@ -1,0 +1,40 @@
+L62:
+	sw	t100, 4(t120)
+	add	t346, t123, r0
+	add	t347, t112, r0
+	add	t348, t113, r0
+	add	t349, t114, r0
+	add	t350, t115, r0
+	add	t351, t116, r0
+	add	t352, t117, r0
+	add	t353, t118, r0
+	add	t354, t119, r0
+	li	t355, 0
+	add	t341, t355, r0
+	li	t356, 100
+	add	t345, t356, r0
+	li	t357, 0
+	add	t344, t357, r0
+L59:
+	ble t344, t345, L60
+b L58
+L58:
+	li	t358, 0
+	add	t121, t358, r0
+	add	t119, t354, r0
+	add	t118, t353, r0
+	add	t117, t352, r0
+	add	t116, t351, r0
+	add	t115, t350, r0
+	add	t114, t349, r0
+	add	t113, t348, r0
+	add	t112, t347, r0
+	add	t123, t346, r0
+	b	L61
+L60:
+	addiu	t359, t341, 1
+	add	t341, t359, r0
+	addiu	t360, t344, 1
+	add	t344, t360, r0
+	b	L59
+L61:

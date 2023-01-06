@@ -1,0 +1,149 @@
+L188:	.asciiz "aname"
+L189:	.asciiz "somewhere"
+L190:	.asciiz ""
+L191:	.asciiz "Kapoios"
+L192:	.asciiz "Kapou"
+L193:	.asciiz "Allos"
+L194:	.asciiz "sdf"
+L195:	.asciiz "sfd"
+L196:	.asciiz "kati"
+L198:
+	sw	t100, 4(t120)
+	add	t871, t123, r0
+	add	t872, t112, r0
+	add	t873, t113, r0
+	add	t874, t114, r0
+	add	t875, t115, r0
+	add	t876, t116, r0
+	add	t877, t117, r0
+	add	t878, t118, r0
+	add	t879, t119, r0
+	li	t881, 8
+	add	t100, t881, r0
+	la	t882, allocRecord
+	jalr	t882
+	add	t870, t121, r0
+	la	t883, L193
+	sw	t883, 0(t870)
+	addiu	t884, t870, 4
+	add	t880, t884, r0
+	li	t885, 3
+	add	t100, t885, r0
+	li	t886, 1900
+	add	t101, t886, r0
+	la	t887, initArrray
+	jalr	t887
+	add	t869, t121, r0
+	sw	t880, 0(t869)
+	add	t868, t870, r0
+	li	t888, 16
+	add	t100, t888, r0
+	la	t889, allocRecord
+	jalr	t889
+	add	t867, t121, r0
+	la	t890, L191
+	sw	t890, 0(t867)
+	la	t891, L192
+	sw	t891, 4(t867)
+	li	t892, 2432
+	sw	t892, 8(t867)
+	li	t893, 44
+	sw	t893, 12(t867)
+	add	t866, t867, r0
+	li	t894, 100
+	add	t100, t894, r0
+	la	t895, L190
+	add	t101, t895, r0
+	la	t896, initArrray
+	jalr	t896
+	add	t865, t121, r0
+	add	t864, t865, r0
+	li	t897, 16
+	add	t100, t897, r0
+	la	t898, allocRecord
+	jalr	t898
+	add	t862, t121, r0
+	la	t899, L188
+	sw	t899, 0(t862)
+	la	t900, L189
+	sw	t900, 4(t862)
+	li	t901, 0
+	sw	t901, 8(t862)
+	li	t902, 0
+	sw	t902, 12(t862)
+	li	t903, 5
+	add	t100, t903, r0
+	add	t101, t862, r0
+	la	t904, initArrray
+	jalr	t904
+	add	t863, t121, r0
+	add	t861, t863, r0
+	li	t905, 10
+	add	t100, t905, r0
+	li	t906, 0
+	add	t101, t906, r0
+	la	t907, initArrray
+	jalr	t907
+	add	t860, t121, r0
+	add	t859, t860, r0
+	li	t908, 1
+	li	t911, 4
+	li	t912, 0
+	mul	t910, t912, t911
+	add	t909, t859, t910
+	sw	t909, 0(t908)
+	li	t913, 3
+	li	t916, 4
+	li	t917, 9
+	mul	t915, t917, t916
+	add	t914, t859, t915
+	sw	t914, 0(t913)
+	li	t921, 4
+	li	t922, 3
+	mul	t920, t922, t921
+	add	t919, t861, t920
+	lw	t918, 0(t919)
+	la	t923, L196
+	sw	t923, 0(t918)
+	li	t927, 4
+	li	t928, 1
+	mul	t926, t928, t927
+	add	t925, t861, t926
+	lw	t924, 0(t925)
+	li	t929, 23
+	sw	t929, 12(t924)
+	la	t930, L195
+	li	t933, 4
+	li	t934, 34
+	mul	t932, t934, t933
+	add	t931, t864, t932
+	sw	t931, 0(t930)
+	la	t935, L194
+	sw	t935, 0(t866)
+	li	t936, 2323
+	li	t939, 4
+	li	t940, 0
+	mul	t938, t940, t939
+	lw	t941, 4(t868)
+	add	t937, t941, t938
+	sw	t937, 0(t936)
+	li	t942, 2323
+	li	t945, 4
+	li	t946, 2
+	mul	t944, t946, t945
+	lw	t947, 4(t868)
+	add	t943, t947, t944
+	sw	t943, 0(t942)
+	li	t948, 0
+	add	t121, t948, r0
+	add	t119, t879, r0
+	add	t118, t878, r0
+	add	t117, t877, r0
+	add	t116, t876, r0
+	add	t115, t875, r0
+	add	t114, t874, r0
+	add	t113, t873, r0
+	add	t112, t872, r0
+	add	t123, t871, r0
+	b	L197
+L197:

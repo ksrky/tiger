@@ -1,0 +1,41 @@
+L49:	.asciiz " "
+L54:
+	sw	t100, 4(t120)
+	add	t325, t123, r0
+	add	t326, t112, r0
+	add	t327, t113, r0
+	add	t328, t114, r0
+	add	t329, t115, r0
+	add	t330, t116, r0
+	add	t331, t117, r0
+	add	t332, t118, r0
+	add	t333, t119, r0
+	la	t334, L49
+	add	t324, t334, r0
+	li	t335, 10
+	add	t323, t335, r0
+L51:
+	li	t336, 0
+	li	t337, 0
+	bne	t337, t336, L52
+b L50
+L50:
+	li	t338, 0
+	add	t121, t338, r0
+	add	t119, t333, r0
+	add	t118, t332, r0
+	add	t117, t331, r0
+	add	t116, t330, r0
+	add	t115, t329, r0
+	add	t114, t328, r0
+	add	t113, t327, r0
+	add	t112, t326, r0
+	add	t123, t325, r0
+	b	L53
+L52:
+	addiu	t339, t323, -1
+	add	t323, t339, r0
+	addiu	t340, t323, 1
+	add	t323, t340, r0
+	b	L51
+L53:

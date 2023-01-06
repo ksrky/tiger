@@ -1,0 +1,33 @@
+L17:	.asciiz "str"
+L18:	.asciiz "str2"
+L19:	.asciiz "str2"
+L21:
+	sw	t100, 4(t120)
+	add	t228, t123, r0
+	add	t229, t112, r0
+	add	t230, t113, r0
+	add	t231, t114, r0
+	add	t232, t115, r0
+	add	t233, t116, r0
+	add	t234, t117, r0
+	add	t235, t118, r0
+	add	t236, t119, r0
+	add	t100, t120, r0
+	li	t237, 0
+	add	t101, t237, r0
+	la	t238, L19
+	add	t102, t238, r0
+	la	t239, do_nothing1
+	jalr	t239
+	add	t121, t121, r0
+	add	t119, t236, r0
+	add	t118, t235, r0
+	add	t117, t234, r0
+	add	t116, t233, r0
+	add	t115, t232, r0
+	add	t114, t231, r0
+	add	t113, t230, r0
+	add	t112, t229, r0
+	add	t123, t228, r0
+	b	L20
+L20:

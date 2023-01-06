@@ -1,0 +1,25 @@
+L131:	.asciiz "var"
+L133:
+	sw	t100, 4(t120)
+	add	t596, t123, r0
+	add	t597, t112, r0
+	add	t598, t113, r0
+	add	t599, t114, r0
+	add	t600, t115, r0
+	add	t601, t116, r0
+	add	t602, t117, r0
+	add	t603, t118, r0
+	add	t604, t119, r0
+	li	t605, 0
+	add	t121, t605, r0
+	add	t119, t604, r0
+	add	t118, t603, r0
+	add	t117, t602, r0
+	add	t116, t601, r0
+	add	t115, t600, r0
+	add	t114, t599, r0
+	add	t113, t598, r0
+	add	t112, t597, r0
+	add	t123, t596, r0
+	b	L132
+L132:

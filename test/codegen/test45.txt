@@ -1,0 +1,25 @@
+L204:
+	sw	t100, 4(t120)
+	add	t975, t123, r0
+	add	t976, t112, r0
+	add	t977, t113, r0
+	add	t978, t114, r0
+	add	t979, t115, r0
+	add	t980, t116, r0
+	add	t981, t117, r0
+	add	t982, t118, r0
+	add	t983, t119, r0
+	li	t984, 0
+	add	t974, t984, r0
+	add	t121, t974, r0
+	add	t119, t983, r0
+	add	t118, t982, r0
+	add	t117, t981, r0
+	add	t116, t980, r0
+	add	t115, t979, r0
+	add	t114, t978, r0
+	add	t113, t977, r0
+	add	t112, t976, r0
+	add	t123, t975, r0
+	b	L203
+L203:

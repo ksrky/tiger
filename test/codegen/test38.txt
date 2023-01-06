@@ -1,0 +1,24 @@
+L177:
+	sw	t100, 4(t120)
+	add	t797, t123, r0
+	add	t798, t112, r0
+	add	t799, t113, r0
+	add	t800, t114, r0
+	add	t801, t115, r0
+	add	t802, t116, r0
+	add	t803, t117, r0
+	add	t804, t118, r0
+	add	t805, t119, r0
+	li	t806, 0
+	add	t121, t806, r0
+	add	t119, t805, r0
+	add	t118, t804, r0
+	add	t117, t803, r0
+	add	t116, t802, r0
+	add	t115, t801, r0
+	add	t114, t800, r0
+	add	t113, t799, r0
+	add	t112, t798, r0
+	add	t123, t797, r0
+	b	L176
+L176:

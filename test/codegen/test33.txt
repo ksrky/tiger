@@ -1,0 +1,26 @@
+L152:
+	sw	t100, 4(t120)
+	add	t704, t123, r0
+	add	t705, t112, r0
+	add	t706, t113, r0
+	add	t707, t114, r0
+	add	t708, t115, r0
+	add	t709, t116, r0
+	add	t710, t117, r0
+	add	t711, t118, r0
+	add	t712, t119, r0
+	li	t713, 0
+	add	t703, t713, r0
+	li	t714, 0
+	add	t121, t714, r0
+	add	t119, t712, r0
+	add	t118, t711, r0
+	add	t117, t710, r0
+	add	t116, t709, r0
+	add	t115, t708, r0
+	add	t114, t707, r0
+	add	t113, t706, r0
+	add	t112, t705, r0
+	add	t123, t704, r0
+	b	L151
+L151:

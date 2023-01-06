@@ -1,0 +1,36 @@
+L144:
+	sw	t100, 4(t120)
+	add	t660, t123, r0
+	add	t661, t112, r0
+	add	t662, t113, r0
+	add	t663, t114, r0
+	add	t664, t115, r0
+	add	t665, t116, r0
+	add	t666, t117, r0
+	add	t667, t118, r0
+	add	t668, t119, r0
+	li	t669, 10
+	add	t100, t669, r0
+	li	t670, 0
+	add	t101, t670, r0
+	la	t671, initArrray
+	jalr	t671
+	add	t659, t121, r0
+	add	t658, t659, r0
+	li	t675, 4
+	li	t676, 2
+	mul	t674, t676, t675
+	add	t673, t658, t674
+	lw	t672, 0(t673)
+	add	t121, t672, r0
+	add	t119, t668, r0
+	add	t118, t667, r0
+	add	t117, t666, r0
+	add	t116, t665, r0
+	add	t115, t664, r0
+	add	t114, t663, r0
+	add	t113, t662, r0
+	add	t112, t661, r0
+	add	t123, t660, r0
+	b	L143
+L143:

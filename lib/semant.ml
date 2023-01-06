@@ -266,7 +266,7 @@ and transDecs(venv, tenv, level, breakpoint, decs) : (venv * tenv * Tr.exp list)
                       Tr.procEntryExit(newlevel, body_exp)
                     | None -> error pos ("unknown type." ^ S.name typ))
                 | None -> ())
-          | _ -> ErrorMsg.impossible "" in
+          | _ -> ErrorMsg.impossible "transfun_body at Semant.transDec" in
       check_name_uniq fundecs;
       List.iter transfun_body fundecs;
       (venv', tenv, exps)

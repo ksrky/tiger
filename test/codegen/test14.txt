@@ -1,0 +1,54 @@
+L66:	.asciiz "aname"
+L74:
+	sw	t100, 4(t120)
+	add	t377, t123, r0
+	add	t378, t112, r0
+	add	t379, t113, r0
+	add	t380, t114, r0
+	add	t381, t115, r0
+	add	t382, t116, r0
+	add	t383, t117, r0
+	add	t384, t118, r0
+	add	t385, t119, r0
+	li	t386, 3
+	add	t100, t386, r0
+	li	t387, 0
+	add	t101, t387, r0
+	la	t388, initArrray
+	jalr	t388
+	add	t374, t121, r0
+	add	t373, t374, r0
+	li	t389, 8
+	add	t100, t389, r0
+	la	t390, allocRecord
+	jalr	t390
+	add	t372, t121, r0
+	la	t391, L66
+	sw	t391, 0(t372)
+	li	t392, 0
+	sw	t392, 4(t372)
+	add	t371, t372, r0
+	li	t393, 0
+	li	t394, 0
+	bne	t394, t393, L70
+b L71
+L71:
+	li	t395, 4
+	add	t376, t395, r0
+L72:
+	add	t121, t376, r0
+	add	t119, t385, r0
+	add	t118, t384, r0
+	add	t117, t383, r0
+	add	t116, t382, r0
+	add	t115, t381, r0
+	add	t114, t380, r0
+	add	t113, t379, r0
+	add	t112, t378, r0
+	add	t123, t377, r0
+	b	L73
+L70:
+	li	t396, 3
+	add	t376, t396, r0
+	b	L72
+L73:

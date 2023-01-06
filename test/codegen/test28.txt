@@ -1,0 +1,34 @@
+L138:	.asciiz "Name"
+L140:
+	sw	t100, 4(t120)
+	add	t631, t123, r0
+	add	t632, t112, r0
+	add	t633, t113, r0
+	add	t634, t114, r0
+	add	t635, t115, r0
+	add	t636, t116, r0
+	add	t637, t117, r0
+	add	t638, t118, r0
+	add	t639, t119, r0
+	li	t640, 8
+	add	t100, t640, r0
+	la	t641, allocRecord
+	jalr	t641
+	add	t630, t121, r0
+	la	t642, L138
+	sw	t642, 0(t630)
+	li	t643, 0
+	sw	t643, 4(t630)
+	add	t629, t630, r0
+	add	t121, t629, r0
+	add	t119, t639, r0
+	add	t118, t638, r0
+	add	t117, t637, r0
+	add	t116, t636, r0
+	add	t115, t635, r0
+	add	t114, t634, r0
+	add	t113, t633, r0
+	add	t112, t632, r0
+	add	t123, t631, r0
+	b	L139
+L139:

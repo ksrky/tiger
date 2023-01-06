@@ -1,0 +1,57 @@
+L158:
+	sw	t100, 4(t120)
+	add	t717, t123, r0
+	add	t718, t112, r0
+	add	t719, t113, r0
+	add	t720, t114, r0
+	add	t721, t115, r0
+	add	t722, t116, r0
+	add	t723, t117, r0
+	add	t724, t118, r0
+	add	t725, t119, r0
+	add	t121, t715, r0
+	add	t119, t725, r0
+	add	t118, t724, r0
+	add	t117, t723, r0
+	add	t116, t722, r0
+	add	t115, t721, r0
+	add	t114, t720, r0
+	add	t113, t719, r0
+	add	t112, t718, r0
+	add	t123, t717, r0
+	b	L157
+L157:
+L153:	.asciiz "one"
+L154:	.asciiz "two"
+L155:	.asciiz "one"
+L156:	.asciiz "two"
+L160:
+	sw	t100, 4(t120)
+	add	t726, t123, r0
+	add	t727, t112, r0
+	add	t728, t113, r0
+	add	t729, t114, r0
+	add	t730, t115, r0
+	add	t731, t116, r0
+	add	t732, t117, r0
+	add	t733, t118, r0
+	add	t734, t119, r0
+	add	t100, t120, r0
+	la	t735, L155
+	add	t101, t735, r0
+	la	t736, L156
+	add	t102, t736, r0
+	la	t737, g
+	jalr	t737
+	add	t121, t121, r0
+	add	t119, t734, r0
+	add	t118, t733, r0
+	add	t117, t732, r0
+	add	t116, t731, r0
+	add	t115, t730, r0
+	add	t114, t729, r0
+	add	t113, t728, r0
+	add	t112, t727, r0
+	add	t123, t726, r0
+	b	L159
+L159:

@@ -1,0 +1,70 @@
+L12:
+	sw	t100, 4(t120)
+	add	t182, t123, r0
+	add	t183, t112, r0
+	add	t184, t113, r0
+	add	t185, t114, r0
+	add	t186, t115, r0
+	add	t187, t116, r0
+	add	t188, t117, r0
+	add	t189, t118, r0
+	add	t190, t119, r0
+	li	t202, 0
+	beq	t180, t202, L8
+b L9
+L9:
+	add	t201, t180, r0
+	lw	t203, 4(t120)
+	add	t100, t203, r0
+	addiu	t204, t180, -1
+	add	t101, t204, r0
+	la	t205, nfactor
+	jalr	t205
+	add	t200, t121, r0
+	mul	t206, t201, t200
+	add	t181, t206, r0
+L10:
+	add	t121, t181, r0
+	add	t119, t190, r0
+	add	t118, t189, r0
+	add	t117, t188, r0
+	add	t116, t187, r0
+	add	t115, t186, r0
+	add	t114, t185, r0
+	add	t113, t184, r0
+	add	t112, t183, r0
+	add	t123, t182, r0
+	b	L11
+L8:
+	li	t207, 1
+	add	t181, t207, r0
+	b	L10
+L11:
+L14:
+	sw	t100, 4(t120)
+	add	t191, t123, r0
+	add	t192, t112, r0
+	add	t193, t113, r0
+	add	t194, t114, r0
+	add	t195, t115, r0
+	add	t196, t116, r0
+	add	t197, t117, r0
+	add	t198, t118, r0
+	add	t199, t119, r0
+	add	t100, t120, r0
+	li	t208, 10
+	add	t101, t208, r0
+	la	t209, nfactor
+	jalr	t209
+	add	t121, t121, r0
+	add	t119, t199, r0
+	add	t118, t198, r0
+	add	t117, t197, r0
+	add	t116, t196, r0
+	add	t115, t195, r0
+	add	t114, t194, r0
+	add	t113, t193, r0
+	add	t112, t192, r0
+	add	t123, t191, r0
+	b	L13
+L13:

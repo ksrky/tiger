@@ -1,0 +1,25 @@
+L84:
+	sw	t100, 4(t120)
+	add	t420, t123, r0
+	add	t421, t112, r0
+	add	t422, t113, r0
+	add	t423, t114, r0
+	add	t424, t115, r0
+	add	t425, t116, r0
+	add	t426, t117, r0
+	add	t427, t118, r0
+	add	t428, t119, r0
+	li	t429, 0
+	add	t419, t429, r0
+	add	t121, t419, r0
+	add	t119, t428, r0
+	add	t118, t427, r0
+	add	t117, t426, r0
+	add	t116, t425, r0
+	add	t115, t424, r0
+	add	t114, t423, r0
+	add	t113, t422, r0
+	add	t112, t421, r0
+	add	t123, t420, r0
+	b	L83
+L83:
