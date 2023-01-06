@@ -29,6 +29,6 @@ let () =
       Tiger.FindEscape.findEscape absyn; Tiger.Semant.transProg absyn
     in
     withOpenFile
-      ("test/codegen/test" ^ string_of_int i ^ ".txt")
+      ("test/regalloc/test" ^ string_of_int i ^ ".txt")
       (fun out -> List.iter (emitproc out) frags)
   done

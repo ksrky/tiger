@@ -1,25 +1,25 @@
 L204:
-	sw	t100, 4(t120)
-	add	t975, t123, r0
-	add	t976, t112, r0
-	add	t977, t113, r0
-	add	t978, t114, r0
-	add	t979, t115, r0
-	add	t980, t116, r0
-	add	t981, t117, r0
-	add	t982, t118, r0
-	add	t983, t119, r0
-	li	t984, 0
-	add	t974, t984, r0
-	add	t121, t974, r0
-	add	t119, t983, r0
-	add	t118, t982, r0
-	add	t117, t981, r0
-	add	t116, t980, r0
-	add	t115, t979, r0
-	add	t114, t978, r0
-	add	t113, t977, r0
-	add	t112, t976, r0
-	add	t123, t975, r0
-	b	L203
+	sw	t103, 4(t123)
+	move	t1227, t120, r0
+	move	t1228, t119, r0
+	move	t1229, t118, r0
+	move	t1230, t117, r0
+	move	t1231, t116, r0
+	move	t1232, t115, r0
+	move	t1233, t114, r0
+	move	t1234, t113, r0
+	move	t1235, t112, r0
+	li	t1236, 0
+	move	t1226, t1236, r0
+	move	t122, t1226, r0
+	move	t112, t1235, r0
+	move	t113, t1234, r0
+	move	t114, t1233, r0
+	move	t115, t1232, r0
+	move	t116, t1231, r0
+	move	t117, t1230, r0
+	move	t118, t1229, r0
+	move	t119, t1228, r0
+	move	t120, t1227, r0
+	j	L203
 L203:

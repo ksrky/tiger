@@ -1,53 +1,68 @@
 L135:
-	sw	t100, 4(t120)
-	add	t608, t123, r0
-	add	t609, t112, r0
-	add	t610, t113, r0
-	add	t611, t114, r0
-	add	t612, t115, r0
-	add	t613, t116, r0
-	add	t614, t117, r0
-	add	t615, t118, r0
-	add	t616, t119, r0
-	add	t121, t607, r0
-	add	t119, t616, r0
-	add	t118, t615, r0
-	add	t117, t614, r0
-	add	t116, t613, r0
-	add	t115, t612, r0
-	add	t114, t611, r0
-	add	t113, t610, r0
-	add	t112, t609, r0
-	add	t123, t608, r0
-	b	L134
+	sw	t103, 4(t123)
+	move	t748, t120, r0
+	move	t749, t119, r0
+	move	t750, t118, r0
+	move	t751, t117, r0
+	move	t752, t116, r0
+	move	t753, t115, r0
+	move	t754, t114, r0
+	move	t755, t113, r0
+	move	t756, t112, r0
+	move	t122, t747, r0
+	move	t112, t756, r0
+	move	t113, t755, r0
+	move	t114, t754, r0
+	move	t115, t753, r0
+	move	t116, t752, r0
+	move	t117, t751, r0
+	move	t118, t750, r0
+	move	t119, t749, r0
+	move	t120, t748, r0
+	j	L134
 L134:
 L137:
-	sw	t100, 4(t120)
-	add	t617, t123, r0
-	add	t618, t112, r0
-	add	t619, t113, r0
-	add	t620, t114, r0
-	add	t621, t115, r0
-	add	t622, t116, r0
-	add	t623, t117, r0
-	add	t624, t118, r0
-	add	t625, t119, r0
-	li	t626, 0
-	add	t606, t626, r0
-	add	t100, t120, r0
-	li	t627, 2
-	add	t101, t627, r0
-	la	t628, g
-	jalr	t628
-	add	t121, t121, r0
-	add	t119, t625, r0
-	add	t118, t624, r0
-	add	t117, t623, r0
-	add	t116, t622, r0
-	add	t115, t621, r0
-	add	t114, t620, r0
-	add	t113, t619, r0
-	add	t112, t618, r0
-	add	t123, t617, r0
-	b	L136
+	sw	t103, 4(t123)
+	move	t757, t120, r0
+	move	t758, t119, r0
+	move	t759, t118, r0
+	move	t760, t117, r0
+	move	t761, t116, r0
+	move	t762, t115, r0
+	move	t763, t114, r0
+	move	t764, t113, r0
+	move	t765, t112, r0
+	li	t766, 0
+	move	t746, t766, r0
+	move	t767, t111, r0
+	move	t768, t110, r0
+	move	t769, t109, r0
+	move	t770, t108, r0
+	move	t771, t107, r0
+	move	t772, t106, r0
+	move	t773, t105, r0
+	move	t774, t104, r0
+	move	t103, t123, r0
+	li	t775, 2
+	move	t102, t775, r0
+	jal	g
+	move	t104, t774, r0
+	move	t105, t773, r0
+	move	t106, t772, r0
+	move	t107, t771, r0
+	move	t108, t770, r0
+	move	t109, t769, r0
+	move	t110, t768, r0
+	move	t111, t767, r0
+	move	t122, t122, r0
+	move	t112, t765, r0
+	move	t113, t764, r0
+	move	t114, t763, r0
+	move	t115, t762, r0
+	move	t116, t761, r0
+	move	t117, t760, r0
+	move	t118, t759, r0
+	move	t119, t758, r0
+	move	t120, t757, r0
+	j	L136
 L136:

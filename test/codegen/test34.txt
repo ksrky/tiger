@@ -1,57 +1,72 @@
 L158:
-	sw	t100, 4(t120)
-	add	t717, t123, r0
-	add	t718, t112, r0
-	add	t719, t113, r0
-	add	t720, t114, r0
-	add	t721, t115, r0
-	add	t722, t116, r0
-	add	t723, t117, r0
-	add	t724, t118, r0
-	add	t725, t119, r0
-	add	t121, t715, r0
-	add	t119, t725, r0
-	add	t118, t724, r0
-	add	t117, t723, r0
-	add	t116, t722, r0
-	add	t115, t721, r0
-	add	t114, t720, r0
-	add	t113, t719, r0
-	add	t112, t718, r0
-	add	t123, t717, r0
-	b	L157
+	sw	t103, 4(t123)
+	move	t892, t120, r0
+	move	t893, t119, r0
+	move	t894, t118, r0
+	move	t895, t117, r0
+	move	t896, t116, r0
+	move	t897, t115, r0
+	move	t898, t114, r0
+	move	t899, t113, r0
+	move	t900, t112, r0
+	move	t122, t890, r0
+	move	t112, t900, r0
+	move	t113, t899, r0
+	move	t114, t898, r0
+	move	t115, t897, r0
+	move	t116, t896, r0
+	move	t117, t895, r0
+	move	t118, t894, r0
+	move	t119, t893, r0
+	move	t120, t892, r0
+	j	L157
 L157:
 L153:	.asciiz "one"
 L154:	.asciiz "two"
 L155:	.asciiz "one"
 L156:	.asciiz "two"
 L160:
-	sw	t100, 4(t120)
-	add	t726, t123, r0
-	add	t727, t112, r0
-	add	t728, t113, r0
-	add	t729, t114, r0
-	add	t730, t115, r0
-	add	t731, t116, r0
-	add	t732, t117, r0
-	add	t733, t118, r0
-	add	t734, t119, r0
-	add	t100, t120, r0
-	la	t735, L155
-	add	t101, t735, r0
-	la	t736, L156
-	add	t102, t736, r0
-	la	t737, g
-	jalr	t737
-	add	t121, t121, r0
-	add	t119, t734, r0
-	add	t118, t733, r0
-	add	t117, t732, r0
-	add	t116, t731, r0
-	add	t115, t730, r0
-	add	t114, t729, r0
-	add	t113, t728, r0
-	add	t112, t727, r0
-	add	t123, t726, r0
-	b	L159
+	sw	t103, 4(t123)
+	move	t901, t120, r0
+	move	t902, t119, r0
+	move	t903, t118, r0
+	move	t904, t117, r0
+	move	t905, t116, r0
+	move	t906, t115, r0
+	move	t907, t114, r0
+	move	t908, t113, r0
+	move	t909, t112, r0
+	move	t910, t111, r0
+	move	t911, t110, r0
+	move	t912, t109, r0
+	move	t913, t108, r0
+	move	t914, t107, r0
+	move	t915, t106, r0
+	move	t916, t105, r0
+	move	t917, t104, r0
+	move	t103, t123, r0
+	la	t918, L155
+	move	t102, t918, r0
+	la	t919, L156
+	move	t101, t919, r0
+	jal	g
+	move	t104, t917, r0
+	move	t105, t916, r0
+	move	t106, t915, r0
+	move	t107, t914, r0
+	move	t108, t913, r0
+	move	t109, t912, r0
+	move	t110, t911, r0
+	move	t111, t910, r0
+	move	t122, t122, r0
+	move	t112, t909, r0
+	move	t113, t908, r0
+	move	t114, t907, r0
+	move	t115, t906, r0
+	move	t116, t905, r0
+	move	t117, t904, r0
+	move	t118, t903, r0
+	move	t119, t902, r0
+	move	t120, t901, r0
+	j	L159
 L159:

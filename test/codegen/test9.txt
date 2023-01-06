@@ -1,36 +1,36 @@
 L38:	.asciiz " "
 L43:
-	sw	t100, 4(t120)
-	add	t296, t123, r0
-	add	t297, t112, r0
-	add	t298, t113, r0
-	add	t299, t114, r0
-	add	t300, t115, r0
-	add	t301, t116, r0
-	add	t302, t117, r0
-	add	t303, t118, r0
-	add	t304, t119, r0
-	li	t305, 4
-	li	t306, 5
-	bgt	t306, t305, L39
+	sw	t103, 4(t123)
+	move	t366, t120, r0
+	move	t367, t119, r0
+	move	t368, t118, r0
+	move	t369, t117, r0
+	move	t370, t116, r0
+	move	t371, t115, r0
+	move	t372, t114, r0
+	move	t373, t113, r0
+	move	t374, t112, r0
+	li	t375, 4
+	li	t376, 5
+	bgt	t376, t375, L39
 b L40
 L40:
-	la	t307, L38
-	add	t295, t307, r0
+	la	t377, L38
+	move	t365, t377, r0
 L41:
-	add	t121, t295, r0
-	add	t119, t304, r0
-	add	t118, t303, r0
-	add	t117, t302, r0
-	add	t116, t301, r0
-	add	t115, t300, r0
-	add	t114, t299, r0
-	add	t113, t298, r0
-	add	t112, t297, r0
-	add	t123, t296, r0
-	b	L42
+	move	t122, t365, r0
+	move	t112, t374, r0
+	move	t113, t373, r0
+	move	t114, t372, r0
+	move	t115, t371, r0
+	move	t116, t370, r0
+	move	t117, t369, r0
+	move	t118, t368, r0
+	move	t119, t367, r0
+	move	t120, t366, r0
+	j	L42
 L39:
-	li	t308, 13
-	add	t295, t308, r0
-	b	L41
+	li	t378, 13
+	move	t365, t378, r0
+	j	L41
 L42:

@@ -1,24 +1,24 @@
 L187:
-	sw	t100, 4(t120)
-	add	t849, t123, r0
-	add	t850, t112, r0
-	add	t851, t113, r0
-	add	t852, t114, r0
-	add	t853, t115, r0
-	add	t854, t116, r0
-	add	t855, t117, r0
-	add	t856, t118, r0
-	add	t857, t119, r0
-	li	t858, 0
-	add	t121, t858, r0
-	add	t119, t857, r0
-	add	t118, t856, r0
-	add	t117, t855, r0
-	add	t116, t854, r0
-	add	t115, t853, r0
-	add	t114, t852, r0
-	add	t113, t851, r0
-	add	t112, t850, r0
-	add	t123, t849, r0
-	b	L186
+	sw	t103, 4(t123)
+	move	t1052, t120, r0
+	move	t1053, t119, r0
+	move	t1054, t118, r0
+	move	t1055, t117, r0
+	move	t1056, t116, r0
+	move	t1057, t115, r0
+	move	t1058, t114, r0
+	move	t1059, t113, r0
+	move	t1060, t112, r0
+	li	t1061, 0
+	move	t122, t1061, r0
+	move	t112, t1060, r0
+	move	t113, t1059, r0
+	move	t114, t1058, r0
+	move	t115, t1057, r0
+	move	t116, t1056, r0
+	move	t117, t1055, r0
+	move	t118, t1054, r0
+	move	t119, t1053, r0
+	move	t120, t1052, r0
+	j	L186
 L186:

@@ -13,63 +13,42 @@ module TS = Temp.Set
 
 let n_colors = 8 (* K *)
 
-(* worklist, set, stack *)
-let precolored = []
-
-let initial : Temp.temp list ref = ref []
-
-let simplifyWorklist : Temp.temp list ref = ref []
-
-let freezeWorklist : Temp.temp list ref = ref []
-
-let spillWorklist : Temp.temp list ref = ref []
-
-let spilledNodes : Temp.temp list ref = ref []
-
-let coalescedNodes : Temp.temp list ref = ref []
-
-let coloredNodes : Temp.temp list ref = ref []
-
-let selectStack : Temp.temp Stack.t = Stack.create ()
-
-(* move set *)
-let coalescedMoves : (Temp.temp * Temp.temp) list ref = ref []
-
-let constrainedMoves : (Temp.temp * Temp.temp) list ref = ref []
-
-let frozenMoves : (Temp.temp * Temp.temp) list ref = ref []
-
-let worklistMoves : (Temp.temp * Temp.temp) list ref = ref []
-
-let activeMoves : (Temp.temp * Temp.temp) list ref = ref []
-
-(* other data structures *)
-let adjSet : (Temp.temp * Temp.temp) list ref = ref []
-
-let adjList : Temp.temp list TT.t ref = ref TT.empty
-
-let degree : int TT.t ref = ref TT.empty
-
-let moveList : (Temp.temp * Temp.temp) list TT.t ref = ref TT.empty (* mapping inode to fnode *)
-
-let alias : Temp.temp TT.t ref = ref TT.empty
-
-let color : Frame.register TT.t ref = ref TT.empty
-
-let color ({interference; initial= _; spillCost= _; registers} : input) :
+let color ({interference; initial= allocation; spillCost= _; registers} : input) :
     allocation * Temp.temp list =
-  let (IGRAPH {graph= _; tnode= _; gtemp; moves}) = interference in
-  let addEdge (u, v) =
-    if (not (List.mem (u, v) !adjSet)) && u <> v then adjSet := (u, v) :: (v, u) :: !adjSet;
-    if not (List.mem u precolored) then (
-      let newAlist = v :: TT.find u !adjList in
-      adjList := TT.add u newAlist !adjList;
-      degree := TT.add u (TT.find u !degree + 1) !degree );
-    if not (List.mem v precolored) then (
-      let newAlist = u :: TT.find v !adjList in
-      adjList := TT.add v newAlist !adjList;
-      degree := TT.add v (TT.find v !degree + 1) !degree )
+  (* nodes list *)
+  let precolored : Temp.temp list ref = ref [] in
+  let initial : Temp.temp list ref = ref [] in
+  let simplifyWorklist : Temp.temp list ref = ref [] in
+  let freezeWorklist : Temp.temp list ref = ref [] in
+  let spillWorklist : Temp.temp list ref = ref [] in
+  let spilledNodes : Temp.temp list ref = ref [] in
+  let coalescedNodes : Temp.temp list ref = ref [] in
+  let coloredNodes : Temp.temp list ref = ref [] in
+  let selectStack : Temp.temp Stack.t = Stack.create () in
+  (* moves list *)
+  let coalescedMoves : (Temp.temp * Temp.temp) list ref = ref [] in
+  let constrainedMoves : (Temp.temp * Temp.temp) list ref = ref [] in
+  let frozenMoves : (Temp.temp * Temp.temp) list ref = ref [] in
+  let worklistMoves : (Temp.temp * Temp.temp) list ref = ref [] in
+  let activeMoves : (Temp.temp * Temp.temp) list ref = ref [] in
+  (* other data structures *)
+  let adjSet : (Temp.temp * Temp.temp) list ref = ref [] in
+  let adjList : Temp.temp list TT.t ref = ref TT.empty in
+  let degree : int TT.t ref = ref TT.empty in
+  let moveList : (Temp.temp * Temp.temp) list TT.t ref = ref TT.empty in
+  let alias : Temp.temp TT.t ref = ref TT.empty in
+  let color : Frame.register TT.t ref = ref TT.empty in
+  (* interference graph *)
+  let (IGRAPH {graph; tnode= _; gtemp; moves}) = interference in
+  (* initialize *)
+  let () =
+    color := allocation;
+    let temps = List.map gtemp (Graph.nodes graph) in
+    List.iter
+      (fun t -> try precolored := t :: !precolored with Not_found -> initial := t :: !initial)
+      temps
   in
+  (* build graph *)
   let build () =
     List.iter
       (fun (u, v) ->
@@ -80,12 +59,19 @@ let color ({interference; initial= _; spillCost= _; registers} : input) :
         moveList := TT.add v' newMlist !moveList;
         worklistMoves := (u', v') :: !worklistMoves )
       moves
+  and addEdge (u, v) =
+    if (not (List.mem (u, v) !adjSet)) && u <> v then adjSet := (u, v) :: (v, u) :: !adjSet;
+    if not (List.mem u !precolored) then (
+      let newAlist = v :: TT.find u !adjList in
+      adjList := TT.add u newAlist !adjList;
+      degree := TT.add u (TT.find u !degree + 1) !degree );
+    if not (List.mem v !precolored) then (
+      let newAlist = u :: TT.find v !adjList in
+      adjList := TT.add v newAlist !adjList;
+      degree := TT.add v (TT.find v !degree + 1) !degree )
   in
-  let nodeMoves (n : Temp.temp) =
-    List.filter (fun mv -> not (List.mem mv (!activeMoves @ !worklistMoves))) (TT.find n !moveList)
-  in
-  let moveRelated (n : Temp.temp) = nodeMoves n <> [] in
-  let makeWorklist () =
+  (* make worklist *)
+  let rec makeWorklist () =
     List.iter
       (fun n ->
         if TT.find n !degree >= n_colors then spillWorklist := n :: !spillWorklist
@@ -93,12 +79,28 @@ let color ({interference; initial= _; spillCost= _; registers} : input) :
         else simplifyWorklist := n :: !simplifyWorklist )
       !initial;
     initial := []
-  in
-  let adjacent (n : Temp.temp) =
+  and adjacent (n : Temp.temp) =
     let selectStack' = List.of_seq (Stack.to_seq selectStack) in
     List.filter (fun m -> not (List.mem m (selectStack' @ !coalescedNodes))) (TT.find n !adjList)
-  in
-  let enableMoves nodes =
+  and nodeMoves (n : Temp.temp) =
+    List.filter (fun mv -> not (List.mem mv (!activeMoves @ !worklistMoves))) (TT.find n !moveList)
+  and moveRelated (n : Temp.temp) = nodeMoves n <> [] in
+  (* simplify *)
+  let rec simplify () =
+    List.iter
+      (fun n ->
+        Stack.push n selectStack;
+        List.iter decrementDegree (adjacent n) )
+      !simplifyWorklist;
+    simplifyWorklist := []
+  and decrementDegree (m : Temp.temp) =
+    let d = TT.find m !degree in
+    degree := TT.add m (d - 1) !degree;
+    if d = n_colors then enableMoves (m :: adjacent m);
+    spillWorklist := List.filter (( <> ) m) !spillWorklist;
+    if moveRelated m then freezeWorklist := m :: !freezeWorklist
+    else simplifyWorklist := m :: !simplifyWorklist
+  and enableMoves nodes =
     List.iter
       (fun n ->
         List.iter
@@ -108,40 +110,43 @@ let color ({interference; initial= _; spillCost= _; registers} : input) :
           (nodeMoves n) )
       nodes
   in
-  let decrementDegree (m : Temp.temp) =
-    let d = TT.find m !degree in
-    degree := TT.add m (d - 1) !degree;
-    if d = n_colors then enableMoves (m :: adjacent m);
-    spillWorklist := List.filter (( <> ) m) !spillWorklist;
-    if moveRelated m then freezeWorklist := m :: !freezeWorklist
-    else simplifyWorklist := m :: !simplifyWorklist
-  in
-  (* simplify *)
-  let simplify () =
+  (* coalesce *)
+  let rec coalesce () =
     List.iter
-      (fun n ->
-        Stack.push n selectStack;
-        List.iter decrementDegree (adjacent n) )
-      !simplifyWorklist;
-    simplifyWorklist := []
-  in
-  let addWorklist (u : Temp.temp) =
-    if (not (List.mem u precolored)) && (not (moveRelated u)) && TT.find u !degree < n_colors then
+      (fun ((x, y) as m) ->
+        let x' = getAlias x in
+        let y' = getAlias y in
+        let u, v = if List.mem y !precolored then (y', x') else (x', y') in
+        if u = v then coalescedMoves := m :: !coalescedMoves
+        else if List.mem v !precolored || List.mem (u, v) !adjSet then (
+          constrainedMoves := m :: !constrainedMoves;
+          addWorklist u;
+          addWorklist v )
+        else if
+          List.mem u !precolored
+          && List.for_all (fun t -> ok (t, u)) (adjacent v)
+          && (not (List.mem u !precolored))
+          && conservative (adjacent u @ adjacent v)
+        then (
+          (* temp: intersect *)
+          coalescedMoves := m :: !coalescedMoves;
+          combine (u, v);
+          addWorklist u )
+        else activeMoves := m :: !activeMoves )
+      !worklistMoves
+  and addWorklist (u : Temp.temp) =
+    if (not (List.mem u !precolored)) && (not (moveRelated u)) && TT.find u !degree < n_colors then
       freezeWorklist := List.filter (( <> ) u) !freezeWorklist;
     simplifyWorklist := u :: !simplifyWorklist
-  in
-  let ok (t, r) : bool =
-    TT.find t !degree < n_colors || List.mem t precolored || List.mem (t, r) !adjSet
-  in
-  let conservative (nodes : Temp.temp list) : bool =
+  and ok (t, r) : bool =
+    TT.find t !degree < n_colors || List.mem t !precolored || List.mem (t, r) !adjSet
+  and conservative (nodes : Temp.temp list) : bool =
     let k = ref 0 in
     List.iter (fun n -> if TT.find n !degree >= n_colors then k := !k + 1) nodes;
     !k < n_colors
-  in
-  let rec getAlias (n : Temp.temp) =
+  and getAlias (n : Temp.temp) =
     if List.mem n !coalescedNodes then getAlias (TT.find n !alias) else n
-  in
-  let combine (u, v) =
+  and combine (u, v) =
     if List.mem v !freezeWorklist then freezeWorklist := List.filter (( <> ) u) !freezeWorklist
     else spillWorklist := List.filter (( <> ) v) !spillWorklist;
     coalescedNodes := v :: !coalescedNodes;
@@ -158,32 +163,15 @@ let color ({interference; initial= _; spillCost= _; registers} : input) :
       freezeWorklist := List.filter (( <> ) u) !freezeWorklist;
     spillWorklist := u :: !spillWorklist
   in
-  (* coalesce *)
-  let coalesce () =
+  (* freeze *)
+  let rec freeze () =
     List.iter
-      (fun ((x, y) as m) ->
-        let x' = getAlias x in
-        let y' = getAlias y in
-        let u, v = if List.mem y precolored then (y', x') else (x', y') in
-        if u = v then coalescedMoves := m :: !coalescedMoves
-        else if List.mem v precolored || List.mem (u, v) !adjSet then (
-          constrainedMoves := m :: !constrainedMoves;
-          addWorklist u;
-          addWorklist v )
-        else if
-          List.mem u precolored
-          && List.for_all (fun t -> ok (t, u)) (adjacent v)
-          && (not (List.mem u precolored))
-          && conservative (adjacent u @ adjacent v)
-        then (
-          (* temp: intersect *)
-          coalescedMoves := m :: !coalescedMoves;
-          combine (u, v);
-          addWorklist u )
-        else activeMoves := m :: !activeMoves )
-      !worklistMoves
-  in
-  let freezeMoves (u : Temp.temp) =
+      (fun u ->
+        spillWorklist := u :: !spillWorklist;
+        freezeMoves u )
+      !freezeWorklist;
+    freezeWorklist := []
+  and freezeMoves (u : Temp.temp) =
     List.iter
       (fun ((x, y) as m) ->
         let v = if getAlias y = getAlias u then getAlias x else getAlias y in
@@ -194,16 +182,7 @@ let color ({interference; initial= _; spillCost= _; registers} : input) :
         simplifyWorklist := v :: !simplifyWorklist )
       (nodeMoves u)
   in
-  (* freezing *)
-  let freeze () =
-    List.iter
-      (fun u ->
-        spillWorklist := u :: !spillWorklist;
-        freezeMoves u )
-      !freezeWorklist;
-    freezeWorklist := []
-  in
-  (* spilling *)
+  (* spill *)
   let selectSpill () =
     List.iter
       (fun m ->
@@ -212,13 +191,14 @@ let color ({interference; initial= _; spillCost= _; registers} : input) :
       !spillWorklist;
     spillWorklist := []
   in
+  (* assign color *)
   let assignColors () =
     let rec repeat () =
       let n = Stack.pop selectStack in
       let okColors = ref registers in
       List.iter
         (fun w ->
-          if List.mem (getAlias w) (!coloredNodes @ precolored) then
+          if List.mem (getAlias w) (!coloredNodes @ !precolored) then
             okColors := List.filter (( <> ) (TT.find (getAlias w) !color)) !okColors )
         (Temp.Table.find n !adjList);
       if !okColors = [] then spilledNodes := n :: !spilledNodes

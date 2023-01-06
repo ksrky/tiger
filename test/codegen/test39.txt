@@ -1,70 +1,70 @@
 L179:
-	sw	t100, 4(t120)
-	add	t808, t123, r0
-	add	t809, t112, r0
-	add	t810, t113, r0
-	add	t811, t114, r0
-	add	t812, t115, r0
-	add	t813, t116, r0
-	add	t814, t117, r0
-	add	t815, t118, r0
-	add	t816, t119, r0
-	add	t121, t807, r0
-	add	t119, t816, r0
-	add	t118, t815, r0
-	add	t117, t814, r0
-	add	t116, t813, r0
-	add	t115, t812, r0
-	add	t114, t811, r0
-	add	t113, t810, r0
-	add	t112, t809, r0
-	add	t123, t808, r0
-	b	L178
+	sw	t103, 4(t123)
+	move	t1004, t120, r0
+	move	t1005, t119, r0
+	move	t1006, t118, r0
+	move	t1007, t117, r0
+	move	t1008, t116, r0
+	move	t1009, t115, r0
+	move	t1010, t114, r0
+	move	t1011, t113, r0
+	move	t1012, t112, r0
+	move	t122, t1003, r0
+	move	t112, t1012, r0
+	move	t113, t1011, r0
+	move	t114, t1010, r0
+	move	t115, t1009, r0
+	move	t116, t1008, r0
+	move	t117, t1007, r0
+	move	t118, t1006, r0
+	move	t119, t1005, r0
+	move	t120, t1004, r0
+	j	L178
 L178:
 L181:
-	sw	t100, 4(t120)
-	add	t818, t123, r0
-	add	t819, t112, r0
-	add	t820, t113, r0
-	add	t821, t114, r0
-	add	t822, t115, r0
-	add	t823, t116, r0
-	add	t824, t117, r0
-	add	t825, t118, r0
-	add	t826, t119, r0
-	add	t121, t817, r0
-	add	t119, t826, r0
-	add	t118, t825, r0
-	add	t117, t824, r0
-	add	t116, t823, r0
-	add	t115, t822, r0
-	add	t114, t821, r0
-	add	t113, t820, r0
-	add	t112, t819, r0
-	add	t123, t818, r0
-	b	L180
+	sw	t103, 4(t123)
+	move	t1014, t120, r0
+	move	t1015, t119, r0
+	move	t1016, t118, r0
+	move	t1017, t117, r0
+	move	t1018, t116, r0
+	move	t1019, t115, r0
+	move	t1020, t114, r0
+	move	t1021, t113, r0
+	move	t1022, t112, r0
+	move	t122, t1013, r0
+	move	t112, t1022, r0
+	move	t113, t1021, r0
+	move	t114, t1020, r0
+	move	t115, t1019, r0
+	move	t116, t1018, r0
+	move	t117, t1017, r0
+	move	t118, t1016, r0
+	move	t119, t1015, r0
+	move	t120, t1014, r0
+	j	L180
 L180:
 L183:
-	sw	t100, 4(t120)
-	add	t827, t123, r0
-	add	t828, t112, r0
-	add	t829, t113, r0
-	add	t830, t114, r0
-	add	t831, t115, r0
-	add	t832, t116, r0
-	add	t833, t117, r0
-	add	t834, t118, r0
-	add	t835, t119, r0
-	li	t836, 0
-	add	t121, t836, r0
-	add	t119, t835, r0
-	add	t118, t834, r0
-	add	t117, t833, r0
-	add	t116, t832, r0
-	add	t115, t831, r0
-	add	t114, t830, r0
-	add	t113, t829, r0
-	add	t112, t828, r0
-	add	t123, t827, r0
-	b	L182
+	sw	t103, 4(t123)
+	move	t1023, t120, r0
+	move	t1024, t119, r0
+	move	t1025, t118, r0
+	move	t1026, t117, r0
+	move	t1027, t116, r0
+	move	t1028, t115, r0
+	move	t1029, t114, r0
+	move	t1030, t113, r0
+	move	t1031, t112, r0
+	li	t1032, 0
+	move	t122, t1032, r0
+	move	t112, t1031, r0
+	move	t113, t1030, r0
+	move	t114, t1029, r0
+	move	t115, t1028, r0
+	move	t116, t1027, r0
+	move	t117, t1026, r0
+	move	t118, t1025, r0
+	move	t119, t1024, r0
+	move	t120, t1023, r0
+	j	L182
 L182:

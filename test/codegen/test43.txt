@@ -1,26 +1,26 @@
 L200:
-	sw	t100, 4(t120)
-	add	t950, t123, r0
-	add	t951, t112, r0
-	add	t952, t113, r0
-	add	t953, t114, r0
-	add	t954, t115, r0
-	add	t955, t116, r0
-	add	t956, t117, r0
-	add	t957, t118, r0
-	add	t958, t119, r0
-	li	t959, 0
-	add	t949, t959, r0
-	li	t960, 0
-	add	t121, t960, r0
-	add	t119, t958, r0
-	add	t118, t957, r0
-	add	t117, t956, r0
-	add	t116, t955, r0
-	add	t115, t954, r0
-	add	t114, t953, r0
-	add	t113, t952, r0
-	add	t112, t951, r0
-	add	t123, t950, r0
-	b	L199
+	sw	t103, 4(t123)
+	move	t1202, t120, r0
+	move	t1203, t119, r0
+	move	t1204, t118, r0
+	move	t1205, t117, r0
+	move	t1206, t116, r0
+	move	t1207, t115, r0
+	move	t1208, t114, r0
+	move	t1209, t113, r0
+	move	t1210, t112, r0
+	li	t1211, 0
+	move	t1201, t1211, r0
+	li	t1212, 0
+	move	t122, t1212, r0
+	move	t112, t1210, r0
+	move	t113, t1209, r0
+	move	t114, t1208, r0
+	move	t115, t1207, r0
+	move	t116, t1206, r0
+	move	t117, t1205, r0
+	move	t118, t1204, r0
+	move	t119, t1203, r0
+	move	t120, t1202, r0
+	j	L199
 L199:

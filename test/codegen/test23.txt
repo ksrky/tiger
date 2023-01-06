@@ -2,40 +2,55 @@ L122:	.asciiz "aname"
 L123:	.asciiz ""
 L124:	.asciiz ""
 L126:
-	sw	t100, 4(t120)
-	add	t556, t123, r0
-	add	t557, t112, r0
-	add	t558, t113, r0
-	add	t559, t114, r0
-	add	t560, t115, r0
-	add	t561, t116, r0
-	add	t562, t117, r0
-	add	t563, t118, r0
-	add	t564, t119, r0
-	li	t565, 8
-	add	t100, t565, r0
-	la	t566, allocRecord
-	jalr	t566
-	add	t555, t121, r0
-	la	t567, L122
-	sw	t567, 0(t555)
-	li	t568, 0
-	sw	t568, 4(t555)
-	add	t554, t555, r0
-	li	t569, 3
-	sw	t569, 0(t554)
-	la	t570, L124
-	sw	t570, 4(t554)
-	li	t571, 0
-	add	t121, t571, r0
-	add	t119, t564, r0
-	add	t118, t563, r0
-	add	t117, t562, r0
-	add	t116, t561, r0
-	add	t115, t560, r0
-	add	t114, t559, r0
-	add	t113, t558, r0
-	add	t112, t557, r0
-	add	t123, t556, r0
-	b	L125
+	sw	t103, 4(t123)
+	move	t689, t120, r0
+	move	t690, t119, r0
+	move	t691, t118, r0
+	move	t692, t117, r0
+	move	t693, t116, r0
+	move	t694, t115, r0
+	move	t695, t114, r0
+	move	t696, t113, r0
+	move	t697, t112, r0
+	move	t698, t111, r0
+	move	t699, t110, r0
+	move	t700, t109, r0
+	move	t701, t108, r0
+	move	t702, t107, r0
+	move	t703, t106, r0
+	move	t704, t105, r0
+	move	t705, t104, r0
+	li	t706, 8
+	move	t103, t706, r0
+	jal	allocRecord
+	move	t104, t705, r0
+	move	t105, t704, r0
+	move	t106, t703, r0
+	move	t107, t702, r0
+	move	t108, t701, r0
+	move	t109, t700, r0
+	move	t110, t699, r0
+	move	t111, t698, r0
+	move	t688, t122, r0
+	la	t707, L122
+	sw	t707, 0(t688)
+	li	t708, 0
+	sw	t708, 4(t688)
+	move	t687, t688, r0
+	li	t709, 3
+	sw	t709, 0(t687)
+	la	t710, L124
+	sw	t710, 4(t687)
+	li	t711, 0
+	move	t122, t711, r0
+	move	t112, t697, r0
+	move	t113, t696, r0
+	move	t114, t695, r0
+	move	t115, t694, r0
+	move	t116, t693, r0
+	move	t117, t692, r0
+	move	t118, t691, r0
+	move	t119, t690, r0
+	move	t120, t689, r0
+	j	L125
 L125:

@@ -1,38 +1,38 @@
 L209:
-	sw	t100, 4(t120)
-	add	t987, t123, r0
-	add	t988, t112, r0
-	add	t989, t113, r0
-	add	t990, t114, r0
-	add	t991, t115, r0
-	add	t992, t116, r0
-	add	t993, t117, r0
-	add	t994, t118, r0
-	add	t995, t119, r0
-	li	t996, 0
-	add	t985, t996, r0
-	li	t997, 0
-	beq	t985, t997, L207
+	sw	t103, 4(t123)
+	move	t1239, t120, r0
+	move	t1240, t119, r0
+	move	t1241, t118, r0
+	move	t1242, t117, r0
+	move	t1243, t116, r0
+	move	t1244, t115, r0
+	move	t1245, t114, r0
+	move	t1246, t113, r0
+	move	t1247, t112, r0
+	li	t1248, 0
+	move	t1237, t1248, r0
+	li	t1249, 0
+	beq	t1237, t1249, L207
 b L207
 L207:
-	li	t998, 1
-	add	t986, t998, r0
-	li	t999, 0
-	bne	t985, t999, L205
+	li	t1250, 1
+	move	t1238, t1250, r0
+	li	t1251, 0
+	bne	t1237, t1251, L205
 b L206
 L206:
-	li	t1000, 0
-	add	t986, t1000, r0
+	li	t1252, 0
+	move	t1238, t1252, r0
 L205:
-	add	t121, t986, r0
-	add	t119, t995, r0
-	add	t118, t994, r0
-	add	t117, t993, r0
-	add	t116, t992, r0
-	add	t115, t991, r0
-	add	t114, t990, r0
-	add	t113, t989, r0
-	add	t112, t988, r0
-	add	t123, t987, r0
-	b	L208
+	move	t122, t1238, r0
+	move	t112, t1247, r0
+	move	t113, t1246, r0
+	move	t114, t1245, r0
+	move	t115, t1244, r0
+	move	t116, t1243, r0
+	move	t117, t1242, r0
+	move	t118, t1241, r0
+	move	t119, t1240, r0
+	move	t120, t1239, r0
+	j	L208
 L208:

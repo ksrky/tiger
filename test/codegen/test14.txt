@@ -1,54 +1,84 @@
 L66:	.asciiz "aname"
 L74:
-	sw	t100, 4(t120)
-	add	t377, t123, r0
-	add	t378, t112, r0
-	add	t379, t113, r0
-	add	t380, t114, r0
-	add	t381, t115, r0
-	add	t382, t116, r0
-	add	t383, t117, r0
-	add	t384, t118, r0
-	add	t385, t119, r0
-	li	t386, 3
-	add	t100, t386, r0
-	li	t387, 0
-	add	t101, t387, r0
-	la	t388, initArrray
-	jalr	t388
-	add	t374, t121, r0
-	add	t373, t374, r0
-	li	t389, 8
-	add	t100, t389, r0
-	la	t390, allocRecord
-	jalr	t390
-	add	t372, t121, r0
-	la	t391, L66
-	sw	t391, 0(t372)
-	li	t392, 0
-	sw	t392, 4(t372)
-	add	t371, t372, r0
-	li	t393, 0
-	li	t394, 0
-	bne	t394, t393, L70
+	sw	t103, 4(t123)
+	move	t447, t120, r0
+	move	t448, t119, r0
+	move	t449, t118, r0
+	move	t450, t117, r0
+	move	t451, t116, r0
+	move	t452, t115, r0
+	move	t453, t114, r0
+	move	t454, t113, r0
+	move	t455, t112, r0
+	move	t456, t111, r0
+	move	t457, t110, r0
+	move	t458, t109, r0
+	move	t459, t108, r0
+	move	t460, t107, r0
+	move	t461, t106, r0
+	move	t462, t105, r0
+	move	t463, t104, r0
+	li	t464, 3
+	move	t103, t464, r0
+	li	t465, 0
+	move	t102, t465, r0
+	jal	initArrray
+	move	t104, t463, r0
+	move	t105, t462, r0
+	move	t106, t461, r0
+	move	t107, t460, r0
+	move	t108, t459, r0
+	move	t109, t458, r0
+	move	t110, t457, r0
+	move	t111, t456, r0
+	move	t444, t122, r0
+	move	t443, t444, r0
+	move	t466, t111, r0
+	move	t467, t110, r0
+	move	t468, t109, r0
+	move	t469, t108, r0
+	move	t470, t107, r0
+	move	t471, t106, r0
+	move	t472, t105, r0
+	move	t473, t104, r0
+	li	t474, 8
+	move	t103, t474, r0
+	jal	allocRecord
+	move	t104, t473, r0
+	move	t105, t472, r0
+	move	t106, t471, r0
+	move	t107, t470, r0
+	move	t108, t469, r0
+	move	t109, t468, r0
+	move	t110, t467, r0
+	move	t111, t466, r0
+	move	t442, t122, r0
+	la	t475, L66
+	sw	t475, 0(t442)
+	li	t476, 0
+	sw	t476, 4(t442)
+	move	t441, t442, r0
+	li	t477, 0
+	li	t478, 0
+	bne	t478, t477, L70
 b L71
 L71:
-	li	t395, 4
-	add	t376, t395, r0
+	li	t479, 4
+	move	t446, t479, r0
 L72:
-	add	t121, t376, r0
-	add	t119, t385, r0
-	add	t118, t384, r0
-	add	t117, t383, r0
-	add	t116, t382, r0
-	add	t115, t381, r0
-	add	t114, t380, r0
-	add	t113, t379, r0
-	add	t112, t378, r0
-	add	t123, t377, r0
-	b	L73
+	move	t122, t446, r0
+	move	t112, t455, r0
+	move	t113, t454, r0
+	move	t114, t453, r0
+	move	t115, t452, r0
+	move	t116, t451, r0
+	move	t117, t450, r0
+	move	t118, t449, r0
+	move	t119, t448, r0
+	move	t120, t447, r0
+	j	L73
 L70:
-	li	t396, 3
-	add	t376, t396, r0
-	b	L72
+	li	t480, 3
+	move	t446, t480, r0
+	j	L72
 L73:

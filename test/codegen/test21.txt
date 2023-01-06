@@ -1,28 +1,43 @@
 L116:
-	sw	t100, 4(t120)
-	add	t526, t123, r0
-	add	t527, t112, r0
-	add	t528, t113, r0
-	add	t529, t114, r0
-	add	t530, t115, r0
-	add	t531, t116, r0
-	add	t532, t117, r0
-	add	t533, t118, r0
-	add	t534, t119, r0
-	add	t100, t120, r0
-	li	t535, 10
-	add	t101, t535, r0
-	la	t536, nfactor
-	jalr	t536
-	add	t121, t121, r0
-	add	t119, t534, r0
-	add	t118, t533, r0
-	add	t117, t532, r0
-	add	t116, t531, r0
-	add	t115, t530, r0
-	add	t114, t529, r0
-	add	t113, t528, r0
-	add	t112, t527, r0
-	add	t123, t526, r0
-	b	L115
+	sw	t103, 4(t123)
+	move	t645, t120, r0
+	move	t646, t119, r0
+	move	t647, t118, r0
+	move	t648, t117, r0
+	move	t649, t116, r0
+	move	t650, t115, r0
+	move	t651, t114, r0
+	move	t652, t113, r0
+	move	t653, t112, r0
+	move	t654, t111, r0
+	move	t655, t110, r0
+	move	t656, t109, r0
+	move	t657, t108, r0
+	move	t658, t107, r0
+	move	t659, t106, r0
+	move	t660, t105, r0
+	move	t661, t104, r0
+	move	t103, t123, r0
+	li	t662, 10
+	move	t102, t662, r0
+	jal	nfactor
+	move	t104, t661, r0
+	move	t105, t660, r0
+	move	t106, t659, r0
+	move	t107, t658, r0
+	move	t108, t657, r0
+	move	t109, t656, r0
+	move	t110, t655, r0
+	move	t111, t654, r0
+	move	t122, t122, r0
+	move	t112, t653, r0
+	move	t113, t652, r0
+	move	t114, t651, r0
+	move	t115, t650, r0
+	move	t116, t649, r0
+	move	t117, t648, r0
+	move	t118, t647, r0
+	move	t119, t646, r0
+	move	t120, t645, r0
+	j	L115
 L115:

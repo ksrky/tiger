@@ -1,25 +1,25 @@
 L84:
-	sw	t100, 4(t120)
-	add	t420, t123, r0
-	add	t421, t112, r0
-	add	t422, t113, r0
-	add	t423, t114, r0
-	add	t424, t115, r0
-	add	t425, t116, r0
-	add	t426, t117, r0
-	add	t427, t118, r0
-	add	t428, t119, r0
-	li	t429, 0
-	add	t419, t429, r0
-	add	t121, t419, r0
-	add	t119, t428, r0
-	add	t118, t427, r0
-	add	t117, t426, r0
-	add	t116, t425, r0
-	add	t115, t424, r0
-	add	t114, t423, r0
-	add	t113, t422, r0
-	add	t112, t421, r0
-	add	t123, t420, r0
-	b	L83
+	sw	t103, 4(t123)
+	move	t504, t120, r0
+	move	t505, t119, r0
+	move	t506, t118, r0
+	move	t507, t117, r0
+	move	t508, t116, r0
+	move	t509, t115, r0
+	move	t510, t114, r0
+	move	t511, t113, r0
+	move	t512, t112, r0
+	li	t513, 0
+	move	t503, t513, r0
+	move	t122, t503, r0
+	move	t112, t512, r0
+	move	t113, t511, r0
+	move	t114, t510, r0
+	move	t115, t509, r0
+	move	t116, t508, r0
+	move	t117, t507, r0
+	move	t118, t506, r0
+	move	t119, t505, r0
+	move	t120, t504, r0
+	j	L83
 L83:

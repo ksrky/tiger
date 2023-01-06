@@ -2,38 +2,53 @@ L117:	.asciiz "Name"
 L118:	.asciiz "asd"
 L119:	.asciiz "asd"
 L121:
-	sw	t100, 4(t120)
-	add	t539, t123, r0
-	add	t540, t112, r0
-	add	t541, t113, r0
-	add	t542, t114, r0
-	add	t543, t115, r0
-	add	t544, t116, r0
-	add	t545, t117, r0
-	add	t546, t118, r0
-	add	t547, t119, r0
-	li	t548, 8
-	add	t100, t548, r0
-	la	t549, allocRecord
-	jalr	t549
-	add	t538, t121, r0
-	la	t550, L117
-	sw	t550, 0(t538)
-	li	t551, 0
-	sw	t551, 4(t538)
-	add	t537, t538, r0
-	la	t552, L119
-	sw	t552, -4(t537)
-	li	t553, 0
-	add	t121, t553, r0
-	add	t119, t547, r0
-	add	t118, t546, r0
-	add	t117, t545, r0
-	add	t116, t544, r0
-	add	t115, t543, r0
-	add	t114, t542, r0
-	add	t113, t541, r0
-	add	t112, t540, r0
-	add	t123, t539, r0
-	b	L120
+	sw	t103, 4(t123)
+	move	t665, t120, r0
+	move	t666, t119, r0
+	move	t667, t118, r0
+	move	t668, t117, r0
+	move	t669, t116, r0
+	move	t670, t115, r0
+	move	t671, t114, r0
+	move	t672, t113, r0
+	move	t673, t112, r0
+	move	t674, t111, r0
+	move	t675, t110, r0
+	move	t676, t109, r0
+	move	t677, t108, r0
+	move	t678, t107, r0
+	move	t679, t106, r0
+	move	t680, t105, r0
+	move	t681, t104, r0
+	li	t682, 8
+	move	t103, t682, r0
+	jal	allocRecord
+	move	t104, t681, r0
+	move	t105, t680, r0
+	move	t106, t679, r0
+	move	t107, t678, r0
+	move	t108, t677, r0
+	move	t109, t676, r0
+	move	t110, t675, r0
+	move	t111, t674, r0
+	move	t664, t122, r0
+	la	t683, L117
+	sw	t683, 0(t664)
+	li	t684, 0
+	sw	t684, 4(t664)
+	move	t663, t664, r0
+	la	t685, L119
+	sw	t685, -4(t663)
+	li	t686, 0
+	move	t122, t686, r0
+	move	t112, t673, r0
+	move	t113, t672, r0
+	move	t114, t671, r0
+	move	t115, t670, r0
+	move	t116, t669, r0
+	move	t117, t668, r0
+	move	t118, t667, r0
+	move	t119, t666, r0
+	move	t120, t665, r0
+	j	L120
 L120:

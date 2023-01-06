@@ -1,28 +1,28 @@
 L202:
-	sw	t100, 4(t120)
-	add	t962, t123, r0
-	add	t963, t112, r0
-	add	t964, t113, r0
-	add	t965, t114, r0
-	add	t966, t115, r0
-	add	t967, t116, r0
-	add	t968, t117, r0
-	add	t969, t118, r0
-	add	t970, t119, r0
-	li	t971, 0
-	add	t961, t971, r0
-	li	t972, 0
-	add	t961, t972, r0
-	li	t973, 0
-	add	t121, t973, r0
-	add	t119, t970, r0
-	add	t118, t969, r0
-	add	t117, t968, r0
-	add	t116, t967, r0
-	add	t115, t966, r0
-	add	t114, t965, r0
-	add	t113, t964, r0
-	add	t112, t963, r0
-	add	t123, t962, r0
-	b	L201
+	sw	t103, 4(t123)
+	move	t1214, t120, r0
+	move	t1215, t119, r0
+	move	t1216, t118, r0
+	move	t1217, t117, r0
+	move	t1218, t116, r0
+	move	t1219, t115, r0
+	move	t1220, t114, r0
+	move	t1221, t113, r0
+	move	t1222, t112, r0
+	li	t1223, 0
+	move	t1213, t1223, r0
+	li	t1224, 0
+	move	t1213, t1224, r0
+	li	t1225, 0
+	move	t122, t1225, r0
+	move	t112, t1222, r0
+	move	t113, t1221, r0
+	move	t114, t1220, r0
+	move	t115, t1219, r0
+	move	t116, t1218, r0
+	move	t117, t1217, r0
+	move	t118, t1216, r0
+	move	t119, t1215, r0
+	move	t120, t1214, r0
+	j	L201
 L201:

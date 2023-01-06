@@ -1,32 +1,32 @@
 L111:
-	sw	t100, 4(t120)
-	add	t512, t123, r0
-	add	t513, t112, r0
-	add	t514, t113, r0
-	add	t515, t114, r0
-	add	t516, t115, r0
-	add	t517, t116, r0
-	add	t518, t117, r0
-	add	t519, t118, r0
-	add	t520, t119, r0
+	sw	t103, 4(t123)
+	move	t631, t120, r0
+	move	t632, t119, r0
+	move	t633, t118, r0
+	move	t634, t117, r0
+	move	t635, t116, r0
+	move	t636, t115, r0
+	move	t637, t114, r0
+	move	t638, t113, r0
+	move	t639, t112, r0
 L108:
-	li	t521, 5
-	li	t522, 10
-	bgt	t522, t521, L109
+	li	t640, 5
+	li	t641, 10
+	bgt	t641, t640, L109
 b L107
 L107:
-	li	t523, 0
-	add	t121, t523, r0
-	add	t119, t520, r0
-	add	t118, t519, r0
-	add	t117, t518, r0
-	add	t116, t517, r0
-	add	t115, t516, r0
-	add	t114, t515, r0
-	add	t113, t514, r0
-	add	t112, t513, r0
-	add	t123, t512, r0
-	b	L110
+	li	t642, 0
+	move	t122, t642, r0
+	move	t112, t639, r0
+	move	t113, t638, r0
+	move	t114, t637, r0
+	move	t115, t636, r0
+	move	t116, t635, r0
+	move	t117, t634, r0
+	move	t118, t633, r0
+	move	t119, t632, r0
+	move	t120, t631, r0
+	j	L110
 L109:
-	b	L108
+	j	L108
 L110:

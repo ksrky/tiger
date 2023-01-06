@@ -49,7 +49,7 @@ let rec alloc (instrs : Assem.instr list) (frame : Frame.frame) : Assem.instr li
           List.concat (List.map insertInstr acc) )
         instrs spilledNodes
     in
-    (*Color.initial := !Color.coloredNodes @ !Color.coalescedNodes @ !newTemps;*)
+    (* temp: Color.initial := !Color.coloredNodes @ !Color.coalescedNodes @ !newTemps;*)
     instrs'
   in
   if List.length spilledNodes = 0 then (instrs, allocation)

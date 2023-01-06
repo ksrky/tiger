@@ -1,70 +1,70 @@
 L213:
-	sw	t100, 4(t120)
-	add	t1014, t123, r0
-	add	t1015, t112, r0
-	add	t1016, t113, r0
-	add	t1017, t114, r0
-	add	t1018, t115, r0
-	add	t1019, t116, r0
-	add	t1020, t117, r0
-	add	t1021, t118, r0
-	add	t1022, t119, r0
-	add	t121, t1013, r0
-	add	t119, t1022, r0
-	add	t118, t1021, r0
-	add	t117, t1020, r0
-	add	t116, t1019, r0
-	add	t115, t1018, r0
-	add	t114, t1017, r0
-	add	t113, t1016, r0
-	add	t112, t1015, r0
-	add	t123, t1014, r0
-	b	L212
+	sw	t103, 4(t123)
+	move	t1266, t120, r0
+	move	t1267, t119, r0
+	move	t1268, t118, r0
+	move	t1269, t117, r0
+	move	t1270, t116, r0
+	move	t1271, t115, r0
+	move	t1272, t114, r0
+	move	t1273, t113, r0
+	move	t1274, t112, r0
+	move	t122, t1265, r0
+	move	t112, t1274, r0
+	move	t113, t1273, r0
+	move	t114, t1272, r0
+	move	t115, t1271, r0
+	move	t116, t1270, r0
+	move	t117, t1269, r0
+	move	t118, t1268, r0
+	move	t119, t1267, r0
+	move	t120, t1266, r0
+	j	L212
 L212:
 L215:
-	sw	t100, 4(t120)
-	add	t1024, t123, r0
-	add	t1025, t112, r0
-	add	t1026, t113, r0
-	add	t1027, t114, r0
-	add	t1028, t115, r0
-	add	t1029, t116, r0
-	add	t1030, t117, r0
-	add	t1031, t118, r0
-	add	t1032, t119, r0
-	add	t121, t1023, r0
-	add	t119, t1032, r0
-	add	t118, t1031, r0
-	add	t117, t1030, r0
-	add	t116, t1029, r0
-	add	t115, t1028, r0
-	add	t114, t1027, r0
-	add	t113, t1026, r0
-	add	t112, t1025, r0
-	add	t123, t1024, r0
-	b	L214
+	sw	t103, 4(t123)
+	move	t1276, t120, r0
+	move	t1277, t119, r0
+	move	t1278, t118, r0
+	move	t1279, t117, r0
+	move	t1280, t116, r0
+	move	t1281, t115, r0
+	move	t1282, t114, r0
+	move	t1283, t113, r0
+	move	t1284, t112, r0
+	move	t122, t1275, r0
+	move	t112, t1284, r0
+	move	t113, t1283, r0
+	move	t114, t1282, r0
+	move	t115, t1281, r0
+	move	t116, t1280, r0
+	move	t117, t1279, r0
+	move	t118, t1278, r0
+	move	t119, t1277, r0
+	move	t120, t1276, r0
+	j	L214
 L214:
 L217:
-	sw	t100, 4(t120)
-	add	t1033, t123, r0
-	add	t1034, t112, r0
-	add	t1035, t113, r0
-	add	t1036, t114, r0
-	add	t1037, t115, r0
-	add	t1038, t116, r0
-	add	t1039, t117, r0
-	add	t1040, t118, r0
-	add	t1041, t119, r0
-	li	t1042, 0
-	add	t121, t1042, r0
-	add	t119, t1041, r0
-	add	t118, t1040, r0
-	add	t117, t1039, r0
-	add	t116, t1038, r0
-	add	t115, t1037, r0
-	add	t114, t1036, r0
-	add	t113, t1035, r0
-	add	t112, t1034, r0
-	add	t123, t1033, r0
-	b	L216
+	sw	t103, 4(t123)
+	move	t1285, t120, r0
+	move	t1286, t119, r0
+	move	t1287, t118, r0
+	move	t1288, t117, r0
+	move	t1289, t116, r0
+	move	t1290, t115, r0
+	move	t1291, t114, r0
+	move	t1292, t113, r0
+	move	t1293, t112, r0
+	li	t1294, 0
+	move	t122, t1294, r0
+	move	t112, t1293, r0
+	move	t113, t1292, r0
+	move	t114, t1291, r0
+	move	t115, t1290, r0
+	move	t116, t1289, r0
+	move	t117, t1288, r0
+	move	t118, t1287, r0
+	move	t119, t1286, r0
+	move	t120, t1285, r0
+	j	L216
 L216:

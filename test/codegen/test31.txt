@@ -1,26 +1,26 @@
 L145:	.asciiz " "
 L147:
-	sw	t100, 4(t120)
-	add	t678, t123, r0
-	add	t679, t112, r0
-	add	t680, t113, r0
-	add	t681, t114, r0
-	add	t682, t115, r0
-	add	t683, t116, r0
-	add	t684, t117, r0
-	add	t685, t118, r0
-	add	t686, t119, r0
-	la	t687, L145
-	add	t677, t687, r0
-	add	t121, t677, r0
-	add	t119, t686, r0
-	add	t118, t685, r0
-	add	t117, t684, r0
-	add	t116, t683, r0
-	add	t115, t682, r0
-	add	t114, t681, r0
-	add	t113, t680, r0
-	add	t112, t679, r0
-	add	t123, t678, r0
-	b	L146
+	sw	t103, 4(t123)
+	move	t846, t120, r0
+	move	t847, t119, r0
+	move	t848, t118, r0
+	move	t849, t117, r0
+	move	t850, t116, r0
+	move	t851, t115, r0
+	move	t852, t114, r0
+	move	t853, t113, r0
+	move	t854, t112, r0
+	la	t855, L145
+	move	t845, t855, r0
+	move	t122, t845, r0
+	move	t112, t854, r0
+	move	t113, t853, r0
+	move	t114, t852, r0
+	move	t115, t851, r0
+	move	t116, t850, r0
+	move	t117, t849, r0
+	move	t118, t848, r0
+	move	t119, t847, r0
+	move	t120, t846, r0
+	j	L146
 L146:

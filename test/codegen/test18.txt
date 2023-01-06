@@ -1,92 +1,122 @@
 L91:
-	sw	t100, 4(t120)
-	add	t432, t123, r0
-	add	t433, t112, r0
-	add	t434, t113, r0
-	add	t435, t114, r0
-	add	t436, t115, r0
-	add	t437, t116, r0
-	add	t438, t117, r0
-	add	t439, t118, r0
-	add	t440, t119, r0
-	li	t461, 0
-	add	t121, t461, r0
-	add	t119, t440, r0
-	add	t118, t439, r0
-	add	t117, t438, r0
-	add	t116, t437, r0
-	add	t115, t436, r0
-	add	t114, t435, r0
-	add	t113, t434, r0
-	add	t112, t433, r0
-	add	t123, t432, r0
-	b	L90
+	sw	t103, 4(t123)
+	move	t516, t120, r0
+	move	t517, t119, r0
+	move	t518, t118, r0
+	move	t519, t117, r0
+	move	t520, t116, r0
+	move	t521, t115, r0
+	move	t522, t114, r0
+	move	t523, t113, r0
+	move	t524, t112, r0
+	li	t545, 0
+	move	t122, t545, r0
+	move	t112, t524, r0
+	move	t113, t523, r0
+	move	t114, t522, r0
+	move	t115, t521, r0
+	move	t116, t520, r0
+	move	t117, t519, r0
+	move	t118, t518, r0
+	move	t119, t517, r0
+	move	t120, t516, r0
+	j	L90
 L90:
 L85:	.asciiz " "
 L86:	.asciiz " "
 L87:	.asciiz "str"
 L93:
-	sw	t100, 4(t120)
-	add	t443, t123, r0
-	add	t444, t112, r0
-	add	t445, t113, r0
-	add	t446, t114, r0
-	add	t447, t115, r0
-	add	t448, t116, r0
-	add	t449, t117, r0
-	add	t450, t118, r0
-	add	t451, t119, r0
-	lw	t462, 4(t120)
-	add	t100, t462, r0
-	add	t101, t442, r0
-	la	t463, L87
-	add	t102, t463, r0
-	la	t464, do_nothing1
-	jalr	t464
-	la	t465, L86
-	add	t121, t465, r0
-	add	t119, t451, r0
-	add	t118, t450, r0
-	add	t117, t449, r0
-	add	t116, t448, r0
-	add	t115, t447, r0
-	add	t114, t446, r0
-	add	t113, t445, r0
-	add	t112, t444, r0
-	add	t123, t443, r0
-	b	L92
+	sw	t103, 4(t123)
+	move	t527, t120, r0
+	move	t528, t119, r0
+	move	t529, t118, r0
+	move	t530, t117, r0
+	move	t531, t116, r0
+	move	t532, t115, r0
+	move	t533, t114, r0
+	move	t534, t113, r0
+	move	t535, t112, r0
+	move	t546, t111, r0
+	move	t547, t110, r0
+	move	t548, t109, r0
+	move	t549, t108, r0
+	move	t550, t107, r0
+	move	t551, t106, r0
+	move	t552, t105, r0
+	move	t553, t104, r0
+	lw	t554, 4(t123)
+	move	t103, t554, r0
+	move	t102, t526, r0
+	la	t555, L87
+	move	t101, t555, r0
+	jal	do_nothing1
+	move	t104, t553, r0
+	move	t105, t552, r0
+	move	t106, t551, r0
+	move	t107, t550, r0
+	move	t108, t549, r0
+	move	t109, t548, r0
+	move	t110, t547, r0
+	move	t111, t546, r0
+	la	t556, L86
+	move	t122, t556, r0
+	move	t112, t535, r0
+	move	t113, t534, r0
+	move	t114, t533, r0
+	move	t115, t532, r0
+	move	t116, t531, r0
+	move	t117, t530, r0
+	move	t118, t529, r0
+	move	t119, t528, r0
+	move	t120, t527, r0
+	j	L92
 L92:
 L88:	.asciiz "str2"
 L89:	.asciiz "str2"
 L95:
-	sw	t100, 4(t120)
-	add	t452, t123, r0
-	add	t453, t112, r0
-	add	t454, t113, r0
-	add	t455, t114, r0
-	add	t456, t115, r0
-	add	t457, t116, r0
-	add	t458, t117, r0
-	add	t459, t118, r0
-	add	t460, t119, r0
-	li	t466, 0
-	add	t441, t466, r0
-	add	t100, t120, r0
-	li	t467, 0
-	add	t101, t467, r0
-	la	t468, L89
-	add	t102, t468, r0
-	la	t469, do_nothing1
-	jalr	t469
-	add	t121, t121, r0
-	add	t119, t460, r0
-	add	t118, t459, r0
-	add	t117, t458, r0
-	add	t116, t457, r0
-	add	t115, t456, r0
-	add	t114, t455, r0
-	add	t113, t454, r0
-	add	t112, t453, r0
-	add	t123, t452, r0
-	b	L94
+	sw	t103, 4(t123)
+	move	t536, t120, r0
+	move	t537, t119, r0
+	move	t538, t118, r0
+	move	t539, t117, r0
+	move	t540, t116, r0
+	move	t541, t115, r0
+	move	t542, t114, r0
+	move	t543, t113, r0
+	move	t544, t112, r0
+	li	t557, 0
+	move	t525, t557, r0
+	move	t558, t111, r0
+	move	t559, t110, r0
+	move	t560, t109, r0
+	move	t561, t108, r0
+	move	t562, t107, r0
+	move	t563, t106, r0
+	move	t564, t105, r0
+	move	t565, t104, r0
+	move	t103, t123, r0
+	li	t566, 0
+	move	t102, t566, r0
+	la	t567, L89
+	move	t101, t567, r0
+	jal	do_nothing1
+	move	t104, t565, r0
+	move	t105, t564, r0
+	move	t106, t563, r0
+	move	t107, t562, r0
+	move	t108, t561, r0
+	move	t109, t560, r0
+	move	t110, t559, r0
+	move	t111, t558, r0
+	move	t122, t122, r0
+	move	t112, t544, r0
+	move	t113, t543, r0
+	move	t114, t542, r0
+	move	t115, t541, r0
+	move	t116, t540, r0
+	move	t117, t539, r0
+	move	t118, t538, r0
+	move	t119, t537, r0
+	move	t120, t536, r0
+	j	L94
 L94:

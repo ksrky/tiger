@@ -1,25 +1,25 @@
 L63:	.asciiz "df"
 L65:
-	sw	t100, 4(t120)
-	add	t361, t123, r0
-	add	t362, t112, r0
-	add	t363, t113, r0
-	add	t364, t114, r0
-	add	t365, t115, r0
-	add	t366, t116, r0
-	add	t367, t117, r0
-	add	t368, t118, r0
-	add	t369, t119, r0
-	li	t370, 0
-	add	t121, t370, r0
-	add	t119, t369, r0
-	add	t118, t368, r0
-	add	t117, t367, r0
-	add	t116, t366, r0
-	add	t115, t365, r0
-	add	t114, t364, r0
-	add	t113, t363, r0
-	add	t112, t362, r0
-	add	t123, t361, r0
-	b	L64
+	sw	t103, 4(t123)
+	move	t431, t120, r0
+	move	t432, t119, r0
+	move	t433, t118, r0
+	move	t434, t117, r0
+	move	t435, t116, r0
+	move	t436, t115, r0
+	move	t437, t114, r0
+	move	t438, t113, r0
+	move	t439, t112, r0
+	li	t440, 0
+	move	t122, t440, r0
+	move	t112, t439, r0
+	move	t113, t438, r0
+	move	t114, t437, r0
+	move	t115, t436, r0
+	move	t116, t435, r0
+	move	t117, t434, r0
+	move	t118, t433, r0
+	move	t119, t432, r0
+	move	t120, t431, r0
+	j	L64
 L64:

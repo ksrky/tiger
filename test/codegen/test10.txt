@@ -1,34 +1,34 @@
 L48:
-	sw	t100, 4(t120)
-	add	t309, t123, r0
-	add	t310, t112, r0
-	add	t311, t113, r0
-	add	t312, t114, r0
-	add	t313, t115, r0
-	add	t314, t116, r0
-	add	t315, t117, r0
-	add	t316, t118, r0
-	add	t317, t119, r0
+	sw	t103, 4(t123)
+	move	t379, t120, r0
+	move	t380, t119, r0
+	move	t381, t118, r0
+	move	t382, t117, r0
+	move	t383, t116, r0
+	move	t384, t115, r0
+	move	t385, t114, r0
+	move	t386, t113, r0
+	move	t387, t112, r0
 L45:
-	li	t318, 5
-	li	t319, 10
-	bgt	t319, t318, L46
+	li	t388, 5
+	li	t389, 10
+	bgt	t389, t388, L46
 b L44
 L44:
-	li	t320, 0
-	add	t121, t320, r0
-	add	t119, t317, r0
-	add	t118, t316, r0
-	add	t117, t315, r0
-	add	t116, t314, r0
-	add	t115, t313, r0
-	add	t114, t312, r0
-	add	t113, t311, r0
-	add	t112, t310, r0
-	add	t123, t309, r0
-	b	L47
+	li	t390, 0
+	move	t122, t390, r0
+	move	t112, t387, r0
+	move	t113, t386, r0
+	move	t114, t385, r0
+	move	t115, t384, r0
+	move	t116, t383, r0
+	move	t117, t382, r0
+	move	t118, t381, r0
+	move	t119, t380, r0
+	move	t120, t379, r0
+	j	L47
 L46:
-	li	t322, 5
-	addiu	t321, t322, 6
-	b	L45
+	li	t392, 5
+	addiu	t391, t392, 6
+	j	L45
 L47:

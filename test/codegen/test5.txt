@@ -1,33 +1,48 @@
 L16:
-	sw	t100, 4(t120)
-	add	t212, t123, r0
-	add	t213, t112, r0
-	add	t214, t113, r0
-	add	t215, t114, r0
-	add	t216, t115, r0
-	add	t217, t116, r0
-	add	t218, t117, r0
-	add	t219, t118, r0
-	add	t220, t119, r0
-	li	t221, 8
-	add	t100, t221, r0
-	la	t222, allocRecord
-	jalr	t222
-	add	t211, t121, r0
-	li	t223, 0
-	sw	t223, 0(t211)
-	li	t224, 0
-	sw	t224, 4(t211)
-	add	t210, t211, r0
-	add	t121, t210, r0
-	add	t119, t220, r0
-	add	t118, t219, r0
-	add	t117, t218, r0
-	add	t116, t217, r0
-	add	t115, t216, r0
-	add	t114, t215, r0
-	add	t113, t214, r0
-	add	t112, t213, r0
-	add	t123, t212, r0
-	b	L15
+	sw	t103, 4(t123)
+	move	t247, t120, r0
+	move	t248, t119, r0
+	move	t249, t118, r0
+	move	t250, t117, r0
+	move	t251, t116, r0
+	move	t252, t115, r0
+	move	t253, t114, r0
+	move	t254, t113, r0
+	move	t255, t112, r0
+	move	t256, t111, r0
+	move	t257, t110, r0
+	move	t258, t109, r0
+	move	t259, t108, r0
+	move	t260, t107, r0
+	move	t261, t106, r0
+	move	t262, t105, r0
+	move	t263, t104, r0
+	li	t264, 8
+	move	t103, t264, r0
+	jal	allocRecord
+	move	t104, t263, r0
+	move	t105, t262, r0
+	move	t106, t261, r0
+	move	t107, t260, r0
+	move	t108, t259, r0
+	move	t109, t258, r0
+	move	t110, t257, r0
+	move	t111, t256, r0
+	move	t246, t122, r0
+	li	t265, 0
+	sw	t265, 0(t246)
+	li	t266, 0
+	sw	t266, 4(t246)
+	move	t245, t246, r0
+	move	t122, t245, r0
+	move	t112, t255, r0
+	move	t113, t254, r0
+	move	t114, t253, r0
+	move	t115, t252, r0
+	move	t116, t251, r0
+	move	t117, t250, r0
+	move	t118, t249, r0
+	move	t119, t248, r0
+	move	t120, t247, r0
+	j	L15
 L15:

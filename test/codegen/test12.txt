@@ -1,40 +1,40 @@
 L62:
-	sw	t100, 4(t120)
-	add	t346, t123, r0
-	add	t347, t112, r0
-	add	t348, t113, r0
-	add	t349, t114, r0
-	add	t350, t115, r0
-	add	t351, t116, r0
-	add	t352, t117, r0
-	add	t353, t118, r0
-	add	t354, t119, r0
-	li	t355, 0
-	add	t341, t355, r0
-	li	t356, 100
-	add	t345, t356, r0
-	li	t357, 0
-	add	t344, t357, r0
+	sw	t103, 4(t123)
+	move	t416, t120, r0
+	move	t417, t119, r0
+	move	t418, t118, r0
+	move	t419, t117, r0
+	move	t420, t116, r0
+	move	t421, t115, r0
+	move	t422, t114, r0
+	move	t423, t113, r0
+	move	t424, t112, r0
+	li	t425, 0
+	move	t411, t425, r0
+	li	t426, 100
+	move	t415, t426, r0
+	li	t427, 0
+	move	t414, t427, r0
 L59:
-	ble t344, t345, L60
+	ble t414, t415, L60
 b L58
 L58:
-	li	t358, 0
-	add	t121, t358, r0
-	add	t119, t354, r0
-	add	t118, t353, r0
-	add	t117, t352, r0
-	add	t116, t351, r0
-	add	t115, t350, r0
-	add	t114, t349, r0
-	add	t113, t348, r0
-	add	t112, t347, r0
-	add	t123, t346, r0
-	b	L61
+	li	t428, 0
+	move	t122, t428, r0
+	move	t112, t424, r0
+	move	t113, t423, r0
+	move	t114, t422, r0
+	move	t115, t421, r0
+	move	t116, t420, r0
+	move	t117, t419, r0
+	move	t118, t418, r0
+	move	t119, t417, r0
+	move	t120, t416, r0
+	j	L61
 L60:
-	addiu	t359, t341, 1
-	add	t341, t359, r0
-	addiu	t360, t344, 1
-	add	t344, t360, r0
-	b	L59
+	addiu	t429, t411, 1
+	move	t411, t429, r0
+	addiu	t430, t414, 1
+	move	t414, t430, r0
+	j	L59
 L61:

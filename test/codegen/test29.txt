@@ -1,31 +1,46 @@
 L142:
-	sw	t100, 4(t120)
-	add	t646, t123, r0
-	add	t647, t112, r0
-	add	t648, t113, r0
-	add	t649, t114, r0
-	add	t650, t115, r0
-	add	t651, t116, r0
-	add	t652, t117, r0
-	add	t653, t118, r0
-	add	t654, t119, r0
-	li	t655, 10
-	add	t100, t655, r0
-	li	t656, 0
-	add	t101, t656, r0
-	la	t657, initArrray
-	jalr	t657
-	add	t645, t121, r0
-	add	t644, t645, r0
-	add	t121, t644, r0
-	add	t119, t654, r0
-	add	t118, t653, r0
-	add	t117, t652, r0
-	add	t116, t651, r0
-	add	t115, t650, r0
-	add	t114, t649, r0
-	add	t113, t648, r0
-	add	t112, t647, r0
-	add	t123, t646, r0
-	b	L141
+	sw	t103, 4(t123)
+	move	t800, t120, r0
+	move	t801, t119, r0
+	move	t802, t118, r0
+	move	t803, t117, r0
+	move	t804, t116, r0
+	move	t805, t115, r0
+	move	t806, t114, r0
+	move	t807, t113, r0
+	move	t808, t112, r0
+	move	t809, t111, r0
+	move	t810, t110, r0
+	move	t811, t109, r0
+	move	t812, t108, r0
+	move	t813, t107, r0
+	move	t814, t106, r0
+	move	t815, t105, r0
+	move	t816, t104, r0
+	li	t817, 10
+	move	t103, t817, r0
+	li	t818, 0
+	move	t102, t818, r0
+	jal	initArrray
+	move	t104, t816, r0
+	move	t105, t815, r0
+	move	t106, t814, r0
+	move	t107, t813, r0
+	move	t108, t812, r0
+	move	t109, t811, r0
+	move	t110, t810, r0
+	move	t111, t809, r0
+	move	t799, t122, r0
+	move	t798, t799, r0
+	move	t122, t798, r0
+	move	t112, t808, r0
+	move	t113, t807, r0
+	move	t114, t806, r0
+	move	t115, t805, r0
+	move	t116, t804, r0
+	move	t117, t803, r0
+	move	t118, t802, r0
+	move	t119, t801, r0
+	move	t120, t800, r0
+	j	L141
 L141:
