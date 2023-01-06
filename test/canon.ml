@@ -1,7 +1,6 @@
 let emitproc (out : out_channel) : Tiger.Frame.frag -> unit = function
   | Tiger.Frame.PROC {body; frame} ->
       let () = print_endline ("emit " ^ Tiger.Symbol.name (Tiger.Frame.name frame)) in
-      (* let _ = Printtree.printtree(out,body); *)
       let stms : Tiger.Tree.stm list = Tiger.Canon.linearize body in
       (*let () = List.iter (Tiger.PrintTree.printtree out) stms in*)
       let stms' : Tiger.Tree.stm list = Tiger.Canon.traceSchedule (Tiger.Canon.basicBlocks stms) in
