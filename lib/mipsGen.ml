@@ -3,16 +3,16 @@ module T = Tree
 
 let codegen _ stm =
   let ilist = ref [] in
-  let calldefs = [Frame.rv; Frame.ra] @ Frame.argregs (* temp: ?*) in
+  let calldefs = [Frame.rv] @ Frame.argregs in
   let emit instr = ilist := instr :: !ilist in
   let result gen =
     let t = Temp.newtemp () in
     gen t; t
   in
   let rec munchStm = function
-    (* sequent *)
+
     | T.SEQ (a, b) -> munchStm a; munchStm b
-    (* move *)
+
     | T.MOVE (T.MEM (T.BINOP (T.PLUS, e1, T.CONST i)), e2) ->
         emit
           (A.OPER
@@ -30,7 +30,7 @@ let codegen _ stm =
     | T.MOVE (T.MEM (T.CONST i), e1) ->
         emit
           (A.OPER
-             { assem= "\tsw\t`s0, " ^ string_of_int i ^ "(`r0)\n"
+             { assem= "\tsw\t`s0, " ^ string_of_int i ^ "($zero)\n"
              ; src= [munchExp e1]
              ; dst= []
              ; jump= None } )
@@ -42,13 +42,16 @@ let codegen _ stm =
              ; dst= []
              ; jump= None } )
     | T.MOVE (T.TEMP i, e2) ->
-        emit (A.OPER {assem= "\tadd\t`d0, `s0, r0\n"; src= [munchExp e2]; dst= [i]; jump= None})
+        emit (A.MOVE {assem= "\tmove\t`d0, `s0, r0\n"; src= munchExp e2; dst= i})
+    (*                        ^^pseudo instruction^^
+     * register allocator wants Assem.MOVE because it may be redundant.
+     * | T.MOVE (T.TEMP i, e2) ->
+     *     emit (A.OPER {assem= "\tadd\t`d0, $zero, `s0\n"; src= [munchExp e2]; dst= [i]; jump= None})*)
     | T.MOVE _ -> ErrorMsg.impossible "Invalid MOVE instruction"
-    (* jump *)
     | T.JUMP (T.NAME lab, _) ->
-        emit (A.OPER {assem= "\tb\t`j0\n"; src= []; dst= []; jump= Some [lab]})
-    | T.JUMP _ -> ErrorMsg.impossible "Tiger compiler does not generate this kind of Tree.JUMP"
-    (* cjump *)
+        emit (A.OPER {assem= "\tj\t`j0\n"; src= []; dst= []; jump= Some [lab]})
+    | T.JUMP (e, labs) ->
+        emit (A.OPER {assem= "\tjr\t`s0\n"; src= [munchExp e]; dst= []; jump= Some labs})
     | T.CJUMP (T.LT, e1, e2, l1, l2) ->
         emit
           (A.OPER
@@ -92,18 +95,21 @@ let codegen _ stm =
              ; src= [munchExp e1; munchExp e2]
              ; jump= Some [l1; l2] } )
     | T.CJUMP _ -> ErrorMsg.impossible "Tiger compiler does not generate this kind of Tree.CJUMP"
-    (* label *)
     | T.LABEL lab -> emit (A.LABEL {assem= Symbol.name lab ^ ":\n"; lab})
-    | T.EXP (T.CALL (e, args)) ->
+    | T.EXP (T.CALL (T.NAME lab, args)) ->
+        let tmpregs = List.map (fun r -> (Temp.newtemp (), r)) Frame.callersaves in
+        let fetch t r = T.MOVE (T.TEMP r, T.TEMP t) in
+        let store t r = T.MOVE (T.TEMP t, T.TEMP r) in
+        List.iter (fun (t, r) -> munchStm (store t r)) tmpregs;
         emit
           (A.OPER
-             { assem= "\tjalr\t`s0\n" (* temp *)
-             ; src= munchExp e :: munchArgs (0, args)
+             { assem= "\tjal\t" ^ Symbol.name lab ^ "\n"
+             ; src= munchArgs (0, args)
              ; dst= calldefs
-             ; jump= None } )
+             ; jump= None } );
+        List.iter (fun (t, r) -> munchStm (fetch t r)) (List.rev tmpregs)
     | T.EXP e -> ignore (munchExp e)
   and munchExp = function
-    (* memory *)
     | T.MEM (T.BINOP (T.PLUS, e1, T.CONST i)) ->
         result (fun r ->
             emit
@@ -124,8 +130,10 @@ let codegen _ stm =
         result (fun r ->
             emit
               (A.OPER
-                 {assem= "\tlw\t`d0, " ^ string_of_int i ^ "(`s0)\n"; src= []; dst= [r]; jump= None}
-              ) )
+                 { assem= "\tlw\t`d0, " ^ string_of_int i ^ "($zero)\n"
+                 ; src= []
+                 ; dst= [r]
+                 ; jump= None } ) )
     | T.MEM e1 ->
         result (fun r ->
             emit
@@ -134,7 +142,7 @@ let codegen _ stm =
                  ; src= [munchExp e1]
                  ; dst= [r]
                  ; jump= None } ) )
-    (* binop *)
+
     | T.BINOP (T.PLUS, e1, T.CONST i) ->
         result (fun r ->
             emit
@@ -192,26 +200,31 @@ let codegen _ stm =
                  ; dst= [r]
                  ; jump= None } ) )
     | T.BINOP _ -> ErrorMsg.impossible "Tiger compiler does not generate this kind of Tree.BINOP"
-    (* constant *)
+
     | T.CONST i ->
         result (fun r ->
             emit
               (A.OPER {assem= "\tli\t`d0, " ^ string_of_int i ^ "\n"; src= []; dst= [r]; jump= None}) )
-    (* temporaly *)
+
     | T.TEMP t -> t
-    (* name *)
+
     | T.NAME lab ->
         result (fun r ->
             emit
               (A.OPER {assem= "\tla\t`d0, " ^ Symbol.name lab ^ "\n"; src= []; dst= [r]; jump= None}) )
     | T.ESEQ _ -> ErrorMsg.impossible "Tree.ESEQ should have been removed in Canon module"
-    | T.CALL (e, args) ->
+    | T.CALL (T.NAME lab, args) ->
+        let tmpregs = List.map (fun r -> (Temp.newtemp (), r)) Frame.callersaves in
+        let fetch t r = T.MOVE (T.TEMP r, T.TEMP t) in
+        let store t r = T.MOVE (T.TEMP t, T.TEMP r) in
+        List.iter (fun (t, r) -> munchStm (store t r)) tmpregs;
         emit
           (A.OPER
-             { assem= "\tjalr\t`s0\n" (* temp *)
-             ; src= munchExp e :: munchArgs (0, args)
+             { assem= "\tjal\t" ^ Symbol.name lab ^ "\n"
+             ; src= munchArgs (0, args)
              ; dst= calldefs
              ; jump= None } );
+        List.iter (fun (t, r) -> munchStm (fetch t r)) (List.rev tmpregs);
         Frame.rv
   and munchArgs = function
     | _, [] -> []

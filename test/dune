@@ -17,3 +17,8 @@
  (public_name codegen)
  (modules codegen)
  (libraries tiger))
+
+(executable
+ (public_name regalloc)
+ (modules regalloc)
+ (libraries tiger))

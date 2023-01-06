@@ -1,6 +1,8 @@
+# https://github.com/ocaml-ppx/ocamlformat/blob/main/ocamlformat-help.txt
 profile = ocamlformat
 margin = 100
 break-cases = fit
 break-collection-expressions = wrap
 sequence-style = terminator
 break-sequences = false
+parse-docstrings = true

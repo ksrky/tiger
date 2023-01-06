@@ -7,10 +7,14 @@ let emitproc (out : out_channel) : Tiger.Frame.frag -> unit = function
         List.concat (List.map (Tiger.Codegen.codegen frame) stms')
       in
       let instrs2 = Tiger.Frame.procEntryExit2 frame instrs in
+      let instrs2', alloc = Tiger.RegAlloc.alloc instrs2 frame in
+      let prolog, instrs3, epilog = Tiger.Frame.procEntryExit3 frame instrs2' in
       let format0 : Tiger.Assem.instr -> Tiger.Assem.reg =
-        Tiger.Assem.format Tiger.Temp.makestring
+        Tiger.Assem.format (fun t -> Tiger.Temp.Table.find t alloc)
       in
-      List.iter (fun i -> output_string out (format0 i)) instrs2
+      output_string out prolog;
+      List.iter (fun i -> output_string out (format0 i)) instrs3;
+      output_string out epilog
   | Tiger.Frame.STRING (lab, s) -> output_string out (Tiger.Frame.string (lab, s))
 
 let withOpenFile (fname : string) (f : out_channel -> unit) : unit =

@@ -4,7 +4,7 @@ type frame
 
 type frag = PROC of {body: Tree.stm; frame: frame} | STRING of Temp.label * string
 
-type register
+type register = string
 
 val fp : Temp.temp
 
@@ -13,6 +13,8 @@ val rv : Temp.temp
 val ra : Temp.temp
 
 val argregs : Temp.temp list
+
+val callersaves : Temp.temp list
 
 val wordSize : int
 
@@ -36,4 +38,6 @@ val externalCall : string * Tree.exp list -> Tree.exp
 
 val procEntryExit1 : frame -> Tree.stm -> Tree.stm
 
-val procEntryExit2 : frame * Assem.instr list -> Assem.instr list
+val procEntryExit2 : frame -> Assem.instr list -> Assem.instr list
+
+val procEntryExit3 : frame -> Assem.instr list -> string * Assem.instr list * string

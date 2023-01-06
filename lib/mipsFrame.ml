@@ -11,10 +11,10 @@ type register = string
 
 let wordSize = 4
 
-(* registers of arguments *)
+(* registers for arguments *)
 let a0, a1, a2, a3 = (TP.newtemp (), TP.newtemp (), TP.newtemp (), TP.newtemp ())
 
-(* registers of temporaries *)
+(* registers for temporariy variables *)
 let t0, t1, t2, t3, t4, t5, t6, t7 =
   ( TP.newtemp ()
   , TP.newtemp ()
@@ -25,7 +25,7 @@ let t0, t1, t2, t3, t4, t5, t6, t7 =
   , TP.newtemp ()
   , TP.newtemp () )
 
-(* registers of saved temporaries *)
+(* registers for variables that need to be saved *)
 let s0, s1, s2, s3, s4, s5, s6, s7 =
   ( TP.newtemp ()
   , TP.newtemp ()
@@ -36,10 +36,10 @@ let s0, s1, s2, s3, s4, s5, s6, s7 =
   , TP.newtemp ()
   , TP.newtemp () )
 
-(* special registers *)
+(* special registers - frame pointer, return value, stack pointer, return address *)
 let fp, rv, sp, ra = (TP.newtemp (), TP.newtemp (), TP.newtemp (), TP.newtemp ())
 
-(* constant temporaries *)
+(* other registers - constant zero *)
 let zero = TP.newtemp ()
 
 (* register list *)
@@ -70,13 +70,11 @@ let exp = function
   | InReg t -> fun _ -> T.TEMP t
 
 let newFrame (name, escs) =
-  let allocFormal fmls = function
-    | true ->
-        let n_fmls = List.length fmls in
-        InFrame ((n_fmls + 1) * wordSize) :: fmls
-    | false -> InReg (TP.newtemp ()) :: fmls
+  let allocFormal i = function
+    | true -> InFrame ((i + 1) * wordSize)
+    | false -> InReg (TP.newtemp ())
   in
-  let formals = List.rev (List.fold_left allocFormal [] escs) in
+  let formals = List.rev (List.mapi allocFormal escs) in
   let viewshift acc r = T.MOVE (exp acc (T.TEMP fp), T.TEMP r) in
   (* temp: number of parameters > number of argregs *)
   let instrs = List.mapi (fun i acc -> viewshift acc (List.nth argregs i)) formals in
@@ -101,15 +99,26 @@ let rec mkseq = function
   | stm :: stms -> T.SEQ (stm, mkseq stms)
 
 let procEntryExit1 (frame : frame) (stm : Tree.stm) : Tree.stm =
+  (* note: ra and calleesaves are saved in temporaries and they are restoed at the exit of a function.
+      Those move instructions that are not spilled will removed at register allocation. *)
   let accregs = List.map (fun r -> (allocLocal frame false, r)) (ra :: calleesaves) in
-  (* temp: spill, ? *)
   let saves = List.map (fun (a, r) -> T.MOVE (exp a (T.TEMP fp), T.TEMP r)) accregs in
   let restores = List.map (fun (a, r) -> T.MOVE (T.TEMP r, exp a (T.TEMP fp))) (List.rev accregs) in
   mkseq (frame.instrs @ saves @ [stm] @ restores)
 
-let procEntryExit2 (_, body) =
+let procEntryExit2 (_ : frame) (body : Assem.instr list) : Assem.instr list =
   body @ [Assem.OPER {assem= ""; src= [zero; ra; sp] @ calleesaves; dst= []; jump= None}]
 
-(*let procEntryExit3({name; params; locals}, body) = {prolog="PROCEDURE " ^
-  Symbol.name name ^ "\n"; body=body; epilog="END " ^ Symbol.name name ^
-  "\n"}*)
+let procEntryExit3 ({name; locals; _} : frame) (body : Assem.instr list) :
+    string * Assem.instr list * string =
+  let offset = (!locals + List.length argregs) * wordSize in
+  ( (* prolog *)
+    String.concat "\n"
+      [ Symbol.name name ^ ":"; "\tsw\t$fp, 0($sp)" (* save old fp *)
+      ; "\tmove\t$fp, $sp" (* make sp new fp *)
+      ; "\taddi\t$sp, $sp, -" ^ string_of_int offset (* make new sp *); "" ]
+  , body
+  , (* epilog *)
+    String.concat "\n"
+      [ "\tmove\t$sp, $fp" (* restore old sp *); "\tlw\t$fp, 0($sp)" (* restore old fp *)
+      ; "\tjr\t$ra" (* jump to return address *); ""; "" ] )

@@ -13,10 +13,10 @@ let outermost =
       ; frame= Frame.newFrame (Symbol.symbol "$outermost", [])
       ; unique= ref () }
   in
-  level (* infinte loop *)
+  level
 
 let newLevel (parent, name, formals) =
-  let frame = Frame.newFrame (name, true :: formals) in
+  let frame = Frame.newFrame (name, true (* statick link *) :: formals) in
   Level {parent; frame; unique= ref ()}
 
 let allocLocal ((Level {frame; _} as level), esc) = (level, Frame.allocLocal frame esc)
