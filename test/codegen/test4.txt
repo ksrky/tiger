@@ -1,100 +1,100 @@
 L12:
 	sw	t103, 4(t123)
-	move	t203, t120, r0
-	move	t204, t119, r0
-	move	t205, t118, r0
-	move	t206, t117, r0
-	move	t207, t116, r0
-	move	t208, t115, r0
-	move	t209, t114, r0
-	move	t210, t113, r0
-	move	t211, t112, r0
+	move	t203, t120
+	move	t204, t119
+	move	t205, t118
+	move	t206, t117
+	move	t207, t116
+	move	t208, t115
+	move	t209, t114
+	move	t210, t113
+	move	t211, t112
 	li	t223, 0
 	beq	t201, t223, L8
 b L9
 L9:
-	move	t222, t201, r0
-	move	t224, t111, r0
-	move	t225, t110, r0
-	move	t226, t109, r0
-	move	t227, t108, r0
-	move	t228, t107, r0
-	move	t229, t106, r0
-	move	t230, t105, r0
-	move	t231, t104, r0
+	move	t222, t201
+	move	t224, t111
+	move	t225, t110
+	move	t226, t109
+	move	t227, t108
+	move	t228, t107
+	move	t229, t106
+	move	t230, t105
+	move	t231, t104
 	lw	t232, 4(t123)
-	move	t103, t232, r0
+	move	t103, t232
 	addiu	t233, t201, -1
-	move	t102, t233, r0
+	move	t102, t233
 	jal	nfactor
-	move	t104, t231, r0
-	move	t105, t230, r0
-	move	t106, t229, r0
-	move	t107, t228, r0
-	move	t108, t227, r0
-	move	t109, t226, r0
-	move	t110, t225, r0
-	move	t111, t224, r0
-	move	t221, t122, r0
+	move	t104, t231
+	move	t105, t230
+	move	t106, t229
+	move	t107, t228
+	move	t108, t227
+	move	t109, t226
+	move	t110, t225
+	move	t111, t224
+	move	t221, t122
 	mul	t234, t222, t221
-	move	t202, t234, r0
+	move	t202, t234
 L10:
-	move	t122, t202, r0
-	move	t112, t211, r0
-	move	t113, t210, r0
-	move	t114, t209, r0
-	move	t115, t208, r0
-	move	t116, t207, r0
-	move	t117, t206, r0
-	move	t118, t205, r0
-	move	t119, t204, r0
-	move	t120, t203, r0
+	move	t122, t202
+	move	t112, t211
+	move	t113, t210
+	move	t114, t209
+	move	t115, t208
+	move	t116, t207
+	move	t117, t206
+	move	t118, t205
+	move	t119, t204
+	move	t120, t203
 	j	L11
 L8:
 	li	t235, 1
-	move	t202, t235, r0
+	move	t202, t235
 	j	L10
 L11:
 L14:
 	sw	t103, 4(t123)
-	move	t212, t120, r0
-	move	t213, t119, r0
-	move	t214, t118, r0
-	move	t215, t117, r0
-	move	t216, t116, r0
-	move	t217, t115, r0
-	move	t218, t114, r0
-	move	t219, t113, r0
-	move	t220, t112, r0
-	move	t236, t111, r0
-	move	t237, t110, r0
-	move	t238, t109, r0
-	move	t239, t108, r0
-	move	t240, t107, r0
-	move	t241, t106, r0
-	move	t242, t105, r0
-	move	t243, t104, r0
-	move	t103, t123, r0
+	move	t212, t120
+	move	t213, t119
+	move	t214, t118
+	move	t215, t117
+	move	t216, t116
+	move	t217, t115
+	move	t218, t114
+	move	t219, t113
+	move	t220, t112
+	move	t236, t111
+	move	t237, t110
+	move	t238, t109
+	move	t239, t108
+	move	t240, t107
+	move	t241, t106
+	move	t242, t105
+	move	t243, t104
+	move	t103, t123
 	li	t244, 10
-	move	t102, t244, r0
+	move	t102, t244
 	jal	nfactor
-	move	t104, t243, r0
-	move	t105, t242, r0
-	move	t106, t241, r0
-	move	t107, t240, r0
-	move	t108, t239, r0
-	move	t109, t238, r0
-	move	t110, t237, r0
-	move	t111, t236, r0
-	move	t122, t122, r0
-	move	t112, t220, r0
-	move	t113, t219, r0
-	move	t114, t218, r0
-	move	t115, t217, r0
-	move	t116, t216, r0
-	move	t117, t215, r0
-	move	t118, t214, r0
-	move	t119, t213, r0
-	move	t120, t212, r0
+	move	t104, t243
+	move	t105, t242
+	move	t106, t241
+	move	t107, t240
+	move	t108, t239
+	move	t109, t238
+	move	t110, t237
+	move	t111, t236
+	move	t122, t122
+	move	t112, t220
+	move	t113, t219
+	move	t114, t218
+	move	t115, t217
+	move	t116, t216
+	move	t117, t215
+	move	t118, t214
+	move	t119, t213
+	move	t120, t212
 	j	L13
 L13:

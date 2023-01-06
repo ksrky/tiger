@@ -1,26 +1,26 @@
 L130:
 	sw	t103, 4(t123)
-	move	t725, t120, r0
-	move	t726, t119, r0
-	move	t727, t118, r0
-	move	t728, t117, r0
-	move	t729, t116, r0
-	move	t730, t115, r0
-	move	t731, t114, r0
-	move	t732, t113, r0
-	move	t733, t112, r0
+	move	t725, t120
+	move	t726, t119
+	move	t727, t118
+	move	t728, t117
+	move	t729, t116
+	move	t730, t115
+	move	t731, t114
+	move	t732, t113
+	move	t733, t112
 	li	t734, 0
-	move	t724, t734, r0
+	move	t724, t734
 	li	t735, 0
-	move	t122, t735, r0
-	move	t112, t733, r0
-	move	t113, t732, r0
-	move	t114, t731, r0
-	move	t115, t730, r0
-	move	t116, t729, r0
-	move	t117, t728, r0
-	move	t118, t727, r0
-	move	t119, t726, r0
-	move	t120, t725, r0
+	move	t122, t735
+	move	t112, t733
+	move	t113, t732
+	move	t114, t731
+	move	t115, t730
+	move	t116, t729
+	move	t117, t728
+	move	t118, t727
+	move	t119, t726
+	move	t120, t725
 	j	L129
 L129:

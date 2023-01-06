@@ -1,14 +1,14 @@
 L111:
 	sw	t103, 4(t123)
-	move	t631, t120, r0
-	move	t632, t119, r0
-	move	t633, t118, r0
-	move	t634, t117, r0
-	move	t635, t116, r0
-	move	t636, t115, r0
-	move	t637, t114, r0
-	move	t638, t113, r0
-	move	t639, t112, r0
+	move	t631, t120
+	move	t632, t119
+	move	t633, t118
+	move	t634, t117
+	move	t635, t116
+	move	t636, t115
+	move	t637, t114
+	move	t638, t113
+	move	t639, t112
 L108:
 	li	t640, 5
 	li	t641, 10
@@ -16,16 +16,16 @@ L108:
 b L107
 L107:
 	li	t642, 0
-	move	t122, t642, r0
-	move	t112, t639, r0
-	move	t113, t638, r0
-	move	t114, t637, r0
-	move	t115, t636, r0
-	move	t116, t635, r0
-	move	t117, t634, r0
-	move	t118, t633, r0
-	move	t119, t632, r0
-	move	t120, t631, r0
+	move	t122, t642
+	move	t112, t639
+	move	t113, t638
+	move	t114, t637
+	move	t115, t636
+	move	t116, t635
+	move	t117, t634
+	move	t118, t633
+	move	t119, t632
+	move	t120, t631
 	j	L110
 L109:
 	j	L108

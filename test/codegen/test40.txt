@@ -1,43 +1,43 @@
 L185:
 	sw	t103, 4(t123)
-	move	t1034, t120, r0
-	move	t1035, t119, r0
-	move	t1036, t118, r0
-	move	t1037, t117, r0
-	move	t1038, t116, r0
-	move	t1039, t115, r0
-	move	t1040, t114, r0
-	move	t1041, t113, r0
-	move	t1042, t112, r0
-	move	t1043, t111, r0
-	move	t1044, t110, r0
-	move	t1045, t109, r0
-	move	t1046, t108, r0
-	move	t1047, t107, r0
-	move	t1048, t106, r0
-	move	t1049, t105, r0
-	move	t1050, t104, r0
-	move	t103, t123, r0
+	move	t1034, t120
+	move	t1035, t119
+	move	t1036, t118
+	move	t1037, t117
+	move	t1038, t116
+	move	t1039, t115
+	move	t1040, t114
+	move	t1041, t113
+	move	t1042, t112
+	move	t1043, t111
+	move	t1044, t110
+	move	t1045, t109
+	move	t1046, t108
+	move	t1047, t107
+	move	t1048, t106
+	move	t1049, t105
+	move	t1050, t104
+	move	t103, t123
 	li	t1051, 2
-	move	t102, t1051, r0
+	move	t102, t1051
 	jal	g
-	move	t104, t1050, r0
-	move	t105, t1049, r0
-	move	t106, t1048, r0
-	move	t107, t1047, r0
-	move	t108, t1046, r0
-	move	t109, t1045, r0
-	move	t110, t1044, r0
-	move	t111, t1043, r0
-	move	t122, t122, r0
-	move	t112, t1042, r0
-	move	t113, t1041, r0
-	move	t114, t1040, r0
-	move	t115, t1039, r0
-	move	t116, t1038, r0
-	move	t117, t1037, r0
-	move	t118, t1036, r0
-	move	t119, t1035, r0
-	move	t120, t1034, r0
+	move	t104, t1050
+	move	t105, t1049
+	move	t106, t1048
+	move	t107, t1047
+	move	t108, t1046
+	move	t109, t1045
+	move	t110, t1044
+	move	t111, t1043
+	move	t122, t122
+	move	t112, t1042
+	move	t113, t1041
+	move	t114, t1040
+	move	t115, t1039
+	move	t116, t1038
+	move	t117, t1037
+	move	t118, t1036
+	move	t119, t1035
+	move	t120, t1034
 	j	L184
 L184:

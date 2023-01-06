@@ -1,70 +1,70 @@
 L170:
 	sw	t103, 4(t123)
-	move	t951, t120, r0
-	move	t952, t119, r0
-	move	t953, t118, r0
-	move	t954, t117, r0
-	move	t955, t116, r0
-	move	t956, t115, r0
-	move	t957, t114, r0
-	move	t958, t113, r0
-	move	t959, t112, r0
-	move	t122, t949, r0
-	move	t112, t959, r0
-	move	t113, t958, r0
-	move	t114, t957, r0
-	move	t115, t956, r0
-	move	t116, t955, r0
-	move	t117, t954, r0
-	move	t118, t953, r0
-	move	t119, t952, r0
-	move	t120, t951, r0
+	move	t951, t120
+	move	t952, t119
+	move	t953, t118
+	move	t954, t117
+	move	t955, t116
+	move	t956, t115
+	move	t957, t114
+	move	t958, t113
+	move	t959, t112
+	move	t122, t949
+	move	t112, t959
+	move	t113, t958
+	move	t114, t957
+	move	t115, t956
+	move	t116, t955
+	move	t117, t954
+	move	t118, t953
+	move	t119, t952
+	move	t120, t951
 	j	L169
 L169:
 L167:	.asciiz "one"
 L168:	.asciiz "one"
 L172:
 	sw	t103, 4(t123)
-	move	t960, t120, r0
-	move	t961, t119, r0
-	move	t962, t118, r0
-	move	t963, t117, r0
-	move	t964, t116, r0
-	move	t965, t115, r0
-	move	t966, t114, r0
-	move	t967, t113, r0
-	move	t968, t112, r0
-	move	t969, t111, r0
-	move	t970, t110, r0
-	move	t971, t109, r0
-	move	t972, t108, r0
-	move	t973, t107, r0
-	move	t974, t106, r0
-	move	t975, t105, r0
-	move	t976, t104, r0
-	move	t103, t123, r0
+	move	t960, t120
+	move	t961, t119
+	move	t962, t118
+	move	t963, t117
+	move	t964, t116
+	move	t965, t115
+	move	t966, t114
+	move	t967, t113
+	move	t968, t112
+	move	t969, t111
+	move	t970, t110
+	move	t971, t109
+	move	t972, t108
+	move	t973, t107
+	move	t974, t106
+	move	t975, t105
+	move	t976, t104
+	move	t103, t123
 	li	t977, 3
-	move	t102, t977, r0
+	move	t102, t977
 	la	t978, L168
-	move	t101, t978, r0
+	move	t101, t978
 	jal	g
-	move	t104, t976, r0
-	move	t105, t975, r0
-	move	t106, t974, r0
-	move	t107, t973, r0
-	move	t108, t972, r0
-	move	t109, t971, r0
-	move	t110, t970, r0
-	move	t111, t969, r0
-	move	t122, t122, r0
-	move	t112, t968, r0
-	move	t113, t967, r0
-	move	t114, t966, r0
-	move	t115, t965, r0
-	move	t116, t964, r0
-	move	t117, t963, r0
-	move	t118, t962, r0
-	move	t119, t961, r0
-	move	t120, t960, r0
+	move	t104, t976
+	move	t105, t975
+	move	t106, t974
+	move	t107, t973
+	move	t108, t972
+	move	t109, t971
+	move	t110, t970
+	move	t111, t969
+	move	t122, t122
+	move	t112, t968
+	move	t113, t967
+	move	t114, t966
+	move	t115, t965
+	move	t116, t964
+	move	t117, t963
+	move	t118, t962
+	move	t119, t961
+	move	t120, t960
 	j	L171
 L171:

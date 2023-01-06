@@ -10,9 +10,7 @@ let codegen _ stm =
     gen t; t
   in
   let rec munchStm = function
-
     | T.SEQ (a, b) -> munchStm a; munchStm b
-
     | T.MOVE (T.MEM (T.BINOP (T.PLUS, e1, T.CONST i)), e2) ->
         emit
           (A.OPER
@@ -41,8 +39,7 @@ let codegen _ stm =
              ; src= [munchExp e1; munchExp e2]
              ; dst= []
              ; jump= None } )
-    | T.MOVE (T.TEMP i, e2) ->
-        emit (A.MOVE {assem= "\tmove\t`d0, `s0, r0\n"; src= munchExp e2; dst= i})
+    | T.MOVE (T.TEMP i, e2) -> emit (A.MOVE {assem= "\tmove\t`d0, `s0\n"; src= munchExp e2; dst= i})
     (*                        ^^pseudo instruction^^
      * register allocator wants Assem.MOVE because it may be redundant.
      * | T.MOVE (T.TEMP i, e2) ->
@@ -142,7 +139,6 @@ let codegen _ stm =
                  ; src= [munchExp e1]
                  ; dst= [r]
                  ; jump= None } ) )
-
     | T.BINOP (T.PLUS, e1, T.CONST i) ->
         result (fun r ->
             emit
@@ -200,14 +196,11 @@ let codegen _ stm =
                  ; dst= [r]
                  ; jump= None } ) )
     | T.BINOP _ -> ErrorMsg.impossible "Tiger compiler does not generate this kind of Tree.BINOP"
-
     | T.CONST i ->
         result (fun r ->
             emit
               (A.OPER {assem= "\tli\t`d0, " ^ string_of_int i ^ "\n"; src= []; dst= [r]; jump= None}) )
-
     | T.TEMP t -> t
-
     | T.NAME lab ->
         result (fun r ->
             emit

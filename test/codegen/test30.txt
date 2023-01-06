@@ -1,51 +1,51 @@
 L144:
 	sw	t103, 4(t123)
-	move	t821, t120, r0
-	move	t822, t119, r0
-	move	t823, t118, r0
-	move	t824, t117, r0
-	move	t825, t116, r0
-	move	t826, t115, r0
-	move	t827, t114, r0
-	move	t828, t113, r0
-	move	t829, t112, r0
-	move	t830, t111, r0
-	move	t831, t110, r0
-	move	t832, t109, r0
-	move	t833, t108, r0
-	move	t834, t107, r0
-	move	t835, t106, r0
-	move	t836, t105, r0
-	move	t837, t104, r0
+	move	t821, t120
+	move	t822, t119
+	move	t823, t118
+	move	t824, t117
+	move	t825, t116
+	move	t826, t115
+	move	t827, t114
+	move	t828, t113
+	move	t829, t112
+	move	t830, t111
+	move	t831, t110
+	move	t832, t109
+	move	t833, t108
+	move	t834, t107
+	move	t835, t106
+	move	t836, t105
+	move	t837, t104
 	li	t838, 10
-	move	t103, t838, r0
+	move	t103, t838
 	li	t839, 0
-	move	t102, t839, r0
+	move	t102, t839
 	jal	initArrray
-	move	t104, t837, r0
-	move	t105, t836, r0
-	move	t106, t835, r0
-	move	t107, t834, r0
-	move	t108, t833, r0
-	move	t109, t832, r0
-	move	t110, t831, r0
-	move	t111, t830, r0
-	move	t820, t122, r0
-	move	t819, t820, r0
+	move	t104, t837
+	move	t105, t836
+	move	t106, t835
+	move	t107, t834
+	move	t108, t833
+	move	t109, t832
+	move	t110, t831
+	move	t111, t830
+	move	t820, t122
+	move	t819, t820
 	li	t843, 4
 	li	t844, 2
 	mul	t842, t844, t843
 	add	t841, t819, t842
 	lw	t840, 0(t841)
-	move	t122, t840, r0
-	move	t112, t829, r0
-	move	t113, t828, r0
-	move	t114, t827, r0
-	move	t115, t826, r0
-	move	t116, t825, r0
-	move	t117, t824, r0
-	move	t118, t823, r0
-	move	t119, t822, r0
-	move	t120, t821, r0
+	move	t122, t840
+	move	t112, t829
+	move	t113, t828
+	move	t114, t827
+	move	t115, t826
+	move	t116, t825
+	move	t117, t824
+	move	t118, t823
+	move	t119, t822
+	move	t120, t821
 	j	L143
 L143:

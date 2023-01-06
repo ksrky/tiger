@@ -1,48 +1,48 @@
 L148:	.asciiz " "
 L150:
 	sw	t103, 4(t123)
-	move	t858, t120, r0
-	move	t859, t119, r0
-	move	t860, t118, r0
-	move	t861, t117, r0
-	move	t862, t116, r0
-	move	t863, t115, r0
-	move	t864, t114, r0
-	move	t865, t113, r0
-	move	t866, t112, r0
-	move	t867, t111, r0
-	move	t868, t110, r0
-	move	t869, t109, r0
-	move	t870, t108, r0
-	move	t871, t107, r0
-	move	t872, t106, r0
-	move	t873, t105, r0
-	move	t874, t104, r0
+	move	t858, t120
+	move	t859, t119
+	move	t860, t118
+	move	t861, t117
+	move	t862, t116
+	move	t863, t115
+	move	t864, t114
+	move	t865, t113
+	move	t866, t112
+	move	t867, t111
+	move	t868, t110
+	move	t869, t109
+	move	t870, t108
+	move	t871, t107
+	move	t872, t106
+	move	t873, t105
+	move	t874, t104
 	li	t875, 10
-	move	t103, t875, r0
+	move	t103, t875
 	la	t876, L148
-	move	t102, t876, r0
+	move	t102, t876
 	jal	initArrray
-	move	t104, t874, r0
-	move	t105, t873, r0
-	move	t106, t872, r0
-	move	t107, t871, r0
-	move	t108, t870, r0
-	move	t109, t869, r0
-	move	t110, t868, r0
-	move	t111, t867, r0
-	move	t857, t122, r0
-	move	t856, t857, r0
+	move	t104, t874
+	move	t105, t873
+	move	t106, t872
+	move	t107, t871
+	move	t108, t870
+	move	t109, t869
+	move	t110, t868
+	move	t111, t867
+	move	t857, t122
+	move	t856, t857
 	li	t877, 0
-	move	t122, t877, r0
-	move	t112, t866, r0
-	move	t113, t865, r0
-	move	t114, t864, r0
-	move	t115, t863, r0
-	move	t116, t862, r0
-	move	t117, t861, r0
-	move	t118, t860, r0
-	move	t119, t859, r0
-	move	t120, t858, r0
+	move	t122, t877
+	move	t112, t866
+	move	t113, t865
+	move	t114, t864
+	move	t115, t863
+	move	t116, t862
+	move	t117, t861
+	move	t118, t860
+	move	t119, t859
+	move	t120, t858
 	j	L149
 L149:

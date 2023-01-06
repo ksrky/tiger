@@ -1,19 +1,19 @@
 L49:	.asciiz " "
 L54:
 	sw	t103, 4(t123)
-	move	t395, t120, r0
-	move	t396, t119, r0
-	move	t397, t118, r0
-	move	t398, t117, r0
-	move	t399, t116, r0
-	move	t400, t115, r0
-	move	t401, t114, r0
-	move	t402, t113, r0
-	move	t403, t112, r0
+	move	t395, t120
+	move	t396, t119
+	move	t397, t118
+	move	t398, t117
+	move	t399, t116
+	move	t400, t115
+	move	t401, t114
+	move	t402, t113
+	move	t403, t112
 	la	t404, L49
-	move	t394, t404, r0
+	move	t394, t404
 	li	t405, 10
-	move	t393, t405, r0
+	move	t393, t405
 L51:
 	li	t406, 0
 	li	t407, 0
@@ -21,21 +21,21 @@ L51:
 b L50
 L50:
 	li	t408, 0
-	move	t122, t408, r0
-	move	t112, t403, r0
-	move	t113, t402, r0
-	move	t114, t401, r0
-	move	t115, t400, r0
-	move	t116, t399, r0
-	move	t117, t398, r0
-	move	t118, t397, r0
-	move	t119, t396, r0
-	move	t120, t395, r0
+	move	t122, t408
+	move	t112, t403
+	move	t113, t402
+	move	t114, t401
+	move	t115, t400
+	move	t116, t399
+	move	t117, t398
+	move	t118, t397
+	move	t119, t396
+	move	t120, t395
 	j	L53
 L52:
 	addiu	t409, t393, -1
-	move	t393, t409, r0
+	move	t393, t409
 	addiu	t410, t393, 1
-	move	t393, t410, r0
+	move	t393, t410
 	j	L51
 L53:

@@ -1,70 +1,70 @@
 L213:
 	sw	t103, 4(t123)
-	move	t1266, t120, r0
-	move	t1267, t119, r0
-	move	t1268, t118, r0
-	move	t1269, t117, r0
-	move	t1270, t116, r0
-	move	t1271, t115, r0
-	move	t1272, t114, r0
-	move	t1273, t113, r0
-	move	t1274, t112, r0
-	move	t122, t1265, r0
-	move	t112, t1274, r0
-	move	t113, t1273, r0
-	move	t114, t1272, r0
-	move	t115, t1271, r0
-	move	t116, t1270, r0
-	move	t117, t1269, r0
-	move	t118, t1268, r0
-	move	t119, t1267, r0
-	move	t120, t1266, r0
+	move	t1266, t120
+	move	t1267, t119
+	move	t1268, t118
+	move	t1269, t117
+	move	t1270, t116
+	move	t1271, t115
+	move	t1272, t114
+	move	t1273, t113
+	move	t1274, t112
+	move	t122, t1265
+	move	t112, t1274
+	move	t113, t1273
+	move	t114, t1272
+	move	t115, t1271
+	move	t116, t1270
+	move	t117, t1269
+	move	t118, t1268
+	move	t119, t1267
+	move	t120, t1266
 	j	L212
 L212:
 L215:
 	sw	t103, 4(t123)
-	move	t1276, t120, r0
-	move	t1277, t119, r0
-	move	t1278, t118, r0
-	move	t1279, t117, r0
-	move	t1280, t116, r0
-	move	t1281, t115, r0
-	move	t1282, t114, r0
-	move	t1283, t113, r0
-	move	t1284, t112, r0
-	move	t122, t1275, r0
-	move	t112, t1284, r0
-	move	t113, t1283, r0
-	move	t114, t1282, r0
-	move	t115, t1281, r0
-	move	t116, t1280, r0
-	move	t117, t1279, r0
-	move	t118, t1278, r0
-	move	t119, t1277, r0
-	move	t120, t1276, r0
+	move	t1276, t120
+	move	t1277, t119
+	move	t1278, t118
+	move	t1279, t117
+	move	t1280, t116
+	move	t1281, t115
+	move	t1282, t114
+	move	t1283, t113
+	move	t1284, t112
+	move	t122, t1275
+	move	t112, t1284
+	move	t113, t1283
+	move	t114, t1282
+	move	t115, t1281
+	move	t116, t1280
+	move	t117, t1279
+	move	t118, t1278
+	move	t119, t1277
+	move	t120, t1276
 	j	L214
 L214:
 L217:
 	sw	t103, 4(t123)
-	move	t1285, t120, r0
-	move	t1286, t119, r0
-	move	t1287, t118, r0
-	move	t1288, t117, r0
-	move	t1289, t116, r0
-	move	t1290, t115, r0
-	move	t1291, t114, r0
-	move	t1292, t113, r0
-	move	t1293, t112, r0
+	move	t1285, t120
+	move	t1286, t119
+	move	t1287, t118
+	move	t1288, t117
+	move	t1289, t116
+	move	t1290, t115
+	move	t1291, t114
+	move	t1292, t113
+	move	t1293, t112
 	li	t1294, 0
-	move	t122, t1294, r0
-	move	t112, t1293, r0
-	move	t113, t1292, r0
-	move	t114, t1291, r0
-	move	t115, t1290, r0
-	move	t116, t1289, r0
-	move	t117, t1288, r0
-	move	t118, t1287, r0
-	move	t119, t1286, r0
-	move	t120, t1285, r0
+	move	t122, t1294
+	move	t112, t1293
+	move	t113, t1292
+	move	t114, t1291
+	move	t115, t1290
+	move	t116, t1289
+	move	t117, t1288
+	move	t118, t1287
+	move	t119, t1286
+	move	t120, t1285
 	j	L216
 L216:

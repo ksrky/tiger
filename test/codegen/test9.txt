@@ -1,36 +1,36 @@
 L38:	.asciiz " "
 L43:
 	sw	t103, 4(t123)
-	move	t366, t120, r0
-	move	t367, t119, r0
-	move	t368, t118, r0
-	move	t369, t117, r0
-	move	t370, t116, r0
-	move	t371, t115, r0
-	move	t372, t114, r0
-	move	t373, t113, r0
-	move	t374, t112, r0
+	move	t366, t120
+	move	t367, t119
+	move	t368, t118
+	move	t369, t117
+	move	t370, t116
+	move	t371, t115
+	move	t372, t114
+	move	t373, t113
+	move	t374, t112
 	li	t375, 4
 	li	t376, 5
 	bgt	t376, t375, L39
 b L40
 L40:
 	la	t377, L38
-	move	t365, t377, r0
+	move	t365, t377
 L41:
-	move	t122, t365, r0
-	move	t112, t374, r0
-	move	t113, t373, r0
-	move	t114, t372, r0
-	move	t115, t371, r0
-	move	t116, t370, r0
-	move	t117, t369, r0
-	move	t118, t368, r0
-	move	t119, t367, r0
-	move	t120, t366, r0
+	move	t122, t365
+	move	t112, t374
+	move	t113, t373
+	move	t114, t372
+	move	t115, t371
+	move	t116, t370
+	move	t117, t369
+	move	t118, t368
+	move	t119, t367
+	move	t120, t366
 	j	L42
 L39:
 	li	t378, 13
-	move	t365, t378, r0
+	move	t365, t378
 	j	L41
 L42:

@@ -1,30 +1,30 @@
 L78:
 	sw	t103, 4(t123)
-	move	t481, t120, r0
-	move	t482, t119, r0
-	move	t483, t118, r0
-	move	t484, t117, r0
-	move	t485, t116, r0
-	move	t486, t115, r0
-	move	t487, t114, r0
-	move	t488, t113, r0
-	move	t489, t112, r0
+	move	t481, t120
+	move	t482, t119
+	move	t483, t118
+	move	t484, t117
+	move	t485, t116
+	move	t486, t115
+	move	t487, t114
+	move	t488, t113
+	move	t489, t112
 	li	t490, 0
 	li	t491, 20
 	bne	t491, t490, L75
 b L76
 L76:
 	li	t492, 0
-	move	t122, t492, r0
-	move	t112, t489, r0
-	move	t113, t488, r0
-	move	t114, t487, r0
-	move	t115, t486, r0
-	move	t116, t485, r0
-	move	t117, t484, r0
-	move	t118, t483, r0
-	move	t119, t482, r0
-	move	t120, t481, r0
+	move	t122, t492
+	move	t112, t489
+	move	t113, t488
+	move	t114, t487
+	move	t115, t486
+	move	t116, t485
+	move	t117, t484
+	move	t118, t483
+	move	t119, t482
+	move	t120, t481
 	j	L77
 L75:
 	j	L76

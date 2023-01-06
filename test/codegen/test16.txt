@@ -2,25 +2,25 @@ L79:	.asciiz ""
 L80:	.asciiz ""
 L82:
 	sw	t103, 4(t123)
-	move	t493, t120, r0
-	move	t494, t119, r0
-	move	t495, t118, r0
-	move	t496, t117, r0
-	move	t497, t116, r0
-	move	t498, t115, r0
-	move	t499, t114, r0
-	move	t500, t113, r0
-	move	t501, t112, r0
+	move	t493, t120
+	move	t494, t119
+	move	t495, t118
+	move	t496, t117
+	move	t497, t116
+	move	t498, t115
+	move	t499, t114
+	move	t500, t113
+	move	t501, t112
 	la	t502, L80
-	move	t122, t502, r0
-	move	t112, t501, r0
-	move	t113, t500, r0
-	move	t114, t499, r0
-	move	t115, t498, r0
-	move	t116, t497, r0
-	move	t117, t496, r0
-	move	t118, t495, r0
-	move	t119, t494, r0
-	move	t120, t493, r0
+	move	t122, t502
+	move	t112, t501
+	move	t113, t500
+	move	t114, t499
+	move	t115, t498
+	move	t116, t497
+	move	t117, t496
+	move	t118, t495
+	move	t119, t494
+	move	t120, t493
 	j	L81
 L81:

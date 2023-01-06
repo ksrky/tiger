@@ -1,26 +1,26 @@
 L211:
 	sw	t103, 4(t123)
-	move	t1254, t120, r0
-	move	t1255, t119, r0
-	move	t1256, t118, r0
-	move	t1257, t117, r0
-	move	t1258, t116, r0
-	move	t1259, t115, r0
-	move	t1260, t114, r0
-	move	t1261, t113, r0
-	move	t1262, t112, r0
+	move	t1254, t120
+	move	t1255, t119
+	move	t1256, t118
+	move	t1257, t117
+	move	t1258, t116
+	move	t1259, t115
+	move	t1260, t114
+	move	t1261, t113
+	move	t1262, t112
 	li	t1263, 4
-	move	t1253, t1263, r0
+	move	t1253, t1263
 	li	t1264, 0
-	move	t122, t1264, r0
-	move	t112, t1262, r0
-	move	t113, t1261, r0
-	move	t114, t1260, r0
-	move	t115, t1259, r0
-	move	t116, t1258, r0
-	move	t117, t1257, r0
-	move	t118, t1256, r0
-	move	t119, t1255, r0
-	move	t120, t1254, r0
+	move	t122, t1264
+	move	t112, t1262
+	move	t113, t1261
+	move	t114, t1260
+	move	t115, t1259
+	move	t116, t1258
+	move	t117, t1257
+	move	t118, t1256
+	move	t119, t1255
+	move	t120, t1254
 	j	L210
 L210:

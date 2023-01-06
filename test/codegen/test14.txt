@@ -1,84 +1,84 @@
 L66:	.asciiz "aname"
 L74:
 	sw	t103, 4(t123)
-	move	t447, t120, r0
-	move	t448, t119, r0
-	move	t449, t118, r0
-	move	t450, t117, r0
-	move	t451, t116, r0
-	move	t452, t115, r0
-	move	t453, t114, r0
-	move	t454, t113, r0
-	move	t455, t112, r0
-	move	t456, t111, r0
-	move	t457, t110, r0
-	move	t458, t109, r0
-	move	t459, t108, r0
-	move	t460, t107, r0
-	move	t461, t106, r0
-	move	t462, t105, r0
-	move	t463, t104, r0
+	move	t447, t120
+	move	t448, t119
+	move	t449, t118
+	move	t450, t117
+	move	t451, t116
+	move	t452, t115
+	move	t453, t114
+	move	t454, t113
+	move	t455, t112
+	move	t456, t111
+	move	t457, t110
+	move	t458, t109
+	move	t459, t108
+	move	t460, t107
+	move	t461, t106
+	move	t462, t105
+	move	t463, t104
 	li	t464, 3
-	move	t103, t464, r0
+	move	t103, t464
 	li	t465, 0
-	move	t102, t465, r0
+	move	t102, t465
 	jal	initArrray
-	move	t104, t463, r0
-	move	t105, t462, r0
-	move	t106, t461, r0
-	move	t107, t460, r0
-	move	t108, t459, r0
-	move	t109, t458, r0
-	move	t110, t457, r0
-	move	t111, t456, r0
-	move	t444, t122, r0
-	move	t443, t444, r0
-	move	t466, t111, r0
-	move	t467, t110, r0
-	move	t468, t109, r0
-	move	t469, t108, r0
-	move	t470, t107, r0
-	move	t471, t106, r0
-	move	t472, t105, r0
-	move	t473, t104, r0
+	move	t104, t463
+	move	t105, t462
+	move	t106, t461
+	move	t107, t460
+	move	t108, t459
+	move	t109, t458
+	move	t110, t457
+	move	t111, t456
+	move	t444, t122
+	move	t443, t444
+	move	t466, t111
+	move	t467, t110
+	move	t468, t109
+	move	t469, t108
+	move	t470, t107
+	move	t471, t106
+	move	t472, t105
+	move	t473, t104
 	li	t474, 8
-	move	t103, t474, r0
+	move	t103, t474
 	jal	allocRecord
-	move	t104, t473, r0
-	move	t105, t472, r0
-	move	t106, t471, r0
-	move	t107, t470, r0
-	move	t108, t469, r0
-	move	t109, t468, r0
-	move	t110, t467, r0
-	move	t111, t466, r0
-	move	t442, t122, r0
+	move	t104, t473
+	move	t105, t472
+	move	t106, t471
+	move	t107, t470
+	move	t108, t469
+	move	t109, t468
+	move	t110, t467
+	move	t111, t466
+	move	t442, t122
 	la	t475, L66
 	sw	t475, 0(t442)
 	li	t476, 0
 	sw	t476, 4(t442)
-	move	t441, t442, r0
+	move	t441, t442
 	li	t477, 0
 	li	t478, 0
 	bne	t478, t477, L70
 b L71
 L71:
 	li	t479, 4
-	move	t446, t479, r0
+	move	t446, t479
 L72:
-	move	t122, t446, r0
-	move	t112, t455, r0
-	move	t113, t454, r0
-	move	t114, t453, r0
-	move	t115, t452, r0
-	move	t116, t451, r0
-	move	t117, t450, r0
-	move	t118, t449, r0
-	move	t119, t448, r0
-	move	t120, t447, r0
+	move	t122, t446
+	move	t112, t455
+	move	t113, t454
+	move	t114, t453
+	move	t115, t452
+	move	t116, t451
+	move	t117, t450
+	move	t118, t449
+	move	t119, t448
+	move	t120, t447
 	j	L73
 L70:
 	li	t480, 3
-	move	t446, t480, r0
+	move	t446, t480
 	j	L72
 L73:

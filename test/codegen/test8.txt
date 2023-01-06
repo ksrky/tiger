@@ -1,35 +1,35 @@
 L37:
 	sw	t103, 4(t123)
-	move	t352, t120, r0
-	move	t353, t119, r0
-	move	t354, t118, r0
-	move	t355, t117, r0
-	move	t356, t116, r0
-	move	t357, t115, r0
-	move	t358, t114, r0
-	move	t359, t113, r0
-	move	t360, t112, r0
+	move	t352, t120
+	move	t353, t119
+	move	t354, t118
+	move	t355, t117
+	move	t356, t116
+	move	t357, t115
+	move	t358, t114
+	move	t359, t113
+	move	t360, t112
 	li	t361, 20
 	li	t362, 10
 	bgt	t362, t361, L33
 b L34
 L34:
 	li	t363, 40
-	move	t351, t363, r0
+	move	t351, t363
 L35:
-	move	t122, t351, r0
-	move	t112, t360, r0
-	move	t113, t359, r0
-	move	t114, t358, r0
-	move	t115, t357, r0
-	move	t116, t356, r0
-	move	t117, t355, r0
-	move	t118, t354, r0
-	move	t119, t353, r0
-	move	t120, t352, r0
+	move	t122, t351
+	move	t112, t360
+	move	t113, t359
+	move	t114, t358
+	move	t115, t357
+	move	t116, t356
+	move	t117, t355
+	move	t118, t354
+	move	t119, t353
+	move	t120, t352
 	j	L36
 L33:
 	li	t364, 30
-	move	t351, t364, r0
+	move	t351, t364
 	j	L35
 L36:

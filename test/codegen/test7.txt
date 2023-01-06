@@ -1,46 +1,46 @@
 L28:
 	sw	t103, 4(t123)
-	move	t291, t120, r0
-	move	t292, t119, r0
-	move	t293, t118, r0
-	move	t294, t117, r0
-	move	t295, t116, r0
-	move	t296, t115, r0
-	move	t297, t114, r0
-	move	t298, t113, r0
-	move	t299, t112, r0
-	move	t319, t111, r0
-	move	t320, t110, r0
-	move	t321, t109, r0
-	move	t322, t108, r0
-	move	t323, t107, r0
-	move	t324, t106, r0
-	move	t325, t105, r0
-	move	t326, t104, r0
+	move	t291, t120
+	move	t292, t119
+	move	t293, t118
+	move	t294, t117
+	move	t295, t116
+	move	t296, t115
+	move	t297, t114
+	move	t298, t113
+	move	t299, t112
+	move	t319, t111
+	move	t320, t110
+	move	t321, t109
+	move	t322, t108
+	move	t323, t107
+	move	t324, t106
+	move	t325, t105
+	move	t326, t104
 	lw	t327, 4(t123)
-	move	t103, t327, r0
+	move	t103, t327
 	addiu	t328, t289, 1
-	move	t102, t328, r0
+	move	t102, t328
 	jal	do_nothing2
-	move	t104, t326, r0
-	move	t105, t325, r0
-	move	t106, t324, r0
-	move	t107, t323, r0
-	move	t108, t322, r0
-	move	t109, t321, r0
-	move	t110, t320, r0
-	move	t111, t319, r0
+	move	t104, t326
+	move	t105, t325
+	move	t106, t324
+	move	t107, t323
+	move	t108, t322
+	move	t109, t321
+	move	t110, t320
+	move	t111, t319
 	li	t329, 0
-	move	t122, t329, r0
-	move	t112, t299, r0
-	move	t113, t298, r0
-	move	t114, t297, r0
-	move	t115, t296, r0
-	move	t116, t295, r0
-	move	t117, t294, r0
-	move	t118, t293, r0
-	move	t119, t292, r0
-	move	t120, t291, r0
+	move	t122, t329
+	move	t112, t299
+	move	t113, t298
+	move	t114, t297
+	move	t115, t296
+	move	t116, t295
+	move	t117, t294
+	move	t118, t293
+	move	t119, t292
+	move	t120, t291
 	j	L27
 L27:
 L22:	.asciiz " "
@@ -48,94 +48,94 @@ L23:	.asciiz " "
 L24:	.asciiz "str"
 L30:
 	sw	t103, 4(t123)
-	move	t301, t120, r0
-	move	t302, t119, r0
-	move	t303, t118, r0
-	move	t304, t117, r0
-	move	t305, t116, r0
-	move	t306, t115, r0
-	move	t307, t114, r0
-	move	t308, t113, r0
-	move	t309, t112, r0
-	move	t330, t111, r0
-	move	t331, t110, r0
-	move	t332, t109, r0
-	move	t333, t108, r0
-	move	t334, t107, r0
-	move	t335, t106, r0
-	move	t336, t105, r0
-	move	t337, t104, r0
+	move	t301, t120
+	move	t302, t119
+	move	t303, t118
+	move	t304, t117
+	move	t305, t116
+	move	t306, t115
+	move	t307, t114
+	move	t308, t113
+	move	t309, t112
+	move	t330, t111
+	move	t331, t110
+	move	t332, t109
+	move	t333, t108
+	move	t334, t107
+	move	t335, t106
+	move	t336, t105
+	move	t337, t104
 	lw	t338, 4(t123)
-	move	t103, t338, r0
-	move	t102, t300, r0
+	move	t103, t338
+	move	t102, t300
 	la	t339, L24
-	move	t101, t339, r0
+	move	t101, t339
 	jal	do_nothing1
-	move	t104, t337, r0
-	move	t105, t336, r0
-	move	t106, t335, r0
-	move	t107, t334, r0
-	move	t108, t333, r0
-	move	t109, t332, r0
-	move	t110, t331, r0
-	move	t111, t330, r0
+	move	t104, t337
+	move	t105, t336
+	move	t106, t335
+	move	t107, t334
+	move	t108, t333
+	move	t109, t332
+	move	t110, t331
+	move	t111, t330
 	la	t340, L23
-	move	t122, t340, r0
-	move	t112, t309, r0
-	move	t113, t308, r0
-	move	t114, t307, r0
-	move	t115, t306, r0
-	move	t116, t305, r0
-	move	t117, t304, r0
-	move	t118, t303, r0
-	move	t119, t302, r0
-	move	t120, t301, r0
+	move	t122, t340
+	move	t112, t309
+	move	t113, t308
+	move	t114, t307
+	move	t115, t306
+	move	t116, t305
+	move	t117, t304
+	move	t118, t303
+	move	t119, t302
+	move	t120, t301
 	j	L29
 L29:
 L25:	.asciiz "str2"
 L26:	.asciiz "str2"
 L32:
 	sw	t103, 4(t123)
-	move	t310, t120, r0
-	move	t311, t119, r0
-	move	t312, t118, r0
-	move	t313, t117, r0
-	move	t314, t116, r0
-	move	t315, t115, r0
-	move	t316, t114, r0
-	move	t317, t113, r0
-	move	t318, t112, r0
-	move	t341, t111, r0
-	move	t342, t110, r0
-	move	t343, t109, r0
-	move	t344, t108, r0
-	move	t345, t107, r0
-	move	t346, t106, r0
-	move	t347, t105, r0
-	move	t348, t104, r0
-	move	t103, t123, r0
+	move	t310, t120
+	move	t311, t119
+	move	t312, t118
+	move	t313, t117
+	move	t314, t116
+	move	t315, t115
+	move	t316, t114
+	move	t317, t113
+	move	t318, t112
+	move	t341, t111
+	move	t342, t110
+	move	t343, t109
+	move	t344, t108
+	move	t345, t107
+	move	t346, t106
+	move	t347, t105
+	move	t348, t104
+	move	t103, t123
 	li	t349, 0
-	move	t102, t349, r0
+	move	t102, t349
 	la	t350, L26
-	move	t101, t350, r0
+	move	t101, t350
 	jal	do_nothing1
-	move	t104, t348, r0
-	move	t105, t347, r0
-	move	t106, t346, r0
-	move	t107, t345, r0
-	move	t108, t344, r0
-	move	t109, t343, r0
-	move	t110, t342, r0
-	move	t111, t341, r0
-	move	t122, t122, r0
-	move	t112, t318, r0
-	move	t113, t317, r0
-	move	t114, t316, r0
-	move	t115, t315, r0
-	move	t116, t314, r0
-	move	t117, t313, r0
-	move	t118, t312, r0
-	move	t119, t311, r0
-	move	t120, t310, r0
+	move	t104, t348
+	move	t105, t347
+	move	t106, t346
+	move	t107, t345
+	move	t108, t344
+	move	t109, t343
+	move	t110, t342
+	move	t111, t341
+	move	t122, t122
+	move	t112, t318
+	move	t113, t317
+	move	t114, t316
+	move	t115, t315
+	move	t116, t314
+	move	t117, t313
+	move	t118, t312
+	move	t119, t311
+	move	t120, t310
 	j	L31
 L31:

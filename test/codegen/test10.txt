@@ -1,14 +1,14 @@
 L48:
 	sw	t103, 4(t123)
-	move	t379, t120, r0
-	move	t380, t119, r0
-	move	t381, t118, r0
-	move	t382, t117, r0
-	move	t383, t116, r0
-	move	t384, t115, r0
-	move	t385, t114, r0
-	move	t386, t113, r0
-	move	t387, t112, r0
+	move	t379, t120
+	move	t380, t119
+	move	t381, t118
+	move	t382, t117
+	move	t383, t116
+	move	t384, t115
+	move	t385, t114
+	move	t386, t113
+	move	t387, t112
 L45:
 	li	t388, 5
 	li	t389, 10
@@ -16,16 +16,16 @@ L45:
 b L44
 L44:
 	li	t390, 0
-	move	t122, t390, r0
-	move	t112, t387, r0
-	move	t113, t386, r0
-	move	t114, t385, r0
-	move	t115, t384, r0
-	move	t116, t383, r0
-	move	t117, t382, r0
-	move	t118, t381, r0
-	move	t119, t380, r0
-	move	t120, t379, r0
+	move	t122, t390
+	move	t112, t387
+	move	t113, t386
+	move	t114, t385
+	move	t115, t384
+	move	t116, t383
+	move	t117, t382
+	move	t118, t381
+	move	t119, t380
+	move	t120, t379
 	j	L47
 L46:
 	li	t392, 5

@@ -1,28 +1,28 @@
 L202:
 	sw	t103, 4(t123)
-	move	t1214, t120, r0
-	move	t1215, t119, r0
-	move	t1216, t118, r0
-	move	t1217, t117, r0
-	move	t1218, t116, r0
-	move	t1219, t115, r0
-	move	t1220, t114, r0
-	move	t1221, t113, r0
-	move	t1222, t112, r0
+	move	t1214, t120
+	move	t1215, t119
+	move	t1216, t118
+	move	t1217, t117
+	move	t1218, t116
+	move	t1219, t115
+	move	t1220, t114
+	move	t1221, t113
+	move	t1222, t112
 	li	t1223, 0
-	move	t1213, t1223, r0
+	move	t1213, t1223
 	li	t1224, 0
-	move	t1213, t1224, r0
+	move	t1213, t1224
 	li	t1225, 0
-	move	t122, t1225, r0
-	move	t112, t1222, r0
-	move	t113, t1221, r0
-	move	t114, t1220, r0
-	move	t115, t1219, r0
-	move	t116, t1218, r0
-	move	t117, t1217, r0
-	move	t118, t1216, r0
-	move	t119, t1215, r0
-	move	t120, t1214, r0
+	move	t122, t1225
+	move	t112, t1222
+	move	t113, t1221
+	move	t114, t1220
+	move	t115, t1219
+	move	t116, t1218
+	move	t117, t1217
+	move	t118, t1216
+	move	t119, t1215
+	move	t120, t1214
 	j	L201
 L201:

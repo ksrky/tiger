@@ -1,70 +1,70 @@
 L179:
 	sw	t103, 4(t123)
-	move	t1004, t120, r0
-	move	t1005, t119, r0
-	move	t1006, t118, r0
-	move	t1007, t117, r0
-	move	t1008, t116, r0
-	move	t1009, t115, r0
-	move	t1010, t114, r0
-	move	t1011, t113, r0
-	move	t1012, t112, r0
-	move	t122, t1003, r0
-	move	t112, t1012, r0
-	move	t113, t1011, r0
-	move	t114, t1010, r0
-	move	t115, t1009, r0
-	move	t116, t1008, r0
-	move	t117, t1007, r0
-	move	t118, t1006, r0
-	move	t119, t1005, r0
-	move	t120, t1004, r0
+	move	t1004, t120
+	move	t1005, t119
+	move	t1006, t118
+	move	t1007, t117
+	move	t1008, t116
+	move	t1009, t115
+	move	t1010, t114
+	move	t1011, t113
+	move	t1012, t112
+	move	t122, t1003
+	move	t112, t1012
+	move	t113, t1011
+	move	t114, t1010
+	move	t115, t1009
+	move	t116, t1008
+	move	t117, t1007
+	move	t118, t1006
+	move	t119, t1005
+	move	t120, t1004
 	j	L178
 L178:
 L181:
 	sw	t103, 4(t123)
-	move	t1014, t120, r0
-	move	t1015, t119, r0
-	move	t1016, t118, r0
-	move	t1017, t117, r0
-	move	t1018, t116, r0
-	move	t1019, t115, r0
-	move	t1020, t114, r0
-	move	t1021, t113, r0
-	move	t1022, t112, r0
-	move	t122, t1013, r0
-	move	t112, t1022, r0
-	move	t113, t1021, r0
-	move	t114, t1020, r0
-	move	t115, t1019, r0
-	move	t116, t1018, r0
-	move	t117, t1017, r0
-	move	t118, t1016, r0
-	move	t119, t1015, r0
-	move	t120, t1014, r0
+	move	t1014, t120
+	move	t1015, t119
+	move	t1016, t118
+	move	t1017, t117
+	move	t1018, t116
+	move	t1019, t115
+	move	t1020, t114
+	move	t1021, t113
+	move	t1022, t112
+	move	t122, t1013
+	move	t112, t1022
+	move	t113, t1021
+	move	t114, t1020
+	move	t115, t1019
+	move	t116, t1018
+	move	t117, t1017
+	move	t118, t1016
+	move	t119, t1015
+	move	t120, t1014
 	j	L180
 L180:
 L183:
 	sw	t103, 4(t123)
-	move	t1023, t120, r0
-	move	t1024, t119, r0
-	move	t1025, t118, r0
-	move	t1026, t117, r0
-	move	t1027, t116, r0
-	move	t1028, t115, r0
-	move	t1029, t114, r0
-	move	t1030, t113, r0
-	move	t1031, t112, r0
+	move	t1023, t120
+	move	t1024, t119
+	move	t1025, t118
+	move	t1026, t117
+	move	t1027, t116
+	move	t1028, t115
+	move	t1029, t114
+	move	t1030, t113
+	move	t1031, t112
 	li	t1032, 0
-	move	t122, t1032, r0
-	move	t112, t1031, r0
-	move	t113, t1030, r0
-	move	t114, t1029, r0
-	move	t115, t1028, r0
-	move	t116, t1027, r0
-	move	t117, t1026, r0
-	move	t118, t1025, r0
-	move	t119, t1024, r0
-	move	t120, t1023, r0
+	move	t122, t1032
+	move	t112, t1031
+	move	t113, t1030
+	move	t114, t1029
+	move	t115, t1028
+	move	t116, t1027
+	move	t117, t1026
+	move	t118, t1025
+	move	t119, t1024
+	move	t120, t1023
 	j	L182
 L182:

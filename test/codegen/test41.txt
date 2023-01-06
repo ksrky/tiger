@@ -1,24 +1,24 @@
 L187:
 	sw	t103, 4(t123)
-	move	t1052, t120, r0
-	move	t1053, t119, r0
-	move	t1054, t118, r0
-	move	t1055, t117, r0
-	move	t1056, t116, r0
-	move	t1057, t115, r0
-	move	t1058, t114, r0
-	move	t1059, t113, r0
-	move	t1060, t112, r0
+	move	t1052, t120
+	move	t1053, t119
+	move	t1054, t118
+	move	t1055, t117
+	move	t1056, t116
+	move	t1057, t115
+	move	t1058, t114
+	move	t1059, t113
+	move	t1060, t112
 	li	t1061, 0
-	move	t122, t1061, r0
-	move	t112, t1060, r0
-	move	t113, t1059, r0
-	move	t114, t1058, r0
-	move	t115, t1057, r0
-	move	t116, t1056, r0
-	move	t117, t1055, r0
-	move	t118, t1054, r0
-	move	t119, t1053, r0
-	move	t120, t1052, r0
+	move	t122, t1061
+	move	t112, t1060
+	move	t113, t1059
+	move	t114, t1058
+	move	t115, t1057
+	move	t116, t1056
+	move	t117, t1055
+	move	t118, t1054
+	move	t119, t1053
+	move	t120, t1052
 	j	L186
 L186:

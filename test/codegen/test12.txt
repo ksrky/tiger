@@ -1,40 +1,40 @@
 L62:
 	sw	t103, 4(t123)
-	move	t416, t120, r0
-	move	t417, t119, r0
-	move	t418, t118, r0
-	move	t419, t117, r0
-	move	t420, t116, r0
-	move	t421, t115, r0
-	move	t422, t114, r0
-	move	t423, t113, r0
-	move	t424, t112, r0
+	move	t416, t120
+	move	t417, t119
+	move	t418, t118
+	move	t419, t117
+	move	t420, t116
+	move	t421, t115
+	move	t422, t114
+	move	t423, t113
+	move	t424, t112
 	li	t425, 0
-	move	t411, t425, r0
+	move	t411, t425
 	li	t426, 100
-	move	t415, t426, r0
+	move	t415, t426
 	li	t427, 0
-	move	t414, t427, r0
+	move	t414, t427
 L59:
 	ble t414, t415, L60
 b L58
 L58:
 	li	t428, 0
-	move	t122, t428, r0
-	move	t112, t424, r0
-	move	t113, t423, r0
-	move	t114, t422, r0
-	move	t115, t421, r0
-	move	t116, t420, r0
-	move	t117, t419, r0
-	move	t118, t418, r0
-	move	t119, t417, r0
-	move	t120, t416, r0
+	move	t122, t428
+	move	t112, t424
+	move	t113, t423
+	move	t114, t422
+	move	t115, t421
+	move	t116, t420
+	move	t117, t419
+	move	t118, t418
+	move	t119, t417
+	move	t120, t416
 	j	L61
 L60:
 	addiu	t429, t411, 1
-	move	t411, t429, r0
+	move	t411, t429
 	addiu	t430, t414, 1
-	move	t414, t430, r0
+	move	t414, t430
 	j	L59
 L61:

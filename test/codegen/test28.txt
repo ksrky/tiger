@@ -1,49 +1,49 @@
 L138:	.asciiz "Name"
 L140:
 	sw	t103, 4(t123)
-	move	t778, t120, r0
-	move	t779, t119, r0
-	move	t780, t118, r0
-	move	t781, t117, r0
-	move	t782, t116, r0
-	move	t783, t115, r0
-	move	t784, t114, r0
-	move	t785, t113, r0
-	move	t786, t112, r0
-	move	t787, t111, r0
-	move	t788, t110, r0
-	move	t789, t109, r0
-	move	t790, t108, r0
-	move	t791, t107, r0
-	move	t792, t106, r0
-	move	t793, t105, r0
-	move	t794, t104, r0
+	move	t778, t120
+	move	t779, t119
+	move	t780, t118
+	move	t781, t117
+	move	t782, t116
+	move	t783, t115
+	move	t784, t114
+	move	t785, t113
+	move	t786, t112
+	move	t787, t111
+	move	t788, t110
+	move	t789, t109
+	move	t790, t108
+	move	t791, t107
+	move	t792, t106
+	move	t793, t105
+	move	t794, t104
 	li	t795, 8
-	move	t103, t795, r0
+	move	t103, t795
 	jal	allocRecord
-	move	t104, t794, r0
-	move	t105, t793, r0
-	move	t106, t792, r0
-	move	t107, t791, r0
-	move	t108, t790, r0
-	move	t109, t789, r0
-	move	t110, t788, r0
-	move	t111, t787, r0
-	move	t777, t122, r0
+	move	t104, t794
+	move	t105, t793
+	move	t106, t792
+	move	t107, t791
+	move	t108, t790
+	move	t109, t789
+	move	t110, t788
+	move	t111, t787
+	move	t777, t122
 	la	t796, L138
 	sw	t796, 0(t777)
 	li	t797, 0
 	sw	t797, 4(t777)
-	move	t776, t777, r0
-	move	t122, t776, r0
-	move	t112, t786, r0
-	move	t113, t785, r0
-	move	t114, t784, r0
-	move	t115, t783, r0
-	move	t116, t782, r0
-	move	t117, t781, r0
-	move	t118, t780, r0
-	move	t119, t779, r0
-	move	t120, t778, r0
+	move	t776, t777
+	move	t122, t776
+	move	t112, t786
+	move	t113, t785
+	move	t114, t784
+	move	t115, t783
+	move	t116, t782
+	move	t117, t781
+	move	t118, t780
+	move	t119, t779
+	move	t120, t778
 	j	L139
 L139:

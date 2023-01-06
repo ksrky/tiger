@@ -1,46 +1,46 @@
 L3:
 	sw	t103, 4(t123)
-	move	t159, t120, r0
-	move	t160, t119, r0
-	move	t161, t118, r0
-	move	t162, t117, r0
-	move	t163, t116, r0
-	move	t164, t115, r0
-	move	t165, t114, r0
-	move	t166, t113, r0
-	move	t167, t112, r0
-	move	t168, t111, r0
-	move	t169, t110, r0
-	move	t170, t109, r0
-	move	t171, t108, r0
-	move	t172, t107, r0
-	move	t173, t106, r0
-	move	t174, t105, r0
-	move	t175, t104, r0
+	move	t159, t120
+	move	t160, t119
+	move	t161, t118
+	move	t162, t117
+	move	t163, t116
+	move	t164, t115
+	move	t165, t114
+	move	t166, t113
+	move	t167, t112
+	move	t168, t111
+	move	t169, t110
+	move	t170, t109
+	move	t171, t108
+	move	t172, t107
+	move	t173, t106
+	move	t174, t105
+	move	t175, t104
 	li	t176, 10
-	move	t103, t176, r0
+	move	t103, t176
 	li	t177, 0
-	move	t102, t177, r0
+	move	t102, t177
 	jal	initArrray
-	move	t104, t175, r0
-	move	t105, t174, r0
-	move	t106, t173, r0
-	move	t107, t172, r0
-	move	t108, t171, r0
-	move	t109, t170, r0
-	move	t110, t169, r0
-	move	t111, t168, r0
-	move	t158, t122, r0
-	move	t157, t158, r0
-	move	t122, t157, r0
-	move	t112, t167, r0
-	move	t113, t166, r0
-	move	t114, t165, r0
-	move	t115, t164, r0
-	move	t116, t163, r0
-	move	t117, t162, r0
-	move	t118, t161, r0
-	move	t119, t160, r0
-	move	t120, t159, r0
+	move	t104, t175
+	move	t105, t174
+	move	t106, t173
+	move	t107, t172
+	move	t108, t171
+	move	t109, t170
+	move	t110, t169
+	move	t111, t168
+	move	t158, t122
+	move	t157, t158
+	move	t122, t157
+	move	t112, t167
+	move	t113, t166
+	move	t114, t165
+	move	t115, t164
+	move	t116, t163
+	move	t117, t162
+	move	t118, t161
+	move	t119, t160
+	move	t120, t159
 	j	L2
 L2:

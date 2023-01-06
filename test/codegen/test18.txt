@@ -1,25 +1,25 @@
 L91:
 	sw	t103, 4(t123)
-	move	t516, t120, r0
-	move	t517, t119, r0
-	move	t518, t118, r0
-	move	t519, t117, r0
-	move	t520, t116, r0
-	move	t521, t115, r0
-	move	t522, t114, r0
-	move	t523, t113, r0
-	move	t524, t112, r0
+	move	t516, t120
+	move	t517, t119
+	move	t518, t118
+	move	t519, t117
+	move	t520, t116
+	move	t521, t115
+	move	t522, t114
+	move	t523, t113
+	move	t524, t112
 	li	t545, 0
-	move	t122, t545, r0
-	move	t112, t524, r0
-	move	t113, t523, r0
-	move	t114, t522, r0
-	move	t115, t521, r0
-	move	t116, t520, r0
-	move	t117, t519, r0
-	move	t118, t518, r0
-	move	t119, t517, r0
-	move	t120, t516, r0
+	move	t122, t545
+	move	t112, t524
+	move	t113, t523
+	move	t114, t522
+	move	t115, t521
+	move	t116, t520
+	move	t117, t519
+	move	t118, t518
+	move	t119, t517
+	move	t120, t516
 	j	L90
 L90:
 L85:	.asciiz " "
@@ -27,96 +27,96 @@ L86:	.asciiz " "
 L87:	.asciiz "str"
 L93:
 	sw	t103, 4(t123)
-	move	t527, t120, r0
-	move	t528, t119, r0
-	move	t529, t118, r0
-	move	t530, t117, r0
-	move	t531, t116, r0
-	move	t532, t115, r0
-	move	t533, t114, r0
-	move	t534, t113, r0
-	move	t535, t112, r0
-	move	t546, t111, r0
-	move	t547, t110, r0
-	move	t548, t109, r0
-	move	t549, t108, r0
-	move	t550, t107, r0
-	move	t551, t106, r0
-	move	t552, t105, r0
-	move	t553, t104, r0
+	move	t527, t120
+	move	t528, t119
+	move	t529, t118
+	move	t530, t117
+	move	t531, t116
+	move	t532, t115
+	move	t533, t114
+	move	t534, t113
+	move	t535, t112
+	move	t546, t111
+	move	t547, t110
+	move	t548, t109
+	move	t549, t108
+	move	t550, t107
+	move	t551, t106
+	move	t552, t105
+	move	t553, t104
 	lw	t554, 4(t123)
-	move	t103, t554, r0
-	move	t102, t526, r0
+	move	t103, t554
+	move	t102, t526
 	la	t555, L87
-	move	t101, t555, r0
+	move	t101, t555
 	jal	do_nothing1
-	move	t104, t553, r0
-	move	t105, t552, r0
-	move	t106, t551, r0
-	move	t107, t550, r0
-	move	t108, t549, r0
-	move	t109, t548, r0
-	move	t110, t547, r0
-	move	t111, t546, r0
+	move	t104, t553
+	move	t105, t552
+	move	t106, t551
+	move	t107, t550
+	move	t108, t549
+	move	t109, t548
+	move	t110, t547
+	move	t111, t546
 	la	t556, L86
-	move	t122, t556, r0
-	move	t112, t535, r0
-	move	t113, t534, r0
-	move	t114, t533, r0
-	move	t115, t532, r0
-	move	t116, t531, r0
-	move	t117, t530, r0
-	move	t118, t529, r0
-	move	t119, t528, r0
-	move	t120, t527, r0
+	move	t122, t556
+	move	t112, t535
+	move	t113, t534
+	move	t114, t533
+	move	t115, t532
+	move	t116, t531
+	move	t117, t530
+	move	t118, t529
+	move	t119, t528
+	move	t120, t527
 	j	L92
 L92:
 L88:	.asciiz "str2"
 L89:	.asciiz "str2"
 L95:
 	sw	t103, 4(t123)
-	move	t536, t120, r0
-	move	t537, t119, r0
-	move	t538, t118, r0
-	move	t539, t117, r0
-	move	t540, t116, r0
-	move	t541, t115, r0
-	move	t542, t114, r0
-	move	t543, t113, r0
-	move	t544, t112, r0
+	move	t536, t120
+	move	t537, t119
+	move	t538, t118
+	move	t539, t117
+	move	t540, t116
+	move	t541, t115
+	move	t542, t114
+	move	t543, t113
+	move	t544, t112
 	li	t557, 0
-	move	t525, t557, r0
-	move	t558, t111, r0
-	move	t559, t110, r0
-	move	t560, t109, r0
-	move	t561, t108, r0
-	move	t562, t107, r0
-	move	t563, t106, r0
-	move	t564, t105, r0
-	move	t565, t104, r0
-	move	t103, t123, r0
+	move	t525, t557
+	move	t558, t111
+	move	t559, t110
+	move	t560, t109
+	move	t561, t108
+	move	t562, t107
+	move	t563, t106
+	move	t564, t105
+	move	t565, t104
+	move	t103, t123
 	li	t566, 0
-	move	t102, t566, r0
+	move	t102, t566
 	la	t567, L89
-	move	t101, t567, r0
+	move	t101, t567
 	jal	do_nothing1
-	move	t104, t565, r0
-	move	t105, t564, r0
-	move	t106, t563, r0
-	move	t107, t562, r0
-	move	t108, t561, r0
-	move	t109, t560, r0
-	move	t110, t559, r0
-	move	t111, t558, r0
-	move	t122, t122, r0
-	move	t112, t544, r0
-	move	t113, t543, r0
-	move	t114, t542, r0
-	move	t115, t541, r0
-	move	t116, t540, r0
-	move	t117, t539, r0
-	move	t118, t538, r0
-	move	t119, t537, r0
-	move	t120, t536, r0
+	move	t104, t565
+	move	t105, t564
+	move	t106, t563
+	move	t107, t562
+	move	t108, t561
+	move	t109, t560
+	move	t110, t559
+	move	t111, t558
+	move	t122, t122
+	move	t112, t544
+	move	t113, t543
+	move	t114, t542
+	move	t115, t541
+	move	t116, t540
+	move	t117, t539
+	move	t118, t538
+	move	t119, t537
+	move	t120, t536
 	j	L94
 L94:
