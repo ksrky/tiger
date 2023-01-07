@@ -17,7 +17,7 @@ let eq (((_, a), (_, b)) : node * node) : bool = a = b
 
 let augment (g : graph) (n : node') : node = (g, n)
 
-let sizeAint = 128
+let sizeAint = 1024 (* todo: best array size *)
 
 let newGraph () = Array.make sizeAint bogusNode
 
@@ -47,7 +47,7 @@ let newNode (g : graph) =
 
 exception GraphEdge
 
-let check ((_g, _g') : graph * graph) = (* if g=g' then () else raise GraphEdge *) ()
+let check ((g, g') : graph * graph) = if g = g' then () else raise GraphEdge (* or () *)
 
 let rec delete (i : node') (j :: rest : node' list) : node' list =
   if i = j then rest else j :: delete i rest

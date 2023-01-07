@@ -31,6 +31,8 @@ module Set : sig
 
   val diff : t -> t -> t
 
+  val equal : t -> t -> bool
+
   val iter : (elt -> unit) -> t -> unit
 
   val cardinal : t -> int

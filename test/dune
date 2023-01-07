@@ -19,6 +19,11 @@
  (libraries tiger))
 
 (executable
+ (public_name fgraph)
+ (modules fgraph)
+ (libraries tiger))
+
+(executable
  (public_name regalloc)
  (modules regalloc)
  (libraries tiger))

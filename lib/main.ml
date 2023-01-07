@@ -6,10 +6,8 @@ let emitproc (out : out_channel) : Frame.frag -> unit = function
       let instrs : Assem.instr list = List.concat (List.map (Codegen.codegen frame) stms') in
       let instrs2 = Frame.procEntryExit2 frame instrs in
       let instrs2', alloc = RegAlloc.alloc instrs2 frame in
-      let prolog, instrs3, epilog = Tiger.Frame.procEntryExit3 frame instrs2' in
-      let format0 : Tiger.Assem.instr -> Tiger.Assem.reg =
-        Tiger.Assem.format (fun t -> Tiger.Temp.Table.find t alloc)
-      in
+      let prolog, instrs3, epilog = Frame.procEntryExit3 frame instrs2' in
+      let format0 : Assem.instr -> Assem.reg = Assem.format (fun t -> Temp.Table.find t alloc) in
       output_string out prolog;
       List.iter (fun i -> output_string out (format0 i)) instrs3;
       output_string out epilog

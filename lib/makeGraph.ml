@@ -36,8 +36,8 @@ let instr2graph (ilist : Assem.instr list) : Flow.flowgraph * Flow.Graph.node li
         (* temp *)
         Flow.FGRAPH
           { control
-          ; def= Graph.Table.add node (Temp.Set.of_list src) def
-          ; use= Graph.Table.add node (Temp.Set.of_list dst) use
+          ; def= Graph.Table.add node (Temp.Set.of_list dst) def
+          ; use= Graph.Table.add node (Temp.Set.of_list src) use
           ; ismove= Graph.Table.add node false ismove }
     | Assem.LABEL {lab; _} ->
         label2itsnode := (lab, node) :: !label2itsnode;
@@ -46,15 +46,26 @@ let instr2graph (ilist : Assem.instr list) : Flow.flowgraph * Flow.Graph.node li
     | Assem.MOVE {dst; src; _} ->
         Flow.FGRAPH
           { control
-          ; def= Graph.Table.add node (Temp.Set.of_list [src]) def
-          ; use= Graph.Table.add node (Temp.Set.of_list [dst]) use
+          ; def= Graph.Table.add node (Temp.Set.of_list [dst]) def
+          ; use= Graph.Table.add node (Temp.Set.of_list [src]) use
           ; ismove= Graph.Table.add node true ismove }
   in
-  (* note: if dst = src then ismove := false::ismove *)
   let (Flow.FGRAPH {control; _} as resultFGraph) =
+    (* note: making flow graph in reverse order *)
     List.fold_left makeGraph initialFGraph (List.rev ilist)
-    (* note: reverse order *)
   in
   (resultFGraph, Flow.Graph.nodes control)
 
-let show ((_out, _g, _f) : out_channel * Flow.flowgraph * (Temp.temp -> string)) : unit = ()
+let show (out : out_channel) (graph : Flow.flowgraph) (f : Temp.temp -> string) : unit =
+  let (FGRAPH {control; def; use; _}) = graph in
+  let nodes = Graph.nodes control in
+  output_string out "def\t\t\t\t\tuse\n";
+  List.iter
+    (fun node ->
+      let defn = try Temp.Set.elements (Graph.Table.find node def) with Not_found -> [] in
+      let usen = try Temp.Set.elements (Graph.Table.find node use) with Not_found -> [] in
+      let s1 = String.concat ", " (List.map f defn) in
+      output_string out (s1 ^ try String.make (40 - String.length s1) ' ' with _ -> "\t");
+      let s2 = String.concat ", " (List.map f usen) in
+      output_string out (s2 ^ "\n") )
+    nodes
