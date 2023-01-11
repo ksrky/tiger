@@ -21,4 +21,6 @@ let compile (filename : string) : unit =
   let absyn : Absyn.exp = Parse.parse filename in
   (*let () = PrintAbsyn.print(stdout, absyn) in*)
   let frags : Frame.frag list = FindEscape.findEscape absyn; Semant.transProg absyn in
-  withOpenFile (filename ^ ".s") (fun out -> List.iter (emitproc out) frags)
+  if !ErrorMsg.anyErrors
+    then ()
+    else withOpenFile (filename ^ ".s") (fun out -> List.iter (emitproc out) frags)

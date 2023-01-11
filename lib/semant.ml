@@ -14,18 +14,14 @@ let error pos msg ret = ErrorMsg.error pos msg; ret
 
 let err_expty = {exp= Tr.nilExp; ty= T.NIL}
 
-let rec check_type ?(req = false) (ty, exp_ty, pos) =
-  let ty' = actual_ty (ty, pos) in
+let rec check_type (exp_ty, got_ty, pos) =
   let exp_ty' = actual_ty (exp_ty, pos) in
+  let got_ty' = actual_ty (got_ty, pos) in
   (* note: checking physical equality *)
-  if ty' == exp_ty' || T.NIL == ty' || T.NIL == exp_ty' then ()
-  else if req then
-    error pos
-      ("type mismatch. " ^ "expecting " ^ T.type2str ty ^ ", but got " ^ T.type2str exp_ty)
-      ()
+  if exp_ty' == got_ty' || exp_ty' == T.NIL || T.NIL == got_ty' then ()
   else
     error pos
-      ("type mismatch. " ^ "expected " ^ T.type2str exp_ty ^ ", but actual " ^ T.type2str ty)
+      ("type mismatch. " ^ "expecting " ^ T.type2str ty ^ ", but got " ^ T.type2str exp_ty)
       ()
 
 and actual_ty (ty, pos) =
@@ -102,7 +98,7 @@ let rec transExp (venv, tenv, level, breakpoint, exp) : expty =
         let {exp= then_exp; ty= then_ty} = trexp then' in
         match else' with
         | None ->
-            check_type ~req:true (T.UNIT, then_ty, pos);
+            check_type (T.UNIT, then_ty, pos);
             {exp= Tr.ifThenExp test_exp then_exp; ty= T.UNIT}
         | Some else'' ->
             let {exp= else_exp; ty= else_ty} = trexp else'' in
@@ -113,7 +109,7 @@ let rec transExp (venv, tenv, level, breakpoint, exp) : expty =
         check_int (test_ty, pos);
         let breakpoint = Temp.newlabel () in
         let {exp= body_exp; ty= body_ty} = transExp (venv, tenv, level, Some breakpoint, body) in
-        check_type ~req:true (T.UNIT, body_ty, pos);
+        check_type (T.UNIT, body_ty, pos);
         {exp= Tr.whileExp (test_exp, body_exp, breakpoint); ty= T.UNIT}
     | A.ForExp {var; escape; lo; hi; body; pos} ->
         let i = A.SimpleVar (var, pos) in
@@ -183,7 +179,7 @@ let rec transExp (venv, tenv, level, breakpoint, exp) : expty =
             check_int (exp_ty, pos);
             {exp= Tr.subscriptVar (var_exp, exp_exp); ty}
         | _ -> error pos ("expecting array type, but got " ^ T.type2str var_ty) err_expty )
-  and check_int (ty, pos) = check_type ~req:true (T.INT, ty, pos)
+  and check_int (ty, pos) = check_type (T.INT, ty, pos)
   and checkformals : A.exp list * T.ty list * A.pos -> Tr.exp list = function
     | [], [], _ -> []
     | e :: es, ty :: tys, pos ->
@@ -209,12 +205,12 @@ and transDecs (venv, tenv, level, breakpoint, decs) : venv * tenv * Tr.exp list 
     | A.TypeDec tydecs ->
         let rec check_name_uniq : A.typedec list -> unit = function
           | [] -> ()
-          | {A.name= id; pos; _} :: rest -> (
+          | {A.name= id; _} :: rest -> (
             try
-              let {A.name= id2; _} =
+              let {A.name= id2; A.pos= pos2; _} =
                 List.find (fun {A.name= id2; _} -> S.name id = S.name id2) rest
               in
-              error pos ("multiple declaration for " ^ S.name id2) ()
+              error pos2 ("multiple declaration for " ^ S.name id2) ()
             with Not_found -> check_name_uniq rest )
         in
         let check_cycle tydecs =
@@ -363,8 +359,8 @@ and transTy (tenv, ty) : T.ty =
     | None -> error pos ("unknown type. " ^ S.name typ) T.NIL )
 
 let transProg exp : Frame.frag list =
+  (* clearing fragments for compiling multiple files *)
   Tr.reset ();
-  (* clear fragments for compiling multiple files *)
   let mainlevel = Tr.newLevel (Tr.outermost, Temp.namedlabel "main", []) in
   let {exp; _} = transExp (E.base_venv, E.base_tenv, mainlevel, None, exp) in
   Tr.procEntryExit (mainlevel, exp);

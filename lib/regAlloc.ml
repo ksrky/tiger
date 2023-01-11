@@ -5,7 +5,7 @@ module GS = Graph.Set
 module TT = Temp.Table
 module TS = Temp.Set
 
-let initial : Frame.register TT.t ref = ref Frame.tempMap
+let initial : allocation ref = ref Frame.tempMap
 
 let rec alloc (instrs : Assem.instr list) (frame : Frame.frame) : Assem.instr list * allocation =
   let (FGRAPH {def; use; _} as fgraph), _fnodes = MakeGraph.instr2graph instrs in

@@ -11,7 +11,7 @@ type liveMap = liveSet Graph.Table.t
 
 let ( @@ ) (gt : liveSet Graph.Table.t) (n : Graph.node) : liveSet =
   try Graph.Table.find n gt
-  with Not_found -> Temp.Set.empty (* node of Assem.Label instruction doesn't have dst or use *)
+  with Not_found -> Temp.Set.empty (* a node of Assem.Label instruction doesn't have dst or use *)
 
 let ( ++ ) : liveSet -> liveSet -> liveSet = Temp.Set.union
 

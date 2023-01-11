@@ -27,7 +27,7 @@ let error pos (msg : string) =
   anyErrors := true;
   print_string !fileName;
   look (!linePos, !lineNum);
-  List.iter print_string [":"; msg; "\n"]
+  List.iter print_string [": "; msg; "\n"]
 
 let impossible msg =
   print_string !fileName;
