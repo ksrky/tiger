@@ -21,7 +21,7 @@ let rec check_type (exp_ty, got_ty, pos) =
   if exp_ty' == got_ty' || exp_ty' == T.NIL || T.NIL == got_ty' then ()
   else
     error pos
-      ("type mismatch. " ^ "expecting " ^ T.type2str ty ^ ", but got " ^ T.type2str exp_ty)
+      ("type mismatch. " ^ "expecting " ^ T.type2str exp_ty ^ ", but got " ^ T.type2str got_ty')
       ()
 
 and actual_ty (ty, pos) =

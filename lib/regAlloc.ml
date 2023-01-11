@@ -14,9 +14,7 @@ let rec alloc (instrs : Assem.instr list) (frame : Frame.frame) : Assem.instr li
     TS.cardinal (GT.find n def) + TS.cardinal (GT.find n use)
     (* todo *)
   in
-  let allocation, spilledNodes =
-    Color.color {interference= igraph; initial= !initial; spillCost; registers= Frame.registers}
-  in
+  let allocation, spilledNodes = Color.color (igraph, !initial, spillCost, Frame.registers) in
   let rewriteProgram () : Assem.instr list =
     let newTemps = ref [] in
     let instrs' =

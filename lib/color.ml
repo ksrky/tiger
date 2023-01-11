@@ -1,11 +1,5 @@
 type allocation = Frame.register Temp.Table.t
 
-type input =
-  { interference: Liveness.igraph
-  ; initial: allocation
-  ; spillCost: Graph.node -> int
-  ; registers: Frame.register list }
-
 module GT = Graph.Table
 module GS = Graph.Set
 module TT = Temp.Table
@@ -13,8 +7,7 @@ module TS = Temp.Set
 
 let n_colors = 8 (* K *)
 
-let color ({interference; initial= allocation; spillCost= _; registers} : input) :
-    allocation * Temp.temp list =
+let color (interference, init_alloc, _spillCost, registers) : allocation * Temp.temp list =
   (* nodes list *)
   let precolored : Temp.temp list ref = ref [] in
   let initial : Temp.temp list ref = ref [] in
@@ -39,17 +32,21 @@ let color ({interference; initial= allocation; spillCost= _; registers} : input)
   let alias : Temp.temp TT.t ref = ref TT.empty in
   let color : Frame.register TT.t ref = ref TT.empty in
   (* interference graph *)
-  let (IGRAPH {graph; tnode= _; gtemp; moves}) = interference in
+  let (Liveness.IGRAPH {graph; tnode= _; gtemp; moves}) = interference in
   (* initialize *)
   let () =
-    color := allocation;
+    color := init_alloc;
     let temps = List.map gtemp (Graph.nodes graph) in
     List.iter
-      (fun t -> try precolored := t :: !precolored with Not_found -> initial := t :: !initial)
+      (fun t ->
+        if TT.mem t init_alloc then precolored := t :: !precolored else initial := t :: !initial;
+        degree := TT.add t 0 !degree;
+        moveList := TT.add t [] !moveList;
+        adjList := TT.add t [] !adjList )
       temps
   in
   (* build graph *)
-  let build () =
+  let rec build () =
     List.iter
       (fun (u, v) ->
         let u' = gtemp u in
@@ -58,7 +55,9 @@ let color ({interference; initial= allocation; spillCost= _; registers} : input)
         moveList := TT.add u' newMlist !moveList;
         moveList := TT.add v' newMlist !moveList;
         worklistMoves := (u', v') :: !worklistMoves )
-      moves
+      moves;
+    let nodes = Graph.nodes graph in
+    List.iter (fun u -> List.iter (fun v -> addEdge (gtemp u, gtemp v)) (Graph.adj u)) nodes
   and addEdge (u, v) =
     if (not (List.mem (u, v) !adjSet)) && u <> v then adjSet := (u, v) :: (v, u) :: !adjSet;
     if not (List.mem u !precolored) then (
@@ -133,7 +132,8 @@ let color ({interference; initial= allocation; spillCost= _; registers} : input)
           combine (u, v);
           addWorklist u )
         else activeMoves := m :: !activeMoves )
-      !worklistMoves
+      !worklistMoves;
+    worklistMoves := []
   and addWorklist (u : Temp.temp) =
     if (not (List.mem u !precolored)) && (not (moveRelated u)) && TT.find u !degree < n_colors then
       freezeWorklist := List.filter (( <> ) u) !freezeWorklist;

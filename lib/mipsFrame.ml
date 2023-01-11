@@ -100,7 +100,7 @@ let rec mkseq = function
 
 let procEntryExit1 (frame : frame) (stm : Tree.stm) : Tree.stm =
   (* note: ra and calleesaves are saved in temporaries and they are restoed at the exit of a function.
-      Those move instructions that are not spilled will removed at register allocation. *)
+      Those move instructions that are not spilled will be removed at register allocation. *)
   let accregs = List.map (fun r -> (allocLocal frame false, r)) (ra :: calleesaves) in
   let saves = List.map (fun (a, r) -> T.MOVE (exp a (T.TEMP fp), T.TEMP r)) accregs in
   let restores = List.map (fun (a, r) -> T.MOVE (T.TEMP r, exp a (T.TEMP fp))) (List.rev accregs) in

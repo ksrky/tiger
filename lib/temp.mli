@@ -11,6 +11,8 @@ module Table : sig
 
   val empty : 'a t
 
+  val mem : key -> 'a t -> bool
+
   val add : key -> 'a -> 'a t -> 'a t
 
   val find : key -> 'a t -> 'a

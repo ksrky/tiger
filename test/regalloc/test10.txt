@@ -1,0 +1,35 @@
+main:
+	sw	$fp, 0($sp)
+	move	$fp, $sp
+	addi	$sp, $sp, -16
+L48:
+	sw	$a0, 4($fp)
+	move	$a0, $ra
+	move	$a0, $s0
+	move	$a0, $s1
+	move	$a0, $s2
+	move	$a0, $s3
+	move	$a0, $s4
+	move	$a0, $s5
+	move	$a0, $s6
+	move	$a0, $s7
+L45:
+	li	$a0, 5
+	li	$a1, 10
+	bgt	$a1, $a0, L46
+b L44
+L44:
+	li	$a0, 0
+	move	$v0, $a0
+	move	$s7, $a0
+	move	$s6, $a0
+	move	$s5, $a0
+	move	$s4, $a0
+	move	$s3, $a0
+	move	$s2, $a0
+	move	$s1, $a0
+	move	$s0, $a0
+	move	$ra, $a0
+	j	L47
+L46:
+	li	$a0, 5

@@ -69,7 +69,8 @@ let interferenceGraph (Flow.FGRAPH {control; def; use; ismove} : Flow.flowgraph)
     if Graph.Table.find fnode ismove then
       let [from] = Temp.Set.elements (use @@ fnode) in
       let [to'] = Temp.Set.elements (def @@ fnode) in
-      moves := (List.assoc from temp2node, List.assoc to' temp2node) :: !moves
+      try moves := (List.assoc from temp2node, List.assoc to' temp2node) :: !moves
+      with Not_found -> () (* note: dead move instruction *)
   in
   let buildGraph (temp, inode) =
     (* fnode: node of FlowGraph, inode: node of InterferenceGraph *)
@@ -79,7 +80,11 @@ let interferenceGraph (Flow.FGRAPH {control; def; use; ismove} : Flow.flowgraph)
         if List.mem temp itf_temps then
           List.iter
             (fun itf_t ->
-              try if temp <> itf_t then Graph.mk_edge (inode, List.assoc itf_t temp2node)
+              try
+                if temp <> itf_t then (
+                  let v = List.assoc itf_t temp2node in
+                  Graph.mk_edge (inode, v);
+                  Graph.mk_edge (v, inode) )
               with Not_found -> ErrorMsg.impossible "at Liveness.interferenceGraph" )
             itf_temps;
         makeMoves fnode )
