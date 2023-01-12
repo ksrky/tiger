@@ -1,24 +1,24 @@
-L187:
+L115:
 	sw	t103, 4(t123)
-	move	t1052, t120
-	move	t1053, t119
-	move	t1054, t118
-	move	t1055, t117
-	move	t1056, t116
-	move	t1057, t115
-	move	t1058, t114
-	move	t1059, t113
-	move	t1060, t112
-	li	t1061, 0
-	move	t122, t1061
-	move	t112, t1060
-	move	t113, t1059
-	move	t114, t1058
-	move	t115, t1057
-	move	t116, t1056
-	move	t117, t1055
-	move	t118, t1054
-	move	t119, t1053
-	move	t120, t1052
-	j	L186
-L186:
+	move	t839, t120
+	move	t840, t119
+	move	t841, t118
+	move	t842, t117
+	move	t843, t116
+	move	t844, t115
+	move	t845, t114
+	move	t846, t113
+	move	t847, t112
+	li	t848, 0
+	move	t122, t848
+	move	t112, t847
+	move	t113, t846
+	move	t114, t845
+	move	t115, t844
+	move	t116, t843
+	move	t117, t842
+	move	t118, t841
+	move	t119, t840
+	move	t120, t839
+	j	L114
+L114:

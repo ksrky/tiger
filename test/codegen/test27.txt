@@ -1,68 +1,68 @@
-L135:
+L93:
 	sw	t103, 4(t123)
-	move	t748, t120
-	move	t749, t119
-	move	t750, t118
-	move	t751, t117
-	move	t752, t116
-	move	t753, t115
-	move	t754, t114
-	move	t755, t113
-	move	t756, t112
-	move	t122, t747
-	move	t112, t756
-	move	t113, t755
-	move	t114, t754
-	move	t115, t753
-	move	t116, t752
-	move	t117, t751
-	move	t118, t750
-	move	t119, t749
-	move	t120, t748
-	j	L134
-L134:
-L137:
+	move	t601, t120
+	move	t602, t119
+	move	t603, t118
+	move	t604, t117
+	move	t605, t116
+	move	t606, t115
+	move	t607, t114
+	move	t608, t113
+	move	t609, t112
+	move	t122, t600
+	move	t112, t609
+	move	t113, t608
+	move	t114, t607
+	move	t115, t606
+	move	t116, t605
+	move	t117, t604
+	move	t118, t603
+	move	t119, t602
+	move	t120, t601
+	j	L92
+L92:
+L95:
 	sw	t103, 4(t123)
-	move	t757, t120
-	move	t758, t119
-	move	t759, t118
-	move	t760, t117
-	move	t761, t116
-	move	t762, t115
-	move	t763, t114
-	move	t764, t113
-	move	t765, t112
-	li	t766, 0
-	move	t746, t766
-	move	t767, t111
-	move	t768, t110
-	move	t769, t109
-	move	t770, t108
-	move	t771, t107
-	move	t772, t106
-	move	t773, t105
-	move	t774, t104
+	move	t610, t120
+	move	t611, t119
+	move	t612, t118
+	move	t613, t117
+	move	t614, t116
+	move	t615, t115
+	move	t616, t114
+	move	t617, t113
+	move	t618, t112
+	li	t619, 0
+	move	t599, t619
+	move	t620, t111
+	move	t621, t110
+	move	t622, t109
+	move	t623, t108
+	move	t624, t107
+	move	t625, t106
+	move	t626, t105
+	move	t627, t104
 	move	t103, t123
-	li	t775, 2
-	move	t102, t775
+	li	t628, 2
+	move	t102, t628
 	jal	g
-	move	t104, t774
-	move	t105, t773
-	move	t106, t772
-	move	t107, t771
-	move	t108, t770
-	move	t109, t769
-	move	t110, t768
-	move	t111, t767
+	move	t104, t627
+	move	t105, t626
+	move	t106, t625
+	move	t107, t624
+	move	t108, t623
+	move	t109, t622
+	move	t110, t621
+	move	t111, t620
 	move	t122, t122
-	move	t112, t765
-	move	t113, t764
-	move	t114, t763
-	move	t115, t762
-	move	t116, t761
-	move	t117, t760
-	move	t118, t759
-	move	t119, t758
-	move	t120, t757
-	j	L136
-L136:
+	move	t112, t618
+	move	t113, t617
+	move	t114, t616
+	move	t115, t615
+	move	t116, t614
+	move	t117, t613
+	move	t118, t612
+	move	t119, t611
+	move	t120, t610
+	j	L94
+L94:

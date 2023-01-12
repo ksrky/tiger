@@ -1,40 +1,40 @@
-L62:
+L56:
 	sw	t103, 4(t123)
-	move	t416, t120
-	move	t417, t119
-	move	t418, t118
-	move	t419, t117
-	move	t420, t116
-	move	t421, t115
-	move	t422, t114
-	move	t423, t113
-	move	t424, t112
-	li	t425, 0
-	move	t411, t425
-	li	t426, 100
-	move	t415, t426
-	li	t427, 0
-	move	t414, t427
-L59:
-	ble t414, t415, L60
-b L58
-L58:
-	li	t428, 0
-	move	t122, t428
-	move	t112, t424
-	move	t113, t423
-	move	t114, t422
-	move	t115, t421
-	move	t116, t420
-	move	t117, t419
-	move	t118, t418
-	move	t119, t417
-	move	t120, t416
-	j	L61
-L60:
-	addiu	t429, t411, 1
-	move	t411, t429
-	addiu	t430, t414, 1
-	move	t414, t430
-	j	L59
-L61:
+	move	t400, t120
+	move	t401, t119
+	move	t402, t118
+	move	t403, t117
+	move	t404, t116
+	move	t405, t115
+	move	t406, t114
+	move	t407, t113
+	move	t408, t112
+	li	t409, 0
+	move	t395, t409
+	li	t410, 100
+	move	t399, t410
+	li	t411, 0
+	move	t398, t411
+L53:
+	ble t398, t399, L54
+b L52
+L52:
+	li	t412, 0
+	move	t122, t412
+	move	t112, t408
+	move	t113, t407
+	move	t114, t406
+	move	t115, t405
+	move	t116, t404
+	move	t117, t403
+	move	t118, t402
+	move	t119, t401
+	move	t120, t400
+	j	L55
+L54:
+	addiu	t413, t395, 1
+	move	t395, t413
+	addiu	t414, t398, 1
+	move	t398, t414
+	j	L53
+L55:

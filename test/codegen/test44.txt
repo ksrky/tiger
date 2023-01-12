@@ -1,28 +1,28 @@
-L202:
+L128:
 	sw	t103, 4(t123)
-	move	t1214, t120
-	move	t1215, t119
-	move	t1216, t118
-	move	t1217, t117
-	move	t1218, t116
-	move	t1219, t115
-	move	t1220, t114
-	move	t1221, t113
-	move	t1222, t112
-	li	t1223, 0
-	move	t1213, t1223
-	li	t1224, 0
-	move	t1213, t1224
-	li	t1225, 0
-	move	t122, t1225
-	move	t112, t1222
-	move	t113, t1221
-	move	t114, t1220
-	move	t115, t1219
-	move	t116, t1218
-	move	t117, t1217
-	move	t118, t1216
-	move	t119, t1215
-	move	t120, t1214
-	j	L201
-L201:
+	move	t999, t120
+	move	t1000, t119
+	move	t1001, t118
+	move	t1002, t117
+	move	t1003, t116
+	move	t1004, t115
+	move	t1005, t114
+	move	t1006, t113
+	move	t1007, t112
+	li	t1008, 0
+	move	t998, t1008
+	li	t1009, 0
+	move	t998, t1009
+	li	t1010, 0
+	move	t122, t1010
+	move	t112, t1007
+	move	t113, t1006
+	move	t114, t1005
+	move	t115, t1004
+	move	t116, t1003
+	move	t117, t1002
+	move	t118, t1001
+	move	t119, t1000
+	move	t120, t999
+	j	L127
+L127:

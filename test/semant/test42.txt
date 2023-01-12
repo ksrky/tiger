@@ -1,262 +1,263 @@
-aname
-somewhere
-
-Kapoios
-Kapou
-Allos
-sdf
-sfd
-kati
-SEQ(
- MOVE(
-  MEM(
-   BINOP(PLUS,
-    TEMP t120,
-    CONST 4)),
-  TEMP t100),
- SEQ(
-  MOVE(
-   TEMP t704,
-   TEMP t123),
-  SEQ(
-   MOVE(
-    TEMP t705,
-    TEMP t112),
-   SEQ(
-    MOVE(
-     TEMP t706,
-     TEMP t113),
-    SEQ(
-     MOVE(
-      TEMP t707,
-      TEMP t114),
-     SEQ(
-      MOVE(
-       TEMP t708,
-       TEMP t115),
-      SEQ(
-       MOVE(
-        TEMP t709,
-        TEMP t116),
-       SEQ(
-        MOVE(
-         TEMP t710,
-         TEMP t117),
-        SEQ(
-         MOVE(
-          TEMP t711,
-          TEMP t118),
-         SEQ(
-          MOVE(
-           TEMP t712,
-           TEMP t119),
-          SEQ(
-           MOVE(
-            TEMP t121,
-            ESEQ(
-             SEQ(
-              MOVE(
-               TEMP t701,
-               ESEQ(
-                SEQ(
-                 MOVE(
-                  TEMP t703,
-                  CALL(
-                   NAME allocRecord,
-                    CONST 8)),
-                 SEQ(
-                  MOVE(
-                   MEM(
-                    BINOP(PLUS,
-                     TEMP t703,
-                     CONST 0)),
-                   NAME L85),
-                  MOVE(
-                   MEM(
-                    BINOP(PLUS,
-                     TEMP t703,
-                     CONST 4)),
-                   ESEQ(
-                    MOVE(
-                     TEMP t702,
-                     CALL(
-                      NAME initArrray,
-                       CONST 3,
-                       CONST 1900)),
-                    TEMP t702)))),
-                TEMP t703)),
-              SEQ(
-               MOVE(
-                TEMP t699,
-                ESEQ(
-                 SEQ(
-                  MOVE(
-                   TEMP t700,
-                   CALL(
-                    NAME allocRecord,
-                     CONST 16)),
-                  SEQ(
-                   MOVE(
-                    MEM(
-                     BINOP(PLUS,
-                      TEMP t700,
-                      CONST 0)),
-                    NAME L83),
-                   SEQ(
-                    MOVE(
-                     MEM(
-                      BINOP(PLUS,
-                       TEMP t700,
-                       CONST 4)),
-                     NAME L84),
-                    SEQ(
-                     MOVE(
-                      MEM(
-                       BINOP(PLUS,
-                        TEMP t700,
-                        CONST 8)),
-                      CONST 2432),
-                     MOVE(
-                      MEM(
-                       BINOP(PLUS,
-                        TEMP t700,
-                        CONST 12)),
-                      CONST 44))))),
-                 TEMP t700)),
-               SEQ(
-                MOVE(
-                 TEMP t697,
-                 ESEQ(
-                  MOVE(
-                   TEMP t698,
-                   CALL(
-                    NAME initArrray,
-                     CONST 100,
-                     NAME L82)),
-                  TEMP t698)),
-                SEQ(
-                 MOVE(
-                  TEMP t694,
-                  ESEQ(
-                   MOVE(
-                    TEMP t696,
-                    CALL(
-                     NAME initArrray,
-                      CONST 5,
-                      ESEQ(
-                       SEQ(
-                        MOVE(
-                         TEMP t695,
-                         CALL(
-                          NAME allocRecord,
-                           CONST 16)),
-                        SEQ(
-                         MOVE(
-                          MEM(
-                           BINOP(PLUS,
-                            TEMP t695,
-                            CONST 0)),
-                          NAME L80),
-                         SEQ(
-                          MOVE(
-                           MEM(
-                            BINOP(PLUS,
-                             TEMP t695,
-                             CONST 4)),
-                           NAME L81),
-                          SEQ(
-                           MOVE(
-                            MEM(
-                             BINOP(PLUS,
-                              TEMP t695,
-                              CONST 8)),
-                            CONST 0),
-                           MOVE(
-                            MEM(
-                             BINOP(PLUS,
-                              TEMP t695,
-                              CONST 12)),
-                            CONST 0))))),
-                       TEMP t695))),
-                   TEMP t696)),
-                 MOVE(
-                  TEMP t692,
-                  ESEQ(
-                   MOVE(
-                    TEMP t693,
-                    CALL(
-                     NAME initArrray,
-                      CONST 10,
-                      CONST 0)),
-                   TEMP t693)))))),
-             ESEQ(
-              MOVE(
-               CONST 0,
-               CONST 1),
-              ESEQ(
-               MOVE(
-                CONST 0,
-                CONST 3),
-               ESEQ(
-                MOVE(
-                 CONST 0,
-                 NAME L88),
-                ESEQ(
-                 MOVE(
-                  CONST 0,
-                  CONST 23),
-                 ESEQ(
-                  MOVE(
-                   CONST 0,
-                   NAME L87),
-                  ESEQ(
-                   MOVE(
-                    MEM(
-                     BINOP(PLUS,
-                      TEMP t699,
-                      CONST 0)),
-                    NAME L86),
-                   ESEQ(
-                    MOVE(
-                     CONST 0,
-                     CONST 2323),
-                    ESEQ(
-                     MOVE(
-                      CONST 0,
-                      CONST 2323),
-                     CONST 0)))))))))),
-           SEQ(
-            MOVE(
-             TEMP t119,
-             TEMP t712),
-            SEQ(
-             MOVE(
-              TEMP t118,
-              TEMP t711),
-             SEQ(
-              MOVE(
-               TEMP t117,
-               TEMP t710),
-              SEQ(
-               MOVE(
-                TEMP t116,
-                TEMP t709),
-               SEQ(
-                MOVE(
-                 TEMP t115,
-                 TEMP t708),
-                SEQ(
-                 MOVE(
-                  TEMP t114,
-                  TEMP t707),
-                 SEQ(
-                  MOVE(
-                   TEMP t113,
-                   TEMP t706),
-                  SEQ(
-                   MOVE(
-                    TEMP t112,
-                    TEMP t705),
-                   MOVE(
-                    TEMP t123,
-                    TEMP t704))))))))))))))))))))
+L80:	.asciiz "aname"
+L81:	.asciiz "somewhere"
+L82:	.asciiz ""
+L83:	.asciiz "Kapoios"
+L84:	.asciiz "Kapou"
+L85:	.asciiz "Allos"
+L86:	.asciiz "sdf"
+L87:	.asciiz "sfd"
+L88:	.asciiz "kati"
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t123,
+   CONST 4)),
+ TEMP t103)
+MOVE(
+ TEMP t706,
+ TEMP t120)
+MOVE(
+ TEMP t707,
+ TEMP t119)
+MOVE(
+ TEMP t708,
+ TEMP t118)
+MOVE(
+ TEMP t709,
+ TEMP t117)
+MOVE(
+ TEMP t710,
+ TEMP t116)
+MOVE(
+ TEMP t711,
+ TEMP t115)
+MOVE(
+ TEMP t712,
+ TEMP t114)
+MOVE(
+ TEMP t713,
+ TEMP t113)
+MOVE(
+ TEMP t714,
+ TEMP t112)
+MOVE(
+ TEMP t705,
+ CALL(
+  NAME allocRecord,
+   CONST 8))
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t705,
+   CONST 0)),
+ NAME L85)
+MOVE(
+ TEMP t715,
+ BINOP(PLUS,
+  TEMP t705,
+  CONST 4))
+MOVE(
+ TEMP t704,
+ CALL(
+  NAME initArrray,
+   CONST 3,
+   CONST 1900))
+MOVE(
+ MEM(
+  TEMP t715),
+ TEMP t704)
+MOVE(
+ TEMP t703,
+ TEMP t705)
+MOVE(
+ TEMP t702,
+ CALL(
+  NAME allocRecord,
+   CONST 16))
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t702,
+   CONST 0)),
+ NAME L83)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t702,
+   CONST 4)),
+ NAME L84)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t702,
+   CONST 8)),
+ CONST 2432)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t702,
+   CONST 12)),
+ CONST 44)
+MOVE(
+ TEMP t701,
+ TEMP t702)
+MOVE(
+ TEMP t700,
+ CALL(
+  NAME initArrray,
+   CONST 100,
+   NAME L82))
+MOVE(
+ TEMP t699,
+ TEMP t700)
+MOVE(
+ TEMP t697,
+ CALL(
+  NAME allocRecord,
+   CONST 16))
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t697,
+   CONST 0)),
+ NAME L80)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t697,
+   CONST 4)),
+ NAME L81)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t697,
+   CONST 8)),
+ CONST 0)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t697,
+   CONST 12)),
+ CONST 0)
+MOVE(
+ TEMP t698,
+ CALL(
+  NAME initArrray,
+   CONST 5,
+   TEMP t697))
+MOVE(
+ TEMP t696,
+ TEMP t698)
+MOVE(
+ TEMP t695,
+ CALL(
+  NAME initArrray,
+   CONST 10,
+   CONST 0))
+MOVE(
+ TEMP t694,
+ TEMP t695)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t694,
+   BINOP(MUL,
+    CONST 0,
+    CONST 4))),
+ CONST 1)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t694,
+   BINOP(MUL,
+    CONST 9,
+    CONST 4))),
+ CONST 3)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   MEM(
+    BINOP(PLUS,
+     TEMP t696,
+     BINOP(MUL,
+      CONST 3,
+      CONST 4))),
+   CONST 0)),
+ NAME L88)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   MEM(
+    BINOP(PLUS,
+     TEMP t696,
+     BINOP(MUL,
+      CONST 1,
+      CONST 4))),
+   CONST 12)),
+ CONST 23)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t699,
+   BINOP(MUL,
+    CONST 34,
+    CONST 4))),
+ NAME L87)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t701,
+   CONST 0)),
+ NAME L86)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   MEM(
+    BINOP(PLUS,
+     TEMP t703,
+     CONST 4)),
+   BINOP(MUL,
+    CONST 0,
+    CONST 4))),
+ CONST 2323)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   MEM(
+    BINOP(PLUS,
+     TEMP t703,
+     CONST 4)),
+   BINOP(MUL,
+    CONST 2,
+    CONST 4))),
+ CONST 2323)
+MOVE(
+ TEMP t122,
+ CONST 0)
+MOVE(
+ TEMP t112,
+ TEMP t714)
+MOVE(
+ TEMP t113,
+ TEMP t713)
+MOVE(
+ TEMP t114,
+ TEMP t712)
+MOVE(
+ TEMP t115,
+ TEMP t711)
+MOVE(
+ TEMP t116,
+ TEMP t710)
+MOVE(
+ TEMP t117,
+ TEMP t709)
+MOVE(
+ TEMP t118,
+ TEMP t708)
+MOVE(
+ TEMP t119,
+ TEMP t707)
+MOVE(
+ TEMP t120,
+ TEMP t706)

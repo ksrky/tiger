@@ -1,86 +1,66 @@
-SEQ(
- MOVE(
-  MEM(
-   BINOP(PLUS,
-    TEMP t120,
-    CONST 4)),
-  TEMP t100),
- SEQ(
-  MOVE(
-   TEMP t734,
-   TEMP t123),
-  SEQ(
-   MOVE(
-    TEMP t735,
-    TEMP t112),
-   SEQ(
-    MOVE(
-     TEMP t736,
-     TEMP t113),
-    SEQ(
-     MOVE(
-      TEMP t737,
-      TEMP t114),
-     SEQ(
-      MOVE(
-       TEMP t738,
-       TEMP t115),
-      SEQ(
-       MOVE(
-        TEMP t739,
-        TEMP t116),
-       SEQ(
-        MOVE(
-         TEMP t740,
-         TEMP t117),
-        SEQ(
-         MOVE(
-          TEMP t741,
-          TEMP t118),
-         SEQ(
-          MOVE(
-           TEMP t742,
-           TEMP t119),
-          SEQ(
-           MOVE(
-            TEMP t121,
-            ESEQ(
-             MOVE(
-              TEMP t733,
-              CONST 0),
-             TEMP t733)),
-           SEQ(
-            MOVE(
-             TEMP t119,
-             TEMP t742),
-            SEQ(
-             MOVE(
-              TEMP t118,
-              TEMP t741),
-             SEQ(
-              MOVE(
-               TEMP t117,
-               TEMP t740),
-              SEQ(
-               MOVE(
-                TEMP t116,
-                TEMP t739),
-               SEQ(
-                MOVE(
-                 TEMP t115,
-                 TEMP t738),
-                SEQ(
-                 MOVE(
-                  TEMP t114,
-                  TEMP t737),
-                 SEQ(
-                  MOVE(
-                   TEMP t113,
-                   TEMP t736),
-                  SEQ(
-                   MOVE(
-                    TEMP t112,
-                    TEMP t735),
-                   MOVE(
-                    TEMP t123,
-                    TEMP t734))))))))))))))))))))
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t123,
+   CONST 4)),
+ TEMP t103)
+MOVE(
+ TEMP t737,
+ TEMP t120)
+MOVE(
+ TEMP t738,
+ TEMP t119)
+MOVE(
+ TEMP t739,
+ TEMP t118)
+MOVE(
+ TEMP t740,
+ TEMP t117)
+MOVE(
+ TEMP t741,
+ TEMP t116)
+MOVE(
+ TEMP t742,
+ TEMP t115)
+MOVE(
+ TEMP t743,
+ TEMP t114)
+MOVE(
+ TEMP t744,
+ TEMP t113)
+MOVE(
+ TEMP t745,
+ TEMP t112)
+MOVE(
+ TEMP t736,
+ CONST 0)
+MOVE(
+ TEMP t122,
+ TEMP t736)
+MOVE(
+ TEMP t112,
+ TEMP t745)
+MOVE(
+ TEMP t113,
+ TEMP t744)
+MOVE(
+ TEMP t114,
+ TEMP t743)
+MOVE(
+ TEMP t115,
+ TEMP t742)
+MOVE(
+ TEMP t116,
+ TEMP t741)
+MOVE(
+ TEMP t117,
+ TEMP t740)
+MOVE(
+ TEMP t118,
+ TEMP t739)
+MOVE(
+ TEMP t119,
+ TEMP t738)
+MOVE(
+ TEMP t120,
+ TEMP t737)

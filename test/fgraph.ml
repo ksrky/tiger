@@ -1,15 +1,15 @@
-let emitproc (out : out_channel) : Tiger.Frame.frag -> unit = function
-  | Tiger.Frame.PROC {body; frame} ->
-      let () = print_endline ("emit " ^ Tiger.Symbol.name (Tiger.Frame.name frame)) in
-      let stms : Tiger.Tree.stm list = Tiger.Canon.linearize body in
-      let stms' : Tiger.Tree.stm list = Tiger.Canon.traceSchedule (Tiger.Canon.basicBlocks stms) in
-      let instrs : Tiger.Assem.instr list =
-        List.concat (List.map (Tiger.Codegen.codegen frame) stms')
-      in
-      let instrs2 = Tiger.Frame.procEntryExit2 frame instrs in
-      let fgraph, _ = Tiger.MakeGraph.instr2graph instrs2 in
-      Tiger.MakeGraph.show out fgraph Tiger.Temp.makestring
-  | Tiger.Frame.STRING _ -> ()
+open Tiger
+
+let emitproc (out : out_channel) : Frame.frag -> unit = function
+  | Frame.PROC {body; frame} ->
+      let () = print_endline ("emit " ^ Symbol.name (Frame.name frame)) in
+      let stms : Tree.stm list = Canon.linearize body in
+      let stms' : Tree.stm list = Canon.traceSchedule (Canon.basicBlocks stms) in
+      let instrs : Assem.instr list = List.concat (List.map (Codegen.codegen frame) stms') in
+      let instrs2 = Frame.procEntryExit2 frame instrs in
+      let fgraph, _ = MakeGraph.instr2graph instrs2 in
+      MakeGraph.show out fgraph Temp.makestring
+  | Frame.STRING _ -> ()
 
 let withOpenFile (fname : string) (f : out_channel -> unit) : unit =
   let out = open_out fname in
@@ -18,11 +18,11 @@ let withOpenFile (fname : string) (f : out_channel -> unit) : unit =
 let () =
   for i = 1 to 49 do
     let filename = "testcases/test" ^ string_of_int i ^ ".tig" in
-    let absyn = Tiger.Parse.parse filename in
-    let frags : Tiger.Frame.frag list =
-      Tiger.FindEscape.findEscape absyn; Tiger.Semant.transProg absyn
-    in
-    withOpenFile
-      ("test/fgraph/test" ^ string_of_int i ^ ".txt")
-      (fun out -> List.iter (emitproc out) frags)
+    let absyn = Parse.parse filename in
+    let frags : Frame.frag list = FindEscape.findEscape absyn; Semant.transProg absyn in
+    if !ErrorMsg.anyErrors then ()
+    else
+      withOpenFile
+        ("test/fgraph/test" ^ string_of_int i ^ ".txt")
+        (fun out -> List.iter (emitproc out) frags)
   done

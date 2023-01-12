@@ -1,93 +1,77 @@
-SEQ(
- MOVE(
-  MEM(
-   BINOP(PLUS,
-    TEMP t120,
-    CONST 4)),
-  TEMP t100),
- SEQ(
-  MOVE(
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t123,
+   CONST 4)),
+ TEMP t103)
+MOVE(
+ TEMP t526,
+ TEMP t120)
+MOVE(
+ TEMP t527,
+ TEMP t119)
+MOVE(
+ TEMP t528,
+ TEMP t118)
+MOVE(
+ TEMP t529,
+ TEMP t117)
+MOVE(
+ TEMP t530,
+ TEMP t116)
+MOVE(
+ TEMP t531,
+ TEMP t115)
+MOVE(
+ TEMP t532,
+ TEMP t114)
+MOVE(
+ TEMP t533,
+ TEMP t113)
+MOVE(
+ TEMP t534,
+ TEMP t112)
+MOVE(
+ TEMP t525,
+ CALL(
+  NAME initArrray,
+   CONST 10,
+   CONST 0))
+MOVE(
+ TEMP t524,
+ TEMP t525)
+MOVE(
+ TEMP t122,
+ MEM(
+  BINOP(PLUS,
    TEMP t524,
-   TEMP t123),
-  SEQ(
-   MOVE(
-    TEMP t525,
-    TEMP t112),
-   SEQ(
-    MOVE(
-     TEMP t526,
-     TEMP t113),
-    SEQ(
-     MOVE(
-      TEMP t527,
-      TEMP t114),
-     SEQ(
-      MOVE(
-       TEMP t528,
-       TEMP t115),
-      SEQ(
-       MOVE(
-        TEMP t529,
-        TEMP t116),
-       SEQ(
-        MOVE(
-         TEMP t530,
-         TEMP t117),
-        SEQ(
-         MOVE(
-          TEMP t531,
-          TEMP t118),
-         SEQ(
-          MOVE(
-           TEMP t532,
-           TEMP t119),
-          SEQ(
-           MOVE(
-            TEMP t121,
-            ESEQ(
-             MOVE(
-              TEMP t522,
-              ESEQ(
-               MOVE(
-                TEMP t523,
-                CALL(
-                 NAME initArrray,
-                  CONST 10,
-                  CONST 0)),
-               TEMP t523)),
-             CONST 0)),
-           SEQ(
-            MOVE(
-             TEMP t119,
-             TEMP t532),
-            SEQ(
-             MOVE(
-              TEMP t118,
-              TEMP t531),
-             SEQ(
-              MOVE(
-               TEMP t117,
-               TEMP t530),
-              SEQ(
-               MOVE(
-                TEMP t116,
-                TEMP t529),
-               SEQ(
-                MOVE(
-                 TEMP t115,
-                 TEMP t528),
-                SEQ(
-                 MOVE(
-                  TEMP t114,
-                  TEMP t527),
-                 SEQ(
-                  MOVE(
-                   TEMP t113,
-                   TEMP t526),
-                  SEQ(
-                   MOVE(
-                    TEMP t112,
-                    TEMP t525),
-                   MOVE(
-                    TEMP t123,
-                    TEMP t524))))))))))))))))))))
+   BINOP(MUL,
+    CONST 2,
+    CONST 4))))
+MOVE(
+ TEMP t112,
+ TEMP t534)
+MOVE(
+ TEMP t113,
+ TEMP t533)
+MOVE(
+ TEMP t114,
+ TEMP t532)
+MOVE(
+ TEMP t115,
+ TEMP t531)
+MOVE(
+ TEMP t116,
+ TEMP t530)
+MOVE(
+ TEMP t117,
+ TEMP t529)
+MOVE(
+ TEMP t118,
+ TEMP t528)
+MOVE(
+ TEMP t119,
+ TEMP t527)
+MOVE(
+ TEMP t120,
+ TEMP t526)

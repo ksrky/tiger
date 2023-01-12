@@ -1,106 +1,83 @@
-SEQ(
- MOVE(
-  MEM(
-   BINOP(PLUS,
-    TEMP t120,
-    CONST 4)),
-  TEMP t100),
- SEQ(
-  MOVE(
-   TEMP t191,
-   TEMP t123),
-  SEQ(
-   MOVE(
-    TEMP t192,
-    TEMP t112),
-   SEQ(
-    MOVE(
-     TEMP t193,
-     TEMP t113),
-    SEQ(
-     MOVE(
-      TEMP t194,
-      TEMP t114),
-     SEQ(
-      MOVE(
-       TEMP t195,
-       TEMP t115),
-      SEQ(
-       MOVE(
-        TEMP t196,
-        TEMP t116),
-       SEQ(
-        MOVE(
-         TEMP t197,
-         TEMP t117),
-        SEQ(
-         MOVE(
-          TEMP t198,
-          TEMP t118),
-         SEQ(
-          MOVE(
-           TEMP t199,
-           TEMP t119),
-          SEQ(
-           MOVE(
-            TEMP t121,
-            ESEQ(
-             MOVE(
-              TEMP t189,
-              ESEQ(
-               SEQ(
-                MOVE(
-                 TEMP t190,
-                 CALL(
-                  NAME allocRecord,
-                   CONST 8)),
-                SEQ(
-                 MOVE(
-                  MEM(
-                   BINOP(PLUS,
-                    TEMP t190,
-                    CONST 0)),
-                  CONST 0),
-                 MOVE(
-                  MEM(
-                   BINOP(PLUS,
-                    TEMP t190,
-                    CONST 4)),
-                  CONST 0))),
-               TEMP t190)),
-             TEMP t189)),
-           SEQ(
-            MOVE(
-             TEMP t119,
-             TEMP t199),
-            SEQ(
-             MOVE(
-              TEMP t118,
-              TEMP t198),
-             SEQ(
-              MOVE(
-               TEMP t117,
-               TEMP t197),
-              SEQ(
-               MOVE(
-                TEMP t116,
-                TEMP t196),
-               SEQ(
-                MOVE(
-                 TEMP t115,
-                 TEMP t195),
-                SEQ(
-                 MOVE(
-                  TEMP t114,
-                  TEMP t194),
-                 SEQ(
-                  MOVE(
-                   TEMP t113,
-                   TEMP t193),
-                  SEQ(
-                   MOVE(
-                    TEMP t112,
-                    TEMP t192),
-                   MOVE(
-                    TEMP t123,
-                    TEMP t191))))))))))))))))))))
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t123,
+   CONST 4)),
+ TEMP t103)
+MOVE(
+ TEMP t193,
+ TEMP t120)
+MOVE(
+ TEMP t194,
+ TEMP t119)
+MOVE(
+ TEMP t195,
+ TEMP t118)
+MOVE(
+ TEMP t196,
+ TEMP t117)
+MOVE(
+ TEMP t197,
+ TEMP t116)
+MOVE(
+ TEMP t198,
+ TEMP t115)
+MOVE(
+ TEMP t199,
+ TEMP t114)
+MOVE(
+ TEMP t200,
+ TEMP t113)
+MOVE(
+ TEMP t201,
+ TEMP t112)
+MOVE(
+ TEMP t192,
+ CALL(
+  NAME allocRecord,
+   CONST 8))
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t192,
+   CONST 0)),
+ CONST 0)
+MOVE(
+ MEM(
+  BINOP(PLUS,
+   TEMP t192,
+   CONST 4)),
+ CONST 0)
+MOVE(
+ TEMP t191,
+ TEMP t192)
+MOVE(
+ TEMP t122,
+ TEMP t191)
+MOVE(
+ TEMP t112,
+ TEMP t201)
+MOVE(
+ TEMP t113,
+ TEMP t200)
+MOVE(
+ TEMP t114,
+ TEMP t199)
+MOVE(
+ TEMP t115,
+ TEMP t198)
+MOVE(
+ TEMP t116,
+ TEMP t197)
+MOVE(
+ TEMP t117,
+ TEMP t196)
+MOVE(
+ TEMP t118,
+ TEMP t195)
+MOVE(
+ TEMP t119,
+ TEMP t194)
+MOVE(
+ TEMP t120,
+ TEMP t193)

@@ -1,254 +1,254 @@
-L188:	.asciiz "aname"
-L189:	.asciiz "somewhere"
-L190:	.asciiz ""
-L191:	.asciiz "Kapoios"
-L192:	.asciiz "Kapou"
-L193:	.asciiz "Allos"
-L194:	.asciiz "sdf"
-L195:	.asciiz "sfd"
-L196:	.asciiz "kati"
-L198:
+L116:	.asciiz "aname"
+L117:	.asciiz "somewhere"
+L118:	.asciiz ""
+L119:	.asciiz "Kapoios"
+L120:	.asciiz "Kapou"
+L121:	.asciiz "Allos"
+L122:	.asciiz "sdf"
+L123:	.asciiz "sfd"
+L124:	.asciiz "kati"
+L126:
 	sw	t103, 4(t123)
-	move	t1074, t120
-	move	t1075, t119
-	move	t1076, t118
-	move	t1077, t117
-	move	t1078, t116
-	move	t1079, t115
-	move	t1080, t114
-	move	t1081, t113
-	move	t1082, t112
-	move	t1084, t111
-	move	t1085, t110
-	move	t1086, t109
-	move	t1087, t108
-	move	t1088, t107
-	move	t1089, t106
-	move	t1090, t105
-	move	t1091, t104
-	li	t1092, 8
-	move	t103, t1092
+	move	t861, t120
+	move	t862, t119
+	move	t863, t118
+	move	t864, t117
+	move	t865, t116
+	move	t866, t115
+	move	t867, t114
+	move	t868, t113
+	move	t869, t112
+	move	t871, t111
+	move	t872, t110
+	move	t873, t109
+	move	t874, t108
+	move	t875, t107
+	move	t876, t106
+	move	t877, t105
+	move	t878, t104
+	li	t879, 8
+	move	t103, t879
 	jal	allocRecord
-	move	t104, t1091
-	move	t105, t1090
-	move	t106, t1089
-	move	t107, t1088
-	move	t108, t1087
-	move	t109, t1086
-	move	t110, t1085
-	move	t111, t1084
-	move	t1073, t122
-	la	t1093, L193
-	sw	t1093, 0(t1073)
-	addiu	t1094, t1073, 4
-	move	t1083, t1094
-	move	t1095, t111
-	move	t1096, t110
-	move	t1097, t109
-	move	t1098, t108
-	move	t1099, t107
-	move	t1100, t106
-	move	t1101, t105
-	move	t1102, t104
-	li	t1103, 3
-	move	t103, t1103
-	li	t1104, 1900
-	move	t102, t1104
+	move	t104, t878
+	move	t105, t877
+	move	t106, t876
+	move	t107, t875
+	move	t108, t874
+	move	t109, t873
+	move	t110, t872
+	move	t111, t871
+	move	t860, t122
+	la	t880, L121
+	sw	t880, 0(t860)
+	addiu	t881, t860, 4
+	move	t870, t881
+	move	t882, t111
+	move	t883, t110
+	move	t884, t109
+	move	t885, t108
+	move	t886, t107
+	move	t887, t106
+	move	t888, t105
+	move	t889, t104
+	li	t890, 3
+	move	t103, t890
+	li	t891, 1900
+	move	t102, t891
 	jal	initArrray
-	move	t104, t1102
-	move	t105, t1101
-	move	t106, t1100
-	move	t107, t1099
-	move	t108, t1098
-	move	t109, t1097
-	move	t110, t1096
-	move	t111, t1095
-	move	t1072, t122
-	sw	t1083, 0(t1072)
-	move	t1071, t1073
-	move	t1105, t111
-	move	t1106, t110
-	move	t1107, t109
-	move	t1108, t108
-	move	t1109, t107
-	move	t1110, t106
-	move	t1111, t105
-	move	t1112, t104
-	li	t1113, 16
-	move	t103, t1113
+	move	t104, t889
+	move	t105, t888
+	move	t106, t887
+	move	t107, t886
+	move	t108, t885
+	move	t109, t884
+	move	t110, t883
+	move	t111, t882
+	move	t859, t122
+	sw	t870, 0(t859)
+	move	t858, t860
+	move	t892, t111
+	move	t893, t110
+	move	t894, t109
+	move	t895, t108
+	move	t896, t107
+	move	t897, t106
+	move	t898, t105
+	move	t899, t104
+	li	t900, 16
+	move	t103, t900
 	jal	allocRecord
-	move	t104, t1112
-	move	t105, t1111
-	move	t106, t1110
-	move	t107, t1109
-	move	t108, t1108
-	move	t109, t1107
-	move	t110, t1106
-	move	t111, t1105
-	move	t1070, t122
-	la	t1114, L191
-	sw	t1114, 0(t1070)
-	la	t1115, L192
-	sw	t1115, 4(t1070)
-	li	t1116, 2432
-	sw	t1116, 8(t1070)
-	li	t1117, 44
-	sw	t1117, 12(t1070)
-	move	t1069, t1070
-	move	t1118, t111
-	move	t1119, t110
-	move	t1120, t109
-	move	t1121, t108
-	move	t1122, t107
-	move	t1123, t106
-	move	t1124, t105
-	move	t1125, t104
-	li	t1126, 100
-	move	t103, t1126
-	la	t1127, L190
-	move	t102, t1127
+	move	t104, t899
+	move	t105, t898
+	move	t106, t897
+	move	t107, t896
+	move	t108, t895
+	move	t109, t894
+	move	t110, t893
+	move	t111, t892
+	move	t857, t122
+	la	t901, L119
+	sw	t901, 0(t857)
+	la	t902, L120
+	sw	t902, 4(t857)
+	li	t903, 2432
+	sw	t903, 8(t857)
+	li	t904, 44
+	sw	t904, 12(t857)
+	move	t856, t857
+	move	t905, t111
+	move	t906, t110
+	move	t907, t109
+	move	t908, t108
+	move	t909, t107
+	move	t910, t106
+	move	t911, t105
+	move	t912, t104
+	li	t913, 100
+	move	t103, t913
+	la	t914, L118
+	move	t102, t914
 	jal	initArrray
-	move	t104, t1125
-	move	t105, t1124
-	move	t106, t1123
-	move	t107, t1122
-	move	t108, t1121
-	move	t109, t1120
-	move	t110, t1119
-	move	t111, t1118
-	move	t1068, t122
-	move	t1067, t1068
-	move	t1128, t111
-	move	t1129, t110
-	move	t1130, t109
-	move	t1131, t108
-	move	t1132, t107
-	move	t1133, t106
-	move	t1134, t105
-	move	t1135, t104
-	li	t1136, 16
-	move	t103, t1136
+	move	t104, t912
+	move	t105, t911
+	move	t106, t910
+	move	t107, t909
+	move	t108, t908
+	move	t109, t907
+	move	t110, t906
+	move	t111, t905
+	move	t855, t122
+	move	t854, t855
+	move	t915, t111
+	move	t916, t110
+	move	t917, t109
+	move	t918, t108
+	move	t919, t107
+	move	t920, t106
+	move	t921, t105
+	move	t922, t104
+	li	t923, 16
+	move	t103, t923
 	jal	allocRecord
-	move	t104, t1135
-	move	t105, t1134
-	move	t106, t1133
-	move	t107, t1132
-	move	t108, t1131
-	move	t109, t1130
-	move	t110, t1129
-	move	t111, t1128
-	move	t1065, t122
-	la	t1137, L188
-	sw	t1137, 0(t1065)
-	la	t1138, L189
-	sw	t1138, 4(t1065)
-	li	t1139, 0
-	sw	t1139, 8(t1065)
-	li	t1140, 0
-	sw	t1140, 12(t1065)
-	move	t1141, t111
-	move	t1142, t110
-	move	t1143, t109
-	move	t1144, t108
-	move	t1145, t107
-	move	t1146, t106
-	move	t1147, t105
-	move	t1148, t104
-	li	t1149, 5
-	move	t103, t1149
-	move	t102, t1065
+	move	t104, t922
+	move	t105, t921
+	move	t106, t920
+	move	t107, t919
+	move	t108, t918
+	move	t109, t917
+	move	t110, t916
+	move	t111, t915
+	move	t852, t122
+	la	t924, L116
+	sw	t924, 0(t852)
+	la	t925, L117
+	sw	t925, 4(t852)
+	li	t926, 0
+	sw	t926, 8(t852)
+	li	t927, 0
+	sw	t927, 12(t852)
+	move	t928, t111
+	move	t929, t110
+	move	t930, t109
+	move	t931, t108
+	move	t932, t107
+	move	t933, t106
+	move	t934, t105
+	move	t935, t104
+	li	t936, 5
+	move	t103, t936
+	move	t102, t852
 	jal	initArrray
-	move	t104, t1148
-	move	t105, t1147
-	move	t106, t1146
-	move	t107, t1145
-	move	t108, t1144
-	move	t109, t1143
-	move	t110, t1142
-	move	t111, t1141
-	move	t1066, t122
-	move	t1064, t1066
-	move	t1150, t111
-	move	t1151, t110
-	move	t1152, t109
-	move	t1153, t108
-	move	t1154, t107
-	move	t1155, t106
-	move	t1156, t105
-	move	t1157, t104
-	li	t1158, 10
-	move	t103, t1158
-	li	t1159, 0
-	move	t102, t1159
+	move	t104, t935
+	move	t105, t934
+	move	t106, t933
+	move	t107, t932
+	move	t108, t931
+	move	t109, t930
+	move	t110, t929
+	move	t111, t928
+	move	t853, t122
+	move	t851, t853
+	move	t937, t111
+	move	t938, t110
+	move	t939, t109
+	move	t940, t108
+	move	t941, t107
+	move	t942, t106
+	move	t943, t105
+	move	t944, t104
+	li	t945, 10
+	move	t103, t945
+	li	t946, 0
+	move	t102, t946
 	jal	initArrray
-	move	t104, t1157
-	move	t105, t1156
-	move	t106, t1155
-	move	t107, t1154
-	move	t108, t1153
-	move	t109, t1152
-	move	t110, t1151
-	move	t111, t1150
-	move	t1063, t122
-	move	t1062, t1063
-	li	t1160, 1
-	li	t1163, 4
-	li	t1164, 0
-	mul	t1162, t1164, t1163
-	add	t1161, t1062, t1162
-	sw	t1161, 0(t1160)
-	li	t1165, 3
-	li	t1168, 4
-	li	t1169, 9
-	mul	t1167, t1169, t1168
-	add	t1166, t1062, t1167
-	sw	t1166, 0(t1165)
-	li	t1173, 4
-	li	t1174, 3
-	mul	t1172, t1174, t1173
-	add	t1171, t1064, t1172
-	lw	t1170, 0(t1171)
-	la	t1175, L196
-	sw	t1175, 0(t1170)
-	li	t1179, 4
-	li	t1180, 1
-	mul	t1178, t1180, t1179
-	add	t1177, t1064, t1178
-	lw	t1176, 0(t1177)
-	li	t1181, 23
-	sw	t1181, 12(t1176)
-	la	t1182, L195
-	li	t1185, 4
-	li	t1186, 34
-	mul	t1184, t1186, t1185
-	add	t1183, t1067, t1184
-	sw	t1183, 0(t1182)
-	la	t1187, L194
-	sw	t1187, 0(t1069)
-	li	t1188, 2323
-	li	t1191, 4
-	li	t1192, 0
-	mul	t1190, t1192, t1191
-	lw	t1193, 4(t1071)
-	add	t1189, t1193, t1190
-	sw	t1189, 0(t1188)
-	li	t1194, 2323
-	li	t1197, 4
-	li	t1198, 2
-	mul	t1196, t1198, t1197
-	lw	t1199, 4(t1071)
-	add	t1195, t1199, t1196
-	sw	t1195, 0(t1194)
-	li	t1200, 0
-	move	t122, t1200
-	move	t112, t1082
-	move	t113, t1081
-	move	t114, t1080
-	move	t115, t1079
-	move	t116, t1078
-	move	t117, t1077
-	move	t118, t1076
-	move	t119, t1075
-	move	t120, t1074
-	j	L197
-L197:
+	move	t104, t944
+	move	t105, t943
+	move	t106, t942
+	move	t107, t941
+	move	t108, t940
+	move	t109, t939
+	move	t110, t938
+	move	t111, t937
+	move	t850, t122
+	move	t849, t850
+	li	t947, 1
+	li	t950, 4
+	li	t951, 0
+	mul	t949, t951, t950
+	add	t948, t849, t949
+	sw	t948, 0(t947)
+	li	t952, 3
+	li	t955, 4
+	li	t956, 9
+	mul	t954, t956, t955
+	add	t953, t849, t954
+	sw	t953, 0(t952)
+	li	t960, 4
+	li	t961, 3
+	mul	t959, t961, t960
+	add	t958, t851, t959
+	lw	t957, 0(t958)
+	la	t962, L124
+	sw	t962, 0(t957)
+	li	t966, 4
+	li	t967, 1
+	mul	t965, t967, t966
+	add	t964, t851, t965
+	lw	t963, 0(t964)
+	li	t968, 23
+	sw	t968, 12(t963)
+	la	t969, L123
+	li	t972, 4
+	li	t973, 34
+	mul	t971, t973, t972
+	add	t970, t854, t971
+	sw	t970, 0(t969)
+	la	t974, L122
+	sw	t974, 0(t856)
+	li	t975, 2323
+	li	t978, 4
+	li	t979, 0
+	mul	t977, t979, t978
+	lw	t980, 4(t858)
+	add	t976, t980, t977
+	sw	t976, 0(t975)
+	li	t981, 2323
+	li	t984, 4
+	li	t985, 2
+	mul	t983, t985, t984
+	lw	t986, 4(t858)
+	add	t982, t986, t983
+	sw	t982, 0(t981)
+	li	t987, 0
+	move	t122, t987
+	move	t112, t869
+	move	t113, t868
+	move	t114, t867
+	move	t115, t866
+	move	t116, t865
+	move	t117, t864
+	move	t118, t863
+	move	t119, t862
+	move	t120, t861
+	j	L125
+L125:
