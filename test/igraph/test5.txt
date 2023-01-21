@@ -1,0 +1,45 @@
+    $a0 $t7 $t6 $t5 $t4 $t3 $t2 $t1 $t0 $s7 $s6 $s5 $s4 $s3 $s2 $s1 $s0 $ra $sp $v0 $fp t124 t245 t246 t247 t248 t249 t250 t251 t252 t253 t254 t255 t256 t257 t258 t259 t260 t261 t262 t263 t264 t265 t266
+$a0                                                                                  o                                                                                              
+$t7                                                                                                                                                                  m              
+$t6                                                                                                                                                              m                  
+$t5                                                                                                                                                          m                      
+$t4                                                                                                                                                      m                          
+$t3                                                                                                                                                  m                              
+$t2                                                                                                                                              m                                  
+$t1                                                                                                                                          m                                      
+$t0                                                                                                                                      m                                          
+$s7                                          o   o   o   o   o   o   o   o   o           o                                           m                                              
+$s6                                      o       o   o   o   o   o   o   o   o           o                                       m                                                  
+$s5                                      o   o       o   o   o   o   o   o   o           o                                   m                                                      
+$s4                                      o   o   o       o   o   o   o   o   o           o                               m                                                          
+$s3                                      o   o   o   o       o   o   o   o   o           o                           m                                                              
+$s2                                      o   o   o   o   o       o   o   o   o           o                       m                                                                  
+$s1                                      o   o   o   o   o   o       o   o   o           o                   m                                                                      
+$s0                                      o   o   o   o   o   o   o       o   o           o               m                                                                          
+$ra                                      o   o   o   o   o   o   o   o       o           o           m                                                                              
+$sp                                      o   o   o   o   o   o   o   o   o               o                                                                                          
+$v0                                                                                              m                                                                                  
+$fp  o                                                                                                                                                                              
+t124                                      o   o   o   o   o   o   o   o   o   o                                                                                                      
+t245                                                                              m                                                                                                  
+t246                                                                                          m                                                                               o   o  
+t247                                                                      m                                                                                                          
+t248                                                                  m                                                                                                              
+t249                                                              m                                                                                                                  
+t250                                                          m                                                                                                                      
+t251                                                      m                                                                                                                          
+t252                                                  m                                                                                                                              
+t253                                              m                                                                                                                                  
+t254                                          m                                                                                                                                      
+t255                                      m                                                                                                                                          
+t256                                  m                                                                                                                                              
+t257                              m                                                                                                                                                  
+t258                          m                                                                                                                                                      
+t259                      m                                                                                                                                                          
+t260                  m                                                                                                                                                              
+t261              m                                                                                                                                                                  
+t262          m                                                                                                                                                                      
+t263      m                                                                                                                                                                          
+t264  m                                                                                                                                                                              
+t265                                                                                              o                                                                                  
+t266                                                                                              o                                                                                  

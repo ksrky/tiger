@@ -3,8 +3,7 @@ open Tiger
 let emitproc (out : out_channel) : Frame.frag -> unit = function
   | Frame.PROC {body; frame} ->
       let () = print_endline ("emit " ^ Symbol.name (Frame.name frame)) in
-      let stms : Tree.stm list = Canon.linearize body in
-      List.iter (PrintTree.printtree out) stms
+      PrintTree.printtree out body
   | Frame.STRING (lab, s) -> output_string out (Frame.string (lab, s))
 
 let withOpenFile (fname : string) (f : out_channel -> unit) : unit =

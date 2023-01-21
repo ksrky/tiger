@@ -1,0 +1,25 @@
+    $a0 $s7 $s6 $s5 $s4 $s3 $s2 $s1 $s0 $ra $sp $fp t124 t1011 t1012 t1013 t1014 t1015 t1016 t1017 t1018 t1019 t1020 t1021
+$a0                                              o                                                  
+$s7          o   o   o   o   o   o   o   o   o       o                                       m      
+$s6      o       o   o   o   o   o   o   o   o       o                                   m          
+$s5      o   o       o   o   o   o   o   o   o       o                               m              
+$s4      o   o   o       o   o   o   o   o   o       o                           m                  
+$s3      o   o   o   o       o   o   o   o   o       o                       m                      
+$s2      o   o   o   o   o       o   o   o   o       o                   m                          
+$s1      o   o   o   o   o   o       o   o   o       o               m                              
+$s0      o   o   o   o   o   o   o       o   o       o           m                                  
+$ra      o   o   o   o   o   o   o   o       o       o       m                                      
+$sp      o   o   o   o   o   o   o   o   o           o                                              
+$fp  o                                                                                              
+t124      o   o   o   o   o   o   o   o   o   o                                                      
+t1011                                                                                                 
+t1012                                      m                                                          
+t1013                                  m                                                              
+t1014                              m                                                                  
+t1015                          m                                                                      
+t1016                      m                                                                          
+t1017                  m                                                                              
+t1018              m                                                                                  
+t1019          m                                                                                      
+t1020      m                                                                                          
+t1021                                                      m                                          

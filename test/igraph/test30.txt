@@ -1,0 +1,49 @@
+    $a0 $t7 $t6 $t5 $t4 $t3 $t2 $t1 $t0 $s7 $s6 $s5 $s4 $s3 $s2 $s1 $s0 $ra $sp $v0 $fp t124 t651 t652 t653 t654 t655 t656 t657 t658 t659 t660 t661 t662 t663 t664 t665 t666 t667 t668 t669 t670 t671 t672 t673 t674 t675 t676
+$a0                                                                                  o                                                                                                              
+$t7                                                                                                                                                                  m                              
+$t6                                                                                                                                                              m                                  
+$t5                                                                                                                                                          m                                      
+$t4                                                                                                                                                      m                                          
+$t3                                                                                                                                                  m                                              
+$t2                                                                                                                                              m                                                  
+$t1                                                                                                                                          m                                                      
+$t0                                                                                                                                      m                                                          
+$s7                                          o   o   o   o   o   o   o   o   o           o                                           m                                                              
+$s6                                      o       o   o   o   o   o   o   o   o           o                                       m                                                                  
+$s5                                      o   o       o   o   o   o   o   o   o           o                                   m                                                                      
+$s4                                      o   o   o       o   o   o   o   o   o           o                               m                                                                          
+$s3                                      o   o   o   o       o   o   o   o   o           o                           m                                                                              
+$s2                                      o   o   o   o   o       o   o   o   o           o                       m                                                                                  
+$s1                                      o   o   o   o   o   o       o   o   o           o                   m                                                                                      
+$s0                                      o   o   o   o   o   o   o       o   o           o               m                                                                                          
+$ra                                      o   o   o   o   o   o   o   o       o           o           m                                                                                              
+$sp                                      o   o   o   o   o   o   o   o   o               o                                                                                                          
+$v0                                                                                              m                                                                                                  
+$fp  o                                                                                                                                                                                              
+t124                                      o   o   o   o   o   o   o   o   o   o                                                                                                                      
+t651                                                                                                                                                                                      o          
+t652                                                                                          m                                                                                                      
+t653                                                                      m                                                                                                                          
+t654                                                                  m                                                                                                                              
+t655                                                              m                                                                                                                                  
+t656                                                          m                                                                                                                                      
+t657                                                      m                                                                                                                                          
+t658                                                  m                                                                                                                                              
+t659                                              m                                                                                                                                                  
+t660                                          m                                                                                                                                                      
+t661                                      m                                                                                                                                                          
+t662                                  m                                                                                                                                                              
+t663                              m                                                                                                                                                                  
+t664                          m                                                                                                                                                                      
+t665                      m                                                                                                                                                                          
+t666                  m                                                                                                                                                                              
+t667              m                                                                                                                                                                                  
+t668          m                                                                                                                                                                                      
+t669      m                                                                                                                                                                                          
+t670  m                                                                                                                                                                                              
+t671                                                                                                                                                                                                 
+t672                                                                              m                                                                                                                  
+t673                                                                                                                                                                                                 
+t674                                                                                          o                                                                                                      
+t675                                                                                                                                                                                              o  
+t676                                                                                                                                                                                          o      

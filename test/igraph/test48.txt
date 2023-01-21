@@ -1,0 +1,72 @@
+    $a0 $s7 $s6 $s5 $s4 $s3 $s2 $s1 $s0 $ra $sp $fp t124 t1050 t1051 t1052 t1053 t1054 t1055 t1056 t1057 t1058 t1059
+$a0                                              o                                              
+$s7          o   o   o   o   o   o   o   o   o       o                                       m  
+$s6      o       o   o   o   o   o   o   o   o       o                                   m      
+$s5      o   o       o   o   o   o   o   o   o       o                               m          
+$s4      o   o   o       o   o   o   o   o   o       o                           m              
+$s3      o   o   o   o       o   o   o   o   o       o                       m                  
+$s2      o   o   o   o   o       o   o   o   o       o                   m                      
+$s1      o   o   o   o   o   o       o   o   o       o               m                          
+$s0      o   o   o   o   o   o   o       o   o       o           m                              
+$ra      o   o   o   o   o   o   o   o       o       o       m                                  
+$sp      o   o   o   o   o   o   o   o   o           o                                          
+$fp  o                                                                                          
+t124      o   o   o   o   o   o   o   o   o   o                                                  
+t1050                                                                                             
+t1051                                      m                                                      
+t1052                                  m                                                          
+t1053                              m                                                              
+t1054                          m                                                                  
+t1055                      m                                                                      
+t1056                  m                                                                          
+t1057              m                                                                              
+t1058          m                                                                                  
+t1059      m                                                                                      
+    $a0 $s7 $s6 $s5 $s4 $s3 $s2 $s1 $s0 $ra $sp $fp t124 t1060 t1061 t1062 t1063 t1064 t1065 t1066 t1067 t1068 t1069
+$a0                                              o                                              
+$s7          o   o   o   o   o   o   o   o   o       o                                       m  
+$s6      o       o   o   o   o   o   o   o   o       o                                   m      
+$s5      o   o       o   o   o   o   o   o   o       o                               m          
+$s4      o   o   o       o   o   o   o   o   o       o                           m              
+$s3      o   o   o   o       o   o   o   o   o       o                       m                  
+$s2      o   o   o   o   o       o   o   o   o       o                   m                      
+$s1      o   o   o   o   o   o       o   o   o       o               m                          
+$s0      o   o   o   o   o   o   o       o   o       o           m                              
+$ra      o   o   o   o   o   o   o   o       o       o       m                                  
+$sp      o   o   o   o   o   o   o   o   o           o                                          
+$fp  o                                                                                          
+t124      o   o   o   o   o   o   o   o   o   o                                                  
+t1060                                                                                             
+t1061                                      m                                                      
+t1062                                  m                                                          
+t1063                              m                                                              
+t1064                          m                                                                  
+t1065                      m                                                                      
+t1066                  m                                                                          
+t1067              m                                                                              
+t1068          m                                                                                  
+t1069      m                                                                                      
+    $a0 $s7 $s6 $s5 $s4 $s3 $s2 $s1 $s0 $ra $sp $fp t124 t1070 t1071 t1072 t1073 t1074 t1075 t1076 t1077 t1078 t1079
+$a0                                              o                                              
+$s7          o   o   o   o   o   o   o   o   o       o                                   m      
+$s6      o       o   o   o   o   o   o   o   o       o                               m          
+$s5      o   o       o   o   o   o   o   o   o       o                           m              
+$s4      o   o   o       o   o   o   o   o   o       o                       m                  
+$s3      o   o   o   o       o   o   o   o   o       o                   m                      
+$s2      o   o   o   o   o       o   o   o   o       o               m                          
+$s1      o   o   o   o   o   o       o   o   o       o           m                              
+$s0      o   o   o   o   o   o   o       o   o       o       m                                  
+$ra      o   o   o   o   o   o   o   o       o       o   m                                      
+$sp      o   o   o   o   o   o   o   o   o           o                                          
+$fp  o                                                                                          
+t124      o   o   o   o   o   o   o   o   o   o                                                  
+t1070                                      m                                                      
+t1071                                  m                                                          
+t1072                              m                                                              
+t1073                          m                                                                  
+t1074                      m                                                                      
+t1075                  m                                                                          
+t1076              m                                                                              
+t1077          m                                                                                  
+t1078      m                                                                                      
+t1079                                                                                             

@@ -1,91 +1,129 @@
-MOVE(
- MEM(
-  BINOP(PLUS,
-   TEMP t123,
-   CONST 4)),
- TEMP t103)
-MOVE(
- TEMP t289,
- TEMP t120)
-MOVE(
- TEMP t290,
- TEMP t119)
-MOVE(
- TEMP t291,
- TEMP t118)
-MOVE(
- TEMP t292,
- TEMP t117)
-MOVE(
- TEMP t293,
- TEMP t116)
-MOVE(
- TEMP t294,
- TEMP t115)
-MOVE(
- TEMP t295,
- TEMP t114)
-MOVE(
- TEMP t296,
- TEMP t113)
-MOVE(
- TEMP t297,
- TEMP t112)
-MOVE(
- TEMP t284,
- CONST 0)
-MOVE(
- TEMP t288,
- CONST 100)
-MOVE(
- TEMP t287,
- CONST 0)
-LABEL L31
-CJUMP(LE,
- TEMP t287,
- TEMP t288,
- L32,L30)
-LABEL L32
-MOVE(
- TEMP t284,
- BINOP(PLUS,
-  TEMP t284,
-  CONST 1))
-MOVE(
- TEMP t287,
- BINOP(PLUS,
-  TEMP t287,
-  CONST 1))
-JUMP(
- NAME L31)
-LABEL L30
-MOVE(
- TEMP t122,
- CONST 0)
-MOVE(
- TEMP t112,
- TEMP t297)
-MOVE(
- TEMP t113,
- TEMP t296)
-MOVE(
- TEMP t114,
- TEMP t295)
-MOVE(
- TEMP t115,
- TEMP t294)
-MOVE(
- TEMP t116,
- TEMP t293)
-MOVE(
- TEMP t117,
- TEMP t292)
-MOVE(
- TEMP t118,
- TEMP t291)
-MOVE(
- TEMP t119,
- TEMP t290)
-MOVE(
- TEMP t120,
- TEMP t289)
+SEQ(
+ MOVE(
+  MEM(
+   BINOP(PLUS,
+    TEMP t123,
+    CONST 4)),
+  TEMP t103),
+ SEQ(
+  MOVE(
+   TEMP t287,
+   TEMP t120),
+  SEQ(
+   MOVE(
+    TEMP t288,
+    TEMP t119),
+   SEQ(
+    MOVE(
+     TEMP t289,
+     TEMP t118),
+    SEQ(
+     MOVE(
+      TEMP t290,
+      TEMP t117),
+     SEQ(
+      MOVE(
+       TEMP t291,
+       TEMP t116),
+      SEQ(
+       MOVE(
+        TEMP t292,
+        TEMP t115),
+       SEQ(
+        MOVE(
+         TEMP t293,
+         TEMP t114),
+        SEQ(
+         MOVE(
+          TEMP t294,
+          TEMP t113),
+         SEQ(
+          MOVE(
+           TEMP t295,
+           TEMP t112),
+          SEQ(
+           MOVE(
+            TEMP t122,
+            ESEQ(
+             MOVE(
+              TEMP t282,
+              CONST 0),
+             ESEQ(
+              SEQ(
+               MOVE(
+                TEMP t286,
+                CONST 100),
+               MOVE(
+                TEMP t285,
+                CONST 0)),
+              ESEQ(
+               SEQ(
+                LABEL L31,
+                SEQ(
+                 CJUMP(LE,
+                  TEMP t285,
+                  TEMP t286,
+                  L32,L30),
+                 SEQ(
+                  LABEL L32,
+                  SEQ(
+                   EXP(
+                    ESEQ(
+                     EXP(
+                      ESEQ(
+                       MOVE(
+                        TEMP t282,
+                        BINOP(PLUS,
+                         TEMP t282,
+                         CONST 1)),
+                       ESEQ(
+                        EXP(
+                         CONST 0),
+                        CONST 0))),
+                     ESEQ(
+                      MOVE(
+                       TEMP t285,
+                       BINOP(PLUS,
+                        TEMP t285,
+                        CONST 1)),
+                      CONST 0))),
+                   SEQ(
+                    JUMP(
+                     NAME L31),
+                    LABEL L30))))),
+               CONST 0)))),
+           SEQ(
+            MOVE(
+             TEMP t112,
+             TEMP t295),
+            SEQ(
+             MOVE(
+              TEMP t113,
+              TEMP t294),
+             SEQ(
+              MOVE(
+               TEMP t114,
+               TEMP t293),
+              SEQ(
+               MOVE(
+                TEMP t115,
+                TEMP t292),
+               SEQ(
+                MOVE(
+                 TEMP t116,
+                 TEMP t291),
+                SEQ(
+                 MOVE(
+                  TEMP t117,
+                  TEMP t290),
+                 SEQ(
+                  MOVE(
+                   TEMP t118,
+                   TEMP t289),
+                  SEQ(
+                   MOVE(
+                    TEMP t119,
+                    TEMP t288),
+                   MOVE(
+                    TEMP t120,
+                    TEMP t287))))))))))))))))))))

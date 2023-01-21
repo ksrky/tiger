@@ -1,0 +1,65 @@
+    $a0 $s7 $s6 $s5 $s4 $s3 $s2 $s1 $s0 $ra $sp $fp t124 t600 t601 t602 t603 t604 t605 t606 t607 t608 t609
+$a0                                              o                                              
+$s7          o   o   o   o   o   o   o   o   o       o                                       m  
+$s6      o       o   o   o   o   o   o   o   o       o                                   m      
+$s5      o   o       o   o   o   o   o   o   o       o                               m          
+$s4      o   o   o       o   o   o   o   o   o       o                           m              
+$s3      o   o   o   o       o   o   o   o   o       o                       m                  
+$s2      o   o   o   o   o       o   o   o   o       o                   m                      
+$s1      o   o   o   o   o   o       o   o   o       o               m                          
+$s0      o   o   o   o   o   o   o       o   o       o           m                              
+$ra      o   o   o   o   o   o   o   o       o       o       m                                  
+$sp      o   o   o   o   o   o   o   o   o           o                                          
+$fp  o                                                                                          
+t124      o   o   o   o   o   o   o   o   o   o                                                  
+t600                                                                                             
+t601                                      m                                                      
+t602                                  m                                                          
+t603                              m                                                              
+t604                          m                                                                  
+t605                      m                                                                      
+t606                  m                                                                          
+t607              m                                                                              
+t608          m                                                                                  
+t609      m                                                                                      
+    $a0 $t7 $t6 $t5 $t4 $t3 $t2 $t1 $t0 $s7 $s6 $s5 $s4 $s3 $s2 $s1 $s0 $ra $sp $fp t124 t610 t611 t612 t613 t614 t615 t616 t617 t618 t619 t620 t621 t622 t623 t624 t625 t626 t627 t628
+$a0                                                                              o                                                                                  
+$t7                                                                                                                                                          m      
+$t6                                                                                                                                                      m          
+$t5                                                                                                                                                  m              
+$t4                                                                                                                                              m                  
+$t3                                                                                                                                          m                      
+$t2                                                                                                                                      m                          
+$t1                                                                                                                                  m                              
+$t0                                                                                                                              m                                  
+$s7                                          o   o   o   o   o   o   o   o   o       o                                   m                                          
+$s6                                      o       o   o   o   o   o   o   o   o       o                               m                                              
+$s5                                      o   o       o   o   o   o   o   o   o       o                           m                                                  
+$s4                                      o   o   o       o   o   o   o   o   o       o                       m                                                      
+$s3                                      o   o   o   o       o   o   o   o   o       o                   m                                                          
+$s2                                      o   o   o   o   o       o   o   o   o       o               m                                                              
+$s1                                      o   o   o   o   o   o       o   o   o       o           m                                                                  
+$s0                                      o   o   o   o   o   o   o       o   o       o       m                                                                      
+$ra                                      o   o   o   o   o   o   o   o       o       o   m                                                                          
+$sp                                      o   o   o   o   o   o   o   o   o           o                                                                              
+$fp  m                                                                                                                                                              
+t124                                      o   o   o   o   o   o   o   o   o   o                                                                                      
+t610                                                                      m                                                                                          
+t611                                                                  m                                                                                              
+t612                                                              m                                                                                                  
+t613                                                          m                                                                                                      
+t614                                                      m                                                                                                          
+t615                                                  m                                                                                                              
+t616                                              m                                                                                                                  
+t617                                          m                                                                                                                      
+t618                                      m                                                                                                                          
+t619                                                                                                                                                                 
+t620                                  m                                                                                                                              
+t621                              m                                                                                                                                  
+t622                          m                                                                                                                                      
+t623                      m                                                                                                                                          
+t624                  m                                                                                                                                              
+t625              m                                                                                                                                                  
+t626          m                                                                                                                                                      
+t627      m                                                                                                                                                          
+t628                                                                                                                                                                 

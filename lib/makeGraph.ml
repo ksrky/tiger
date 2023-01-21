@@ -56,7 +56,8 @@ let instr2graph (ilist : Assem.instr list) : Flow.flowgraph * Flow.Graph.node li
   in
   (resultFGraph, Flow.Graph.nodes control)
 
-let show (out : out_channel) (graph : Flow.flowgraph) (f : Temp.temp -> string) : unit =
+let show (out : out_channel) (graph : Flow.flowgraph) : unit =
+  let f t = try Temp.Table.find t Frame.tempMap with Not_found -> Temp.makestring t in
   let (FGRAPH {control; def; use; _}) = graph in
   let nodes = Graph.nodes control in
   output_string out "def\t\t\t\t\tuse\n";

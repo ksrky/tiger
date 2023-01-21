@@ -1,0 +1,41 @@
+    $a0 $t7 $t6 $t5 $t4 $t3 $t2 $t1 $t0 $s7 $s6 $s5 $s4 $s3 $s2 $s1 $s0 $ra $sp $fp t124 t270 t271 t272 t273 t274 t275 t276 t277 t278 t279 t280 t281 t282 t283 t284 t285 t286 t287 t288
+$a0                                                                              o                                                                                  
+$t7                                                                                                                                                      m          
+$t6                                                                                                                                                  m              
+$t5                                                                                                                                              m                  
+$t4                                                                                                                                          m                      
+$t3                                                                                                                                      m                          
+$t2                                                                                                                                  m                              
+$t1                                                                                                                              m                                  
+$t0                                                                                                                          m                                      
+$s7                                          o   o   o   o   o   o   o   o   o       o                                   m                                          
+$s6                                      o       o   o   o   o   o   o   o   o       o                               m                                              
+$s5                                      o   o       o   o   o   o   o   o   o       o                           m                                                  
+$s4                                      o   o   o       o   o   o   o   o   o       o                       m                                                      
+$s3                                      o   o   o   o       o   o   o   o   o       o                   m                                                          
+$s2                                      o   o   o   o   o       o   o   o   o       o               m                                                              
+$s1                                      o   o   o   o   o   o       o   o   o       o           m                                                                  
+$s0                                      o   o   o   o   o   o   o       o   o       o       m                                                                      
+$ra                                      o   o   o   o   o   o   o   o       o       o   m                                                                          
+$sp                                      o   o   o   o   o   o   o   o   o           o                                                                              
+$fp  m                                                                                                                                                              
+t124                                      o   o   o   o   o   o   o   o   o   o                                                                                      
+t270                                                                      m                                                                                          
+t271                                                                  m                                                                                              
+t272                                                              m                                                                                                  
+t273                                                          m                                                                                                      
+t274                                                      m                                                                                                          
+t275                                                  m                                                                                                              
+t276                                              m                                                                                                                  
+t277                                          m                                                                                                                      
+t278                                      m                                                                                                                          
+t279                                  m                                                                                                                              
+t280                              m                                                                                                                                  
+t281                          m                                                                                                                                      
+t282                      m                                                                                                                                          
+t283                  m                                                                                                                                              
+t284              m                                                                                                                                                  
+t285          m                                                                                                                                                      
+t286      m                                                                                                                                                          
+t287                                                                                                                                                                 
+t288                                                                                                                                                                 

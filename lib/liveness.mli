@@ -7,4 +7,4 @@ type igraph =
 
 val interferenceGraph : Flow.flowgraph -> igraph * (Flow.Graph.node -> Temp.temp list)
 
-val show : out_channel * igraph -> unit
+val show : out_channel -> igraph -> unit

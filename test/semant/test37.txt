@@ -1,70 +1,91 @@
 L79:	.asciiz " "
-MOVE(
- MEM(
-  BINOP(PLUS,
-   TEMP t123,
-   CONST 4)),
- TEMP t103)
-MOVE(
- TEMP t628,
- TEMP t120)
-MOVE(
- TEMP t629,
- TEMP t119)
-MOVE(
- TEMP t630,
- TEMP t118)
-MOVE(
- TEMP t631,
- TEMP t117)
-MOVE(
- TEMP t632,
- TEMP t116)
-MOVE(
- TEMP t633,
- TEMP t115)
-MOVE(
- TEMP t634,
- TEMP t114)
-MOVE(
- TEMP t635,
- TEMP t113)
-MOVE(
- TEMP t636,
- TEMP t112)
-MOVE(
- TEMP t627,
- NAME L79)
-MOVE(
- TEMP t626,
- CONST 0)
-MOVE(
- TEMP t122,
- CONST 0)
-MOVE(
- TEMP t112,
- TEMP t636)
-MOVE(
- TEMP t113,
- TEMP t635)
-MOVE(
- TEMP t114,
- TEMP t634)
-MOVE(
- TEMP t115,
- TEMP t633)
-MOVE(
- TEMP t116,
- TEMP t632)
-MOVE(
- TEMP t117,
- TEMP t631)
-MOVE(
- TEMP t118,
- TEMP t630)
-MOVE(
- TEMP t119,
- TEMP t629)
-MOVE(
- TEMP t120,
- TEMP t628)
+SEQ(
+ MOVE(
+  MEM(
+   BINOP(PLUS,
+    TEMP t123,
+    CONST 4)),
+  TEMP t103),
+ SEQ(
+  MOVE(
+   TEMP t626,
+   TEMP t120),
+  SEQ(
+   MOVE(
+    TEMP t627,
+    TEMP t119),
+   SEQ(
+    MOVE(
+     TEMP t628,
+     TEMP t118),
+    SEQ(
+     MOVE(
+      TEMP t629,
+      TEMP t117),
+     SEQ(
+      MOVE(
+       TEMP t630,
+       TEMP t116),
+      SEQ(
+       MOVE(
+        TEMP t631,
+        TEMP t115),
+       SEQ(
+        MOVE(
+         TEMP t632,
+         TEMP t114),
+        SEQ(
+         MOVE(
+          TEMP t633,
+          TEMP t113),
+         SEQ(
+          MOVE(
+           TEMP t634,
+           TEMP t112),
+          SEQ(
+           MOVE(
+            TEMP t122,
+            ESEQ(
+             SEQ(
+              MOVE(
+               TEMP t625,
+               NAME L79),
+              MOVE(
+               TEMP t624,
+               CONST 0)),
+             CONST 0)),
+           SEQ(
+            MOVE(
+             TEMP t112,
+             TEMP t634),
+            SEQ(
+             MOVE(
+              TEMP t113,
+              TEMP t633),
+             SEQ(
+              MOVE(
+               TEMP t114,
+               TEMP t632),
+              SEQ(
+               MOVE(
+                TEMP t115,
+                TEMP t631),
+               SEQ(
+                MOVE(
+                 TEMP t116,
+                 TEMP t630),
+                SEQ(
+                 MOVE(
+                  TEMP t117,
+                  TEMP t629),
+                 SEQ(
+                  MOVE(
+                   TEMP t118,
+                   TEMP t628),
+                  SEQ(
+                   MOVE(
+                    TEMP t119,
+                    TEMP t627),
+                   MOVE(
+                    TEMP t120,
+                    TEMP t626))))))))))))))))))))

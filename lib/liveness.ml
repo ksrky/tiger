@@ -101,4 +101,28 @@ let interferenceGraph (Flow.FGRAPH {control; def; use; ismove} : Flow.flowgraph)
   let node2outs n = Temp.Set.elements (Graph.Table.find n liveOut) in
   (igraph, node2outs)
 
-let show _ = ()
+let show (out : out_channel) (IGRAPH {graph; gtemp; moves; _} : igraph) : unit =
+  let prnode n =
+    try Temp.Table.find (gtemp n) Frame.tempMap with Not_found -> Temp.makestring (gtemp n)
+  in
+  let nodes = Graph.nodes graph in
+  let matrix : char Array.t Array.t =
+    Array.init (List.length nodes) (fun _ -> Array.init (List.length nodes) (fun _ -> ' '))
+  in
+  List.iteri
+    (fun i u ->
+      let inodes = Graph.adj u in
+      let mv = List.assoc_opt u moves in
+      List.iteri
+        (fun j v ->
+          if List.mem v inodes then matrix.(i).(j) <- 'o';
+          if Some v = mv then matrix.(i).(j) <- 'm' )
+        nodes )
+    nodes;
+  output_string out ("    " ^ String.concat " " (List.map prnode nodes) ^ "\n");
+  List.iteri
+    (fun i row ->
+      output_string out (prnode (List.nth nodes i) ^ " ");
+      List.iter (fun c -> output_string out (" " ^ Char.escaped c ^ "  ")) (Array.to_list row);
+      output_string out "\n" )
+    (Array.to_list matrix)

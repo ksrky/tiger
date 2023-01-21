@@ -1,78 +1,104 @@
-MOVE(
- MEM(
-  BINOP(PLUS,
-   TEMP t123,
-   CONST 4)),
- TEMP t103)
-MOVE(
- TEMP t245,
- TEMP t120)
-MOVE(
- TEMP t246,
- TEMP t119)
-MOVE(
- TEMP t247,
- TEMP t118)
-MOVE(
- TEMP t248,
- TEMP t117)
-MOVE(
- TEMP t249,
- TEMP t116)
-MOVE(
- TEMP t250,
- TEMP t115)
-MOVE(
- TEMP t251,
- TEMP t114)
-MOVE(
- TEMP t252,
- TEMP t113)
-MOVE(
- TEMP t253,
- TEMP t112)
-CJUMP(GT,
- CONST 10,
- CONST 20,
- L13,L14)
-LABEL L13
-MOVE(
- TEMP t244,
- CONST 30)
-JUMP(
- NAME L15)
-LABEL L14
-MOVE(
- TEMP t244,
- CONST 40)
-LABEL L15
-MOVE(
- TEMP t122,
- TEMP t244)
-MOVE(
- TEMP t112,
- TEMP t253)
-MOVE(
- TEMP t113,
- TEMP t252)
-MOVE(
- TEMP t114,
- TEMP t251)
-MOVE(
- TEMP t115,
- TEMP t250)
-MOVE(
- TEMP t116,
- TEMP t249)
-MOVE(
- TEMP t117,
- TEMP t248)
-MOVE(
- TEMP t118,
- TEMP t247)
-MOVE(
- TEMP t119,
- TEMP t246)
-MOVE(
- TEMP t120,
- TEMP t245)
+SEQ(
+ MOVE(
+  MEM(
+   BINOP(PLUS,
+    TEMP t123,
+    CONST 4)),
+  TEMP t103),
+ SEQ(
+  MOVE(
+   TEMP t243,
+   TEMP t120),
+  SEQ(
+   MOVE(
+    TEMP t244,
+    TEMP t119),
+   SEQ(
+    MOVE(
+     TEMP t245,
+     TEMP t118),
+    SEQ(
+     MOVE(
+      TEMP t246,
+      TEMP t117),
+     SEQ(
+      MOVE(
+       TEMP t247,
+       TEMP t116),
+      SEQ(
+       MOVE(
+        TEMP t248,
+        TEMP t115),
+       SEQ(
+        MOVE(
+         TEMP t249,
+         TEMP t114),
+        SEQ(
+         MOVE(
+          TEMP t250,
+          TEMP t113),
+         SEQ(
+          MOVE(
+           TEMP t251,
+           TEMP t112),
+          SEQ(
+           MOVE(
+            TEMP t122,
+            ESEQ(
+             SEQ(
+              CJUMP(GT,
+               CONST 10,
+               CONST 20,
+               L13,L14),
+              SEQ(
+               LABEL L13,
+               SEQ(
+                MOVE(
+                 TEMP t242,
+                 CONST 30),
+                SEQ(
+                 JUMP(
+                  NAME L15),
+                 SEQ(
+                  LABEL L14,
+                  SEQ(
+                   MOVE(
+                    TEMP t242,
+                    CONST 40),
+                   LABEL L15)))))),
+             TEMP t242)),
+           SEQ(
+            MOVE(
+             TEMP t112,
+             TEMP t251),
+            SEQ(
+             MOVE(
+              TEMP t113,
+              TEMP t250),
+             SEQ(
+              MOVE(
+               TEMP t114,
+               TEMP t249),
+              SEQ(
+               MOVE(
+                TEMP t115,
+                TEMP t248),
+               SEQ(
+                MOVE(
+                 TEMP t116,
+                 TEMP t247),
+                SEQ(
+                 MOVE(
+                  TEMP t117,
+                  TEMP t246),
+                 SEQ(
+                  MOVE(
+                   TEMP t118,
+                   TEMP t245),
+                  SEQ(
+                   MOVE(
+                    TEMP t119,
+                    TEMP t244),
+                   MOVE(
+                    TEMP t120,
+                    TEMP t243))))))))))))))))))))

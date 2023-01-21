@@ -1,0 +1,44 @@
+    $a0 $t7 $t6 $t5 $t4 $t3 $t2 $t1 $t0 $s7 $s6 $s5 $s4 $s3 $s2 $s1 $s0 $ra $sp $v0 $fp t124 t136 t137 t138 t139 t140 t141 t142 t143 t144 t145 t146 t147 t148 t149 t150 t151 t152 t153 t154 t155 t156
+$a0                                                                                  o                                                                                          
+$t7                                                                                                                                                                  m          
+$t6                                                                                                                                                              m              
+$t5                                                                                                                                                          m                  
+$t4                                                                                                                                                      m                      
+$t3                                                                                                                                                  m                          
+$t2                                                                                                                                              m                              
+$t1                                                                                                                                          m                                  
+$t0                                                                                                                                      m                                      
+$s7                                          o   o   o   o   o   o   o   o   o           o                                           m                                          
+$s6                                      o       o   o   o   o   o   o   o   o           o                                       m                                              
+$s5                                      o   o       o   o   o   o   o   o   o           o                                   m                                                  
+$s4                                      o   o   o       o   o   o   o   o   o           o                               m                                                      
+$s3                                      o   o   o   o       o   o   o   o   o           o                           m                                                          
+$s2                                      o   o   o   o   o       o   o   o   o           o                       m                                                              
+$s1                                      o   o   o   o   o   o       o   o   o           o                   m                                                                  
+$s0                                      o   o   o   o   o   o   o       o   o           o               m                                                                      
+$ra                                      o   o   o   o   o   o   o   o       o           o           m                                                                          
+$sp                                      o   o   o   o   o   o   o   o   o               o                                                                                      
+$v0                                                                                              m                                                                              
+$fp  o                                                                                                                                                                          
+t124                                      o   o   o   o   o   o   o   o   o   o                                                                                                  
+t136                                                                              m                                                                                              
+t137                                                                                          m                                                                                  
+t138                                                                      m                                                                                                      
+t139                                                                  m                                                                                                          
+t140                                                              m                                                                                                              
+t141                                                          m                                                                                                                  
+t142                                                      m                                                                                                                      
+t143                                                  m                                                                                                                          
+t144                                              m                                                                                                                              
+t145                                          m                                                                                                                                  
+t146                                      m                                                                                                                                      
+t147                                  m                                                                                                                                          
+t148                              m                                                                                                                                              
+t149                          m                                                                                                                                                  
+t150                      m                                                                                                                                                      
+t151                  m                                                                                                                                                          
+t152              m                                                                                                                                                              
+t153          m                                                                                                                                                                  
+t154      m                                                                                                                                                                      
+t155  m                                                                                                                                                                          
+t156                                                                                                                                                                             

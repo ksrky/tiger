@@ -1,0 +1,40 @@
+    $a0 $t7 $t6 $t5 $t4 $t3 $t2 $t1 $t0 $s7 $s6 $s5 $s4 $s3 $s2 $s1 $s0 $ra $sp $fp t124 t821 t822 t823 t824 t825 t826 t827 t828 t829 t830 t831 t832 t833 t834 t835 t836 t837 t838
+$a0                                                                              o                                                                              
+$t7                                                                                                                                                      m      
+$t6                                                                                                                                                  m          
+$t5                                                                                                                                              m              
+$t4                                                                                                                                          m                  
+$t3                                                                                                                                      m                      
+$t2                                                                                                                                  m                          
+$t1                                                                                                                              m                              
+$t0                                                                                                                          m                                  
+$s7                                          o   o   o   o   o   o   o   o   o       o                                   m                                      
+$s6                                      o       o   o   o   o   o   o   o   o       o                               m                                          
+$s5                                      o   o       o   o   o   o   o   o   o       o                           m                                              
+$s4                                      o   o   o       o   o   o   o   o   o       o                       m                                                  
+$s3                                      o   o   o   o       o   o   o   o   o       o                   m                                                      
+$s2                                      o   o   o   o   o       o   o   o   o       o               m                                                          
+$s1                                      o   o   o   o   o   o       o   o   o       o           m                                                              
+$s0                                      o   o   o   o   o   o   o       o   o       o       m                                                                  
+$ra                                      o   o   o   o   o   o   o   o       o       o   m                                                                      
+$sp                                      o   o   o   o   o   o   o   o   o           o                                                                          
+$fp  m                                                                                                                                                          
+t124                                      o   o   o   o   o   o   o   o   o   o                                                                                  
+t821                                                                      m                                                                                      
+t822                                                                  m                                                                                          
+t823                                                              m                                                                                              
+t824                                                          m                                                                                                  
+t825                                                      m                                                                                                      
+t826                                                  m                                                                                                          
+t827                                              m                                                                                                              
+t828                                          m                                                                                                                  
+t829                                      m                                                                                                                      
+t830                                  m                                                                                                                          
+t831                              m                                                                                                                              
+t832                          m                                                                                                                                  
+t833                      m                                                                                                                                      
+t834                  m                                                                                                                                          
+t835              m                                                                                                                                              
+t836          m                                                                                                                                                  
+t837      m                                                                                                                                                      
+t838                                                                                                                                                             

@@ -24,6 +24,11 @@
  (libraries tiger))
 
 (executable
+ (public_name igraph)
+ (modules igraph)
+ (libraries tiger))
+
+(executable
  (public_name regalloc)
  (modules regalloc)
  (libraries tiger))

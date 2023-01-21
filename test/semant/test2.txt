@@ -1,72 +1,93 @@
-MOVE(
- MEM(
-  BINOP(PLUS,
-   TEMP t123,
-   CONST 4)),
- TEMP t103)
-MOVE(
- TEMP t149,
- TEMP t120)
-MOVE(
- TEMP t150,
- TEMP t119)
-MOVE(
- TEMP t151,
- TEMP t118)
-MOVE(
- TEMP t152,
- TEMP t117)
-MOVE(
- TEMP t153,
- TEMP t116)
-MOVE(
- TEMP t154,
- TEMP t115)
-MOVE(
- TEMP t155,
- TEMP t114)
-MOVE(
- TEMP t156,
- TEMP t113)
-MOVE(
- TEMP t157,
- TEMP t112)
-MOVE(
- TEMP t148,
- CALL(
-  NAME initArrray,
-   CONST 10,
-   CONST 0))
-MOVE(
- TEMP t147,
- TEMP t148)
-MOVE(
- TEMP t122,
- TEMP t147)
-MOVE(
- TEMP t112,
- TEMP t157)
-MOVE(
- TEMP t113,
- TEMP t156)
-MOVE(
- TEMP t114,
- TEMP t155)
-MOVE(
- TEMP t115,
- TEMP t154)
-MOVE(
- TEMP t116,
- TEMP t153)
-MOVE(
- TEMP t117,
- TEMP t152)
-MOVE(
- TEMP t118,
- TEMP t151)
-MOVE(
- TEMP t119,
- TEMP t150)
-MOVE(
- TEMP t120,
- TEMP t149)
+SEQ(
+ MOVE(
+  MEM(
+   BINOP(PLUS,
+    TEMP t123,
+    CONST 4)),
+  TEMP t103),
+ SEQ(
+  MOVE(
+   TEMP t149,
+   TEMP t120),
+  SEQ(
+   MOVE(
+    TEMP t150,
+    TEMP t119),
+   SEQ(
+    MOVE(
+     TEMP t151,
+     TEMP t118),
+    SEQ(
+     MOVE(
+      TEMP t152,
+      TEMP t117),
+     SEQ(
+      MOVE(
+       TEMP t153,
+       TEMP t116),
+      SEQ(
+       MOVE(
+        TEMP t154,
+        TEMP t115),
+       SEQ(
+        MOVE(
+         TEMP t155,
+         TEMP t114),
+        SEQ(
+         MOVE(
+          TEMP t156,
+          TEMP t113),
+         SEQ(
+          MOVE(
+           TEMP t157,
+           TEMP t112),
+          SEQ(
+           MOVE(
+            TEMP t122,
+            ESEQ(
+             MOVE(
+              TEMP t147,
+              ESEQ(
+               MOVE(
+                TEMP t148,
+                CALL(
+                 NAME initArrray,
+                  CONST 10,
+                  CONST 0)),
+               TEMP t148)),
+             TEMP t147)),
+           SEQ(
+            MOVE(
+             TEMP t112,
+             TEMP t157),
+            SEQ(
+             MOVE(
+              TEMP t113,
+              TEMP t156),
+             SEQ(
+              MOVE(
+               TEMP t114,
+               TEMP t155),
+              SEQ(
+               MOVE(
+                TEMP t115,
+                TEMP t154),
+               SEQ(
+                MOVE(
+                 TEMP t116,
+                 TEMP t153),
+                SEQ(
+                 MOVE(
+                  TEMP t117,
+                  TEMP t152),
+                 SEQ(
+                  MOVE(
+                   TEMP t118,
+                   TEMP t151),
+                  SEQ(
+                   MOVE(
+                    TEMP t119,
+                    TEMP t150),
+                   MOVE(
+                    TEMP t120,
+                    TEMP t149))))))))))))))))))))

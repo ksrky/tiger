@@ -1,0 +1,127 @@
+    $a0 $t7 $t6 $t5 $t4 $t3 $t2 $t1 $t0 $s7 $s6 $s5 $s4 $s3 $s2 $s1 $s0 $ra $sp $fp t124 t289 t291 t292 t293 t294 t295 t296 t297 t298 t299 t319 t320 t321 t322 t323 t324 t325 t326 t327 t328 t329
+$a0                                                                              o                                                                                          
+$t7                                                                                                                                                          m              
+$t6                                                                                                                                                      m                  
+$t5                                                                                                                                                  m                      
+$t4                                                                                                                                              m                          
+$t3                                                                                                                                          m                              
+$t2                                                                                                                                      m                                  
+$t1                                                                                                                                  m                                      
+$t0                                                                                                                              m                                          
+$s7                                          o   o   o   o   o   o   o   o   o       o                                       m                                              
+$s6                                      o       o   o   o   o   o   o   o   o       o                                   m                                                  
+$s5                                      o   o       o   o   o   o   o   o   o       o                               m                                                      
+$s4                                      o   o   o       o   o   o   o   o   o       o                           m                                                          
+$s3                                      o   o   o   o       o   o   o   o   o       o                       m                                                              
+$s2                                      o   o   o   o   o       o   o   o   o       o                   m                                                                  
+$s1                                      o   o   o   o   o   o       o   o   o       o               m                                                                      
+$s0                                      o   o   o   o   o   o   o       o   o       o           m                                                                          
+$ra                                      o   o   o   o   o   o   o   o       o       o       m                                                                              
+$sp                                      o   o   o   o   o   o   o   o   o           o                                                                                      
+$fp  o                                                                                                                                                                      
+t124                                      o   o   o   o   o   o   o   o   o   o                                                                                              
+t289                                                                                                                                                                         
+t291                                                                      m                                                                                                  
+t292                                                                  m                                                                                                      
+t293                                                              m                                                                                                          
+t294                                                          m                                                                                                              
+t295                                                      m                                                                                                                  
+t296                                                  m                                                                                                                      
+t297                                              m                                                                                                                          
+t298                                          m                                                                                                                              
+t299                                      m                                                                                                                                  
+t319                                  m                                                                                                                                      
+t320                              m                                                                                                                                          
+t321                          m                                                                                                                                              
+t322                      m                                                                                                                                                  
+t323                  m                                                                                                                                                      
+t324              m                                                                                                                                                          
+t325          m                                                                                                                                                              
+t326      m                                                                                                                                                                  
+t327  m                                                                                                                                                                      
+t328                                                                                                                                                                         
+t329                                                                                                                                                                         
+    $a0 $t7 $t6 $t5 $t4 $t3 $t2 $t1 $t0 $s7 $s6 $s5 $s4 $s3 $s2 $s1 $s0 $ra $sp $fp t124 t300 t301 t302 t303 t304 t305 t306 t307 t308 t309 t330 t331 t332 t333 t334 t335 t336 t337 t338 t339 t340
+$a0                                                                              o                                                                                          
+$t7                                                                                                                                                          m              
+$t6                                                                                                                                                      m                  
+$t5                                                                                                                                                  m                      
+$t4                                                                                                                                              m                          
+$t3                                                                                                                                          m                              
+$t2                                                                                                                                      m                                  
+$t1                                                                                                                                  m                                      
+$t0                                                                                                                              m                                          
+$s7                                          o   o   o   o   o   o   o   o   o       o                                       m                                              
+$s6                                      o       o   o   o   o   o   o   o   o       o                                   m                                                  
+$s5                                      o   o       o   o   o   o   o   o   o       o                               m                                                      
+$s4                                      o   o   o       o   o   o   o   o   o       o                           m                                                          
+$s3                                      o   o   o   o       o   o   o   o   o       o                       m                                                              
+$s2                                      o   o   o   o   o       o   o   o   o       o                   m                                                                  
+$s1                                      o   o   o   o   o   o       o   o   o       o               m                                                                      
+$s0                                      o   o   o   o   o   o   o       o   o       o           m                                                                          
+$ra                                      o   o   o   o   o   o   o   o       o       o       m                                                                              
+$sp                                      o   o   o   o   o   o   o   o   o           o                                                                                      
+$fp  o                                                                                                                                                                      
+t124                                      o   o   o   o   o   o   o   o   o   o                                                                                              
+t300                                                                                                                                                                         
+t301                                                                      m                                                                                                  
+t302                                                                  m                                                                                                      
+t303                                                              m                                                                                                          
+t304                                                          m                                                                                                              
+t305                                                      m                                                                                                                  
+t306                                                  m                                                                                                                      
+t307                                              m                                                                                                                          
+t308                                          m                                                                                                                              
+t309                                      m                                                                                                                                  
+t330                                  m                                                                                                                                      
+t331                              m                                                                                                                                          
+t332                          m                                                                                                                                              
+t333                      m                                                                                                                                                  
+t334                  m                                                                                                                                                      
+t335              m                                                                                                                                                          
+t336          m                                                                                                                                                              
+t337      m                                                                                                                                                                  
+t338  m                                                                                                                                                                      
+t339                                                                                                                                                                         
+t340                                                                                                                                                                         
+    $a0 $t7 $t6 $t5 $t4 $t3 $t2 $t1 $t0 $s7 $s6 $s5 $s4 $s3 $s2 $s1 $s0 $ra $sp $fp t124 t310 t311 t312 t313 t314 t315 t316 t317 t318 t341 t342 t343 t344 t345 t346 t347 t348 t349 t350
+$a0                                                                              o                                                                                  
+$t7                                                                                                                                                      m          
+$t6                                                                                                                                                  m              
+$t5                                                                                                                                              m                  
+$t4                                                                                                                                          m                      
+$t3                                                                                                                                      m                          
+$t2                                                                                                                                  m                              
+$t1                                                                                                                              m                                  
+$t0                                                                                                                          m                                      
+$s7                                          o   o   o   o   o   o   o   o   o       o                                   m                                          
+$s6                                      o       o   o   o   o   o   o   o   o       o                               m                                              
+$s5                                      o   o       o   o   o   o   o   o   o       o                           m                                                  
+$s4                                      o   o   o       o   o   o   o   o   o       o                       m                                                      
+$s3                                      o   o   o   o       o   o   o   o   o       o                   m                                                          
+$s2                                      o   o   o   o   o       o   o   o   o       o               m                                                              
+$s1                                      o   o   o   o   o   o       o   o   o       o           m                                                                  
+$s0                                      o   o   o   o   o   o   o       o   o       o       m                                                                      
+$ra                                      o   o   o   o   o   o   o   o       o       o   m                                                                          
+$sp                                      o   o   o   o   o   o   o   o   o           o                                                                              
+$fp  m                                                                                                                                                              
+t124                                      o   o   o   o   o   o   o   o   o   o                                                                                      
+t310                                                                      m                                                                                          
+t311                                                                  m                                                                                              
+t312                                                              m                                                                                                  
+t313                                                          m                                                                                                      
+t314                                                      m                                                                                                          
+t315                                                  m                                                                                                              
+t316                                              m                                                                                                                  
+t317                                          m                                                                                                                      
+t318                                      m                                                                                                                          
+t341                                  m                                                                                                                              
+t342                              m                                                                                                                                  
+t343                          m                                                                                                                                      
+t344                      m                                                                                                                                          
+t345                  m                                                                                                                                              
+t346              m                                                                                                                                                  
+t347          m                                                                                                                                                      
+t348      m                                                                                                                                                          
+t349                                                                                                                                                                 
+t350                                                                                                                                                                 
