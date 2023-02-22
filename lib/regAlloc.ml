@@ -12,7 +12,7 @@ let rec alloc (instrs : Assem.instr list) (frame : Frame.frame) : Assem.instr li
   let igraph, _fnode2outs = Liveness.interferenceGraph fgraph in
   let spillCost (n : Graph.node) : int =
     TS.cardinal (GT.find n def) + TS.cardinal (GT.find n use)
-    (* todo *)
+    (* TODO *)
   in
   let allocation, spilledNodes = Color.color (igraph, !initial, spillCost, Frame.registers) in
   let rewriteProgram () : Assem.instr list =

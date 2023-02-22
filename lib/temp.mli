@@ -27,7 +27,13 @@ module Set : sig
 
   val empty : t
 
+  val is_empty : t -> bool
+
+  val mem : elt -> t -> bool
+
   val add : elt -> t -> t
+
+  val remove : elt -> t -> t
 
   val union : t -> t -> t
 
@@ -40,6 +46,8 @@ module Set : sig
   val cardinal : t -> int
 
   val elements : t -> elt list
+
+  val choose : t -> elt
 
   val of_list : elt list -> t
 end
