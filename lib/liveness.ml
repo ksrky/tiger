@@ -9,7 +9,7 @@ type liveSet = Temp.Set.t
 
 type liveMap = liveSet Graph.Table.t
 
-let ( @@ ) (gt : liveSet Graph.Table.t) (n : Graph.node) : liveSet =
+let ( @@ ) (gt : liveMap) (n : Graph.node) : liveSet =
   try Graph.Table.find n gt
   with Not_found -> Temp.Set.empty (* a node of Assem.Label instruction doesn't have dst or use *)
 

@@ -6,14 +6,8 @@ type access = level * Frame.access
 
 type exp = Ex of T.exp | Nx of T.stm | Cx of (Temp.label * Temp.label -> T.stm)
 
-let outermost =
-  let rec level =
-    Level
-      { parent= level (* note: lazy evaluation? *)
-      ; frame= Frame.newFrame (Symbol.symbol "$outermost", [])
-      ; unique= ref () }
-  in
-  level
+let rec outermost =
+  Level {parent= outermost; frame= Frame.newFrame (Symbol.symbol "$outermost", []); unique= ref ()}
 
 let newLevel (parent, name, formals) =
   let frame = Frame.newFrame (name, true (* statick link *) :: formals) in

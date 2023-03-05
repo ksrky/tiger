@@ -4,59 +4,21 @@ nfactor:
 	addi	$sp, $sp, -16
 L12:
 	sw	$a0, 4($fp)
-	move	$a0, $ra
-	move	$a0, $s0
-	move	$a0, $s1
-	move	$a0, $s2
-	move	$a0, $s3
-	move	$a0, $s4
-	move	$a0, $s5
-	move	$a0, $s6
-	move	$a0, $s7
-	li	$a1, 0
-	beq	$a0, $a1, L8
+	li	$a0, 0
+	beq	$a1, $a0, L8
 b L9
 L9:
-	move	$a1, $a0
-	move	$a0, $t0
-	move	$a0, $t1
-	move	$a0, $t2
-	move	$a0, $t3
-	move	$a0, $t4
-	move	$a0, $t5
-	move	$a0, $t6
-	move	$a0, $t7
+	move	$a0, $a1
 	lw	$a0, 4($fp)
-	move	$a0, $a0
-	addiu	$a0, $a0, -1
+	addiu	$a0, $a1, -1
 	move	$a1, $a0
 	jal	nfactor
-	move	$t7, $a0
-	move	$t6, $a0
-	move	$t5, $a0
-	move	$t4, $a0
-	move	$t3, $a0
-	move	$t2, $a0
-	move	$t1, $a0
-	move	$t0, $a0
-	move	$a0, $v0
-	mul	$a0, $a1, $a0
-	move	$a0, $a0
+	move	$a1, $a0
+	mul	$a0, $a0, $a1
 L10:
-	move	$v0, $a0
-	move	$s7, $a0
-	move	$s6, $a0
-	move	$s5, $a0
-	move	$s4, $a0
-	move	$s3, $a0
-	move	$s2, $a0
-	move	$s1, $a0
-	move	$s0, $a0
-	move	$ra, $a0
 	j	L11
 L8:
 	li	$a0, 1
-	move	$a0, $a0
 	j	L10
 L11:
 	move	$sp, $fp
@@ -68,46 +30,11 @@ main:
 	move	$fp, $sp
 	addi	$sp, $sp, -16
 L14:
-	sw	$a0, 4($a0)
-	move	$a0, $ra
-	move	$a0, $s0
-	move	$a0, $s1
-	move	$a0, $s2
-	move	$a0, $s3
-	move	$a0, $s4
-	move	$a0, $s5
-	move	$a0, $s6
-	move	$a0, $s7
-	move	$a0, $t0
-	move	$a0, $t1
-	move	$a0, $t2
-	move	$a0, $t3
-	move	$a0, $t4
-	move	$a0, $t5
-	move	$a0, $t6
-	move	$a0, $t7
-	move	$a0, $a0
+	sw	$a0, 4($fp)
+	move	$a0, $fp
 	li	$a0, 10
 	move	$a1, $a0
 	jal	nfactor
-	move	$t7, $a0
-	move	$t6, $a0
-	move	$t5, $a0
-	move	$t4, $a0
-	move	$t3, $a0
-	move	$t2, $a0
-	move	$t1, $a0
-	move	$t0, $a0
-	move	$v0, $v0
-	move	$s7, $a0
-	move	$s6, $a0
-	move	$s5, $a0
-	move	$s4, $a0
-	move	$s3, $a0
-	move	$s2, $a0
-	move	$s1, $a0
-	move	$s0, $a0
-	move	$ra, $a0
 	j	L13
 L13:
 	move	$sp, $fp

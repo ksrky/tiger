@@ -4,48 +4,10 @@ main:
 	addi	$sp, $sp, -16
 L3:
 	sw	$a0, 4($fp)
-	move	t159, $ra
-	move	t160, $s0
-	move	t161, $s1
-	move	t162, $s2
-	move	t163, $s3
-	move	t164, $s4
-	move	t165, $s5
-	move	t166, $s6
-	move	t167, $s7
-	move	t168, $t0
-	move	t169, $t1
-	move	t170, $t2
-	move	t171, $t3
-	move	t172, $t4
-	move	t173, $t5
-	move	t174, $t6
-	move	t175, $t7
-	li	t176, 10
-	move	$a0, t176
-	li	t177, 0
-	move	$a1, t177
+	li	$a0, 10
+	li	$a0, 0
+	move	$a1, $a0
 	jal	initArrray
-	move	$t7, t175
-	move	$t6, t174
-	move	$t5, t173
-	move	$t4, t172
-	move	$t3, t171
-	move	$t2, t170
-	move	$t1, t169
-	move	$t0, t168
-	move	t158, $v0
-	move	t157, t158
-	move	$v0, t157
-	move	$s7, t167
-	move	$s6, t166
-	move	$s5, t165
-	move	$s4, t164
-	move	$s3, t163
-	move	$s2, t162
-	move	$s1, t161
-	move	$s0, t160
-	move	$ra, t159
 	j	L2
 L2:
 	move	$sp, $fp

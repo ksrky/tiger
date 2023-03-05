@@ -214,10 +214,10 @@ let color (interference, init_alloc, _spillCost, registers) : allocation * Temp.
   in
   let rec repeat () =
     let terminate = ref false in
-    if TS.is_empty !simplifyWorklist then simplify ()
-    else if TTS.is_empty !worklistMoves then coalesce ()
-    else if TS.is_empty !freezeWorklist then freeze ()
-    else if TS.is_empty !spillWorklist then selectSpill ()
+    if not (TS.is_empty !simplifyWorklist) then simplify ()
+    else if not (TTS.is_empty !worklistMoves) then coalesce ()
+    else if not (TS.is_empty !freezeWorklist) then freeze ()
+    else if not (TS.is_empty !spillWorklist) then selectSpill ()
     else terminate := true;
     if !terminate then () else repeat ()
   in

@@ -11,10 +11,15 @@ let rec alloc (instrs : Assem.instr list) (frame : Frame.frame) : Assem.instr li
   let (FGRAPH {def; use; _} as fgraph), _fnodes = MakeGraph.instr2graph instrs in
   let igraph, _fnode2outs = Liveness.interferenceGraph fgraph in
   let spillCost (n : Graph.node) : int =
+    (* TODO: calculate the precedence of spilling nodes. ref: p221 *)
     TS.cardinal (GT.find n def) + TS.cardinal (GT.find n use)
-    (* TODO *)
   in
   let allocation, spilledNodes = Color.color (igraph, !initial, spillCost, Frame.registers) in
+  let isnt_redundant instr =
+    match instr with
+    | Assem.MOVE {dst; src; _} -> TT.find dst allocation <> TT.find src allocation
+    | _ -> true
+  in
   let rewriteProgram () : Assem.instr list =
     let newTemps = ref [] in
     let instrs' =
@@ -50,7 +55,7 @@ let rec alloc (instrs : Assem.instr list) (frame : Frame.frame) : Assem.instr li
     (* temp: Color.initial := !Color.coloredNodes @ !Color.coalescedNodes @ !newTemps;*)
     instrs'
   in
-  if List.length spilledNodes = 0 then (instrs, allocation)
+  if List.length spilledNodes = 0 then (List.filter isnt_redundant instrs, allocation)
   else (
     initial := allocation;
     alloc (rewriteProgram ()) frame )
