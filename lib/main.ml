@@ -19,7 +19,6 @@ let withOpenFile (fname : string) (f : out_channel -> unit) : unit =
 
 let compile (filename : string) : unit =
   let absyn : Absyn.exp = Parse.parse filename in
-  (*let () = PrintAbsyn.print(stdout, absyn) in*)
   let frags : Frame.frag list = FindEscape.findEscape absyn; Semant.transProg absyn in
   if !ErrorMsg.anyErrors then ()
   else withOpenFile (filename ^ ".s") (fun out -> List.iter (emitproc out) frags)

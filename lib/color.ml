@@ -11,9 +11,8 @@ module TTS = Set.Make (struct
   let compare = Stdlib.compare
 end)
 
-let n_colors = 8 (* K *)
-
 let color (interference, init_alloc, _spillCost, registers) : allocation * Temp.temp list =
+  let n_colors = List.length registers (* K *) in
   (* nodes list *)
   let precolored : Temp.temp list ref = ref [] in
   let initial : Temp.temp list ref = ref [] in

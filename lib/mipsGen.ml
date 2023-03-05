@@ -52,42 +52,42 @@ let codegen _ stm =
     | T.CJUMP (T.LT, e1, e2, l1, l2) ->
         emit
           (A.OPER
-             { assem= "\tblt\t`s0, `s1, `j0\nb `j1\n"
+             { assem= "\tblt\t`s0, `s1, `j0\n\tb `j1\n"
              ; dst= []
              ; src= [munchExp e1; munchExp e2]
              ; jump= Some [l1; l2] } )
     | T.CJUMP (T.GT, e1, e2, l1, l2) ->
         emit
           (A.OPER
-             { assem= "\tbgt\t`s0, `s1, `j0\nb `j1\n"
+             { assem= "\tbgt\t`s0, `s1, `j0\n\tb `j1\n"
              ; dst= []
              ; src= [munchExp e1; munchExp e2]
              ; jump= Some [l1; l2] } )
     | T.CJUMP (T.LE, e1, e2, l1, l2) ->
         emit
           (A.OPER
-             { assem= "\tble `s0, `s1, `j0\nb `j1\n"
+             { assem= "\tble `s0, `s1, `j0\n\tb `j1\n"
              ; dst= []
              ; src= [munchExp e1; munchExp e2]
              ; jump= Some [l1; l2] } )
     | T.CJUMP (T.GE, e1, e2, l1, l2) ->
         emit
           (A.OPER
-             { assem= "\tblt\t`s0, `s1, `j0\nb `j1\n"
+             { assem= "\tblt\t`s0, `s1, `j0\n\tb `j1\n"
              ; dst= []
              ; src= [munchExp e1; munchExp e2]
              ; jump= Some [l1; l2] } )
     | T.CJUMP (T.EQ, e1, e2, l1, l2) ->
         emit
           (A.OPER
-             { assem= "\tbeq\t`s0, `s1, `j0\nb `j1\n"
+             { assem= "\tbeq\t`s0, `s1, `j0\n\tb `j1\n"
              ; dst= []
              ; src= [munchExp e1; munchExp e2]
              ; jump= Some [l1; l2] } )
     | T.CJUMP (T.NE, e1, e2, l1, l2) ->
         emit
           (A.OPER
-             { assem= "\tbne\t`s0, `s1, `j0\nb `j1\n"
+             { assem= "\tbne\t`s0, `s1, `j0\n\tb `j1\n"
              ; dst= []
              ; src= [munchExp e1; munchExp e2]
              ; jump= Some [l1; l2] } )
