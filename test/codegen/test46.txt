@@ -13,13 +13,13 @@ L135:
 	move	t1022, t1033
 	li	t1034, 0
 	beq	t1022, t1034, L133
-b L133
+	b L133
 L133:
 	li	t1035, 1
 	move	t1023, t1035
 	li	t1036, 0
 	bne	t1022, t1036, L131
-b L132
+	b L132
 L132:
 	li	t1037, 0
 	move	t1023, t1037

@@ -8,7 +8,7 @@ val linePos : int list ref
 
 val sourceStream : in_channel ref
 
-val error : int -> string -> unit
+val error : Absyn.pos -> string -> unit
 
 exception Error
 

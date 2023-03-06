@@ -1,8 +1,0 @@
-{
-  "files.associations": {
-    "*.html": "html",
-    "ex0": "plaintext",
-    "*.plt": "plaintext",
-    "stdio.h": "c"
-  }
-}

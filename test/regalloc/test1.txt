@@ -5,8 +5,8 @@ main:
 L1:
 	sw	$a0, 4($fp)
 	li	$a0, 10
-	li	$a0, 0
-	move	$a1, $a0
+	li	$t0, 0
+	move	$a1, $t0
 	jal	initArrray
 	j	L0
 L0:

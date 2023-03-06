@@ -23,7 +23,8 @@ open Absyn
 %start <exp> prog
 
 %{
-let lp((startpos, _) : (Lexing.position * Lexing.position)) : pos = startpos.pos_bol
+let lp((sp, ep) : (Lexing.position * Lexing.position)) : pos
+  = ((sp.pos_lnum, sp.pos_cnum - sp.pos_bol + 1), (ep.pos_lnum, ep.pos_cnum - sp.pos_bol + 1))
 %}
 
 %%

@@ -4,21 +4,19 @@ main:
 	addi	$sp, $sp, -16
 L56:
 	sw	$a0, 4($fp)
-	li	$a0, 0
-	li	$a0, 100
-	li	$a0, 0
-	move	$a1, $a0
+	li	$t0, 0
+	li	$t1, 100
+	li	$t0, 0
 L53:
-	ble $a1, $a0, L54
-b L52
+	ble $t0, $t1, L54
+	b L52
 L52:
-	li	$a0, 0
-	move	$v0, $a0
+	li	$t0, 0
+	move	$v0, $t0
 	j	L55
 L54:
-	addiu	$a0, $a0, 1
-	addiu	$a0, $a1, 1
-	move	$a1, $a0
+	addiu	$t0, $t0, 1
+	addiu	$t0, $t0, 1
 	j	L53
 L55:
 	move	$sp, $fp

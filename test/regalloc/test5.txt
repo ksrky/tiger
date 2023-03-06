@@ -6,12 +6,10 @@ L16:
 	sw	$a0, 4($fp)
 	li	$a0, 8
 	jal	allocRecord
-	move	$a1, $v0
-	li	$a0, 0
-	sw	$a0, 0($a1)
-	li	$a0, 0
-	sw	$a0, 4($a1)
-	move	$v0, $a1
+	li	$t0, 0
+	sw	$t0, 0($v0)
+	li	$t0, 0
+	sw	$t0, 4($v0)
 	j	L15
 L15:
 	move	$sp, $fp

@@ -1,4 +1,8 @@
-type pos = int
+type loc = int * int (* line × column *)
+
+and span = loc * loc (* start loc × end loc *)
+
+type pos = span (* int *)
 
 and symbol = Symbol.symbol
 

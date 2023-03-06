@@ -17,7 +17,7 @@ L56:
 	move	t398, t411
 L53:
 	ble t398, t399, L54
-b L52
+	b L52
 L52:
 	li	t412, 0
 	move	t122, t412

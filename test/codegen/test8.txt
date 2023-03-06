@@ -12,7 +12,7 @@ L37:
 	li	t361, 20
 	li	t362, 10
 	bgt	t362, t361, L33
-b L34
+	b L34
 L34:
 	li	t363, 40
 	move	t351, t363

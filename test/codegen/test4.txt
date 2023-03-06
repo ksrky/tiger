@@ -11,7 +11,7 @@ L12:
 	move	t211, t112
 	li	t223, 0
 	beq	t201, t223, L8
-b L9
+	b L9
 L9:
 	move	t222, t201
 	move	t224, t111

@@ -8,14 +8,12 @@ L7:
 	sw	$a0, 4($fp)
 	li	$a0, 8
 	jal	allocRecord
-	move	$a1, $v0
-	la	$a0, L4
-	sw	$a0, 0($a1)
-	li	$a0, 1000
-	sw	$a0, 4($a1)
-	la	$a0, L5
-	sw	$a0, 0($a1)
-	move	$v0, $a1
+	la	$t0, L4
+	sw	$t0, 0($v0)
+	li	$t0, 1000
+	sw	$t0, 4($v0)
+	la	$t0, L5
+	sw	$t0, 0($v0)
 	j	L6
 L6:
 	move	$sp, $fp

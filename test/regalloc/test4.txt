@@ -4,21 +4,19 @@ nfactor:
 	addi	$sp, $sp, -16
 L12:
 	sw	$a0, 4($fp)
-	li	$a0, 0
-	beq	$a1, $a0, L8
-b L9
+	li	$t0, 0
+	beq	$t1, $t0, L8
+	b L9
 L9:
-	move	$a0, $a1
 	lw	$a0, 4($fp)
-	addiu	$a0, $a1, -1
-	move	$a1, $a0
+	addiu	$t0, $t1, -1
+	move	$a1, $t0
 	jal	nfactor
-	move	$a1, $a0
-	mul	$a0, $a0, $a1
+	mul	$t0, $t1, $t0
 L10:
 	j	L11
 L8:
-	li	$a0, 1
+	li	$t0, 1
 	j	L10
 L11:
 	move	$sp, $fp
@@ -32,8 +30,8 @@ main:
 L14:
 	sw	$a0, 4($fp)
 	move	$a0, $fp
-	li	$a0, 10
-	move	$a1, $a0
+	li	$t0, 10
+	move	$a1, $t0
 	jal	nfactor
 	j	L13
 L13:

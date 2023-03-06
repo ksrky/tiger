@@ -4,7 +4,7 @@ g:
 	addi	$sp, $sp, -16
 L93:
 	sw	$a0, 4($fp)
-	move	$v0, $a0
+	move	$v0, $t0
 	j	L92
 L92:
 	move	$sp, $fp
