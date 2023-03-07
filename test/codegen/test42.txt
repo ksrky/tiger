@@ -54,7 +54,7 @@ L126:
 	move	t103, t890
 	li	t891, 1900
 	move	t102, t891
-	jal	initArrray
+	jal	initArray
 	move	t104, t889
 	move	t105, t888
 	move	t106, t887
@@ -107,7 +107,7 @@ L126:
 	move	t103, t913
 	la	t914, L118
 	move	t102, t914
-	jal	initArrray
+	jal	initArray
 	move	t104, t912
 	move	t105, t911
 	move	t106, t910
@@ -157,7 +157,7 @@ L126:
 	li	t936, 5
 	move	t103, t936
 	move	t102, t852
-	jal	initArrray
+	jal	initArray
 	move	t104, t935
 	move	t105, t934
 	move	t106, t933
@@ -180,7 +180,7 @@ L126:
 	move	t103, t945
 	li	t946, 0
 	move	t102, t946
-	jal	initArrray
+	jal	initArray
 	move	t104, t944
 	move	t105, t943
 	move	t106, t942

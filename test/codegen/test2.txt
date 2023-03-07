@@ -21,7 +21,7 @@ L3:
 	move	t103, t176
 	li	t177, 0
 	move	t102, t177
-	jal	initArrray
+	jal	initArray
 	move	t104, t175
 	move	t105, t174
 	move	t106, t173

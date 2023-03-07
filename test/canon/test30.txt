@@ -35,7 +35,7 @@ MOVE(
 MOVE(
  TEMP t525,
  CALL(
-  NAME initArrray,
+  NAME initArray,
    CONST 10,
    CONST 0))
 MOVE(

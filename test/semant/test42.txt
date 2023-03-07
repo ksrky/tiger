@@ -80,7 +80,7 @@ SEQ(
                     MOVE(
                      TEMP t702,
                      CALL(
-                      NAME initArrray,
+                      NAME initArray,
                        CONST 3,
                        CONST 1900)),
                     TEMP t702)))),
@@ -130,7 +130,7 @@ SEQ(
                   MOVE(
                    TEMP t698,
                    CALL(
-                    NAME initArrray,
+                    NAME initArray,
                      CONST 100,
                      NAME L82)),
                   TEMP t698)),
@@ -141,7 +141,7 @@ SEQ(
                    MOVE(
                     TEMP t696,
                     CALL(
-                     NAME initArrray,
+                     NAME initArray,
                       CONST 5,
                       ESEQ(
                        SEQ(
@@ -185,7 +185,7 @@ SEQ(
                    MOVE(
                     TEMP t693,
                     CALL(
-                     NAME initArrray,
+                     NAME initArray,
                       CONST 10,
                       CONST 0)),
                    TEMP t693)))))),

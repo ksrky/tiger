@@ -21,7 +21,7 @@ L98:
 	move	t103, t670
 	li	t671, 0
 	move	t102, t671
-	jal	initArrray
+	jal	initArray
 	move	t104, t669
 	move	t105, t668
 	move	t106, t667

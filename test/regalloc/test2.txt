@@ -7,7 +7,7 @@ L3:
 	li	$a0, 10
 	li	$t0, 0
 	move	$a1, $t0
-	jal	initArrray
+	jal	initArray
 	j	L2
 L2:
 	move	$sp, $fp

@@ -180,7 +180,7 @@ let letExp (decs, body) = Ex (T.ESEQ (mkseq (List.map unNx decs), unEx body))
 let arrayExp size init =
   let r = Temp.newtemp () in
   let args = List.map unEx [size; init] in
-  Ex (T.ESEQ (T.MOVE (T.TEMP r, Frame.externalCall ("initArrray", args)), T.TEMP r))
+  Ex (T.ESEQ (T.MOVE (T.TEMP r, Frame.externalCall ("initArray", args)), T.TEMP r))
 
 let procEntryExit ((Level {frame; _}, body) : level * exp) : unit =
   let body' = Frame.procEntryExit1 frame (T.MOVE (T.TEMP Frame.rv, unEx body)) in

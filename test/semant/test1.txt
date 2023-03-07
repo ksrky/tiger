@@ -51,7 +51,7 @@ SEQ(
                MOVE(
                 TEMP t137,
                 CALL(
-                 NAME initArrray,
+                 NAME initArray,
                   CONST 10,
                   CONST 0)),
                TEMP t137)),

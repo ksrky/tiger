@@ -21,7 +21,7 @@ L1:
 	move	t103, t155
 	li	t156, 0
 	move	t102, t156
-	jal	initArrray
+	jal	initArray
 	move	t104, t154
 	move	t105, t153
 	move	t106, t152
