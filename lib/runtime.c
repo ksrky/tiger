@@ -1,5 +1,5 @@
-#undef __STDC__
 #include <stdio.h>
+#include <stdlib.h> // To disable implicit-function-declaration warnings
 
 
 int *initArray(int size, int init)

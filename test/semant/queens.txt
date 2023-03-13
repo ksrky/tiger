@@ -1,0 +1,147 @@
+L0:	.asciiz "\n"
+L1:	.asciiz "\n"
+L3:	.asciiz "\n"
+L4:	.asciiz "\n"
+L6:	.asciiz " O"
+L7:	.asciiz " ."
+SEQ(
+ MOVE(
+  MEM(
+   BINOP(PLUS,
+    TEMP t123,
+    CONST 4)),
+  TEMP t103),
+ SEQ(
+  MOVE(
+   TEMP t163,
+   TEMP t120),
+  SEQ(
+   MOVE(
+    TEMP t164,
+    TEMP t119),
+   SEQ(
+    MOVE(
+     TEMP t165,
+     TEMP t118),
+    SEQ(
+     MOVE(
+      TEMP t166,
+      TEMP t117),
+     SEQ(
+      MOVE(
+       TEMP t167,
+       TEMP t116),
+      SEQ(
+       MOVE(
+        TEMP t168,
+        TEMP t115),
+       SEQ(
+        MOVE(
+         TEMP t169,
+         TEMP t114),
+        SEQ(
+         MOVE(
+          TEMP t170,
+          TEMP t113),
+         SEQ(
+          MOVE(
+           TEMP t171,
+           TEMP t112),
+          SEQ(
+           MOVE(
+            TEMP t122,
+            ESEQ(
+             SEQ(
+              MOVE(
+               TEMP t143,
+               ESEQ(
+                MOVE(
+                 TEMP t144,
+                 CALL(
+                  NAME initArray,
+                   BINOP(MINUS,
+                    BINOP(PLUS,
+                     TEMP t136,
+                     TEMP t136),
+                    CONST 1),
+                   CONST 0)),
+                TEMP t144)),
+              SEQ(
+               MOVE(
+                TEMP t141,
+                ESEQ(
+                 MOVE(
+                  TEMP t142,
+                  CALL(
+                   NAME initArray,
+                    BINOP(MINUS,
+                     BINOP(PLUS,
+                      TEMP t136,
+                      TEMP t136),
+                     CONST 1),
+                    CONST 0)),
+                 TEMP t142)),
+               SEQ(
+                MOVE(
+                 TEMP t139,
+                 ESEQ(
+                  MOVE(
+                   TEMP t140,
+                   CALL(
+                    NAME initArray,
+                     TEMP t136,
+                     CONST 0)),
+                  TEMP t140)),
+                SEQ(
+                 MOVE(
+                  TEMP t137,
+                  ESEQ(
+                   MOVE(
+                    TEMP t138,
+                    CALL(
+                     NAME initArray,
+                      TEMP t136,
+                      CONST 0)),
+                   TEMP t138)),
+                 MOVE(
+                  TEMP t136,
+                  CONST 8))))),
+             CALL(
+              NAME try,
+               TEMP t123,
+               CONST 0))),
+           SEQ(
+            MOVE(
+             TEMP t112,
+             TEMP t171),
+            SEQ(
+             MOVE(
+              TEMP t113,
+              TEMP t170),
+             SEQ(
+              MOVE(
+               TEMP t114,
+               TEMP t169),
+              SEQ(
+               MOVE(
+                TEMP t115,
+                TEMP t168),
+               SEQ(
+                MOVE(
+                 TEMP t116,
+                 TEMP t167),
+                SEQ(
+                 MOVE(
+                  TEMP t117,
+                  TEMP t166),
+                 SEQ(
+                  MOVE(
+                   TEMP t118,
+                   TEMP t165),
+                  SEQ(
+                   MOVE(
+                    TEMP t119,
+                    TEMP t164),
+                   MOVE(
+                    TEMP t120,
+                    TEMP t163))))))))))))))))))))

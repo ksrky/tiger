@@ -5,11 +5,9 @@ do_nothing1:
 L28:
 	sw	$a0, 4($fp)
 	lw	$a0, 4($fp)
-	addiu	$t0, $t0, 1
-	move	$a1, $t0
+	addiu	$a1, $t0, 1
 	jal	do_nothing2
-	li	$t0, 0
-	move	$v0, $t0
+	li	$v0, 0
 	j	L27
 L27:
 	move	$sp, $fp
@@ -26,12 +24,9 @@ do_nothing2:
 L30:
 	sw	$a0, 4($fp)
 	lw	$a0, 4($fp)
-	move	$a1, $t0
-	la	$t0, L24
-	move	$a2, $t0
+	la	$a2, L24
 	jal	do_nothing1
-	la	$t0, L23
-	move	$v0, $t0
+	la	$v0, L23
 	j	L29
 L29:
 	move	$sp, $fp
@@ -47,10 +42,8 @@ main:
 L32:
 	sw	$a0, 4($fp)
 	move	$a0, $fp
-	li	$t0, 0
-	move	$a1, $t0
-	la	$t0, L26
-	move	$a2, $t0
+	li	$a1, 0
+	la	$a2, L26
 	jal	do_nothing1
 	j	L31
 L31:

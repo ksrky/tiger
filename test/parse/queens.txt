@@ -1,0 +1,18 @@
+LetExp([
+ VarDec(N,true,None,
+ TypeDec[
+  (intArray,
+   ArrayTy(int)],
+ VarDec(row,true,None,
+ VarDec(col,true,None,
+ VarDec(diag1,true,None,
+ VarDec(diag2,true,None,
+ FunctionDec[
+  (printboard,[],
+None,
+  (try,[
+   (c,true,int)],
+None]],
+ SeqExp[
+  CallExp(try,[
+   IntExp(0)])])

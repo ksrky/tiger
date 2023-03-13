@@ -11,8 +11,7 @@ L53:
 	ble $t0, $t1, L54
 	b L52
 L52:
-	li	$t0, 0
-	move	$v0, $t0
+	li	$v0, 0
 	j	L55
 L54:
 	addiu	$t0, $t0, 1

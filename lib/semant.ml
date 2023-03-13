@@ -21,7 +21,7 @@ let rec check_type (exp_ty, got_ty, pos) =
   if exp_ty' == got_ty' || exp_ty' == T.NIL || T.NIL == got_ty' then ()
   else
     error pos
-      ("type mismatch. " ^ "expecting " ^ T.type2str exp_ty ^ ", but got " ^ T.type2str got_ty')
+      ("type mismatch. " ^ "expecting " ^ T.type2str exp_ty ^ ", but got " ^ T.type2str got_ty)
       ()
 
 and actual_ty (ty, pos) =
@@ -54,14 +54,16 @@ let rec transExp (venv, tenv, level, breakpoint, exp) : expty =
           ; (A.GeOp, Tr.geExp); (A.EqOp, Tr.eqExp); (A.NeqOp, Tr.neqExp) ]
         in
         let res_exp = (List.assoc oper ops) left_exp right_exp in
+        let res_expty = {exp= res_exp; ty= T.INT} in
         match (actual_ty (left_ty, pos), actual_ty (right_ty, pos)) with
-        | T.INT, T.INT -> {exp= res_exp; ty= T.INT}
+        | T.NIL, _ | _, T.NIL -> res_expty
+        | T.INT, T.INT -> res_expty
         | _ when List.mem oper [PlusOp; MinusOp; TimesOp; DivideOp] ->
             error pos ("invalid operation for " ^ T.type2str left_ty) err_expty
-        | T.STRING, T.STRING -> {exp= res_exp; ty= T.INT}
+        | T.STRING, T.STRING -> res_expty
         | _ when List.mem oper [A.LtOp; A.GtOp; A.LeOp; A.GeOp] ->
             error pos ("invalid comparison for " ^ T.type2str left_ty) err_expty
-        | ty, ty' when ty == ty' -> {exp= res_exp; ty= T.INT} (* note: checking physical equality *)
+        | ty, ty' when ty == ty' -> res_expty (* note: checking physical equality *)
         | _ ->
             error pos
               ( "comparison of incompatible types. " ^ T.type2str left_ty ^ " with "

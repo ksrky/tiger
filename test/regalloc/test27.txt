@@ -4,9 +4,24 @@ g:
 	addi	$sp, $sp, -16
 L93:
 	sw	$a0, 4($fp)
-	move	$v0, $t0
 	j	L92
 L92:
+	move	$sp, $fp
+	lw	$fp, 0($sp)
+	jr	$ra
+
+main:
+	sw	$fp, 0($sp)
+	move	$fp, $sp
+	addi	$sp, $sp, -16
+L95:
+	sw	$a0, 4($fp)
+	li	$t0, 0
+	move	$a0, $fp
+	li	$a1, 2
+	jal	g
+	j	L94
+L94:
 	move	$sp, $fp
 	lw	$fp, 0($sp)
 	jr	$ra

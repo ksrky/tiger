@@ -14,8 +14,9 @@ open Absyn
 %token BREAK NIL
 %token FUNCTION VAR TYPE
 
-%left AND OR
-%nonassoc LT LE GT GE
+%right OR
+%right AND
+%nonassoc EQ NEQ GT LT GE LE
 %left PLUS MINUS
 %left TIMES DIVIDE
 %nonassoc UMINUS

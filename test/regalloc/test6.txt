@@ -8,10 +8,8 @@ main:
 L21:
 	sw	$a0, 4($fp)
 	move	$a0, $fp
-	li	$t0, 0
-	move	$a1, $t0
-	la	$t0, L19
-	move	$a2, $t0
+	li	$a1, 0
+	la	$a2, L19
 	jal	do_nothing1
 	j	L20
 L20:

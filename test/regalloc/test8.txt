@@ -10,11 +10,12 @@ L37:
 	b L34
 L34:
 	li	$t0, 40
-L35:
 	move	$v0, $t0
+L35:
 	j	L36
 L33:
 	li	$t0, 30
+	move	$v0, $t0
 	j	L35
 L36:
 	move	$sp, $fp

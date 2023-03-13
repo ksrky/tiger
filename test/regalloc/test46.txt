@@ -1,0 +1,26 @@
+main:
+	sw	$fp, 0($sp)
+	move	$fp, $sp
+	addi	$sp, $sp, -16
+L135:
+	sw	$a0, 4($fp)
+	li	$t0, 0
+	li	$t1, 0
+	beq	$t0, $t1, L133
+	b L133
+L133:
+	li	$t0, 1
+	move	$v0, $t0
+	li	$t1, 0
+	bne	$t0, $t1, L131
+	b L132
+L132:
+	li	$t0, 0
+	move	$v0, $t0
+L131:
+	j	L134
+L134:
+	move	$sp, $fp
+	lw	$fp, 0($sp)
+	jr	$ra
+

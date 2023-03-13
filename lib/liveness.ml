@@ -52,9 +52,7 @@ let interferenceGraph (Flow.FGRAPH {control; def; use; ismove} : Flow.flowgraph)
   (* make interference graph *)
   let all_temps : Temp.temp list =
     Temp.Set.elements
-      (List.fold_left
-         (fun ts node -> ts ++ (liveIn @@ node) ++ (liveOut @@ node))
-         Temp.Set.empty nodes )
+      (List.fold_left (fun ts node -> ts ++ (use @@ node) ++ (def @@ node)) Temp.Set.empty nodes)
   in
   let graph = Graph.newGraph () in
   let temp2node : (Temp.temp * Graph.node) list =
@@ -70,7 +68,7 @@ let interferenceGraph (Flow.FGRAPH {control; def; use; ismove} : Flow.flowgraph)
       let [from] = Temp.Set.elements (use @@ fnode) in
       let [to'] = Temp.Set.elements (def @@ fnode) in
       try moves := (List.assoc from temp2node, List.assoc to' temp2node) :: !moves
-      with Not_found -> () (* note: dead move instruction *)
+      with Not_found -> ErrorMsg.impossible "Tiger.Liveness.interferenceGraph"
   in
   let buildGraph (temp, inode) =
     (* fnode: node of FlowGraph, inode: node of InterferenceGraph *)
