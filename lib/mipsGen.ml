@@ -3,7 +3,7 @@ module T = Tree
 
 let codegen _ stm =
   let ilist = ref [] in
-  let calldefs = [Frame.rv] @ Frame.argregs in
+  let calldefs = [Frame.rv; Frame.ra] @ Frame.callersaves in
   let emit instr = ilist := instr :: !ilist in
   let result gen =
     let t = Temp.newtemp () in

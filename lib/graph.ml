@@ -47,14 +47,14 @@ let newNode (g : graph) =
 
 exception GraphEdge
 
-let check ((g, g') : graph * graph) = if g = g' then () else raise GraphEdge (* or () *)
+let _check ((g, g') : graph * graph) = if g = g' then () else raise GraphEdge (* or () *)
 
 let rec delete (i : node') (j :: rest : node' list) : node' list =
   if i = j then rest else j :: delete i rest
 
-let diddle_edge (change : node' -> node' list -> node' list) (((g, i) : node), ((g', j) : node)) :
+let diddle_edge (change : node' -> node' list -> node' list) (((g, i) : node), ((_g', j) : node)) :
     unit =
-  let () = check (g, g') in
+  (* let () = check (g, g') in *)
   let (NODE {succ= si; pred= pi}) = g.(i) in
   let () = Array.set g i (NODE {succ= change j si; pred= pi}) in
   let (NODE {succ= sj; pred= pj}) = g.(j) in

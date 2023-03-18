@@ -7,9 +7,9 @@ let instr2graph (ilist : Assem.instr list) : Flow.flowgraph * Flow.Graph.node li
       ; ismove= Graph.Table.empty }
   in
   let next : Graph.node option ref = ref None in
-  let map_next_edge (from : Graph.node) =
+  let _map_next_edge (from : Graph.node) =
     match !next with
-    | None -> ()
+    | None -> next := Some from
     | Some to' ->
         Graph.mk_edge (from, to');
         next := Some from
@@ -26,13 +26,13 @@ let instr2graph (ilist : Assem.instr list) : Flow.flowgraph * Flow.Graph.node li
     | None -> ()
     | Some from -> Graph.mk_edge (from, to')
   in
+  let ordered_nodes = ref [] (* corresponding to instruction order *) in
   let makeGraph (Flow.FGRAPH {control; def; use; ismove}) instr =
     let node = Flow.Graph.newNode control in
+    ordered_nodes := node :: !ordered_nodes;
     match instr with
     | Assem.OPER {dst; src; jump; _} ->
-        ( match jump with
-        | None -> map_next_edge node
-        | Some jmps -> List.iter (map_latter_labeled_edge node) jmps );
+        (match jump with None -> () | Some jmps -> List.iter (map_latter_labeled_edge node) jmps);
         Flow.FGRAPH
           { control
           ; def= Graph.Table.add node (Temp.Set.of_list dst) def
@@ -49,16 +49,18 @@ let instr2graph (ilist : Assem.instr list) : Flow.flowgraph * Flow.Graph.node li
           ; use= Graph.Table.add node (Temp.Set.of_list [src]) use
           ; ismove= Graph.Table.add node true ismove }
   in
-  let (Flow.FGRAPH {control; _} as resultFGraph) =
+  let resultFGraph =
     (* note: making flow graph in reverse order *)
     List.fold_left makeGraph initialFGraph (List.rev ilist)
   in
-  (resultFGraph, Flow.Graph.nodes control)
+  List.iteri
+    (fun i node -> Graph.mk_edge (List.nth !ordered_nodes i, node))
+    (List.tl !ordered_nodes);
+  (resultFGraph, !ordered_nodes)
 
-let show (out : out_channel) (graph : Flow.flowgraph) : unit =
+let show (out : out_channel) (graph : Flow.flowgraph) (nodes : Graph.node list) : unit =
   let f t = try Temp.Table.find t Frame.tempMap with Not_found -> Temp.makestring t in
-  let (FGRAPH {control; def; use; _}) = graph in
-  let nodes = Graph.nodes control in
+  let (FGRAPH {def; use; _}) = graph in
   output_string out "def\t\t\t\t\tuse\n";
   List.iter
     (fun node ->

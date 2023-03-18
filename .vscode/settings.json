@@ -2,5 +2,11 @@
   "ocaml.sandbox": {
     "kind": "opam",
     "switch": "4.14.0"
+  },
+  "files.associations": {
+    "*.html": "html",
+    "ex0": "plaintext",
+    "*.plt": "plaintext",
+    "include.h": "c"
   }
 }

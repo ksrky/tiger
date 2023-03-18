@@ -19,7 +19,7 @@ let ( -- ) : liveSet -> liveSet -> liveSet = Temp.Set.diff
 
 let interferenceGraph (Flow.FGRAPH {control; def; use; ismove} : Flow.flowgraph) :
     igraph * (Flow.Graph.node -> Temp.temp list) =
-  (* calculate liveness information *)
+  (* Calculate liveness information *)
   let nodes : Flow.Graph.node list = Flow.Graph.nodes control in
   let initLiveInOut =
     List.fold_left
@@ -29,7 +29,7 @@ let interferenceGraph (Flow.FGRAPH {control; def; use; ismove} : Flow.flowgraph)
       nodes
   in
   let changed : bool ref = ref false in
-  let solve (liveIn, liveOut) (node : Flow.Graph.node) : liveMap * liveMap =
+  let solveLiveness (liveIn, liveOut) (node : Flow.Graph.node) : liveMap * liveMap =
     (* note: calculate liveIn after liveOut when solved in reverse order *)
     let oldLiveOut : liveSet = liveOut @@ node in
     let oldLiveIn : liveSet = liveIn @@ node in
@@ -42,14 +42,26 @@ let interferenceGraph (Flow.FGRAPH {control; def; use; ismove} : Flow.flowgraph)
     (Graph.Table.add node newLiveIn liveIn, Graph.Table.add node newLiveOut liveOut)
   in
   let rec repeat liveInOut =
-    let newLiveInOut = List.fold_left solve liveInOut nodes in
+    let newLiveInOut = List.fold_left solveLiveness liveInOut nodes in
     if !changed then (
       changed := false;
       repeat newLiveInOut )
     else newLiveInOut
   in
   let liveIn, liveOut = repeat initLiveInOut in
-  (* make interference graph *)
+  let _debugLiveInOut (liveIn, liveOut) =
+    print_endline "out\t\tin";
+    List.iter
+      (fun node ->
+        let li = Temp.Set.elements (liveIn @@ node) in
+        let lo = Temp.Set.elements (liveOut @@ node) in
+        print_string (String.concat "," (List.map string_of_int lo));
+        print_string "\t\t";
+        print_endline (String.concat "," (List.map string_of_int li)) )
+      nodes
+  in
+  let () = _debugLiveInOut (liveIn, liveOut) in
+  (* Make interference graph *)
   let all_temps : Temp.temp list =
     Temp.Set.elements
       (List.fold_left (fun ts node -> ts ++ (use @@ node) ++ (def @@ node)) Temp.Set.empty nodes)
@@ -63,18 +75,20 @@ let interferenceGraph (Flow.FGRAPH {control; def; use; ismove} : Flow.flowgraph)
       all_temps
   in
   let moves : (Graph.node * Graph.node) list ref = ref [] in
-  let makeMoves fnode : unit =
-    if Graph.Table.find fnode ismove then
+  let makeMoves fnode : (Temp.temp * Temp.temp) option =
+    if Graph.Table.find fnode ismove then (
       let [from] = Temp.Set.elements (use @@ fnode) in
       let [to'] = Temp.Set.elements (def @@ fnode) in
-      try moves := (List.assoc from temp2node, List.assoc to' temp2node) :: !moves
-      with Not_found -> ErrorMsg.impossible "Tiger.Liveness.interferenceGraph"
+      ( try moves := (List.assoc from temp2node, List.assoc to' temp2node) :: !moves
+        with Not_found -> ErrorMsg.impossible "Tiger.Liveness.interferenceGraph" );
+      Some (from, to') )
+    else None
   in
-  let buildGraph (temp, inode) =
+  let _buildGraph (temp, inode) =
     (* fnode: node of FlowGraph, inode: node of InterferenceGraph *)
     List.iter
       (fun fnode ->
-        let itf_temps = Temp.Set.elements (liveIn @@ fnode) in
+        let itf_temps = Temp.Set.elements (liveOut @@ fnode) in
         if List.mem temp itf_temps then
           List.iter
             (fun itf_t ->
@@ -84,11 +98,34 @@ let interferenceGraph (Flow.FGRAPH {control; def; use; ismove} : Flow.flowgraph)
                   Graph.mk_edge (inode, v);
                   Graph.mk_edge (v, inode) )
               with Not_found -> ErrorMsg.impossible "at Liveness.interferenceGraph" )
-            itf_temps;
-        makeMoves fnode )
+            itf_temps )
       nodes
   in
-  List.iter buildGraph temp2node;
+  let buildGraph () =
+    List.iter
+      (fun fnode ->
+        let mv_opt = makeMoves fnode in
+        let itf_temps = Temp.Set.elements ((liveIn @@ fnode) ++ (liveOut @@ fnode)) in
+        List.iter
+          (fun u ->
+            let ts =
+              match mv_opt with
+              | Some (from, to') when from = u -> List.filter (( <> ) to') itf_temps
+              | _ -> itf_temps
+            in
+            List.iter
+              (fun v ->
+                if u <> v then
+                  try
+                    Graph.mk_edge (List.assoc u temp2node, List.assoc v temp2node);
+                    Graph.mk_edge (List.assoc v temp2node, List.assoc u temp2node)
+                  with Not_found -> ErrorMsg.impossible "at Liveness.interferenceGraph" )
+              ts )
+          itf_temps )
+      nodes
+  in
+  (*List.iter buildGraph temp2node;*)
+  buildGraph ();
   let igraph =
     IGRAPH
       { graph
@@ -117,10 +154,10 @@ let show (out : out_channel) (IGRAPH {graph; gtemp; moves; _} : igraph) : unit =
           if Some v = mv then matrix.(i).(j) <- 'm' )
         nodes )
     nodes;
-  output_string out ("    " ^ String.concat " " (List.map prnode nodes) ^ "\n");
+  output_string out ("\t" ^ String.concat "\t" (List.map prnode nodes) ^ "\n");
   List.iteri
     (fun i row ->
-      output_string out (prnode (List.nth nodes i) ^ " ");
-      List.iter (fun c -> output_string out (" " ^ Char.escaped c ^ "  ")) (Array.to_list row);
+      output_string out (prnode (List.nth nodes i) ^ "\t");
+      List.iter (fun c -> output_string out ("   " ^ Char.escaped c ^ "\t")) (Array.to_list row);
       output_string out "\n" )
     (Array.to_list matrix)

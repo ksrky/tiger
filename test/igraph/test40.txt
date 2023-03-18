@@ -1,40 +1,42 @@
-    $a0 $t7 $t6 $t5 $t4 $t3 $t2 $t1 $t0 $s7 $s6 $s5 $s4 $s3 $s2 $s1 $s0 $ra $sp $fp t124 t821 t822 t823 t824 t825 t826 t827 t828 t829 t830 t831 t832 t833 t834 t835 t836 t837 t838
-$a0                                                                              o                                                                              
-$t7                                                                                                                                                      m      
-$t6                                                                                                                                                  m          
-$t5                                                                                                                                              m              
-$t4                                                                                                                                          m                  
-$t3                                                                                                                                      m                      
-$t2                                                                                                                                  m                          
-$t1                                                                                                                              m                              
-$t0                                                                                                                          m                                  
-$s7                                          o   o   o   o   o   o   o   o   o       o                                   m                                      
-$s6                                      o       o   o   o   o   o   o   o   o       o                               m                                          
-$s5                                      o   o       o   o   o   o   o   o   o       o                           m                                              
-$s4                                      o   o   o       o   o   o   o   o   o       o                       m                                                  
-$s3                                      o   o   o   o       o   o   o   o   o       o                   m                                                      
-$s2                                      o   o   o   o   o       o   o   o   o       o               m                                                          
-$s1                                      o   o   o   o   o   o       o   o   o       o           m                                                              
-$s0                                      o   o   o   o   o   o   o       o   o       o       m                                                                  
-$ra                                      o   o   o   o   o   o   o   o       o       o   m                                                                      
-$sp                                      o   o   o   o   o   o   o   o   o           o                                                                          
-$fp  m                                                                                                                                                          
-t124                                      o   o   o   o   o   o   o   o   o   o                                                                                  
-t821                                                                      m                                                                                      
-t822                                                                  m                                                                                          
-t823                                                              m                                                                                              
-t824                                                          m                                                                                                  
-t825                                                      m                                                                                                      
-t826                                                  m                                                                                                          
-t827                                              m                                                                                                              
-t828                                          m                                                                                                                  
-t829                                      m                                                                                                                      
-t830                                  m                                                                                                                          
-t831                              m                                                                                                                              
-t832                          m                                                                                                                                  
-t833                      m                                                                                                                                      
-t834                  m                                                                                                                                          
-t835              m                                                                                                                                              
-t836          m                                                                                                                                                  
-t837      m                                                                                                                                                      
-t838                                                                                                                                                             
+	$a1	$a0	$t7	$t6	$t5	$t4	$t3	$t2	$t1	$t0	$s7	$s6	$s5	$s4	$s3	$s2	$s1	$s0	$ra	$sp	$v0	$fp	t124	t821	t822	t823	t824	t825	t826	t827	t828	t829	t830	t831	t832	t833	t834	t835	t836	t837	t838
+$a1	    	   o	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	   o	    	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	
+$a0	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	
+$t7	    	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	
+$t6	    	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	
+$t5	    	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	
+$t4	    	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	
+$t3	    	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	    	
+$t2	    	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	    	    	
+$t1	    	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	    	    	    	
+$t0	    	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	    	    	    	    	
+$s7	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	    	    	    	    	    	
+$s6	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	    	    	    	    	    	    	
+$s5	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	    	    	    	    	    	    	    	
+$s4	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	    	    	    	    	    	    	    	    	
+$s3	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	    	    	    	    	    	    	    	    	    	
+$s2	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	    	    	    	    	    	    	    	    	    	    	    	    	    	    	
+$s1	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	    	   o	   o	   o	   o	   o	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	
+$s0	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	    	   o	   o	   o	   o	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	
+$ra	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	    	   o	   o	   o	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	
+$sp	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	
+$v0	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	
+$fp	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	
+t124	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	
+t821	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	
+t822	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	    	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	
+t823	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	   o	    	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	
+t824	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	   o	    	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	
+t825	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	   o	    	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	
+t826	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	    	   o	    	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	
+t827	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	    	    	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	
+t828	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	    	    	    	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	
+t829	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	    	    	    	    	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	
+t830	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	    	    	    	    	    	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	
+t831	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	    	    	    	    	    	    	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	
+t832	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	    	    	    	    	    	    	    	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	
+t833	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	    	    	    	    	    	    	    	    	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	
+t834	   o	   o	   o	   o	   o	   o	    	    	    	    	    	    	    	    	    	    	    	    	    	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	
+t835	   o	   o	   o	   o	   o	    	    	    	    	    	    	    	    	    	    	    	    	    	    	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	
+t836	   o	   o	   o	   o	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	
+t837	   o	   o	   o	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	
+t838	   o	   o	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	   o	    	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	

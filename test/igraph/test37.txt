@@ -1,26 +1,29 @@
-    $a0 $s7 $s6 $s5 $s4 $s3 $s2 $s1 $s0 $ra $sp $fp t124 t770 t771 t772 t773 t774 t775 t776 t777 t778 t779 t780 t781
-$a0                                              o                                                      
-$s7          o   o   o   o   o   o   o   o   o       o                                   m              
-$s6      o       o   o   o   o   o   o   o   o       o                               m                  
-$s5      o   o       o   o   o   o   o   o   o       o                           m                      
-$s4      o   o   o       o   o   o   o   o   o       o                       m                          
-$s3      o   o   o   o       o   o   o   o   o       o                   m                              
-$s2      o   o   o   o   o       o   o   o   o       o               m                                  
-$s1      o   o   o   o   o   o       o   o   o       o           m                                      
-$s0      o   o   o   o   o   o   o       o   o       o       m                                          
-$ra      o   o   o   o   o   o   o   o       o       o   m                                              
-$sp      o   o   o   o   o   o   o   o   o           o                                                  
-$fp  o                                                                                                  
-t124      o   o   o   o   o   o   o   o   o   o                                                          
-t770                                      m                                                              
-t771                                  m                                                                  
-t772                              m                                                                      
-t773                          m                                                                          
-t774                      m                                                                              
-t775                  m                                                                                  
-t776              m                                                                                      
-t777          m                                                                                          
-t778      m                                                                                              
-t779                                                                                                     
-t780                                                                                                     
-t781                                                                                                     
+	$a0	$s7	$s6	$s5	$s4	$s3	$s2	$s1	$s0	$ra	$sp	$v0	$fp	t124	t768	t769	t770	t771	t772	t773	t774	t775	t776	t777	t778	t779	t780	t781
+$a0	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	    	    	    	    	    	    	    	    	    	    	    	    	    	    	
+$s7	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	    	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	
+$s6	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	    	    	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	
+$s5	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	    	    	   o	   o	   o	   o	   o	   o	   o	    	    	    	    	    	
+$s4	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	    	   o	   o	    	    	   o	   o	   o	   o	   o	   o	    	    	    	    	    	    	
+$s3	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	    	   o	   o	    	    	   o	   o	   o	   o	   o	    	    	    	    	    	    	    	
+$s2	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	    	   o	   o	    	    	   o	   o	   o	   o	    	    	    	    	    	    	    	    	
+$s1	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	    	   o	   o	    	    	   o	   o	   o	    	    	    	    	    	    	    	    	    	
+$s0	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	    	   o	   o	    	    	   o	   o	    	    	    	    	    	    	    	    	    	    	
+$ra	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	    	   o	   o	    	    	   o	    	    	    	    	    	    	    	    	    	    	    	
+$sp	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	   o	   o	    	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	
+$v0	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	
+$fp	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	   o	    	    	    	    	    	    	    	    	    	    	    	    	    	    	
+t124	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	    	    	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	
+t768	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	
+t769	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	
+t770	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	   o	    	    	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	
+t771	    	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	    	    	   o	    	    	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	   o	
+t772	    	   o	   o	   o	   o	   o	   o	   o	    	    	   o	    	    	   o	    	    	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	
+t773	    	   o	   o	   o	   o	   o	   o	    	    	    	   o	    	    	   o	    	    	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	   o	
+t774	    	   o	   o	   o	   o	   o	    	    	    	    	   o	    	    	   o	    	    	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	   o	
+t775	    	   o	   o	   o	   o	    	    	    	    	    	   o	    	    	   o	    	    	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	   o	
+t776	    	   o	   o	   o	    	    	    	    	    	    	   o	    	    	   o	    	    	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	   o	
+t777	    	   o	   o	    	    	    	    	    	    	    	   o	    	    	   o	    	    	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	   o	
+t778	    	   o	    	    	    	    	    	    	    	    	   o	    	    	   o	    	    	   o	   o	   o	   o	   o	   o	   o	   o	    	   o	   o	   o	
+t779	    	    	    	    	    	    	    	    	    	    	   o	    	    	   o	    	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	
+t780	    	    	    	    	    	    	    	    	    	    	   o	    	    	   o	    	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	
+t781	    	    	    	    	    	    	    	    	    	    	   o	    	    	   o	    	    	   o	   o	   o	   o	   o	   o	   o	   o	   o	    	    	    	

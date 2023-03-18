@@ -7,8 +7,8 @@ let emitproc (out : out_channel) : Frame.frag -> unit = function
       let stms' : Tree.stm list = Canon.traceSchedule (Canon.basicBlocks stms) in
       let instrs : Assem.instr list = List.concat (List.map (Codegen.codegen frame) stms') in
       let instrs2 = Frame.procEntryExit2 frame instrs in
-      let fgraph, _ = MakeGraph.instr2graph instrs2 in
-      MakeGraph.show out fgraph
+      let fgraph, ordered_nodes = MakeGraph.instr2graph instrs2 in
+      MakeGraph.show out fgraph ordered_nodes
   | Frame.STRING _ -> ()
 
 let withOpenFile (fname : string) (f : out_channel -> unit) : unit =
