@@ -3,9 +3,9 @@ main:
 	move	$fp, $sp
 	addi	$sp, $sp, -16
 L113:
-	sw	$a0, 4($fp)
-	move	$a0, $fp
-	li	$a1, 2
+	sw	$t0, 4($t0)
+	li	$t1, 2
+	move	$t0, $t1
 	jal	g
 	j	L112
 L112:

@@ -1,29 +1,11 @@
 L109:	.asciiz " "
 L111:
 	sw	t103, 4(t123)
-	move	t770, t120
-	move	t771, t119
-	move	t772, t118
-	move	t773, t117
-	move	t774, t116
-	move	t775, t115
-	move	t776, t114
-	move	t777, t113
-	move	t778, t112
-	la	t779, L109
-	move	t769, t779
-	li	t780, 0
-	move	t768, t780
-	li	t781, 0
-	move	t122, t781
-	move	t112, t778
-	move	t113, t777
-	move	t114, t776
-	move	t115, t775
-	move	t116, t774
-	move	t117, t773
-	move	t118, t772
-	move	t119, t771
-	move	t120, t770
+	la	t347, L109
+	move	t346, t347
+	li	t348, 0
+	move	t345, t348
+	li	t349, 0
+	move	t122, t349
 	j	L110
 L110:

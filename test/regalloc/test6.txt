@@ -6,10 +6,9 @@ main:
 	move	$fp, $sp
 	addi	$sp, $sp, -16
 L21:
-	sw	$a0, 4($fp)
-	move	$a0, $fp
-	li	$a1, 0
-	la	$a2, L19
+	sw	$t0, 4($t0)
+	li	$t0, 0
+	la	$t0, L19
 	jal	do_nothing1
 	j	L20
 L20:

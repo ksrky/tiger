@@ -6,14 +6,6 @@ let instr2graph (ilist : Assem.instr list) : Flow.flowgraph * Flow.Graph.node li
       ; use= Graph.Table.empty
       ; ismove= Graph.Table.empty }
   in
-  let next : Graph.node option ref = ref None in
-  let _map_next_edge (from : Graph.node) =
-    match !next with
-    | None -> next := Some from
-    | Some to' ->
-        Graph.mk_edge (from, to');
-        next := Some from
-  in
   let label2itsnode : (Temp.label * Graph.node) list ref = ref [] in
   let label2fromnode : (Temp.label * Graph.node) list ref = ref [] in
   let map_latter_labeled_edge (from : Graph.node) lab =

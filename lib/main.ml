@@ -9,9 +9,8 @@ let emitproc (out : out_channel) : Frame.frag -> unit = function
       let prolog, instrs3, epilog = Frame.procEntryExit3 frame instrs2' in
       let format0 : Assem.instr -> Assem.reg =
         Assem.format (fun t ->
-            try Temp.Table.find t alloc
-            with Not_found ->
-              ErrorMsg.impossible "Register allocation doesn't cover all temporaries" )
+            try Temp.Table.find t alloc with Not_found -> Temp.makestring t
+            (*ErrorMsg.impossible "Register allocation doesn't cover all temporaries"*) )
       in
       output_string out prolog;
       List.iter (fun i -> output_string out (format0 i)) instrs3;

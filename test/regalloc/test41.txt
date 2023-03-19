@@ -3,8 +3,8 @@ main:
 	move	$fp, $sp
 	addi	$sp, $sp, -16
 L115:
-	sw	$a0, 4($fp)
-	li	$v0, 0
+	sw	$t0, 4($t0)
+	li	$t0, 0
 	j	L114
 L114:
 	move	$sp, $fp

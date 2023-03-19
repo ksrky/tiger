@@ -1,46 +1,28 @@
 L28:
 	sw	t103, 4(t123)
-	move	t291, t120
-	move	t292, t119
-	move	t293, t118
-	move	t294, t117
-	move	t295, t116
-	move	t296, t115
-	move	t297, t114
-	move	t298, t113
-	move	t299, t112
-	move	t319, t111
-	move	t320, t110
-	move	t321, t109
-	move	t322, t108
-	move	t323, t107
-	move	t324, t106
-	move	t325, t105
-	move	t326, t104
-	lw	t327, 4(t123)
-	move	t103, t327
-	addiu	t328, t289, 1
-	move	t102, t328
+	move	t229, t111
+	move	t230, t110
+	move	t231, t109
+	move	t232, t108
+	move	t233, t107
+	move	t234, t106
+	move	t235, t105
+	move	t236, t104
+	lw	t237, 4(t123)
+	move	t103, t237
+	addiu	t238, t226, 1
+	move	t102, t238
 	jal	do_nothing2
-	move	t104, t326
-	move	t105, t325
-	move	t106, t324
-	move	t107, t323
-	move	t108, t322
-	move	t109, t321
-	move	t110, t320
-	move	t111, t319
-	li	t329, 0
-	move	t122, t329
-	move	t112, t299
-	move	t113, t298
-	move	t114, t297
-	move	t115, t296
-	move	t116, t295
-	move	t117, t294
-	move	t118, t293
-	move	t119, t292
-	move	t120, t291
+	move	t104, t236
+	move	t105, t235
+	move	t106, t234
+	move	t107, t233
+	move	t108, t232
+	move	t109, t231
+	move	t110, t230
+	move	t111, t229
+	li	t239, 0
+	move	t122, t239
 	j	L27
 L27:
 L22:	.asciiz " "
@@ -48,94 +30,42 @@ L23:	.asciiz " "
 L24:	.asciiz "str"
 L30:
 	sw	t103, 4(t123)
-	move	t301, t120
-	move	t302, t119
-	move	t303, t118
-	move	t304, t117
-	move	t305, t116
-	move	t306, t115
-	move	t307, t114
-	move	t308, t113
-	move	t309, t112
-	move	t330, t111
-	move	t331, t110
-	move	t332, t109
-	move	t333, t108
-	move	t334, t107
-	move	t335, t106
-	move	t336, t105
-	move	t337, t104
-	lw	t338, 4(t123)
-	move	t103, t338
-	move	t102, t300
-	la	t339, L24
-	move	t101, t339
+	move	t240, t111
+	move	t241, t110
+	move	t242, t109
+	move	t243, t108
+	move	t244, t107
+	move	t245, t106
+	move	t246, t105
+	move	t247, t104
+	lw	t248, 4(t123)
+	move	t103, t248
+	move	t102, t228
+	la	t249, L24
+	move	t101, t249
 	jal	do_nothing1
-	move	t104, t337
-	move	t105, t336
-	move	t106, t335
-	move	t107, t334
-	move	t108, t333
-	move	t109, t332
-	move	t110, t331
-	move	t111, t330
-	la	t340, L23
-	move	t122, t340
-	move	t112, t309
-	move	t113, t308
-	move	t114, t307
-	move	t115, t306
-	move	t116, t305
-	move	t117, t304
-	move	t118, t303
-	move	t119, t302
-	move	t120, t301
+	move	t104, t247
+	move	t105, t246
+	move	t106, t245
+	move	t107, t244
+	move	t108, t243
+	move	t109, t242
+	move	t110, t241
+	move	t111, t240
+	la	t250, L23
+	move	t122, t250
 	j	L29
 L29:
 L25:	.asciiz "str2"
 L26:	.asciiz "str2"
 L32:
 	sw	t103, 4(t123)
-	move	t310, t120
-	move	t311, t119
-	move	t312, t118
-	move	t313, t117
-	move	t314, t116
-	move	t315, t115
-	move	t316, t114
-	move	t317, t113
-	move	t318, t112
-	move	t341, t111
-	move	t342, t110
-	move	t343, t109
-	move	t344, t108
-	move	t345, t107
-	move	t346, t106
-	move	t347, t105
-	move	t348, t104
 	move	t103, t123
-	li	t349, 0
-	move	t102, t349
-	la	t350, L26
-	move	t101, t350
+	li	t259, 0
+	move	t102, t259
+	la	t260, L26
+	move	t101, t260
 	jal	do_nothing1
-	move	t104, t348
-	move	t105, t347
-	move	t106, t346
-	move	t107, t345
-	move	t108, t344
-	move	t109, t343
-	move	t110, t342
-	move	t111, t341
 	move	t122, t122
-	move	t112, t318
-	move	t113, t317
-	move	t114, t316
-	move	t115, t315
-	move	t116, t314
-	move	t117, t313
-	move	t118, t312
-	move	t119, t311
-	move	t120, t310
 	j	L31
 L31:

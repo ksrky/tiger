@@ -52,8 +52,8 @@ let calleesaves = [s0; s1; s2; s3; s4; s5; s6; s7]
 let callersaves = [t0; t1; t2; t3; t4; t5; t6; t7]
 
 let registers : register list =
-  [ "$t0"; "$t1"; "$t2"; "$t3"; "$t4"; "$t5"; "$t6"; "$t7"; "$s0"; "$s1"; "$s2"; "$s3"; "$s4"; "$s5"
-  ; "$s6"; "$s7"; "$a0"; "$a1"; "$a2"; "$a3"; "$fp"; "$v0"; "$sp"; "$ra" ]
+  [ "$a0"; "$a1"; "$a2"; "$a3"; "$t0"; "$t1"; "$t2"; "$t3"; "$t4"; "$t5"; "$t6"; "$t7"; "$s0"; "$s1"
+  ; "$s2"; "$s3"; "$s4"; "$s5"; "$s6"; "$s7"; "$fp"; "$v0"; "$sp"; "$ra" ]
 
 let tempMap : register TP.Table.t =
   TP.Table.of_seq
@@ -101,7 +101,7 @@ let rec mkseq = function
 let procEntryExit1 (frame : frame) (stm : Tree.stm) : Tree.stm =
   (* note: ra and calleesaves are saved in temporaries and they are restoed at the exit of a function.
       Those move instructions that are not spilled will be removed at register allocation. *)
-  let accregs = List.map (fun r -> (allocLocal frame false, r)) (ra :: calleesaves) in
+  let accregs = List.map (fun r -> (allocLocal frame false, r)) [ (*ra :: calleesaves*) ] in
   let saves = List.map (fun (a, r) -> T.MOVE (exp a (T.TEMP fp), T.TEMP r)) accregs in
   let restores = List.map (fun (a, r) -> T.MOVE (T.TEMP r, exp a (T.TEMP fp))) (List.rev accregs) in
   mkseq (frame.instrs @ saves @ [stm] @ restores)

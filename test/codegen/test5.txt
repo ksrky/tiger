@@ -1,48 +1,14 @@
 L16:
 	sw	t103, 4(t123)
-	move	t247, t120
-	move	t248, t119
-	move	t249, t118
-	move	t250, t117
-	move	t251, t116
-	move	t252, t115
-	move	t253, t114
-	move	t254, t113
-	move	t255, t112
-	move	t256, t111
-	move	t257, t110
-	move	t258, t109
-	move	t259, t108
-	move	t260, t107
-	move	t261, t106
-	move	t262, t105
-	move	t263, t104
-	li	t264, 8
-	move	t103, t264
+	li	t210, 8
+	move	t103, t210
 	jal	allocRecord
-	move	t104, t263
-	move	t105, t262
-	move	t106, t261
-	move	t107, t260
-	move	t108, t259
-	move	t109, t258
-	move	t110, t257
-	move	t111, t256
-	move	t246, t122
-	li	t265, 0
-	sw	t265, 0(t246)
-	li	t266, 0
-	sw	t266, 4(t246)
-	move	t245, t246
-	move	t122, t245
-	move	t112, t255
-	move	t113, t254
-	move	t114, t253
-	move	t115, t252
-	move	t116, t251
-	move	t117, t250
-	move	t118, t249
-	move	t119, t248
-	move	t120, t247
+	move	t201, t122
+	li	t211, 0
+	sw	t211, 0(t201)
+	li	t212, 0
+	sw	t212, 4(t201)
+	move	t200, t201
+	move	t122, t200
 	j	L15
 L15:

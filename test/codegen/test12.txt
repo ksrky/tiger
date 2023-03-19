@@ -1,40 +1,22 @@
 L56:
 	sw	t103, 4(t123)
-	move	t400, t120
-	move	t401, t119
-	move	t402, t118
-	move	t403, t117
-	move	t404, t116
-	move	t405, t115
-	move	t406, t114
-	move	t407, t113
-	move	t408, t112
-	li	t409, 0
-	move	t395, t409
-	li	t410, 100
-	move	t399, t410
-	li	t411, 0
-	move	t398, t411
+	li	t274, 0
+	move	t269, t274
+	li	t275, 100
+	move	t273, t275
+	li	t276, 0
+	move	t272, t276
 L53:
-	ble t398, t399, L54
+	ble t272, t273, L54
 	b L52
 L52:
-	li	t412, 0
-	move	t122, t412
-	move	t112, t408
-	move	t113, t407
-	move	t114, t406
-	move	t115, t405
-	move	t116, t404
-	move	t117, t403
-	move	t118, t402
-	move	t119, t401
-	move	t120, t400
+	li	t277, 0
+	move	t122, t277
 	j	L55
 L54:
-	addiu	t413, t395, 1
-	move	t395, t413
-	addiu	t414, t398, 1
-	move	t398, t414
+	addiu	t278, t269, 1
+	move	t269, t278
+	addiu	t279, t272, 1
+	move	t272, t279
 	j	L53
 L55:

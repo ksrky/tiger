@@ -1,100 +1,32 @@
 L12:
 	sw	t103, 4(t123)
-	move	t203, t120
-	move	t204, t119
-	move	t205, t118
-	move	t206, t117
-	move	t207, t116
-	move	t208, t115
-	move	t209, t114
-	move	t210, t113
-	move	t211, t112
-	li	t223, 0
-	beq	t201, t223, L8
+	li	t178, 0
+	beq	t174, t178, L8
 	b L9
 L9:
-	move	t222, t201
-	move	t224, t111
-	move	t225, t110
-	move	t226, t109
-	move	t227, t108
-	move	t228, t107
-	move	t229, t106
-	move	t230, t105
-	move	t231, t104
-	lw	t232, 4(t123)
-	move	t103, t232
-	addiu	t233, t201, -1
-	move	t102, t233
+	move	t177, t174
+	lw	t187, 4(t123)
+	move	t103, t187
+	addiu	t188, t174, -1
+	move	t102, t188
 	jal	nfactor
-	move	t104, t231
-	move	t105, t230
-	move	t106, t229
-	move	t107, t228
-	move	t108, t227
-	move	t109, t226
-	move	t110, t225
-	move	t111, t224
-	move	t221, t122
-	mul	t234, t222, t221
-	move	t202, t234
+	move	t176, t122
+	mul	t189, t177, t176
+	move	t175, t189
 L10:
-	move	t122, t202
-	move	t112, t211
-	move	t113, t210
-	move	t114, t209
-	move	t115, t208
-	move	t116, t207
-	move	t117, t206
-	move	t118, t205
-	move	t119, t204
-	move	t120, t203
+	move	t122, t175
 	j	L11
 L8:
-	li	t235, 1
-	move	t202, t235
+	li	t190, 1
+	move	t175, t190
 	j	L10
 L11:
 L14:
 	sw	t103, 4(t123)
-	move	t212, t120
-	move	t213, t119
-	move	t214, t118
-	move	t215, t117
-	move	t216, t116
-	move	t217, t115
-	move	t218, t114
-	move	t219, t113
-	move	t220, t112
-	move	t236, t111
-	move	t237, t110
-	move	t238, t109
-	move	t239, t108
-	move	t240, t107
-	move	t241, t106
-	move	t242, t105
-	move	t243, t104
 	move	t103, t123
-	li	t244, 10
-	move	t102, t244
+	li	t199, 10
+	move	t102, t199
 	jal	nfactor
-	move	t104, t243
-	move	t105, t242
-	move	t106, t241
-	move	t107, t240
-	move	t108, t239
-	move	t109, t238
-	move	t110, t237
-	move	t111, t236
 	move	t122, t122
-	move	t112, t220
-	move	t113, t219
-	move	t114, t218
-	move	t115, t217
-	move	t116, t216
-	move	t117, t215
-	move	t118, t214
-	move	t119, t213
-	move	t120, t212
 	j	L13
 L13:

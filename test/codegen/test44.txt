@@ -1,28 +1,10 @@
 L128:
 	sw	t103, 4(t123)
-	move	t999, t120
-	move	t1000, t119
-	move	t1001, t118
-	move	t1002, t117
-	move	t1003, t116
-	move	t1004, t115
-	move	t1005, t114
-	move	t1006, t113
-	move	t1007, t112
-	li	t1008, 0
-	move	t998, t1008
-	li	t1009, 0
-	move	t998, t1009
-	li	t1010, 0
-	move	t122, t1010
-	move	t112, t1007
-	move	t113, t1006
-	move	t114, t1005
-	move	t115, t1004
-	move	t116, t1003
-	move	t117, t1002
-	move	t118, t1001
-	move	t119, t1000
-	move	t120, t999
+	li	t495, 0
+	move	t494, t495
+	li	t496, 0
+	move	t494, t496
+	li	t497, 0
+	move	t122, t497
 	j	L127
 L127:

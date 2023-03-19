@@ -3,46 +3,12 @@ L18:	.asciiz "str2"
 L19:	.asciiz "str2"
 L21:
 	sw	t103, 4(t123)
-	move	t270, t120
-	move	t271, t119
-	move	t272, t118
-	move	t273, t117
-	move	t274, t116
-	move	t275, t115
-	move	t276, t114
-	move	t277, t113
-	move	t278, t112
-	move	t279, t111
-	move	t280, t110
-	move	t281, t109
-	move	t282, t108
-	move	t283, t107
-	move	t284, t106
-	move	t285, t105
-	move	t286, t104
 	move	t103, t123
-	li	t287, 0
-	move	t102, t287
-	la	t288, L19
-	move	t101, t288
+	li	t224, 0
+	move	t102, t224
+	la	t225, L19
+	move	t101, t225
 	jal	do_nothing1
-	move	t104, t286
-	move	t105, t285
-	move	t106, t284
-	move	t107, t283
-	move	t108, t282
-	move	t109, t281
-	move	t110, t280
-	move	t111, t279
 	move	t122, t122
-	move	t112, t278
-	move	t113, t277
-	move	t114, t276
-	move	t115, t275
-	move	t116, t274
-	move	t117, t273
-	move	t118, t272
-	move	t119, t271
-	move	t120, t270
 	j	L20
 L20:

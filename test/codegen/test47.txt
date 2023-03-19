@@ -1,26 +1,8 @@
 L137:
 	sw	t103, 4(t123)
-	move	t1039, t120
-	move	t1040, t119
-	move	t1041, t118
-	move	t1042, t117
-	move	t1043, t116
-	move	t1044, t115
-	move	t1045, t114
-	move	t1046, t113
-	move	t1047, t112
-	li	t1048, 4
-	move	t1038, t1048
-	li	t1049, 0
-	move	t122, t1049
-	move	t112, t1047
-	move	t113, t1046
-	move	t114, t1045
-	move	t115, t1044
-	move	t116, t1043
-	move	t117, t1042
-	move	t118, t1041
-	move	t119, t1040
-	move	t120, t1039
+	li	t508, 4
+	move	t507, t508
+	li	t509, 0
+	move	t122, t509
 	j	L136
 L136:

@@ -3,9 +3,10 @@ main:
 	move	$fp, $sp
 	addi	$sp, $sp, -16
 L130:
-	sw	$a0, 4($fp)
-	li	$t0, 0
-	move	$v0, $t0
+	sw	$t0, 4($t0)
+	li	$t1, 0
+	move	$t2, $t1
+	move	$t0, $t2
 	j	L129
 L129:
 	move	$sp, $fp

@@ -35,7 +35,7 @@ let codegen _ stm =
     | T.MOVE (T.MEM e1, e2) ->
         emit
           (A.OPER
-             { assem= "\tsw\t`s0, 0(`s1)\n" (* temp: or (`s1)*)
+             { assem= "\tsw\t`s0, 0(`s1)\n" (* temp: or (`s1) *)
              ; src= [munchExp e1; munchExp e2]
              ; dst= []
              ; jump= None } )
@@ -207,17 +207,17 @@ let codegen _ stm =
               (A.OPER {assem= "\tla\t`d0, " ^ Symbol.name lab ^ "\n"; src= []; dst= [r]; jump= None}) )
     | T.ESEQ _ -> ErrorMsg.impossible "Tree.ESEQ should have been removed in Canon module"
     | T.CALL (T.NAME lab, args) ->
-        let tmpregs = List.map (fun r -> (Temp.newtemp (), r)) Frame.callersaves in
-        let fetch t r = T.MOVE (T.TEMP r, T.TEMP t) in
-        let store t r = T.MOVE (T.TEMP t, T.TEMP r) in
-        List.iter (fun (t, r) -> munchStm (store t r)) tmpregs;
+        let _tmpregs = List.map (fun r -> (Temp.newtemp (), r)) Frame.callersaves in
+        let _fetch t r = T.MOVE (T.TEMP r, T.TEMP t) in
+        let _store t r = T.MOVE (T.TEMP t, T.TEMP r) in
+        (* List.iter (fun (t, r) -> munchStm (store t r)) tmpregs; *)
         emit
           (A.OPER
              { assem= "\tjal\t" ^ Symbol.name lab ^ "\n"
              ; src= munchArgs (0, args)
              ; dst= calldefs
              ; jump= None } );
-        List.iter (fun (t, r) -> munchStm (fetch t r)) (List.rev tmpregs);
+        (* List.iter (fun (t, r) -> munchStm (fetch t r)) (List.rev tmpregs); *)
         Frame.rv
   and munchArgs = function
     | _, [] -> []

@@ -3,7 +3,7 @@ g:
 	move	$fp, $sp
 	addi	$sp, $sp, -16
 L139:
-	sw	$a0, 4($fp)
+	sw	$t0, 4($t0)
 	j	L138
 L138:
 	move	$sp, $fp
@@ -15,7 +15,7 @@ g:
 	move	$fp, $sp
 	addi	$sp, $sp, -16
 L141:
-	sw	$a0, 4($fp)
+	sw	$t0, 4($t0)
 	j	L140
 L140:
 	move	$sp, $fp
@@ -27,8 +27,8 @@ main:
 	move	$fp, $sp
 	addi	$sp, $sp, -16
 L143:
-	sw	$a0, 4($fp)
-	li	$v0, 0
+	sw	$t0, 4($t0)
+	li	$t0, 0
 	j	L142
 L142:
 	move	$sp, $fp

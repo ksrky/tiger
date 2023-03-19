@@ -1,60 +1,12 @@
 main:
 	sw	$fp, 0($sp)
 	move	$fp, $sp
-	addi	$sp, $sp, -32
+	addi	$sp, $sp, -16
 L1:
 	sw	$t0, 4($t0)
-	move	$t1, $t0
-	sw	$t1, -4($t0)
-	move	$t1, $t0
-	sw	$t1, -8($t0)
-	move	$t1, $t0
-	sw	$t1, -12($t0)
-	move	$t1, $t0
-	sw	$t1, -16($t0)
-	move	$ra, $t0
-	move	$fp, $t0
-	move	$a3, $t0
-	move	$a2, $t0
-	move	$s5, $t0
-	move	$s4, $t0
-	move	$s3, $t0
-	move	$s2, $t0
-	move	$s1, $t0
-	move	$s0, $t0
-	move	$t3, $t0
-	move	$t2, $t0
-	move	$t1, $t0
 	li	$t0, 10
 	li	$t0, 0
 	jal	initArray
-	move	$t0, $t1
-	move	$t0, $t2
-	move	$t0, $t3
-	move	$t0, $s0
-	move	$t0, $s1
-	move	$t0, $s2
-	move	$t0, $s3
-	move	$t0, $s4
-	move	$t1, $t0
-	move	$t0, $t1
-	move	$t0, $s5
-	move	$t0, $a2
-	move	$t0, $a3
-	move	$t0, $fp
-	move	$t0, $ra
-	lw	$t1, -16($t0)
-	move	$t2, $t1
-	move	$t0, $t2
-	lw	$t1, -12($t0)
-	move	$t2, $t1
-	move	$t0, $t2
-	lw	$t1, -8($t0)
-	move	$t2, $t1
-	move	$t0, $t2
-	lw	$t1, -4($t0)
-	move	$t2, $t1
-	move	$t0, $t2
 	j	L0
 L0:
 	move	$sp, $fp

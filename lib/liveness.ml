@@ -60,7 +60,7 @@ let interferenceGraph (Flow.FGRAPH {control; def; use; ismove} : Flow.flowgraph)
         print_endline (String.concat "," (List.map string_of_int li)) )
       nodes
   in
-  let () = _debugLiveInOut (liveIn, liveOut) in
+  let () = _debugLiveInOut (liveIn, liveOut) in 
   (* Make interference graph *)
   let all_temps : Temp.temp list =
     Temp.Set.elements
@@ -83,23 +83,6 @@ let interferenceGraph (Flow.FGRAPH {control; def; use; ismove} : Flow.flowgraph)
         with Not_found -> ErrorMsg.impossible "Tiger.Liveness.interferenceGraph" );
       Some (from, to') )
     else None
-  in
-  let _buildGraph (temp, inode) =
-    (* fnode: node of FlowGraph, inode: node of InterferenceGraph *)
-    List.iter
-      (fun fnode ->
-        let itf_temps = Temp.Set.elements (liveOut @@ fnode) in
-        if List.mem temp itf_temps then
-          List.iter
-            (fun itf_t ->
-              try
-                if temp <> itf_t then (
-                  let v = List.assoc itf_t temp2node in
-                  Graph.mk_edge (inode, v);
-                  Graph.mk_edge (v, inode) )
-              with Not_found -> ErrorMsg.impossible "at Liveness.interferenceGraph" )
-            itf_temps )
-      nodes
   in
   let buildGraph () =
     List.iter
@@ -124,7 +107,6 @@ let interferenceGraph (Flow.FGRAPH {control; def; use; ismove} : Flow.flowgraph)
           itf_temps )
       nodes
   in
-  (*List.iter buildGraph temp2node;*)
   buildGraph ();
   let igraph =
     IGRAPH

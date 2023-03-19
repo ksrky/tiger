@@ -5,15 +5,17 @@ main:
 	move	$fp, $sp
 	addi	$sp, $sp, -16
 L7:
-	sw	$a0, 4($fp)
-	li	$a0, 8
+	sw	$t0, 4($t0)
+	li	$t0, 8
 	jal	allocRecord
+	move	$t1, $t0
 	la	$t0, L4
-	sw	$t0, 0($v0)
+	sw	$t0, 0($t1)
 	li	$t0, 1000
-	sw	$t0, 4($v0)
-	la	$t0, L5
-	sw	$t0, 0($v0)
+	sw	$t0, 4($t1)
+	move	$t0, $t1
+	la	$t1, L5
+	sw	$t1, 0($t0)
 	j	L6
 L6:
 	move	$sp, $fp

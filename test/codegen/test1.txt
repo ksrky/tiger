@@ -1,46 +1,12 @@
 L1:
 	sw	t103, 4(t123)
-	move	t138, t120
-	move	t139, t119
-	move	t140, t118
-	move	t141, t117
-	move	t142, t116
-	move	t143, t115
-	move	t144, t114
-	move	t145, t113
-	move	t146, t112
-	move	t147, t111
-	move	t148, t110
-	move	t149, t109
-	move	t150, t108
-	move	t151, t107
-	move	t152, t106
-	move	t153, t105
-	move	t154, t104
-	li	t155, 10
-	move	t103, t155
-	li	t156, 0
-	move	t102, t156
+	li	t146, 10
+	move	t103, t146
+	li	t147, 0
+	move	t102, t147
 	jal	initArray
-	move	t104, t154
-	move	t105, t153
-	move	t106, t152
-	move	t107, t151
-	move	t108, t150
-	move	t109, t149
-	move	t110, t148
-	move	t111, t147
 	move	t137, t122
 	move	t136, t137
 	move	t122, t136
-	move	t112, t146
-	move	t113, t145
-	move	t114, t144
-	move	t115, t143
-	move	t116, t142
-	move	t117, t141
-	move	t118, t140
-	move	t119, t139
-	move	t120, t138
 	j	L0
 L0:

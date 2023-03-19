@@ -9,246 +9,116 @@ L123:	.asciiz "sfd"
 L124:	.asciiz "kati"
 L126:
 	sw	t103, 4(t123)
-	move	t861, t120
-	move	t862, t119
-	move	t863, t118
-	move	t864, t117
-	move	t865, t116
-	move	t866, t115
-	move	t867, t114
-	move	t868, t113
-	move	t869, t112
-	move	t871, t111
-	move	t872, t110
-	move	t873, t109
-	move	t874, t108
-	move	t875, t107
-	move	t876, t106
-	move	t877, t105
-	move	t878, t104
-	li	t879, 8
-	move	t103, t879
+	li	t384, 8
+	move	t103, t384
 	jal	allocRecord
-	move	t104, t878
-	move	t105, t877
-	move	t106, t876
-	move	t107, t875
-	move	t108, t874
-	move	t109, t873
-	move	t110, t872
-	move	t111, t871
-	move	t860, t122
-	la	t880, L121
-	sw	t880, 0(t860)
-	addiu	t881, t860, 4
-	move	t870, t881
-	move	t882, t111
-	move	t883, t110
-	move	t884, t109
-	move	t885, t108
-	move	t886, t107
-	move	t887, t106
-	move	t888, t105
-	move	t889, t104
-	li	t890, 3
-	move	t103, t890
-	li	t891, 1900
-	move	t102, t891
+	move	t374, t122
+	la	t385, L121
+	sw	t385, 0(t374)
+	addiu	t386, t374, 4
+	move	t375, t386
+	li	t395, 3
+	move	t103, t395
+	li	t396, 1900
+	move	t102, t396
 	jal	initArray
-	move	t104, t889
-	move	t105, t888
-	move	t106, t887
-	move	t107, t886
-	move	t108, t885
-	move	t109, t884
-	move	t110, t883
-	move	t111, t882
-	move	t859, t122
-	sw	t870, 0(t859)
-	move	t858, t860
-	move	t892, t111
-	move	t893, t110
-	move	t894, t109
-	move	t895, t108
-	move	t896, t107
-	move	t897, t106
-	move	t898, t105
-	move	t899, t104
-	li	t900, 16
-	move	t103, t900
+	move	t373, t122
+	sw	t375, 0(t373)
+	move	t372, t374
+	li	t405, 16
+	move	t103, t405
 	jal	allocRecord
-	move	t104, t899
-	move	t105, t898
-	move	t106, t897
-	move	t107, t896
-	move	t108, t895
-	move	t109, t894
-	move	t110, t893
-	move	t111, t892
-	move	t857, t122
-	la	t901, L119
-	sw	t901, 0(t857)
-	la	t902, L120
-	sw	t902, 4(t857)
-	li	t903, 2432
-	sw	t903, 8(t857)
-	li	t904, 44
-	sw	t904, 12(t857)
-	move	t856, t857
-	move	t905, t111
-	move	t906, t110
-	move	t907, t109
-	move	t908, t108
-	move	t909, t107
-	move	t910, t106
-	move	t911, t105
-	move	t912, t104
-	li	t913, 100
-	move	t103, t913
-	la	t914, L118
-	move	t102, t914
+	move	t371, t122
+	la	t406, L119
+	sw	t406, 0(t371)
+	la	t407, L120
+	sw	t407, 4(t371)
+	li	t408, 2432
+	sw	t408, 8(t371)
+	li	t409, 44
+	sw	t409, 12(t371)
+	move	t370, t371
+	li	t418, 100
+	move	t103, t418
+	la	t419, L118
+	move	t102, t419
 	jal	initArray
-	move	t104, t912
-	move	t105, t911
-	move	t106, t910
-	move	t107, t909
-	move	t108, t908
-	move	t109, t907
-	move	t110, t906
-	move	t111, t905
-	move	t855, t122
-	move	t854, t855
-	move	t915, t111
-	move	t916, t110
-	move	t917, t109
-	move	t918, t108
-	move	t919, t107
-	move	t920, t106
-	move	t921, t105
-	move	t922, t104
-	li	t923, 16
-	move	t103, t923
+	move	t369, t122
+	move	t368, t369
+	li	t428, 16
+	move	t103, t428
 	jal	allocRecord
-	move	t104, t922
-	move	t105, t921
-	move	t106, t920
-	move	t107, t919
-	move	t108, t918
-	move	t109, t917
-	move	t110, t916
-	move	t111, t915
-	move	t852, t122
-	la	t924, L116
-	sw	t924, 0(t852)
-	la	t925, L117
-	sw	t925, 4(t852)
-	li	t926, 0
-	sw	t926, 8(t852)
-	li	t927, 0
-	sw	t927, 12(t852)
-	move	t928, t111
-	move	t929, t110
-	move	t930, t109
-	move	t931, t108
-	move	t932, t107
-	move	t933, t106
-	move	t934, t105
-	move	t935, t104
-	li	t936, 5
-	move	t103, t936
-	move	t102, t852
+	move	t366, t122
+	la	t429, L116
+	sw	t429, 0(t366)
+	la	t430, L117
+	sw	t430, 4(t366)
+	li	t431, 0
+	sw	t431, 8(t366)
+	li	t432, 0
+	sw	t432, 12(t366)
+	li	t441, 5
+	move	t103, t441
+	move	t102, t366
 	jal	initArray
-	move	t104, t935
-	move	t105, t934
-	move	t106, t933
-	move	t107, t932
-	move	t108, t931
-	move	t109, t930
-	move	t110, t929
-	move	t111, t928
-	move	t853, t122
-	move	t851, t853
-	move	t937, t111
-	move	t938, t110
-	move	t939, t109
-	move	t940, t108
-	move	t941, t107
-	move	t942, t106
-	move	t943, t105
-	move	t944, t104
-	li	t945, 10
-	move	t103, t945
-	li	t946, 0
-	move	t102, t946
+	move	t367, t122
+	move	t365, t367
+	li	t450, 10
+	move	t103, t450
+	li	t451, 0
+	move	t102, t451
 	jal	initArray
-	move	t104, t944
-	move	t105, t943
-	move	t106, t942
-	move	t107, t941
-	move	t108, t940
-	move	t109, t939
-	move	t110, t938
-	move	t111, t937
-	move	t850, t122
-	move	t849, t850
-	li	t947, 1
-	li	t950, 4
-	li	t951, 0
-	mul	t949, t951, t950
-	add	t948, t849, t949
-	sw	t948, 0(t947)
-	li	t952, 3
-	li	t955, 4
-	li	t956, 9
-	mul	t954, t956, t955
-	add	t953, t849, t954
-	sw	t953, 0(t952)
-	li	t960, 4
-	li	t961, 3
-	mul	t959, t961, t960
-	add	t958, t851, t959
-	lw	t957, 0(t958)
-	la	t962, L124
-	sw	t962, 0(t957)
-	li	t966, 4
-	li	t967, 1
-	mul	t965, t967, t966
-	add	t964, t851, t965
-	lw	t963, 0(t964)
-	li	t968, 23
-	sw	t968, 12(t963)
-	la	t969, L123
-	li	t972, 4
-	li	t973, 34
-	mul	t971, t973, t972
-	add	t970, t854, t971
-	sw	t970, 0(t969)
-	la	t974, L122
-	sw	t974, 0(t856)
-	li	t975, 2323
-	li	t978, 4
-	li	t979, 0
-	mul	t977, t979, t978
-	lw	t980, 4(t858)
-	add	t976, t980, t977
-	sw	t976, 0(t975)
-	li	t981, 2323
-	li	t984, 4
-	li	t985, 2
-	mul	t983, t985, t984
-	lw	t986, 4(t858)
-	add	t982, t986, t983
-	sw	t982, 0(t981)
-	li	t987, 0
-	move	t122, t987
-	move	t112, t869
-	move	t113, t868
-	move	t114, t867
-	move	t115, t866
-	move	t116, t865
-	move	t117, t864
-	move	t118, t863
-	move	t119, t862
-	move	t120, t861
+	move	t364, t122
+	move	t363, t364
+	li	t452, 1
+	li	t455, 4
+	li	t456, 0
+	mul	t454, t456, t455
+	add	t453, t363, t454
+	sw	t453, 0(t452)
+	li	t457, 3
+	li	t460, 4
+	li	t461, 9
+	mul	t459, t461, t460
+	add	t458, t363, t459
+	sw	t458, 0(t457)
+	li	t465, 4
+	li	t466, 3
+	mul	t464, t466, t465
+	add	t463, t365, t464
+	lw	t462, 0(t463)
+	la	t467, L124
+	sw	t467, 0(t462)
+	li	t471, 4
+	li	t472, 1
+	mul	t470, t472, t471
+	add	t469, t365, t470
+	lw	t468, 0(t469)
+	li	t473, 23
+	sw	t473, 12(t468)
+	la	t474, L123
+	li	t477, 4
+	li	t478, 34
+	mul	t476, t478, t477
+	add	t475, t368, t476
+	sw	t475, 0(t474)
+	la	t479, L122
+	sw	t479, 0(t370)
+	li	t480, 2323
+	li	t483, 4
+	li	t484, 0
+	mul	t482, t484, t483
+	lw	t485, 4(t372)
+	add	t481, t485, t482
+	sw	t481, 0(t480)
+	li	t486, 2323
+	li	t489, 4
+	li	t490, 2
+	mul	t488, t490, t489
+	lw	t491, 4(t372)
+	add	t487, t491, t488
+	sw	t487, 0(t486)
+	li	t492, 0
+	move	t122, t492
 	j	L125
 L125:

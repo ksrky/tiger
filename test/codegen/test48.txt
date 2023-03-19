@@ -1,70 +1,16 @@
 L139:
 	sw	t103, 4(t123)
-	move	t1051, t120
-	move	t1052, t119
-	move	t1053, t118
-	move	t1054, t117
-	move	t1055, t116
-	move	t1056, t115
-	move	t1057, t114
-	move	t1058, t113
-	move	t1059, t112
-	move	t122, t1050
-	move	t112, t1059
-	move	t113, t1058
-	move	t114, t1057
-	move	t115, t1056
-	move	t116, t1055
-	move	t117, t1054
-	move	t118, t1053
-	move	t119, t1052
-	move	t120, t1051
+	move	t122, t510
 	j	L138
 L138:
 L141:
 	sw	t103, 4(t123)
-	move	t1061, t120
-	move	t1062, t119
-	move	t1063, t118
-	move	t1064, t117
-	move	t1065, t116
-	move	t1066, t115
-	move	t1067, t114
-	move	t1068, t113
-	move	t1069, t112
-	move	t122, t1060
-	move	t112, t1069
-	move	t113, t1068
-	move	t114, t1067
-	move	t115, t1066
-	move	t116, t1065
-	move	t117, t1064
-	move	t118, t1063
-	move	t119, t1062
-	move	t120, t1061
+	move	t122, t511
 	j	L140
 L140:
 L143:
 	sw	t103, 4(t123)
-	move	t1070, t120
-	move	t1071, t119
-	move	t1072, t118
-	move	t1073, t117
-	move	t1074, t116
-	move	t1075, t115
-	move	t1076, t114
-	move	t1077, t113
-	move	t1078, t112
-	li	t1079, 0
-	move	t122, t1079
-	move	t112, t1078
-	move	t113, t1077
-	move	t114, t1076
-	move	t115, t1075
-	move	t116, t1074
-	move	t117, t1073
-	move	t118, t1072
-	move	t119, t1071
-	move	t120, t1070
+	li	t512, 0
+	move	t122, t512
 	j	L142
 L142:

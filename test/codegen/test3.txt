@@ -2,51 +2,17 @@ L4:	.asciiz "Nobody"
 L5:	.asciiz "Somebody"
 L7:
 	sw	t103, 4(t123)
-	move	t180, t120
-	move	t181, t119
-	move	t182, t118
-	move	t183, t117
-	move	t184, t116
-	move	t185, t115
-	move	t186, t114
-	move	t187, t113
-	move	t188, t112
-	move	t189, t111
-	move	t190, t110
-	move	t191, t109
-	move	t192, t108
-	move	t193, t107
-	move	t194, t106
-	move	t195, t105
-	move	t196, t104
-	li	t197, 8
-	move	t103, t197
+	li	t170, 8
+	move	t103, t170
 	jal	allocRecord
-	move	t104, t196
-	move	t105, t195
-	move	t106, t194
-	move	t107, t193
-	move	t108, t192
-	move	t109, t191
-	move	t110, t190
-	move	t111, t189
-	move	t179, t122
-	la	t198, L4
-	sw	t198, 0(t179)
-	li	t199, 1000
-	sw	t199, 4(t179)
-	move	t178, t179
-	la	t200, L5
-	sw	t200, 0(t178)
-	move	t122, t178
-	move	t112, t188
-	move	t113, t187
-	move	t114, t186
-	move	t115, t185
-	move	t116, t184
-	move	t117, t183
-	move	t118, t182
-	move	t119, t181
-	move	t120, t180
+	move	t161, t122
+	la	t171, L4
+	sw	t171, 0(t161)
+	li	t172, 1000
+	sw	t172, 4(t161)
+	move	t160, t161
+	la	t173, L5
+	sw	t173, 0(t160)
+	move	t122, t160
 	j	L6
 L6:

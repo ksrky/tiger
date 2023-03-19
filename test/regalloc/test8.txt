@@ -3,19 +3,20 @@ main:
 	move	$fp, $sp
 	addi	$sp, $sp, -16
 L37:
-	sw	$a0, 4($fp)
-	li	$t1, 20
-	li	$t0, 10
-	bgt	$t0, $t1, L33
+	sw	$t0, 4($t0)
+	li	$t2, 20
+	li	$t1, 10
+	bgt	$t1, $t2, L33
 	b L34
 L34:
-	li	$t0, 40
-	move	$v0, $t0
+	li	$t1, 40
+	move	$t2, $t1
 L35:
+	move	$t0, $t2
 	j	L36
 L33:
-	li	$t0, 30
-	move	$v0, $t0
+	li	$t1, 30
+	move	$t2, $t1
 	j	L35
 L36:
 	move	$sp, $fp

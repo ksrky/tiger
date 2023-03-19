@@ -3,21 +3,23 @@ main:
 	move	$fp, $sp
 	addi	$sp, $sp, -16
 L135:
-	sw	$a0, 4($fp)
-	li	$t0, 0
+	sw	$t0, 4($t0)
 	li	$t1, 0
-	beq	$t0, $t1, L133
+	move	$t3, $t1
+	li	$t1, 0
+	beq	$t3, $t1, L133
 	b L133
 L133:
-	li	$t0, 1
-	move	$v0, $t0
+	li	$t1, 1
+	move	$t2, $t1
 	li	$t1, 0
-	bne	$t0, $t1, L131
+	bne	$t3, $t1, L131
 	b L132
 L132:
-	li	$t0, 0
-	move	$v0, $t0
+	li	$t1, 0
+	move	$t2, $t1
 L131:
+	move	$t0, $t2
 	j	L134
 L134:
 	move	$sp, $fp

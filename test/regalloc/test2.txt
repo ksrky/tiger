@@ -3,9 +3,9 @@ main:
 	move	$fp, $sp
 	addi	$sp, $sp, -16
 L3:
-	sw	$a0, 4($fp)
-	li	$a0, 10
-	li	$a1, 0
+	sw	$t0, 4($t0)
+	li	$t0, 10
+	li	$t0, 0
 	jal	initArray
 	j	L2
 L2:

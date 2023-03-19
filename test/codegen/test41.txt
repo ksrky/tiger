@@ -1,24 +1,6 @@
 L115:
 	sw	t103, 4(t123)
-	move	t839, t120
-	move	t840, t119
-	move	t841, t118
-	move	t842, t117
-	move	t843, t116
-	move	t844, t115
-	move	t845, t114
-	move	t846, t113
-	move	t847, t112
-	li	t848, 0
-	move	t122, t848
-	move	t112, t847
-	move	t113, t846
-	move	t114, t845
-	move	t115, t844
-	move	t116, t843
-	move	t117, t842
-	move	t118, t841
-	move	t119, t840
-	move	t120, t839
+	li	t362, 0
+	move	t122, t362
 	j	L114
 L114:

@@ -1,51 +1,17 @@
 L98:
 	sw	t103, 4(t123)
-	move	t653, t120
-	move	t654, t119
-	move	t655, t118
-	move	t656, t117
-	move	t657, t116
-	move	t658, t115
-	move	t659, t114
-	move	t660, t113
-	move	t661, t112
-	move	t662, t111
-	move	t663, t110
-	move	t664, t109
-	move	t665, t108
-	move	t666, t107
-	move	t667, t106
-	move	t668, t105
-	move	t669, t104
-	li	t670, 10
-	move	t103, t670
-	li	t671, 0
-	move	t102, t671
+	li	t328, 10
+	move	t103, t328
+	li	t329, 0
+	move	t102, t329
 	jal	initArray
-	move	t104, t669
-	move	t105, t668
-	move	t106, t667
-	move	t107, t666
-	move	t108, t665
-	move	t109, t664
-	move	t110, t663
-	move	t111, t662
-	move	t652, t122
-	move	t651, t652
-	li	t675, 4
-	li	t676, 2
-	mul	t674, t676, t675
-	add	t673, t651, t674
-	lw	t672, 0(t673)
-	move	t122, t672
-	move	t112, t661
-	move	t113, t660
-	move	t114, t659
-	move	t115, t658
-	move	t116, t657
-	move	t117, t656
-	move	t118, t655
-	move	t119, t654
-	move	t120, t653
+	move	t319, t122
+	move	t318, t319
+	li	t333, 4
+	li	t334, 2
+	mul	t332, t334, t333
+	add	t331, t318, t332
+	lw	t330, 0(t331)
+	move	t122, t330
 	j	L97
 L97:
